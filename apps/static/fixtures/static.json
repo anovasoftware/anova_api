@@ -1,0 +1,139 @@
+[
+  {
+    "model": "static.Status",
+    "pk": "000",
+    "fields": {
+      "grouping": "ALL",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "status_key": "NOT_APPLICABLE",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "001",
+    "fields": {
+      "grouping": "ALL",
+      "code": "ACTIVE",
+      "description": "Active",
+      "status_key": "ACTIVE",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "002",
+    "fields": {
+      "grouping": "ALL",
+      "code": "INACTIVE",
+      "description": "Inactive",
+      "status_key": "INACTIVE",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "003",
+    "fields": {
+      "grouping": "ALL",
+      "code": "DELETED",
+      "description": "Deleted",
+      "status_key": "DELETED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "005",
+    "fields": {
+      "grouping": "ALL",
+      "code": "Yes",
+      "description": "Yes",
+      "status_key": "ALL_YES",
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "006",
+    "fields": {
+      "grouping": "ALL",
+      "code": "No",
+      "description": "No",
+      "status_key": "ALL_NO",
+      "flag1": "",
+      "group1": "",
+      "order_by": "02",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "007",
+    "fields": {
+      "grouping": "ALL",
+      "code": "ND",
+      "description": "Not Disclosed",
+      "status_key": "ALL_NOT_DISCLOSED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "03",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "999",
+    "fields": {
+      "grouping": "ALL",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "status_key": "",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+
+]

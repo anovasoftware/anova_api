@@ -1,0 +1,3 @@
+# AUTO GENERATED
+#  ALL
+ACTIVE = '001'                                                   # activeALL_NO = '006'                                                   # noALL_NOT_DISCLOSED = '007'                                        # not disclosedALL_YES = '005'                                                  # yesDELETED = '003'                                                  # deletedINACTIVE = '002'                                                 # inactiveNOT_APPLICABLE = '000'                                           # not applicable
