@@ -1,21 +1,18 @@
 # Use the official Python image based on Ubuntu
 FROM python:3.11
 
-# Set the author label
+# Install netcat
+RUN apt-get update && apt-get install -y netcat-openbsd
+
+EXPOSE 8000
+WORKDIR /anova_api
 LABEL authors="anovaadm"
 
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the application files into the container
-COPY . .
-
-# Upgrade pip and install dependencies
+COPY ./requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Expose the port the app runs on
-EXPOSE 8000
+COPY . .
 
 # Set the entrypoint to run the Django application
 ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8000", "anova_api.wsgi:application"]

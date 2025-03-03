@@ -21,7 +21,7 @@
     "pk": "001",
     "fields": {
       "grouping": "ALL",
-      "code": "ACTIVE",
+      "code": "Active",
       "description": "Active",
       "status_key": "ACTIVE",
       "flag1": "",
@@ -38,7 +38,7 @@
     "pk": "002",
     "fields": {
       "grouping": "ALL",
-      "code": "INACTIVE",
+      "code": "Inactive",
       "description": "Inactive",
       "status_key": "INACTIVE",
       "flag1": "",
@@ -55,7 +55,7 @@
     "pk": "003",
     "fields": {
       "grouping": "ALL",
-      "code": "DELETED",
+      "code": "Deleted",
       "description": "Deleted",
       "status_key": "DELETED",
       "flag1": "",
@@ -125,7 +125,7 @@
       "grouping": "ALL",
       "code": "TBA",
       "description": "To Be Announced",
-      "status_key": "",
+      "status_key": "TO_BE_ANNOUNCED",
       "flag1": "",
       "group1": "",
       "order_by": "99",

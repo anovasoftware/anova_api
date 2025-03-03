@@ -1,8 +1,11 @@
+import os
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.request import Request
 from constants import constants
+from anova_api.configuration.database import get_database_property
+
 
 class CoreAPIView(APIView):
     def __init__(self):
@@ -64,6 +67,10 @@ class CoreAPIView(APIView):
     def get_response(self):
         response = {
             'version': constants.VERSION,
+            'host': os.getenv('HOST'),
+            'database-key': os.getenv('DATABASE_KEY'),
+            'database-host': get_database_property('HOST'),
+            'database-name': get_database_property('NAME'),
             'parameters': self.params,
             'success': self.success,
             'message': self.message,

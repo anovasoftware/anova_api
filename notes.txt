@@ -1,0 +1,65 @@
+docker-compose -p anova3 up --build
+docker-compose -p anova3 down
+docker exec -it postgres psql -U postgres -d postgres
+
+
+
+docker-compose build --no-cache
+
+
+**** OLD ****
+
+
+
+
+ # insert into authtoken_token values('f8928f172ab2afce7a5369b9009319f3fd061b9b', current_date, '01A00002');
+
+
+# from django.contrib.auth.hashers import make_password
+
+# run this from python window
+# x = make_password('AstoriaGrande')
+# print(x)
+
+# astoriagrande pw=AstoriaGrande
+# ig:2321
+
+
+# import secrets
+# token=secrets.token_hex(40)
+# token
+
+# echo "mysecretpassword" | docker secret create DB_PASSWORD -
+
+# docker-compose up -d -e DB_PASSWORD=mysecretpassword
+
+
+# when i make a programming change
+1. docker-compose stop
+2. docker build -t anova-backend .
+3. test docker locally
+   - docker-compose up
+4. docker build -t jb1223/anova-backend:1.0.1 .
+5. docker push jb1223/anova-backend:1.0.1
+
+# log ino ts
+1. docker-compose stop
+2. docker-compose pull
+2. docker-compose up
+
+# to rebuild the database
+- docker-compose stop
+- docker image ls
+- docker image prune
+- docker volume ls
+- docker volume rm "volume_name"
+- docker-compose pull
+- docker-compose up
+
+
+#  astoria grande
+#  insert into authtoken_token values('6457559c7390072876163e9337c08c16342113d4', current_date, '01A90001');
+
+#  expedition
+insert into authtoken_token values('995f599fa3c125d52d655f9ebe63a797d355d206', current_date, '01A90002');
+
