@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from pathlib import Path
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+from anova_api.configuration.database import DATABASE_DEFINITIONS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -164,14 +168,9 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
-import os
-from pathlib import Path
-from dotenv import load_dotenv
-from anova_api.configuration.database import DATABASE_DEFINITIONS
-
 load_dotenv('.env')
 
-HOST = os.getenv('HOST')
+# HOST = os.getenv('HOST')
 DATABASE_KEY = os.getenv('DATABASE_KEY')
 DATABASE = DATABASE_DEFINITIONS[DATABASE_KEY]
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')

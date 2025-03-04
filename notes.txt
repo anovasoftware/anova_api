@@ -7,6 +7,16 @@ docker exec -it postgres psql -U postgres -d postgres
 docker-compose build --no-cache
 
 
+docker build -t anova-ui ./anova-ui
+docker build -t anova-api ./anova-api
+docker build -t postgres ./postgres
+
+
+aws ecr create-repository --repository-name anova-ui
+aws ecr create-repository --repository-name anova-api
+aws ecr create-repository --repository-name postgres
+
+
 **** OLD ****
 
 

@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv('.env')
 
+HOST = os.getenv('HOST')
 DATABASE_ID = os.getenv('DATABASE_ID')
 PASSWORD = os.getenv('DB_PASSWORD')
 DATABASE_DEFINITIONS = {
@@ -11,18 +12,17 @@ DATABASE_DEFINITIONS = {
         'NAME': f'anova-db-{DATABASE_ID}',
         'USER': 'postgres',
         'PASSWORD': PASSWORD,
-        'HOST': 'localhost',
+        'HOST': f'{HOST}',
         'PORT': '5432'
     },
-    'local-docker': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': f'anova-db-{DATABASE_ID}',
-        'USER': 'postgres',
-        'PASSWORD': PASSWORD,
-        'HOST': 'postgres',
-        'PORT': '5432'
-    },
-
+    # 'local-docker': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': f'anova-db-{DATABASE_ID}',
+    #     'USER': 'postgres',
+    #     'PASSWORD': PASSWORD,
+    #     'HOST': 'postgres',
+    #     'PORT': '5432'
+    # },
 }
 
 
