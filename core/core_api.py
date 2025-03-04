@@ -1,11 +1,11 @@
 import os
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import status
+# from rest_framework import status
 from rest_framework.request import Request
 from constants import constants
 from anova_api.configuration.database import get_database_property
-from apps.static.models import Status
+# from apps.static.models import Status
 
 
 class CoreAPIView(APIView):
@@ -107,12 +107,12 @@ class TestAPI(CoreAPIView):
 
     def _get(self, request):
         self.add_message('_get() successful')
-
-        try:
-            status_obj = Status.objects.get(pk='00s1')
-            self.data['status'] = status_obj.description
-        except Exception as e:
-            self.add_message(f'error {str(e)}', success=False)
+        self.data['status'] = 'SOME DATA'
+        # try:
+        #     status_obj = Status.objects.get(pk='00s1')
+        #     self.data['status'] = status_obj.description
+        # except Exception as e:
+        #     self.add_message(f'error {str(e)}', success=False)
 
 
     # def post(self, request):
