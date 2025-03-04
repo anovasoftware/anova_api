@@ -108,8 +108,12 @@ class TestAPI(CoreAPIView):
     def _get(self, request):
         self.add_message('_get() successful')
 
-        status_obj = Status.objects.get(pk='001')
-        self.data['status'] = status_obj.description
+        try:
+            status_obj = Status.objects.get(pk='00s1')
+            self.data['status'] = status_obj.description
+        except Exception as e:
+            self.add_message(f'error {str(e)}', success=False)
+
 
     # def post(self, request):
     #     if not request.data.get("name"):
