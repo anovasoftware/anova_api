@@ -17,6 +17,9 @@ aws ecr create-repository --repository-name anova-api
 aws ecr create-repository --repository-name postgres
 
 aws ec2 create-key-pair --key-name anova-eb-key --query 'KeyMaterial' --output text > anova-eb-key.pem
+
+eb setenv DB_NAME=anova_db DB_USER=your-db-user DB_PASSWORD=your-db-password DB_HOST=your-db-instance.rds.amazonaws.com DB_PORT=5432
+
 **** OLD ****
 
 

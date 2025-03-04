@@ -15,6 +15,15 @@ DATABASE_DEFINITIONS = {
         'HOST': f'{HOST}',
         'PORT': '5432'
     },
+    'production': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': f'anova-db-{DATABASE_ID}',
+        'USER': 'postgres',
+        'PASSWORD': PASSWORD,
+        'HOST': f'{HOST}',
+        'PORT': '5432'
+    },
+
     # 'local-docker': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #     'NAME': f'anova-db-{DATABASE_ID}',
