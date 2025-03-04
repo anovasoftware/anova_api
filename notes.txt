@@ -16,7 +16,7 @@ aws ecr create-repository --repository-name anova-ui
 aws ecr create-repository --repository-name anova-api
 aws ecr create-repository --repository-name postgres
 
-
+aws ec2 create-key-pair --key-name anova-eb-key --query 'KeyMaterial' --output text > anova-eb-key.pem
 **** OLD ****
 
 

@@ -33,7 +33,9 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "[::1]",
     "localhost:4200",
-    "127.0.0.1:4200"
+    "127.0.0.1:4200",
+    'anova-api-env.us-east-1.elasticbeanstalk.com',
+    'www.anovasea.net'
 ]
 
 
