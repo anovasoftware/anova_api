@@ -70,7 +70,7 @@ class CoreAPIView(APIView):
     def get_response(self):
         status = 'success' if self.success else 'error'
         response = {
-            'header': {
+            'meta': {
                 'version': constants.VERSION,
                 'database-key': os.getenv('DATABASE_KEY'),
                 'database-id':  os.getenv('DATABASE_ID'),
@@ -117,7 +117,7 @@ class TestAPI(CoreAPIView):
 
     def _get(self, request):
         self.add_message('_get() successful')
-        self.data['status'] = 'SOME DATA'
+        self.data['status'] = 'some status'
         # try:
         #     status_obj = Status.objects.get(pk='00s1')
         #     self.data['status'] = status_obj.description
