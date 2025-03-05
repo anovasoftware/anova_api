@@ -33,9 +33,11 @@ class CoreAPIView(APIView):
             ret_value = params[key]
 
         if required and not ret_value:
-            self.add_message(f'Missing parameter: {key}', success=False)
+            self.message = 'missing parameter(s)'
+            self.add_message(f'missing parameter: {key}', success=False)
 
-        self.params[key] = ret_value
+        if key != 'debugFlag':
+            self.params[key] = ret_value
         return ret_value
 
     def add_message(self, message, success=True):
@@ -79,7 +81,7 @@ class CoreAPIView(APIView):
             },
             'status': status,
             'message': self.message,
-            # 'messages': self.messages,
+            'messages': self.messages,
             'data': self.data,
         }
             #
@@ -129,3 +131,17 @@ class TestAPI(CoreAPIView):
     #     if not request.data.get("name"):
     #         return self.error_response(message="Name is required", errors=["Missing 'name' field"])
     #     return self.success_response(data={"name": request.data["name"]}, message="Data received")
+class GuestRoomAPI(CoreAPIView):
+    def __init__(self):
+        super().__init__()
+        self.hotel_id = ''
+        self.room_id = False
+
+    def load_request(self, request):
+        super().load_request(request)
+        self.hotel_id = self.get_param('hotel_id', '', True)
+        self.room_id = self.get_param('room_id', '', True)
+
+    def _get(self, request):
+        self.message = 'under construction'
+        # self.data['status'] = 'some status'

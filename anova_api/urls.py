@@ -1,24 +1,10 @@
-"""
-URL configuration for anova_api project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from core.core_api import TestAPI
+from core.core_api import TestAPI, GuestRoomAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test-api/', TestAPI.as_view(), name='test-api'),
+    path('record/guest_room/', GuestRoomAPI.as_view(), name='guest-room'),
 ]
+# https://yourPMS/GetRoomGuests?room=123&hotelId=xxxyy
