@@ -1,9 +1,9 @@
-@echo off
+﻿@echo off
 echo Running Django Migrations and Loading Data...
-cd /d C:\cfn\cfn-init  REM Change to the correct path of your Django app
+cd /d C:\projects3\anova_api  REM Change to the correct path of your Django app
 
 REM Activate virtual environment
-call C:\cfn\Python39\Scripts\activate.bat  REM Adjust to your actual venv path
+call c:\Projects3\anova_api\.venv\Scripts\activate.bat   REM Adjust to your actual venv path
 
 REM Run migrations
 python manage.py migrate static
