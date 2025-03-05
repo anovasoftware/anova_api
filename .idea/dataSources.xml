@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/anova-db-01</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="aws" uuid="226c634f-11c2-4129-bead-c5f844368f1e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com:5432/anova-db-01</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
