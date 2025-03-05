@@ -144,4 +144,43 @@ class GuestRoomAPI(CoreAPIView):
 
     def _get(self, request):
         self.message = 'under construction'
-        # self.data['status'] = 'some status'
+        self.data['hotel_id'] = self.hotel_id
+        self.data['hotel_description'] = 'Magellan Explorer'
+
+
+# JSON response
+# {
+#    "Status":1,
+#    "HotelId":"HOTEL1",
+#    "HotelName":"Hotel Inn",
+#    "ReservationId":"0005897961",
+#    "ReservationStatus":6,
+#    "ChannelId":"OTA",
+#    "BookingPlatform":"Booking.com",
+#    "CreatedDate":"2022-11-23",
+#    "CreatedTime":"11:33:44",
+#    "CheckInDate":"2022-12-05",
+#    "CheckOutDate":"0000-00-00",
+#    "Pax":1,
+#    "PMSIRooms":[
+#       {
+#          "RoomNumber":"301",
+#          "RoomType":"STD",
+#          "PMSIGuests":[
+#             {
+#                "GuestName":"John Doe",
+#                "GuestId":"0021141211",
+#                "FirstName":"John",
+#                "LastName":"Doe",
+#                "Email":"John@Doe.com",
+#                "Gender":1,
+#                "Birthday":"2000-11-20",
+#                "Mobile":"1234567890",
+#                "Nationality":"Bahamas",
+#                "DocumentNumber":"P0001241512",
+#                "DocumentType":1
+#             }
+#          ]
+#       }
+#    ]
+# }
