@@ -7,8 +7,8 @@ HOST = os.getenv('HOST')
 DATABASE_ID = os.getenv('DATABASE_ID')
 PASSWORD = os.getenv('DB_PASSWORD')
 
-print(f"HOST: {HOST}")
-print(f"DATABASE ID: {DATABASE_ID}")
+# print(f"HOST: {HOST}")
+# print(f"DATABASE ID: {DATABASE_ID}")
 
 DATABASE_DEFINITIONS = {
     'local': {

@@ -14,11 +14,13 @@ class CoreAPIView(APIView):
         self.success = True
         self.debug_flag = 'N'
         self.params = {}
-        self.message = 'api call successful'
+        self.message = 'call successful'
         self.messages = []
         self.data = {}
+        self.request_id = ''
 
     def load_request(self, request):
+        self.request_id = getattr(request, "request_id", "unknown")
         self.debug_flag = self.get_param('debugFlag', 'N', False)
         # self.user_id = request.user.user_id
         # self.access_user_id = request.user.access_user_id
@@ -66,18 +68,26 @@ class CoreAPIView(APIView):
         pass
 
     def get_response(self):
+        status = 'success' if self.success else 'error'
         response = {
-            'version': constants.VERSION,
-            'host': os.getenv('HOST'),
-            'database-key': os.getenv('DATABASE_KEY'),
-            'database-host': get_database_property('HOST'),
-            'database-name': get_database_property('NAME'),
-            'parameters': self.params,
-            'success': self.success,
+            'header': {
+                'version': constants.VERSION,
+                'database-key': os.getenv('DATABASE_KEY'),
+                'database-id':  os.getenv('DATABASE_ID'),
+                'request-id': self.request_id,
+                'supplied-parameters': self.params,
+            },
+            'status': status,
             'message': self.message,
-            'messages': self.messages,
+            # 'messages': self.messages,
             'data': self.data,
         }
+            #
+            # 'database-host': get_database_property('HOST'),
+            # 'database-name': get_database_property('NAME'),
+            #
+            #
+
         return Response(response)
 
     # def success_response(self, data=None, message="Success", status_code=status.HTTP_200_OK):
