@@ -19,7 +19,7 @@ docker-compose -p anova3 up --build
 docker-compose -p anova3 down
 docker exec -it postgres psql -U postgres -d postgres
 
-
+psql -h anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com -p 5432 -U postgres -d postgres
 
 docker-compose build --no-cache
 

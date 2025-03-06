@@ -34,10 +34,11 @@ ALLOWED_HOSTS = [
     "[::1]",
     "localhost:4200",
     "127.0.0.1:4200",
-    'anova-api-env.eba-hesbuejd.us-east-1.elasticbeanstalk.com',
+    # 'anova-api-env.eba-hesbuejd.us-east-1.elasticbeanstalk.com',
     'api.anovasea.net'
+    "34.233.187.33",  # Add your Elastic Beanstalk instance's IP
+    ".elasticbeanstalk.com",  # Allow AWS EB subdomains
 ]
-
 
 # Application definition
 
