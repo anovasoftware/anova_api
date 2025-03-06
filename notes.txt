@@ -1,3 +1,20 @@
+Given:
+1. pycharm ide
+2. windows os
+3. aws-toolkit installed
+4. python (3.12)/django application named anova_api root=c:\projects3\anova_api
+5. angular application named anova-ui root=root=c:\projects3\anova-ui
+6. postgres database anova-db-01
+7. I have an aws account
+8. Postgres is installed in aws
+
+Todo:
+1. deploy anova_api to aws using elastic beans
+2. run migrate and load fixtures on deployment.
+
+
+
+##################################################################################################################
 docker-compose -p anova3 up --build
 docker-compose -p anova3 down
 docker exec -it postgres psql -U postgres -d postgres
