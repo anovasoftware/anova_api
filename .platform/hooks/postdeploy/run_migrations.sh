@@ -8,7 +8,8 @@ set -e
 cd /var/app/current
 
 # Activate the virtual environment
-source ~/venv/bin/activate
+#source ~/venv/bin/activate
+source /var/app/venv/staging-LQM1lest/bin/activate
 
 # Run migrations
 python manage.py migrate static
