@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.request import Request
 from constants import constants
 from anova_api.configuration.database import get_database_property
-# from apps.static.models import Status
+from apps.static.models import Status
 
 
 class CoreAPIView(APIView):
@@ -143,9 +143,11 @@ class GuestRoomAPI(CoreAPIView):
         self.room_id = self.get_param('room_id', '', True)
 
     def _get(self, request):
+        status = Status.objects.get(pk='001')
         self.message = 'under construction'
         self.data['hotel_id'] = self.hotel_id
         self.data['hotel_description'] = 'Magellan Explorer'
+        self.data['status'] = status.description
 
 
 # JSON response
