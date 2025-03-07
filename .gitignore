@@ -5,3 +5,6 @@
 !.elasticbeanstalk/*.global.yml
 
 anova-eb-key.pem
+anova_api/configuration/.env
+aws.xml
+notes.txt
