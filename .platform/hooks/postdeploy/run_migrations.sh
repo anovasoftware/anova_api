@@ -12,6 +12,7 @@ cd /var/app/current
 source /var/app/venv/staging-LQM1lest/bin/activate
 
 # Run migrations
+python manage.py migrate authtoken
 python manage.py migrate static
 python manage.py migrate base
 python manage.py migrate res
