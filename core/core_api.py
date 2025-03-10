@@ -1,16 +1,20 @@
 import os
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView
 # from rest_framework import status
 from rest_framework.request import Request
 from constants import constants
 from anova_api.configuration.database import get_database_property
 from apps.static.models import Status
+from apps.bridge.models import Manifest
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
-class CoreAPIView(APIView):
-    def __init__(self):
-        super().__init__()
+class CoreAPIView(GenericAPIView):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
         self.success = True
         self.debug_flag = 'N'
         self.params = {}
@@ -108,6 +112,20 @@ class CoreAPIView(APIView):
     #     }, status=status_code)
 
 
+class AuthorizedAPIView(CoreAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+
+class NonAuthorizedAPIView(CoreAPIView):
+    permission_classes = [AllowAny]
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+
 class TestAPI(CoreAPIView):
     def __init__(self):
         super().__init__()
@@ -131,7 +149,7 @@ class TestAPI(CoreAPIView):
     #     if not request.data.get("name"):
     #         return self.error_response(message="Name is required", errors=["Missing 'name' field"])
     #     return self.success_response(data={"name": request.data["name"]}, message="Data received")
-class GuestRoomAPI(CoreAPIView):
+class GuestRoomAPI(AuthorizedAPIView):
     def __init__(self):
         super().__init__()
         self.hotel_id = ''
@@ -145,10 +163,51 @@ class GuestRoomAPI(CoreAPIView):
     def _get(self, request):
         status = Status.objects.get(pk='001')
         self.message = 'under construction'
-        self.data['hotel_id'] = self.hotel_id
-        self.data['hotel_description'] = 'Magellan Explorer'
-        self.data['status'] = status.description
 
+        manifests = Manifest.objects.filter(
+        )
+        record1 = manifests[0]
+        self.data['Status'] = '001'
+        self.data['HotelId'] = record1.hotel.hotel_id
+        self.data['HotelName'] = record1.hotel.description
+        self.data['ReservationId'] = record1.res_identifier
+        self.data['ReservationStatus'] = record1.res_status_identifier
+        self.data['ChannelId'] = record1.channel_identifier
+        self.data['BookingPlatform'] = record1.booking_platform
+        self.data['CreatedDate'] = '2025-02-15'
+        self.data['CreatedTime'] = '09:12:34'
+        self.data['CheckInDate'] = record1.check_in_date
+        self.data['CheckOutDate'] = record1.check_out_date
+        self.data['CheckOutDate'] = record1.check_out_date
+        self.data['Pax'] = manifests.count()
+        self.data['PMSIRooms']: []
+
+        rooms = self.data['PMSIRooms'] = {
+            'RoomNumber': record1.room_number,
+            'RoomType': record1.room_type,
+            'PMSIGuests': []
+        }
+        guests = rooms['PMSIGuests']
+
+        for manifest in manifests:
+            guests.append(
+                {
+                    "GuestName": f"{manifest.first_name} {manifest.last_name}",
+                    "GuestId": manifest.guest_identifier,
+                    "FirstName": manifest.first_name,
+                    "LastName": manifest.last_name,
+                    "Email": manifest.email,
+                    "Gender": manifest.gender,
+                    "Birthday": manifest.birth_date,
+                    "Mobile": manifest.mobile_phone_number,
+                    "Nationality": manifest.nationality,
+                    "DocumentNumber": manifest.document_number,
+                    "DocumentType": manifest.document_type,
+
+                }
+            )
+
+        print(guests)
 
 # JSON response
 # {

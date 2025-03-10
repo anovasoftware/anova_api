@@ -8,15 +8,16 @@ def run():
     commands = []
     commands += ['manage.py makemigrations']
 
-    apps = ['static', 'base', ]
+    apps = ['static', 'base', 'res', 'bridge']
 
     for app in apps:
         commands.append(f'manage.py migrate {app}')
         commands.append(f'manage.py loaddata {app}.json')
 
-    commands.append('manage.py migrate')
-    for command in commands:
-        print(command)
+    commands.append(f'manage.py loaddata authtoken_token.json')
+    # commands.append('manage.py migrate')
+    # for command in commands:
+    #     print(command)
 
     for command in commands:
         print(command)

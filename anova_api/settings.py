@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'apps.static.config.StaticConfig',
     'apps.base.config.BaseConfig',
+    'apps.res.config.ResConfig',
+    'apps.bridge.config.BridgeConfig',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",  # Enables token auth
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",  # Requires authentication by default
+    ],
+}
 ROOT_URLCONF = 'anova_api.urls'
 
 TEMPLATES = [
@@ -144,6 +154,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ################################################################################
 # added code
 ################################################################################
+AUTH_USER_MODEL = 'base.User'
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",  # Angular dev server
     "https://anovasea.net"    # Production URL

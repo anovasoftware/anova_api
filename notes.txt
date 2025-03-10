@@ -12,14 +12,23 @@ Todo:
 1. deploy anova_api to aws using elastic beans
 2. run migrate and load fixtures on deployment.
 
+psql -h anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com -p 5432 -U postgres -d postgres
+nc -zv anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com 5432
 
 
+anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com
+
+Test
+http://anova-api-env.eba-hesbuejd.us-east-1.elasticbeanstalk.com/record/guest_room/?hotel_id=12&room_id=901
 ##################################################################################################################
 docker-compose -p anova3 up --build
 docker-compose -p anova3 down
 docker exec -it postgres psql -U postgres -d postgres
 
-psql -h anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com -p 5432 -U postgres -d postgres
+
+
+
+
 
 docker-compose build --no-cache
 

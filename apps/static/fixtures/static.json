@@ -135,5 +135,385 @@
       "last_updated": "2025-02-25 00:00+0000"  
     }
   }
+,  {
+    "model": "static.Status",
+    "pk": "021",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Current",
+      "description": "Current",
+      "status_key": "EFFECTIVE_STATUS_CURRENT",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "022",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Future",
+      "description": "Future",
+      "status_key": "EFFECTIVE_STATUS_FUTURE",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "023",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Expired",
+      "description": "Expired",
+      "status_key": "EFFECTIVE_STATUS_EXPIRED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "024",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Stale",
+      "description": "Stale",
+      "status_key": "EFFECTIVE_STATUS_STALE",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "000",
+    "fields": {
+      "grouping": "ALL",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "description_short": "Not Applicable",
+      "description_long": "Not Applicable",
+      "description2": "Not Applicable",
+      "type_key": "NOT_APPLICABLE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "000-NA",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "004",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_client",
+      "code": "Cruise Line",
+      "description": "Cruise Line",
+      "description_short": "Cruise Line",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CLIENT_CRUISE_LINE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "005",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_hotel",
+      "code": "hotel",
+      "description": "Hotel",
+      "description_short": "Hotel",
+      "description_long": "",
+      "description2": "",
+      "type_key": "HOTE_HOTEL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "1900-01-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "006",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_hotel",
+      "code": "cruise ship",
+      "description": "Cruise Ship",
+      "description_short": "Cruise Ship",
+      "description_long": "",
+      "description2": "",
+      "type_key": "HOTE_CRUISE_SHIP",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "1900-01-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "012",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_person",
+      "code": "",
+      "description": "Regular Person",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "PERSON_REGULAR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "041",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "user_user",
+      "code": "",
+      "description": "real user",
+      "description_short": "real user",
+      "description_long": "",
+      "description2": "",
+      "type_key": "USER_REAL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "700",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_person.gender",
+      "code": "NA",
+      "description": "Not Applicable",
+      "description_short": "Not Applicable",
+      "description_long": "",
+      "description2": "",
+      "type_key": "GENDER_NOT_APPLICABLE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "701",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_person.gender",
+      "code": "M",
+      "description": "Male",
+      "description_short": "Male",
+      "description_long": "",
+      "description2": "",
+      "type_key": "GENDER_MALE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "000-MALE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "702",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_person.gender",
+      "code": "F",
+      "description": "Female",
+      "description_short": "Female",
+      "description_long": "",
+      "description2": "",
+      "type_key": "GENDER_FEMALE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "000-FEMALE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "704",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_person.gender",
+      "code": "X",
+      "description": "Not Disclosed",
+      "description_short": "Not Disclosed",
+      "description_long": "",
+      "description2": "",
+      "type_key": "GENDER_NOT_DISCLOSED",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "000-NOT_DISCLOSED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "999",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "ALL",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "TO_BE_ANNOUNCED",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "000-TBA",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Client",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "grouping": "All",
+      "client_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Client",
+    "pk": "999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "grouping": "All",
+      "client_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Client",
+    "pk": "001",
+    "fields": {
+      "parent_client_id": "000",
+      "type_id": "004",
+      "status_id": "001",
+      "code": "A21",
+      "description": "Antarctica 21",
+      "grouping": "Cruise Line",
+      "client_key": "ANTARCTICA_21",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
 
 ]

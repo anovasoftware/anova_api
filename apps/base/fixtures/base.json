@@ -1,2 +1,97 @@
 [
+  {
+    "model": "base.Person",
+    "pk": "A00001",
+    "fields": {
+      "type_id": "012",
+      "grouping": "People",
+      "order_by": "99",
+      "code": "",
+      "first_name": "John",
+      "middle_name": "W.",
+      "last_name": "Burke",
+      "birth_date": "1965-06-08 00:00+0000",
+      "gender_type_id": "700",
+      "person_key": "BURKE_JOHN",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-08 00:00+0000",
+      "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Person",
+    "pk": "A00002",
+    "fields": {
+      "type_id": "012",
+      "grouping": "Third Party",
+      "order_by": "99",
+      "code": "",
+      "first_name": "Vladan",
+      "middle_name": "",
+      "last_name": "Antanasijevi",
+      "birth_date": "1900-01-01 00:00+0000",
+      "gender_type_id": "700",
+      "person_key": "",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.User",
+    "pk": "A00001",
+    "fields": {
+      "access_user_id": "A00001",
+      "type_id": "041",
+      "person_id": "A00001",
+      "grouping": "Anova",
+      "code": "",
+      "description": "Burke, John W.",
+      "username": "jburke@anovasoftware.com",
+      "password": "",
+      "is_staff": true,
+      "is_active": true,
+      "is_superuser": true,
+      "user_key": "BURKE_JOHN",
+      "start_date": "2025-03-10 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "external_id": "",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.User",
+    "pk": "A00002",
+    "fields": {
+      "access_user_id": "A00002",
+      "type_id": "041",
+      "person_id": "A00001",
+      "grouping": "Third Party",
+      "code": "",
+      "description": "Antanasijevi, Vladan",
+      "username": "vladan@antamedia.com",
+      "password": "",
+      "is_staff": true,
+      "is_active": true,
+      "is_superuser": true,
+      "user_key": "",
+      "start_date": "2025-03-10 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "external_id": "",
+      "internal_comment": "",
+      "created_date": "2025-03-10 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+
 ]
