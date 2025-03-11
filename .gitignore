@@ -5,7 +5,7 @@
 !.elasticbeanstalk/*.global.yml
 
 anova-eb-key.pem
-anova_api/configuration/.env
+anova_api/configuration/production/.env
 aws.xml
 notes.txt
 .env
