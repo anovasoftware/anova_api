@@ -8,7 +8,7 @@
       "order_by": "99",
       "code": "",
       "first_name": "John",
-      "middle_name": "P.",
+      "middle_name": "W.",
       "last_name": "Burke",
       "birth_date": "1965-06-08 00:00+0000",
       "gender_type_id": "700",
@@ -91,48 +91,6 @@
       "internal_comment": "",
       "created_date": "2025-03-10 00:00+0000",
       "last_updated": "2025-03-10 00:00+0000"  
-    }
-  }
-,  {
-    "model": "base.Category",
-    "pk": "A0000",
-    "fields": {
-      "client_id": "000",
-      "type_id": "000",
-      "status_id": "001",
-      "order_by": "99",
-      "description": "Not Applicable",
-      "start_date": "1900-01-01 00:00+0000",
-      "end_date": "2099-12-31 00:00+0000",
-      "effective_status_id": "021",
-      "grouping": "ALL",
-      "category_key": "BASE_CATEGORY_NOT_APPLICABLE",
-      "external_id": "000-NA",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-03-11 00:00+0000",
-      "last_updated": "2025-03-11 00:00+0000"  
-    }
-  }
-,  {
-    "model": "base.Category",
-    "pk": "A9999",
-    "fields": {
-      "client_id": "000",
-      "type_id": "000",
-      "status_id": "001",
-      "order_by": "99",
-      "description": "To Be Announced",
-      "start_date": "1900-01-01 00:00+0000",
-      "end_date": "2099-12-31 00:00+0000",
-      "effective_status_id": "021",
-      "grouping": "ALL",
-      "category_key": "BASE_CATEGORY_TO_BE_ANNOUNCED",
-      "external_id": "",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-03-11 00:00+0000",
-      "last_updated": "2025-03-11 00:00+0000"  
     }
   }
 

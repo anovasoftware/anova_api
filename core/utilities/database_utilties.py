@@ -2,6 +2,7 @@ import logging
 from django.apps import apps
 from django.utils import timezone
 from django.db import transaction
+from django.db import models
 
 logger = logging.getLogger(__name__)
 
@@ -36,3 +37,17 @@ def integer_to_char31(int_value, length):
         int_value %= factor  # Reduce the value for the next iteration
 
     return ''.join(char_list).zfill(length)  # Ensure correct length
+
+
+def get_active_dict(model: models.Model, record0: dict(), base_fields=False):
+    record = dict()
+
+    for key in record0:
+        try:
+            field = model._meta.get_field(key)
+            if not base_fields or key == field.column:
+                record[key] = record0[key]
+        except Exception as e:
+            continue
+
+    return record

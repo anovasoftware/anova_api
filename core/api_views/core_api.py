@@ -23,6 +23,29 @@ class CoreAPIView(GenericAPIView):
         self.data = {}
         self.request_id = ''
 
+    def get_response(self):
+        status = 'success' if self.success else 'error'
+        response = {
+            'meta': {
+                'version': constants.VERSION,
+                'database-key': os.getenv('DATABASE_KEY'),
+                # 'database-id':  os.getenv('DATABASE_ID'),
+                # 'request-id': self.request_id,
+                'supplied-parameters': self.params,
+            },
+            'status': status,
+            'message': self.message,
+            'messages': self.messages,
+            'data': self.data,
+        }
+            #
+            # 'database-host': get_database_property('HOST'),
+            # 'database-name': get_database_property('NAME'),
+            #
+            #
+
+        return Response(response)
+
     def load_request(self, request):
         self.request_id = getattr(request, "request_id", "unknown")
         self.debug_flag = self.get_param('debugFlag', 'N', False)
@@ -47,6 +70,12 @@ class CoreAPIView(GenericAPIView):
     def add_message(self, message, success=True):
         self.messages.append(message)
         self.success = self.success and success
+        if not self.success:
+            self.set_message('call failed')
+
+    def set_message(self, message, success=True):
+        self.message = message
+        self.success = self.success and success
 
     def get(self, request):
         try:
@@ -68,33 +97,36 @@ class CoreAPIView(GenericAPIView):
         pass
 
     def _get(self, request):
-        self.add_message('get() not defined', success=False)
+        self.set_message('get() not defined', success=False)
 
     def post_get(self, request):
         pass
 
-    def get_response(self):
-        status = 'success' if self.success else 'error'
-        response = {
-            'meta': {
-                'version': constants.VERSION,
-                'database-key': os.getenv('DATABASE_KEY'),
-                'database-id':  os.getenv('DATABASE_ID'),
-                'request-id': self.request_id,
-                'supplied-parameters': self.params,
-            },
-            'status': status,
-            'message': self.message,
-            'messages': self.messages,
-            'data': self.data,
-        }
-            #
-            # 'database-host': get_database_property('HOST'),
-            # 'database-name': get_database_property('NAME'),
-            #
-            #
+    def post(self, request):
+        try:
+            self.load_request(request)
+            # if self.status == 200:
+            if self.success:
+                self.pre_post(request)
+                if self.success:
+                    if self.success:
+                        self._post(request)
+                        if self.success:
+                            self.post_post(request)
+        except Exception as e:
+            self.add_message(f'post error:  {str(e)}', success=False)
 
-        return Response(response)
+        return self.get_response()
+
+    def pre_post(self, request):
+        pass
+
+    def _post(self, request):
+        self.set_message('post() not defined', success=False)
+
+    def post_post(self, request):
+        pass
+
 
     # def success_response(self, data=None, message="Success", status_code=status.HTTP_200_OK):
     #     return Response({
