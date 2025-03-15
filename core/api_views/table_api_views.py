@@ -91,7 +91,7 @@ class TableAPIView(CoreAPIView):
         for record in self.data_to_load:
             pk = record['pk']
             hotel_id = record['hotel_id']
-            external_id = f'{hotel_id}-{self.type_id}-{pk}'
+            external_id = f'{self.type_id}-{hotel_id}-{pk}'
 
             record = get_active_dict(self.model, record)
             model_obj, created = self.model.objects.update_or_create(
