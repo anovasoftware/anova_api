@@ -256,12 +256,12 @@
     "fields": {
       "parent_type_id": "000",
       "grouping": "res_hotel",
-      "code": "hotel",
+      "code": "Hotel",
       "description": "Hotel",
       "description_short": "Hotel",
       "description_long": "",
       "description2": "",
-      "type_key": "HOTE_HOTEL",
+      "type_key": "HOTEL_HOTEL",
       "group1": "",
       "flag1": "",
       "flag2": "",
@@ -280,12 +280,12 @@
     "fields": {
       "parent_type_id": "000",
       "grouping": "res_hotel",
-      "code": "cruise ship",
+      "code": "Cruise ship",
       "description": "Cruise Ship",
       "description_short": "Cruise Ship",
       "description_long": "",
       "description2": "",
-      "type_key": "HOTE_CRUISE_SHIP",
+      "type_key": "HOTEL_CRUISE_SHIP",
       "group1": "",
       "flag1": "",
       "flag2": "",
@@ -296,6 +296,54 @@
       "internal_comment": "",
       "created_date": "2025-03-10 00:00+0000",
       "last_updated": "1900-01-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "007",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_room",
+      "code": "Room",
+      "description": "Hotel Room",
+      "description_short": "Hotel Room",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_ROOM_HOTEL_ROOM",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-16 00:00+0000",
+      "last_updated": "2025-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "008",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_room",
+      "code": "Cabin",
+      "description": "Cabin",
+      "description_short": "Cabin",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_ROOM_CABIN",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-16 00:00+0000",
+      "last_updated": "2025-03-16 00:00+0000"  
     }
   }
 ,  {

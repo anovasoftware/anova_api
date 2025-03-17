@@ -4,6 +4,7 @@ from django.apps import apps
 from django.http import JsonResponse
 import json
 from django.db import models
+from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
 
 
@@ -53,6 +54,45 @@ class TableAPIView(CoreAPIView):
 
         return loaded
 
+    def _get(self, request):
+        if self.success:
+            try:
+                model = apps.get_model(self.app_name, self.model_name)
+                fields = self.get_value_list()
+                query_filter = self.get_query_filter()
+
+                queryset = model.objects.filter(**query_filter).values(*fields)
+
+                self.data = list(queryset)  # Extract data and store in self.data
+            except LookupError:
+                self.add_message(f'Model {self.model_name} in app {self.app_name} not found', success=False)
+
+    def get_value_list(self):
+        return []
+
+    def get_query_filter(self):
+        # Define filtering criteria dynamically
+        filters = {
+            'type_id': self.type_id
+        }
+
+        # # Example: Filter based on request parameters
+        # filter_params = self.request.GET  # Assuming request parameters are passed via GET
+        #
+        # # Map query parameters to model fields
+        # field_mappings = {
+        #     'name': 'name__icontains',
+        #     'status': 'status',
+        #     'created_after': 'created_at__gte',
+        #     'created_before': 'created_at__lte',
+        # }
+        #
+        # for param, field in field_mappings.items():
+        #     if param in filter_params:
+        #         filters[field] = filter_params[param]
+
+        return filters  # This will be used in queryset.filter()
+
     def pre_post(self, request):
         if not self.data_to_load:
             self.set_message('no json data supplied', success=False)
@@ -70,10 +110,10 @@ class TableAPIView(CoreAPIView):
 
             record = self.data_to_load[0]
             missing_fields = set(record.keys()) - model_fields
-            if missing_fields:
-                message = f'Warning: These fields do not exist in {model.__name__}: {missing_fields}'
-                self.set_message(message, success=False)
-            elif 'pk' not in record.keys():
+            # if missing_fields:
+            #     message = f'Warning: These fields do not exist in {model.__name__}: {missing_fields}'
+            #     self.set_message(message, success=False)
+            if 'pk' not in record.keys():
                 self.set_message('must supply a field named pk', success=False)
             #
             # for record in self.data_to_load:
@@ -109,16 +149,4 @@ class TableAPIView(CoreAPIView):
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):
-    def _get(self, request):
-        if self.success:
-            try:
-                fields = self.get_value_list()
-                model = apps.get_model(self.app_name, self.model_name)
-                queryset = model.objects.all().values(*fields)
-
-                self.data = list(queryset)  # Extract data and store in self.data
-            except LookupError:
-                self.add_message(f'Model {self.model_name} in app {self.app_name} not found', success=False)
-
-    def get_value_list(self):
-        return []
+    pass

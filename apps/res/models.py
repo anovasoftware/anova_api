@@ -64,3 +64,35 @@ class Hotel(BaseModel):
 # AUTOGEN_END_Hotel#
 
 
+# AUTOGEN_BEGIN_Room#
+class Room(BaseModel):
+    room_id             = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='999')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='999')
+    hotel               = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+')
+    category            = models.ForeignKey("res.Category", on_delete=models.CASCADE, related_name='+', default='A9999')
+    order_by            = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='99')
+    code                = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    description         = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    grouping            = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    room_key            = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    external_id         = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_room'
+        verbose_name_plural = 'rooms (res_room)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'room'
+# AUTOGEN_END_Room#
+
+

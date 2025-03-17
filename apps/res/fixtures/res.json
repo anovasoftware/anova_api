@@ -36,6 +36,102 @@
     }
   }
 ,  {
+    "model": "res.Room",
+    "pk": "A000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "category_id": "A0000",
+      "order_by": "99",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "room_key": "NOT_APPLICABLE",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-15 00:00+0000",
+      "last_updated": "2025-03-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Room",
+    "pk": "A001",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "category_id": "A0000",
+      "order_by": "99",
+      "code": "W/L",
+      "description": "Waitlist",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "room_key": "WAITLIST",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-15 00:00+0000",
+      "last_updated": "2025-03-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Room",
+    "pk": "A002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "category_id": "A0000",
+      "order_by": "99",
+      "code": "GTY",
+      "description": "Guarantee",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "room_key": "GUARANTEE",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-15 00:00+0000",
+      "last_updated": "2025-03-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Room",
+    "pk": "A003",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "category_id": "A0000",
+      "order_by": "99",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "room_key": "TO_BE_ANNOUNCED",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-15 00:00+0000",
+      "last_updated": "2025-03-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "res.Category",
     "pk": "A0000",
     "fields": {
