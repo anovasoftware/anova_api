@@ -539,6 +539,30 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "013",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_person",
+      "code": "",
+      "description": "Hote,/Ship Guest",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "PERSON_HOTEL_GUEST",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-19 00:00+0000",
+      "last_updated": "2025-03-19 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {

@@ -4,6 +4,8 @@
     "pk": "A00001",
     "fields": {
       "type_id": "012",
+      "status_id": "001",
+      "client_id": "000",
       "grouping": "People",
       "order_by": "99",
       "code": "",
@@ -13,7 +15,6 @@
       "birth_date": "1965-06-08 00:00+0000",
       "gender_type_id": "700",
       "person_key": "BURKE_JOHN",
-      "external_id": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-08 00:00+0000",
@@ -25,6 +26,8 @@
     "pk": "A00002",
     "fields": {
       "type_id": "012",
+      "status_id": "001",
+      "client_id": "000",
       "grouping": "Third Party",
       "order_by": "99",
       "code": "",
@@ -34,11 +37,10 @@
       "birth_date": "1900-01-01 00:00+0000",
       "gender_type_id": "700",
       "person_key": "",
-      "external_id": "",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2025-03-10 00:00+0000",
-      "last_updated": "2025-03-10 00:00+0000"  
+      "created_date": "2025-03-19 00:00+0000",
+      "last_updated": "2025-03-19 00:00+0000"  
     }
   }
 ,  {

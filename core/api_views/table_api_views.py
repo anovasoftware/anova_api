@@ -6,7 +6,7 @@ import json
 from django.db import models
 from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
-from apps.base.models import Mapping
+from apps.base.models import ExternalMapping
 
 
 class TableAPIView(CoreAPIView):
@@ -134,7 +134,7 @@ class TableAPIView(CoreAPIView):
         records_updated = 0
 
         for record in self.data_to_load:
-            mapping = self.get_mapping(record)
+            mapping = self.get_external_mapping(record)
             pk = mapping.internal_id
 
             external_id = record['external_id']
@@ -162,9 +162,9 @@ class TableAPIView(CoreAPIView):
         self.data['records_updated'] = records_updated
         # self.set_message('under construction', success=False)
 
-    def get_mapping(self, record):
-        mapping: Mapping
-        mapping, created = Mapping.objects.get_or_create(
+    def get_external_mapping(self, record):
+        mapping: ExternalMapping
+        mapping, created = ExternalMapping.objects.get_or_create(
             external_id=record['external_id'],
             defaults={
                 'app_name': self.app_name,
