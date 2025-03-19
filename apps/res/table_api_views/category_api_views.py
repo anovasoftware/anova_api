@@ -20,3 +20,4 @@ class AuthorizedCategoryAPIView(AuthorizedHotelAPIView):
             'description'
         ]
         return value_list
+

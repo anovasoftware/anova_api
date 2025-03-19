@@ -26,6 +26,30 @@ class Identifier(models.Model):
 # AUTOGEN_END_Identifier#
 
 
+# AUTOGEN_BEGIN_Mapping#
+class Mapping(BaseModel):
+    mapping_id       = models.CharField(max_length= 10, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='999')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    app_name         = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    model_name       = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    external_id      = models.CharField(max_length= 50, blank=False, unique=True , primary_key=False, default='')
+    internal_id      = models.CharField(max_length= 10, blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_mapping'
+        verbose_name_plural = 'mappings (base_mapping)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'mapping'
+# AUTOGEN_END_Mapping#
+
+
 # AUTOGEN_BEGIN_Person#
 class Person(BaseModel):
     person_id        = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )

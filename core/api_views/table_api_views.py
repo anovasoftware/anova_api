@@ -6,6 +6,7 @@ import json
 from django.db import models
 from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
+from apps.base.models import Mapping
 
 
 class TableAPIView(CoreAPIView):
@@ -17,6 +18,7 @@ class TableAPIView(CoreAPIView):
         self.data_to_load = None
         self.accepted_type_ids = []
         self.type_id = None
+        self.external_id_prefix = None
 
     def load_request(self, request):
         super().load_request(request)
@@ -115,6 +117,9 @@ class TableAPIView(CoreAPIView):
             #     self.set_message(message, success=False)
             if 'pk' not in record.keys():
                 self.set_message('must supply a field named pk', success=False)
+            if 'external_id' not in record.keys():
+                self.set_message('must supply a field named external_id', success=False)
+
             #
             # for record in self.data_to_load:
             #     missing_fields = set(record.keys()) - model_fields
@@ -129,15 +134,25 @@ class TableAPIView(CoreAPIView):
         records_updated = 0
 
         for record in self.data_to_load:
-            pk = record['pk']
-            hotel_id = record['hotel_id']
-            external_id = f'{self.type_id}-{hotel_id}-{pk}'
+            mapping = self.get_mapping(record)
+            pk = mapping.internal_id
+
+            external_id = record['external_id']
 
             record = get_active_dict(self.model, record)
             model_obj, created = self.model.objects.update_or_create(
-                external_id=external_id,
+                pk=pk,
                 defaults=record
             )
+
+            # model_obj, created = self.model.objects.update_or_create(
+            #     external_id=external_id,
+            #     defaults=record
+            # )
+            if mapping.internal_id != model_obj.pk:
+                mapping.internal_id = model_obj.pk
+                mapping.save()
+
             if created:
                 records_updated += 1
             else:
@@ -146,6 +161,17 @@ class TableAPIView(CoreAPIView):
         self.data['records_created'] = records_created
         self.data['records_updated'] = records_updated
         # self.set_message('under construction', success=False)
+
+    def get_mapping(self, record):
+        mapping: Mapping
+        mapping, created = Mapping.objects.get_or_create(
+            external_id=record['external_id'],
+            defaults={
+                'app_name': self.app_name,
+                'model_name': self.model_name
+            }
+        )
+        return mapping
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):
