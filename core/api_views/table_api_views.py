@@ -7,6 +7,7 @@ from django.db import models
 from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
 from apps.base.models import ExternalMapping
+from constants import type_constants
 
 
 class TableAPIView(CoreAPIView):
@@ -70,12 +71,15 @@ class TableAPIView(CoreAPIView):
                 self.add_message(f'Model {self.model_name} in app {self.app_name} not found', success=False)
 
     def get_value_list(self):
-        return []
+        return [
+            'type__type_id',
+            'type__description'
+        ]
 
     def get_query_filter(self):
-        # Define filtering criteria dynamically
+        type_ids = [self.type_id, type_constants.NOT_APPLICABLE]
         filters = {
-            'type_id': self.type_id
+            'type_id__in': type_ids
         }
 
         # # Example: Filter based on request parameters

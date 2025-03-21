@@ -396,6 +396,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "023",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_company",
+      "code": "Travel Agency",
+      "description": "Travel Agency",
+      "description_short": "Travel Agency",
+      "description_long": "",
+      "description2": "",
+      "type_key": "COMPANY_TRAVEL_AGENCY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-21 00:00+0000",
+      "last_updated": "2025-03-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "041",
     "fields": {
       "parent_type_id": "000",

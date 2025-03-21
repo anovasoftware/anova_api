@@ -22,6 +22,7 @@ class CoreAPIView(GenericAPIView):
         self.messages = []
         self.data = {}
         self.request_id = ''
+        self.user_id = None
 
     def get_response(self):
         status = 'success' if self.success else 'error'
@@ -49,7 +50,7 @@ class CoreAPIView(GenericAPIView):
     def load_request(self, request):
         self.request_id = getattr(request, "request_id", "unknown")
         self.debug_flag = self.get_param('debugFlag', 'N', False)
-        # self.user_id = request.user.user_id
+        self.user_id = request.user.user_id
         # self.access_user_id = request.user.access_user_id
 
     def get_param(self, key, default_value, required):
@@ -149,6 +150,10 @@ class AuthorizedAPIView(CoreAPIView):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+    def load_request(self, request):
+        super().load_request(request)
+        self.user_id = request.user.user_id
 
 
 class NonAuthorizedAPIView(CoreAPIView):
