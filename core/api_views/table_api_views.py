@@ -104,6 +104,8 @@ class TableAPIView(CoreAPIView):
             self.set_message('no json data supplied', success=False)
         elif len(self.data_to_load) == 0:
             self.set_message('empty json file', success=True)
+        elif self.expand_record_with_internal_ids() and not self.success:
+            self.set_message('missing foreign key mapping(s)', success=False)
         else:
             model = self.model
             model_fields = {field.name for field in model._meta.get_fields() if isinstance(field, models.Field)}
@@ -139,8 +141,8 @@ class TableAPIView(CoreAPIView):
 
         for record in self.data_to_load:
             mapping = self.get_external_mapping(record)
-            pk = mapping.internal_id
 
+            pk = mapping.internal_id
             external_id = record['external_id']
 
             record = get_active_dict(self.model, record)
@@ -176,6 +178,22 @@ class TableAPIView(CoreAPIView):
             }
         )
         return mapping
+
+    def expand_record_with_internal_ids(self):
+        for record in self.data_to_load:
+            for field, external_id in list(record.items()):
+                if field.endswith('_external_id'):
+                    model_prefix = field.replace('_external_id', '')
+                    model_prefix = f'{model_prefix}_id'
+                    pk = record['pk']
+                    try:
+                        internal_id = ExternalMapping.objects.get(external_id=external_id).internal_id
+                    except ExternalMapping.DoesNotExist:
+                        message = f'{field}: internal_id not found for external_id={external_id}, pk={pk}'
+                        self.add_message(message, success=False)
+                        internal_id = None  # or handle the missing case however you like
+                    record[f'{model_prefix}_id'] = internal_id
+        return
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):

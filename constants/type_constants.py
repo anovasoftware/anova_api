@@ -2,10 +2,11 @@
 #  ALL
 NOT_APPLICABLE = '000'                                           # not applicableTO_BE_ANNOUNCED = '999'                                          # to be announced#  base_company
 COMPANY_TRAVEL_AGENCY = '023'                                    # travel agency#  base_person
-PERSON_HOTEL_GUEST = '013'                                       # hote,/ship guestPERSON_REGULAR = '012'                                           # regular person#  base_person.gender
+PERSON_HOTEL_GUEST = '013'                                       # hotel/ship guestPERSON_REGULAR = '012'                                           # regular person#  base_person.gender
 GENDER_FEMALE = '702'                                            # femaleGENDER_MALE = '701'                                              # maleGENDER_NOT_APPLICABLE = '700'                                    # not applicableGENDER_NOT_DISCLOSED = '704'                                     # not disclosed#  res_category
 RES_CATEGORY_ROOM_CABIN = '020'                                  # room/cabin category#  res_hotel
-HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_room
+HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_reservation
+RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_room
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  static_client
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  user_user
 USER_REAL = '041'                                                # real user

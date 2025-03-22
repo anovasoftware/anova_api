@@ -348,6 +348,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "009",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_reservation",
+      "code": "Internal",
+      "description": "Internal Reservation",
+      "description_short": "Internal Reservation",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_RESERVATION_INTERNAL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-21 00:00+0000",
+      "last_updated": "2025-03-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",
@@ -569,7 +593,7 @@
       "parent_type_id": "000",
       "grouping": "base_person",
       "code": "",
-      "description": "Hote,/Ship Guest",
+      "description": "Hotel/Ship Guest",
       "description_short": "",
       "description_long": "",
       "description2": "",

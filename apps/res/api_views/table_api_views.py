@@ -25,6 +25,13 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
             except ObjectDoesNotExist as e:
                 self.add_message(f'invalid hotelId: {self.hotel_id}', success=False)
 
+    def get_value_list(self):
+        value_list = [
+            'hotel__hotel_id',
+            'hotel__description',
+        ] + super().get_value_list()
+        return value_list
+
     def get_query_filter(self):
         filters = super().get_query_filter()
 
