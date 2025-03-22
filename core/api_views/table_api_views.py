@@ -184,7 +184,7 @@ class TableAPIView(CoreAPIView):
             for field, external_id in list(record.items()):
                 if field.endswith('_external_id'):
                     model_prefix = field.replace('_external_id', '')
-                    model_prefix = f'{model_prefix}_id'
+                    model_prefix = f'{model_prefix}'
                     pk = record['pk']
                     try:
                         internal_id = ExternalMapping.objects.get(external_id=external_id).internal_id
