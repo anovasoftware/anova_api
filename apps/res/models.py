@@ -44,7 +44,7 @@ class Guest(BaseModel):
     type                 = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status               = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     person               = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
-    responsible_guest    = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name="+")
+    responsible_guest    = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name="+", default=None, null=True)
     static_flag          = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment     = models.TextField(blank=True , unique=False, primary_key=False)
     created_date         = models.DateTimeField(auto_now_add=True)
