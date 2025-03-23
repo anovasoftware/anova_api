@@ -37,6 +37,29 @@ class Category(BaseModel):
 # AUTOGEN_END_Category#
 
 
+# AUTOGEN_BEGIN_Guest#
+class Guest(BaseModel):
+    guest_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    reservation          = models.ForeignKey("res.Reservation", on_delete=models.CASCADE, related_name='+')
+    type                 = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status               = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    person               = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
+    responsible_guest    = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name="+")
+    static_flag          = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment     = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date         = models.DateTimeField(auto_now_add=True)
+    last_updated         = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_guest'
+        verbose_name_plural = 'guests (res_guest)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'guest'
+# AUTOGEN_END_Guest#
+
+
 # AUTOGEN_BEGIN_Hotel#
 class Hotel(BaseModel):
     hotel_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
@@ -65,7 +88,7 @@ class Hotel(BaseModel):
 
 # AUTOGEN_BEGIN_Reservation#
 class Reservation(BaseModel):
-    reservation_id           = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
+    reservation_id           = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
     hotel                    = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     type                     = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status                   = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')

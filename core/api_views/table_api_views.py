@@ -66,7 +66,8 @@ class TableAPIView(CoreAPIView):
 
                 queryset = model.objects.filter(**query_filter).values(*fields)
 
-                self.data = list(queryset)  # Extract data and store in self.data
+                self.data['record_count'] = len(queryset)
+                self.data['records'] = list(queryset)  # Extract data and store in self.data
             except LookupError:
                 self.add_message(f'Model {self.model_name} in app {self.app_name} not found', success=False)
 

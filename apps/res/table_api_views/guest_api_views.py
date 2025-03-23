@@ -3,20 +3,20 @@ from apps.res.api_views.table_api_views import AuthorizedHotelAPIView
 from constants import type_constants
 
 
-class AuthorizedCategoryAPIView(AuthorizedHotelAPIView):
+class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
     def __init__(self):
         super().__init__()
         self.app_name = 'res'
-        self.model_name = 'Category'
+        self.model_name = 'Guest'
+        self.hotel_id_field = 'reservation__hotel_id'
         self.accepted_type_ids = [
-            type_constants.RES_CATEGORY_ROOM_CABIN,
+            type_constants.RES_GUEST_GUEST,
+            type_constants.RES_GUEST_STAFF
         ]
 
     def get_value_list(self):
         value_list = [
-            'type_id',
-            'code',
-            'description'
+            'guest_id',
+            'person__first_name'
         ] + super().get_value_list()
         return value_list
-
