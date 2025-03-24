@@ -60,6 +60,30 @@ class Guest(BaseModel):
 # AUTOGEN_END_Guest#
 
 
+# AUTOGEN_BEGIN_GuestRoom#
+class GuestRoom(BaseModel):
+    guest_room_id    = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    guest            = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
+    room             = models.ForeignKey("res.Room", on_delete=models.CASCADE, related_name='+', default='A000')
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    arrival_date     = models.DateTimeField(default=end_of_time)
+    departure_date   = models.DateTimeField(default=end_of_time)
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_guest_room'
+        verbose_name_plural = 'guest rooms (res_guest_room)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'guest_room'
+# AUTOGEN_END_GuestRoom#
+
+
 # AUTOGEN_BEGIN_Hotel#
 class Hotel(BaseModel):
     hotel_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )

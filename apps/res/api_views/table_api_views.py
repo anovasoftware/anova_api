@@ -24,6 +24,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
                 hotel = Hotel.objects.get(pk=self.hotel_id)
                 self.data['hotel'] = {
                     'hotel_id': hotel.hotel_id,
+                    'type__description': hotel.type.description,
                     'description': hotel.description
                 }
             except ObjectDoesNotExist as e:
