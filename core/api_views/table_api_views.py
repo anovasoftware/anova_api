@@ -194,6 +194,11 @@ class TableAPIView(CoreAPIView):
                         self.add_message(message, success=False)
                         internal_id = None  # or handle the missing case however you like
                     record[f'{model_prefix}_id'] = internal_id
+                if not self.success:
+                    break
+            if not self.success:
+                break
+
         return
 
 
