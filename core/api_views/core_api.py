@@ -9,6 +9,8 @@ from anova_api.configuration.database import get_database_property
 from apps.static.models import Status
 from apps.bridge.models import Manifest
 from rest_framework.permissions import IsAuthenticated, AllowAny
+# third_party/permissions.py
+from rest_framework.permissions import BasePermission
 
 
 class CoreAPIView(GenericAPIView):
@@ -27,6 +29,8 @@ class CoreAPIView(GenericAPIView):
     def get_response(self):
         status = 'success' if self.success else 'error'
         response = {
+            'status': status,
+            'message': self.message,
             'meta': {
                 'version': constants.VERSION,
                 'database-key': os.getenv('DATABASE_KEY'),
@@ -34,8 +38,6 @@ class CoreAPIView(GenericAPIView):
                 # 'request-id': self.request_id,
                 'supplied-parameters': self.params,
             },
-            'status': status,
-            'message': self.message,
             'messages': self.messages,
             'data': self.data,
         }
@@ -245,6 +247,17 @@ class GuestRoomAPI(AuthorizedAPIView):
             )
 
         print(guests)
+
+
+class IsThirdPartyUser(BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.groups.filter(name='ThirdParty').exists()
+
+
+class ThirdPartyAuthorizedAPIView(AuthorizedAPIView):
+    permission_classes = AuthorizedAPIView.permission_classes + [IsThirdPartyUser]
+
+
 
 # JSON response
 # {

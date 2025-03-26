@@ -144,6 +144,8 @@ class TableAPIView(CoreAPIView):
             mapping = self.get_external_mapping(record)
 
             pk = mapping.internal_id
+            if pk == '41012':
+                print('mapping')
             external_id = record['external_id']
 
             record = get_active_dict(self.model, record)
@@ -151,6 +153,8 @@ class TableAPIView(CoreAPIView):
                 pk=pk,
                 defaults=record
             )
+            if external_id == 'VMS-1401-CB-41012':
+                print(f'{external_id} processed')
 
             # model_obj, created = self.model.objects.update_or_create(
             #     external_id=external_id,
@@ -187,6 +191,8 @@ class TableAPIView(CoreAPIView):
                     model_prefix = field.replace('_external_id', '')
                     model_prefix = f'{model_prefix}'
                     pk = record['pk']
+                    if pk == '41012':
+                        print(pk)
                     try:
                         internal_id = ExternalMapping.objects.get(external_id=external_id).internal_id
                     except ExternalMapping.DoesNotExist:
@@ -199,7 +205,7 @@ class TableAPIView(CoreAPIView):
             if not self.success:
                 break
 
-        return
+        return True
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):
