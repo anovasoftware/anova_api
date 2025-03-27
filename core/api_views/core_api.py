@@ -61,7 +61,7 @@ class CoreAPIView(GenericAPIView):
             'message': self.message,
             'meta': {
                 'version': constants.VERSION,
-                '3flag': self.third_party_flag,
+                # '3flag': self.third_party_flag,
                 'database_key': os.getenv('DATABASE_KEY'),
                 # 'database-id':  os.getenv('DATABASE_ID'),
                 # 'request-id': self.request_id,
@@ -289,7 +289,7 @@ def nest_record(record):
     nested = {}
     try:
         for key, value in record.items():
-            print(f'{key}:{value}')
+            # print(f'{key}:{value}')
             parts = key.split("__")
             current = nested
             for part in parts[:-1]:
