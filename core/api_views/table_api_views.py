@@ -1,5 +1,5 @@
 from django.contrib.messages import success
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, nest_records
 from django.apps import apps
 from django.http import JsonResponse
 import json
@@ -20,6 +20,7 @@ class TableAPIView(CoreAPIView):
         self.accepted_type_ids = []
         self.type_id = None
         self.external_id_prefix = None
+        self.records = []
 
     def load_request(self, request):
         super().load_request(request)
@@ -65,40 +66,28 @@ class TableAPIView(CoreAPIView):
                 query_filter = self.get_query_filter()
 
                 queryset = model.objects.filter(**query_filter).values(*fields)
-
-                self.data['record_count'] = len(queryset)
-                self.data['records'] = list(queryset)  # Extract data and store in self.data
+                self.records = list(queryset)
             except LookupError:
                 self.add_message(f'Model {self.model_name} in app {self.app_name} not found', success=False)
 
     def get_value_list(self):
-        return [
-            'type__type_id',
-            'type__description'
-        ]
+        return []
+        # return [
+        #     'type__type_id',
+        #     'type__description'
+        # ]
 
     def get_query_filter(self):
         type_ids = [self.type_id, type_constants.NOT_APPLICABLE]
         filters = {
             'type_id__in': type_ids
         }
+        return filters
 
-        # # Example: Filter based on request parameters
-        # filter_params = self.request.GET  # Assuming request parameters are passed via GET
-        #
-        # # Map query parameters to model fields
-        # field_mappings = {
-        #     'name': 'name__icontains',
-        #     'status': 'status',
-        #     'created_after': 'created_at__gte',
-        #     'created_before': 'created_at__lte',
-        # }
-        #
-        # for param, field in field_mappings.items():
-        #     if param in filter_params:
-        #         filters[field] = filter_params[param]
-
-        return filters  # This will be used in queryset.filter()
+    def post_get(self, request):
+        self.records = nest_records(self.records)
+        # self.data['record_count'] = len(self.records)
+        # self.data['records'] = expanded_records
 
     def pre_post(self, request):
         if not self.data_to_load:
@@ -126,15 +115,6 @@ class TableAPIView(CoreAPIView):
                 self.set_message('must supply a field named pk', success=False)
             if 'external_id' not in record.keys():
                 self.set_message('must supply a field named external_id', success=False)
-
-            #
-            # for record in self.data_to_load:
-            #     missing_fields = set(record.keys()) - model_fields
-            #     if missing_fields:
-            #         message = f'Warning: These fields do not exist in {model.__name__}: {missing_fields}'
-            #         self.set_message(message)
-            #     else:
-            #         self.add_message('loading record')
 
     def _post(self, request):
         records_created = 0
@@ -206,6 +186,14 @@ class TableAPIView(CoreAPIView):
                 break
 
         return True
+
+    def build_response(self):
+        response = super().build_response()
+
+        response['record_count'] = len(self.records)
+        response['records'] = self.records
+
+        return response
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):

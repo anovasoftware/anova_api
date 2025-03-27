@@ -8,6 +8,7 @@ urlpatterns = [
     path('record/guest_room/', GuestRoomAPI.as_view(), name='guest-room'),
 
     path('api/v1/table/', include('core.urls.urls_tables')),
+    path('api/v1/external/', include('core.urls.urls_tables')),
 ]
 # https://yourPMS/GetRoomGuests?room=123&hotelId=xxxyy
 

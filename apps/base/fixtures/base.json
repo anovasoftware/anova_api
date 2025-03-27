@@ -1,6 +1,29 @@
 [
   {
     "model": "base.Person",
+    "pk": "A00000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "grouping": "Non-person",
+      "order_by": "99",
+      "code": "",
+      "first_name": "N/A",
+      "middle_name": "",
+      "last_name": "N/A",
+      "birth_date": "1900-01-01 00:00+0000",
+      "email": "",
+      "gender_type_id": "700",
+      "person_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-22 00:00+0000",
+      "last_updated": "2025-03-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Person",
     "pk": "A00001",
     "fields": {
       "type_id": "012",
@@ -13,6 +36,7 @@
       "middle_name": "W.",
       "last_name": "Burke",
       "birth_date": "1965-06-08 00:00+0000",
+      "email": "",
       "gender_type_id": "701",
       "person_key": "BURKE_JOHN",
       "static_flag": "Y",
@@ -35,34 +59,13 @@
       "middle_name": "",
       "last_name": "Antanasijevi",
       "birth_date": "1900-01-01 00:00+0000",
+      "email": "",
       "gender_type_id": "701",
       "person_key": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-19 00:00+0000",
       "last_updated": "2025-03-19 00:00+0000"  
-    }
-  }
-,  {
-    "model": "base.Person",
-    "pk": "A00000",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "client_id": "000",
-      "grouping": "Non-person",
-      "order_by": "99",
-      "code": "",
-      "first_name": "N/A",
-      "middle_name": "",
-      "last_name": "N/A",
-      "birth_date": "1900-01-01 00:00+0000",
-      "gender_type_id": "700",
-      "person_key": "NOT_APPLICABLE",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-03-22 00:00+0000",
-      "last_updated": "2025-03-22 00:00+0000"  
     }
   }
 ,  {
@@ -79,6 +82,7 @@
       "middle_name": "",
       "last_name": "TBA",
       "birth_date": "1900-01-01 00:00+0000",
+      "email": "",
       "gender_type_id": "700",
       "person_key": "TO_BE_ANNOUNCED",
       "static_flag": "Y",

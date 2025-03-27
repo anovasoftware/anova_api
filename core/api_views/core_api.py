@@ -1,22 +1,23 @@
 import os
 from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework.generics import GenericAPIView
-# from rest_framework import status
 from rest_framework.request import Request
 from constants import constants
-from anova_api.configuration.database import get_database_property
 from apps.static.models import Status
 from apps.bridge.models import Manifest
 from rest_framework.permissions import IsAuthenticated, AllowAny
-# third_party/permissions.py
 from rest_framework.permissions import BasePermission
 
 
 class CoreAPIView(GenericAPIView):
+    # def dispatch(self, request, *args, **kwargs):
+    #     self.third_party_flag = kwargs.get('thirdPartyFlag', 'N')
+    #     return super().dispatch(request, *args, **kwargs)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.third_party_flag = 'N'
         self.success = True
         self.debug_flag = 'N'
         self.params = {}
@@ -25,29 +26,55 @@ class CoreAPIView(GenericAPIView):
         self.data = {}
         self.request_id = ''
         self.user_id = None
+        self.response_format = 'camel_case'
+
+    # def setup(self, request, *args, **kwargs):
+    #     # super().initial(request, *args, **kwargs)
+    #     self.third_party_flag = self.kwargs.get('thirdPartyFlag', 'N')
+    #     super().setup(request, *args, **kwargs)
+
+    # def setup(self, request, *args, **kwargs):
+    #     self.third_party_flag = kwargs.get('thirdPartyFlag', 'N')
+    #     super().setup(request, *args, **kwargs)
 
     def get_response(self):
+        response = self.build_response()
+
+        # if self.response_format == 'snake_case':
+        #     response['meta'] = {
+        #         'version': constants.VERSION,
+        #         'database_key': os.getenv('DATABASE_KEY'),
+        #         # 'database-id':  os.getenv('DATABASE_ID'),
+        #         # 'request-id': self.request_id,
+        #         'supplied_parameters': self.params,
+        #     }
+        #     response['data'] = self.data
+        if self.response_format == 'camel_case':
+            response = convert_to_camel_case(response)
+
+        return Response(response)
+
+    def build_response(self):
         status = 'success' if self.success else 'error'
         response = {
             'status': status,
             'message': self.message,
             'meta': {
                 'version': constants.VERSION,
-                'database-key': os.getenv('DATABASE_KEY'),
+                '3flag': self.third_party_flag,
+                'database_key': os.getenv('DATABASE_KEY'),
                 # 'database-id':  os.getenv('DATABASE_ID'),
                 # 'request-id': self.request_id,
-                'supplied-parameters': self.params,
+                'supplied_parameters': self.params,
             },
-            'messages': self.messages,
-            'data': self.data,
+            'header': {}
+            # 'data': self.data
         }
-            #
-            # 'database-host': get_database_property('HOST'),
-            # 'database-name': get_database_property('NAME'),
-            #
-            #
 
-        return Response(response)
+        if len(self.messages) > 0:
+            response['messages'] = self.messages
+
+        return response
 
     def load_request(self, request):
         self.request_id = getattr(request, "request_id", "unknown")
@@ -130,7 +157,6 @@ class CoreAPIView(GenericAPIView):
     def post_post(self, request):
         pass
 
-
     # def success_response(self, data=None, message="Success", status_code=status.HTTP_200_OK):
     #     return Response({
     #         "success": self.success,
@@ -183,11 +209,12 @@ class TestAPI(CoreAPIView):
         # except Exception as e:
         #     self.add_message(f'error {str(e)}', success=False)
 
-
     # def post(self, request):
     #     if not request.data.get("name"):
     #         return self.error_response(message="Name is required", errors=["Missing 'name' field"])
     #     return self.success_response(data={"name": request.data["name"]}, message="Data received")
+
+
 class GuestRoomAPI(AuthorizedAPIView):
     def __init__(self):
         super().__init__()
@@ -258,6 +285,42 @@ class ThirdPartyAuthorizedAPIView(AuthorizedAPIView):
     permission_classes = AuthorizedAPIView.permission_classes + [IsThirdPartyUser]
 
 
+def nest_record(record):
+    nested = {}
+    try:
+        for key, value in record.items():
+            print(f'{key}:{value}')
+            parts = key.split("__")
+            current = nested
+            for part in parts[:-1]:
+                if part not in current:
+                    current[part] = {}
+                current = current[part]
+            current[parts[-1]] = value
+    except Exception as e:
+        print(f'{str(e)}')
+    return nested
+
+
+def nest_records(records):
+    return [nest_record(record) for record in records]
+
+
+def convert_to_camel_case(obj):
+    def snake_to_camel(s):
+        parts = s.split('_')
+        return parts[0] + ''.join(word.capitalize() for word in parts[1:])
+
+    if isinstance(obj, dict):
+        new_obj = {}
+        for k, v in obj.items():
+            new_key = snake_to_camel(k)
+            new_obj[new_key] = convert_to_camel_case(v)
+        return new_obj
+    elif isinstance(obj, list):
+        return [convert_to_camel_case(item) for item in obj]
+    else:
+        return obj
 
 # JSON response
 # {

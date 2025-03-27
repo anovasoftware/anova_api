@@ -92,6 +92,7 @@ class Person(BaseModel):
     middle_name      = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
     last_name        = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
     birth_date       = models.DateTimeField(default=beginning_of_time)
+    email            = models.TextField(blank=True , unique=False, primary_key=False, default='')
     gender_type      = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='700')
     person_key       = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False, default='')
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
