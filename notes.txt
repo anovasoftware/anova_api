@@ -1,3 +1,7 @@
+netstat -aon | findstr :8000
+tasklist | findstr 9032
+taskkill /PID 9032 /F
+
 Given:
 1. pycharm ide
 2. windows os

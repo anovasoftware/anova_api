@@ -1,7 +1,10 @@
-from apps.res.api_views.table_api_views import AuthorizedHotelAPIView
+from django.contrib.messages import success
+
+from apps.res.api_views.res_api_views import AuthorizedHotelAPIView
 from django.utils import timezone
 from constants import type_constants
 from collections import defaultdict
+from apps.res.models import Room
 
 
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
@@ -11,6 +14,7 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         self.model_name = 'GuestRoom'
         self.hotel_id_field = 'guest__reservation__hotel_id'
         self.room_code = None
+        self.room = None
         self.accepted_type_ids = [
             type_constants.NOT_APPLICABLE,
         ]
@@ -18,7 +22,15 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     def load_request(self, request):
         super().load_request(request)
         self.room_code = self.get_param('roomCode', None, False)
-        # self.data['guest_rooms'] = {}
+
+        if self.room_code:
+            try:
+                self.room = Room.objects.get(
+                    hotel_id=self.hotel_id,
+                    code=self.room_code
+                )
+            except Exception as e:
+                self.set_message(f'room not found: {self.room_code}', success=False)
 
     def get_value_list(self):
         value_list = [
@@ -38,7 +50,11 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             # 'room__hotel__hotel_id',
             # 'room__hotel__description',
             # 'room__category__code',
-        ] + super().get_value_list()
+        ]
+        if self.room:
+            pass
+
+        value_list += super().get_value_list()
         return value_list
 
     def get_query_filter(self):
@@ -55,6 +71,17 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             filters['room__code'] = self.room_code
 
         return filters
+
+    def build_response(self):
+        response = super().build_response()
+
+        if self.room:
+            response['header']['room'] = {
+                'code': self.room.code
+            }
+
+        return response
+
 
     # def post_get(self, request):
     #     super().post_get(request)

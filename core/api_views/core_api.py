@@ -65,7 +65,7 @@ class CoreAPIView(GenericAPIView):
                 'database_key': os.getenv('DATABASE_KEY'),
                 # 'database-id':  os.getenv('DATABASE_ID'),
                 # 'request-id': self.request_id,
-                'supplied_parameters': self.params,
+                'parameters': self.params,
             },
             'header': {}
             # 'data': self.data

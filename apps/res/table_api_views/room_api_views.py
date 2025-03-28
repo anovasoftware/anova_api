@@ -1,4 +1,4 @@
-from apps.res.api_views.table_api_views import AuthorizedHotelAPIView
+from apps.res.api_views.res_api_views import AuthorizedHotelAPIView
 
 from constants import type_constants
 

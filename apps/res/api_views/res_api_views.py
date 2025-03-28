@@ -43,11 +43,12 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     def build_response(self):
         response = super().build_response()
 
-        hotel = self.hotel
-        response['header']['hotel'] = {
-            'hotel_id': hotel.hotel_id,
-            # 'type__description': hotel.type.description,
-            'description': hotel.description
-        }
+        if self.hotel:
+            hotel = self.hotel
+            response['header']['hotel'] = {
+                'hotel_id': hotel.hotel_id,
+                # 'type__description': hotel.type.description,
+                'description': hotel.description
+            }
 
         return response

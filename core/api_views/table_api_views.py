@@ -36,8 +36,6 @@ class TableAPIView(CoreAPIView):
             pass
         elif self.type_id not in self.accepted_type_ids:
             self.add_message(f'invalid typeId {self.type_id}', success=False)
-        elif not self.load_json(request):
-            pass
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
 
@@ -52,9 +50,9 @@ class TableAPIView(CoreAPIView):
                 data = [data]
             self.data_to_load = data
 
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
             loaded = False
-            self.set_message('Invalid JSON format.', success=False)
+            self.set_message(f'invalid JSON format in request body: {str(e)}', success=False)
 
         return loaded
 
@@ -90,7 +88,9 @@ class TableAPIView(CoreAPIView):
         # self.data['records'] = expanded_records
 
     def pre_post(self, request):
-        if not self.data_to_load:
+        if not self.load_json(request):
+            pass
+        elif not self.data_to_load:
             self.set_message('no json data supplied', success=False)
         elif len(self.data_to_load) == 0:
             self.set_message('empty json file', success=True)
