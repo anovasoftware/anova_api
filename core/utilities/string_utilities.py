@@ -13,3 +13,7 @@
 #     char31.zfill(length)
 #     return char31
 
+def mask_string(s):
+    if not s:
+        return ""
+    return s[0] + "#" * (len(s) - 1)

@@ -5,6 +5,7 @@ from django.utils import timezone
 from constants import type_constants
 from collections import defaultdict
 from apps.res.models import Room
+from core.utilities.string_utilities import mask_string
 
 
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
@@ -71,6 +72,19 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             filters['room__code'] = self.room_code
 
         return filters
+
+    def post_get(self, request):
+        mask_fields = [
+            'guest__person__first_name',
+            'guest__person__last_name',
+        ]
+
+        for record in self.records:
+            for mask_field in mask_fields:
+                if mask_field in record:
+                    record[mask_field] = mask_string(record[mask_field])
+
+        super().post_get(request)
 
     def build_response(self):
         response = super().build_response()
