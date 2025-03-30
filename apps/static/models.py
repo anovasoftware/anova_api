@@ -32,6 +32,30 @@ class Client(BaseModel):
 # AUTOGEN_END_Client#
 
 
+# AUTOGEN_BEGIN_Currency#
+class Currency(BaseModel):
+    currency_id      = models.CharField(max_length=  2, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    code             = models.CharField(max_length=  3, blank=False, unique=False, primary_key=False, default='')
+    symbol           = models.CharField(max_length=  3, blank=False, unique=False, primary_key=False, default='')
+    description      = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    order_by         = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_currency'
+        verbose_name_plural = 'currencies (static_currency)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'currency'
+# AUTOGEN_END_Currency#
+
+
 # AUTOGEN_BEGIN_Status#
 class Status(BaseModel):
     status_id        = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )

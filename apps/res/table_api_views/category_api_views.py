@@ -10,6 +10,7 @@ class AuthorizedCategoryAPIView(AuthorizedHotelAPIView):
         self.model_name = 'Category'
         self.accepted_type_ids = [
             type_constants.RES_CATEGORY_ROOM_CABIN,
+            type_constants.RES_CATEGORY_POS_MENU1
         ]
 
     def get_value_list(self):

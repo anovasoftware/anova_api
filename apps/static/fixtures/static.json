@@ -420,6 +420,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "00D",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_category",
+      "code": "menu1",
+      "description": "POS Menu Category 1",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_CATEGORY_POS_MENU1",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",
@@ -705,6 +729,86 @@
       "internal_comment": "",
       "created_date": "2025-03-10 00:00+0000",
       "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "00",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "N/A",
+      "symbol": "",
+      "description": "Not Applicable",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "01",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "USD",
+      "symbol": "$",
+      "description": "US Dollar",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "02",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "GBP",
+      "symbol": "£",
+      "description": "British Pound",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "03",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "EUR",
+      "symbol": "€",
+      "description": "Euro",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "99",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "TBA",
+      "symbol": "",
+      "description": "To Be Announced",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
     }
   }
 
