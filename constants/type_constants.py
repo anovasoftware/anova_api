@@ -6,7 +6,8 @@ PERSON_HOTEL_GUEST = '013'                                       # hotel/ship gu
 GENDER_FEMALE = '702'                                            # femaleGENDER_MALE = '701'                                              # maleGENDER_NOT_APPLICABLE = '700'                                    # not applicableGENDER_NOT_DISCLOSED = '704'                                     # not disclosed#  res_category
 RES_CATEGORY_POS_MENU1 = '00D'                                   # pos menu category 1RES_CATEGORY_POS_MENU2 = '00F'                                   # pos menu category 2RES_CATEGORY_ROOM_CABIN = '020'                                  # room/cabin category#  res_guest
 RES_GUEST_GUEST = '00B'                                          # guestRES_GUEST_STAFF = '00C'                                          # staff/crew#  res_hotel
-HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_reservation
+HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_pos_menu
+RES_POS_MENU_MAIN = '00K'                                        # main menu#  res_reservation
 RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_room
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  static_client
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  user_user

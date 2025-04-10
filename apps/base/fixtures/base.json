@@ -160,6 +160,54 @@
     }
   }
 ,  {
+    "model": "base.ExternalMapping",
+    "pk": "A00000002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "app_name": "static",
+      "model_name": "Currency",
+      "external_id": "CU-USD",
+      "internal_id": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-10 00:00+0000",
+      "last_updated": "2025-04-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.ExternalMapping",
+    "pk": "A00000003",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "app_name": "static",
+      "model_name": "Currency",
+      "external_id": "CU-GBP",
+      "internal_id": "02",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-10 00:00+0000",
+      "last_updated": "2025-04-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.ExternalMapping",
+    "pk": "A00000004",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "app_name": "static",
+      "model_name": "Currency",
+      "external_id": "CU-EUR",
+      "internal_id": "03",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-10 00:00+0000",
+      "last_updated": "2025-04-10 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Company",
     "pk": "A0000",
     "fields": {

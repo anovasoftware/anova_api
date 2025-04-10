@@ -468,6 +468,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "00K",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_pos_menu",
+      "code": "main menu",
+      "description": "Main Menu",
+      "description_short": "Main Menu",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_POS_MENU_MAIN",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "01",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-09 00:00+0000",
+      "last_updated": "2025-04-09 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",
