@@ -11,6 +11,8 @@ cd /var/app/current
 #source ~/venv/bin/activate
 source /var/app/venv/staging-LQM1lest/bin/activate
 
+
+python manage.py loaddata static.json
 # Run migrations
 python manage.py migrate authtoken
 python manage.py migrate static
