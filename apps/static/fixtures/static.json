@@ -468,6 +468,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "00G",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_chart_field",
+      "code": "revenue account",
+      "description": "revenue account",
+      "description_short": "revenue account",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_CHART_FIELD_REVENUE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "01",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-11 00:00+0000",
+      "last_updated": "2025-04-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "00K",
     "fields": {
       "parent_type_id": "000",
@@ -857,6 +881,42 @@
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
       "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Hotel",
+    "pk": "A000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "vms_identifier": "",
+      "grouping": "OTHER",
+      "hotel_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-11 00:00+0000",
+      "last_updated": "2025-04-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Hotel",
+    "pk": "A001",
+    "fields": {
+      "type_id": "006",
+      "status_id": "001",
+      "client_id": "001",
+      "code": "MEX",
+      "description": "Magellan Explorer",
+      "vms_identifier": "1401",
+      "grouping": "CRUISE SHIPS",
+      "hotel_key": "MAGELLAN_EXPLORER",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-11 00:00+0000",
+      "last_updated": "2025-04-11 00:00+0000"  
     }
   }
 

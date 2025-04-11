@@ -1,9 +1,6 @@
-from django.contrib.messages import success
-
-from apps.res.api_views.res_api_views import AuthorizedHotelAPIView
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from django.utils import timezone
 from constants import type_constants
-from collections import defaultdict
 from apps.res.models import Room
 from core.utilities.string_utilities import mask_string
 

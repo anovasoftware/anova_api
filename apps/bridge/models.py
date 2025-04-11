@@ -12,7 +12,7 @@ class Manifest(BaseModel):
     manifest_id           = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
     type                  = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status                = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    hotel                 = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+')
+    hotel                 = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     res_identifier        = models.CharField(max_length=  6, blank=False, unique=False, primary_key=False)
     res_status_identifier = models.CharField(max_length= 10, blank=False, unique=False, primary_key=False)
     channel_identifier    = models.CharField(max_length= 10, blank=False, unique=False, primary_key=False)

@@ -1,41 +1,5 @@
 [
   {
-    "model": "res.Hotel",
-    "pk": "A000",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "client_id": "000",
-      "code": "N/A",
-      "description": "Not Applicable",
-      "vms_identifier": "",
-      "grouping": "OTHER",
-      "hotel_key": "NOT_APPLICABLE",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-03-13 00:00+0000",
-      "last_updated": "2025-03-13 00:00+0000"  
-    }
-  }
-,  {
-    "model": "res.Hotel",
-    "pk": "A001",
-    "fields": {
-      "type_id": "006",
-      "status_id": "001",
-      "client_id": "001",
-      "code": "MEX",
-      "description": "Magellan Explorer",
-      "vms_identifier": "1401",
-      "grouping": "CRUISE SHIPS",
-      "hotel_key": "MAGELLAN_EXPLORER",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-03-10 00:00+0000",
-      "last_updated": "2025-03-10 00:00+0000"  
-    }
-  }
-,  {
     "model": "res.Room",
     "pk": "A000",
     "fields": {

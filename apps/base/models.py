@@ -7,6 +7,33 @@ from core.models import BaseModel
 # from .models_extended import *
 
 
+# AUTOGEN_BEGIN_ChartField#
+class ChartField(BaseModel):
+    chart_field_id      = models.CharField(max_length=  7, blank=False, unique=False, primary_key=True )
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, default='001')
+    code                = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    description         = models.CharField(max_length=254, blank=False, unique=False, primary_key=False)
+    description_short   = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_chart_field'
+        verbose_name_plural = 'Chart Fields (base_chart_field)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'chart_field'
+# AUTOGEN_END_ChartField#
+
+
 # AUTOGEN_BEGIN_Company#
 class Company(BaseModel):
     company_id          = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )

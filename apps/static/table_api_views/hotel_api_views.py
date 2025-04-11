@@ -2,7 +2,7 @@ from django.contrib.messages import success
 from django.core.exceptions import ObjectDoesNotExist
 
 from core.api_views.table_api_views import AuthorizedTableAPIView
-from apps.res.models import Hotel
+from apps.static.models import Hotel
 
 from constants import type_constants
 

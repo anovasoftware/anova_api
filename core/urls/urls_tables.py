@@ -1,5 +1,6 @@
 from django.urls import path
 
+from apps.base.table_api_views.chart_field_api_views import AuthorizedChartFieldAPIView
 from apps.base.table_api_views.company_api_views import AuthorizedCompanyAPIView
 from apps.base.table_api_views.person_api_view import AuthorizedPersonAPIView
 
@@ -11,6 +12,7 @@ from apps.res.table_api_views.room_api_views import AuthorizedRoomAPIView
 from apps.res.table_api_views.reservation_api_views import AuthorizedReservationAPIView
 
 urlpatterns = [
+    path('base/chart_field/', AuthorizedChartFieldAPIView.as_view()),
     path('base/company/', AuthorizedCompanyAPIView.as_view()),
     path('base/person/', AuthorizedPersonAPIView.as_view()),
 

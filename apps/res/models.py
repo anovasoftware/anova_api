@@ -10,7 +10,7 @@ from core.models import BaseModel
 # AUTOGEN_BEGIN_Category#
 class Category(BaseModel):
     category_id         = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
-    hotel               = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
     parent_category     = models.ForeignKey("self", on_delete=models.CASCADE, to_field='category_id', related_name="+", db_column="parent_category_id", default=None, null=True)
@@ -84,36 +84,10 @@ class GuestRoom(BaseModel):
 # AUTOGEN_END_GuestRoom#
 
 
-# AUTOGEN_BEGIN_Hotel#
-class Hotel(BaseModel):
-    hotel_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
-    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='999')
-    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    client           = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='999')
-    code             = models.CharField(max_length= 10, blank=False, unique=False, primary_key=False)
-    description      = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
-    vms_identifier   = models.CharField(max_length=  4, blank=False, unique=False, primary_key=False)
-    grouping         = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
-    hotel_key        = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
-    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
-    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
-    created_date     = models.DateTimeField(auto_now_add=True)
-    last_updated     = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        db_table            = 'res_hotel'
-        verbose_name_plural = 'hotels/cruise ships (res_hotel)'
-        ordering            = []
-        
-    def __str__(self):
-        return 'hotel'
-# AUTOGEN_END_Hotel#
-
-
 # AUTOGEN_BEGIN_PosMenu#
 class PosMenu(BaseModel):
     pos_menu_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
-    hotel               = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     category            = models.ForeignKey("res.Category", on_delete=models.CASCADE, related_name='+', default='A9999')
@@ -141,7 +115,7 @@ class PosMenu(BaseModel):
 # AUTOGEN_BEGIN_Reservation#
 class Reservation(BaseModel):
     reservation_id           = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    hotel                    = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    hotel                    = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     type                     = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status                   = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     travel_agency_company    = models.ForeignKey("base.Company", on_delete=models.CASCADE, related_name='+', default='A0000')
@@ -167,7 +141,7 @@ class Room(BaseModel):
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='999')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='999')
-    hotel               = models.ForeignKey("res.Hotel", on_delete=models.CASCADE, related_name='+')
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     category            = models.ForeignKey("res.Category", on_delete=models.CASCADE, related_name='+', default='A9999')
     order_by            = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='99')
     code                = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
