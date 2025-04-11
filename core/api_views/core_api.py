@@ -4,7 +4,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.request import Request
 from constants import constants
 from apps.static.models import Status
-from apps.bridge.models import Manifest
+# from apps.bridge.models import Manifest
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
 
@@ -230,50 +230,50 @@ class GuestRoomAPI(AuthorizedAPIView):
         status = Status.objects.get(pk='001')
         self.message = 'under construction'
 
-        manifests = Manifest.objects.filter(
-        )
-        record1 = manifests[0]
-        self.data['Status'] = '001'
-        self.data['HotelId'] = record1.hotel.hotel_id
-        self.data['HotelName'] = record1.hotel.description
-        self.data['ReservationId'] = record1.res_identifier
-        self.data['ReservationStatus'] = record1.res_status_identifier
-        self.data['ChannelId'] = record1.channel_identifier
-        self.data['BookingPlatform'] = record1.booking_platform
-        self.data['CreatedDate'] = '2025-02-15'
-        self.data['CreatedTime'] = '09:12:34'
-        self.data['CheckInDate'] = record1.check_in_date
-        self.data['CheckOutDate'] = record1.check_out_date
-        self.data['CheckOutDate'] = record1.check_out_date
-        self.data['Pax'] = manifests.count()
-        self.data['PMSIRooms']: []
+        # manifests = Manifest.objects.filter(
+        # )
+        # record1 = manifests[0]
+        # self.data['Status'] = '001'
+        # self.data['HotelId'] = record1.hotel.hotel_id
+        # self.data['HotelName'] = record1.hotel.description
+        # self.data['ReservationId'] = record1.res_identifier
+        # self.data['ReservationStatus'] = record1.res_status_identifier
+        # self.data['ChannelId'] = record1.channel_identifier
+        # self.data['BookingPlatform'] = record1.booking_platform
+        # self.data['CreatedDate'] = '2025-02-15'
+        # self.data['CreatedTime'] = '09:12:34'
+        # self.data['CheckInDate'] = record1.check_in_date
+        # self.data['CheckOutDate'] = record1.check_out_date
+        # self.data['CheckOutDate'] = record1.check_out_date
+        # self.data['Pax'] = manifests.count()
+        # self.data['PMSIRooms']: []
 
-        rooms = self.data['PMSIRooms'] = {
-            'RoomNumber': record1.room_number,
-            'RoomType': record1.room_type,
-            'PMSIGuests': []
-        }
-        guests = rooms['PMSIGuests']
-
-        for manifest in manifests:
-            guests.append(
-                {
-                    "GuestName": f"{manifest.first_name} {manifest.last_name}",
-                    "GuestId": manifest.guest_identifier,
-                    "FirstName": manifest.first_name,
-                    "LastName": manifest.last_name,
-                    "Email": manifest.email,
-                    "Gender": manifest.gender,
-                    "Birthday": manifest.birth_date,
-                    "Mobile": manifest.mobile_phone_number,
-                    "Nationality": manifest.nationality,
-                    "DocumentNumber": manifest.document_number,
-                    "DocumentType": manifest.document_type,
-
-                }
-            )
-
-        print(guests)
+        # rooms = self.data['PMSIRooms'] = {
+        #     'RoomNumber': record1.room_number,
+        #     'RoomType': record1.room_type,
+        #     'PMSIGuests': []
+        # }
+        # guests = rooms['PMSIGuests']
+        #
+        # for manifest in manifests:
+        #     guests.append(
+        #         {
+        #             "GuestName": f"{manifest.first_name} {manifest.last_name}",
+        #             "GuestId": manifest.guest_identifier,
+        #             "FirstName": manifest.first_name,
+        #             "LastName": manifest.last_name,
+        #             "Email": manifest.email,
+        #             "Gender": manifest.gender,
+        #             "Birthday": manifest.birth_date,
+        #             "Mobile": manifest.mobile_phone_number,
+        #             "Nationality": manifest.nationality,
+        #             "DocumentNumber": manifest.document_number,
+        #             "DocumentType": manifest.document_type,
+        #
+        #         }
+        #     )
+        #
+        # print(guests)
 
 
 class IsThirdPartyUser(BasePermission):

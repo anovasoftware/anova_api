@@ -91,5 +91,47 @@
       "last_updated": "2025-03-15 00:00+0000"  
     }
   }
+,  {
+    "model": "res.Category",
+    "pk": "A0000",
+    "fields": {
+      "hotel_id": "A000",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "99",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "category_key": "BASE_CATEGORY_NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-11 00:00+0000",
+      "last_updated": "2025-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Category",
+    "pk": "A9999",
+    "fields": {
+      "hotel_id": "A000",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "99",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "category_key": "BASE_CATEGORY_TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-11 00:00+0000",
+      "last_updated": "2025-03-11 00:00+0000"  
+    }
+  }
 
 ]
