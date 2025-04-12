@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='category',
             name='hotel',
-            field=models.ForeignKey(default='A000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='res.hotel'),
+            field=models.ForeignKey(default='A000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.hotel'),
         ),
     ]

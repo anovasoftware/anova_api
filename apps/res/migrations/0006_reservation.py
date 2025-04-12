@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('internal_comment', models.TextField(blank=True)),
                 ('created_date', models.DateTimeField(auto_now_add=True)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
-                ('hotel', models.ForeignKey(default='A000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='res.hotel')),
+                ('hotel', models.ForeignKey(default='A000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.hotel')),
                 ('person', models.ForeignKey(default='A00000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='base.person')),
                 ('status', models.ForeignKey(default='001', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status')),
                 ('travel_agency_company', models.ForeignKey(default='A0000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='base.company')),

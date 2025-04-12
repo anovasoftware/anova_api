@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('internal_comment', models.TextField(blank=True)),
                 ('created_date', models.DateTimeField(auto_now_add=True)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
-                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='+', to='res.hotel')),
+                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.hotel')),
                 ('status', models.ForeignKey(default='001', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status')),
                 ('type', models.ForeignKey(default='000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.type')),
             ],

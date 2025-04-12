@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('category', models.ForeignKey(default='A9999', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='res.category')),
                 ('client', models.ForeignKey(default='999', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.client')),
                 ('effective_status', models.ForeignKey(default='021', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status')),
-                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='+', to='res.hotel')),
+                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.hotel')),
                 ('status', models.ForeignKey(default='001', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status')),
                 ('type', models.ForeignKey(default='999', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.type')),
             ],

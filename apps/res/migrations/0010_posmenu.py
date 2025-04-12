@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('last_updated', models.DateTimeField(auto_now=True)),
                 ('currency', models.ForeignKey(default='00', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.currency')),
                 ('effective_status', models.ForeignKey(default='021', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status')),
-                ('hotel', models.ForeignKey(default='A000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='res.hotel')),
+                ('hotel', models.ForeignKey(default='A000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.hotel')),
                 ('status', models.ForeignKey(default='001', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status')),
                 ('type', models.ForeignKey(default='000', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.type')),
             ],
