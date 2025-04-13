@@ -21,7 +21,7 @@ class Category(BaseModel):
     end_date            = models.DateTimeField(default=end_of_time)
     effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
     grouping            = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
-    category_key        = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False)
+    category_key        = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
     static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
     created_date        = models.DateTimeField(auto_now_add=True)

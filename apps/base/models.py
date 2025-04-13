@@ -7,6 +7,37 @@ from core.models import BaseModel
 # from .models_extended import *
 
 
+# AUTOGEN_BEGIN_Category#
+class Category(BaseModel):
+    category_id         = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='000')
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    parent_category     = models.ForeignKey("self", on_delete=models.CASCADE, to_field='category_id', related_name="+", default=None, null=True)
+    order_by            = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='99')
+    code                = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    description         = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False)
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    grouping            = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    category_key        = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_category'
+        verbose_name_plural = 'categories (base_category)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'category'
+# AUTOGEN_END_Category#
+
+
 # AUTOGEN_BEGIN_ChartField#
 class ChartField(BaseModel):
     chart_field_id      = models.CharField(max_length=  7, blank=False, unique=False, primary_key=True )
