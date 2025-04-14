@@ -137,6 +137,35 @@ class Identifier(models.Model):
 # AUTOGEN_END_Identifier#
 
 
+# AUTOGEN_BEGIN_Item#
+class Item(BaseModel):
+    item_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    category            = models.ForeignKey("base.Category", on_delete=models.CASCADE, related_name='+', default='A0000')
+    code                = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    description         = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False, default='')
+    order_by            = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default="99")
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
+    grouping            = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    item_key            = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_item'
+        verbose_name_plural = 'items (base_item)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'item'
+# AUTOGEN_END_Item#
+
+
 # AUTOGEN_BEGIN_Person#
 class Person(BaseModel):
     person_id        = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )

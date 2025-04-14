@@ -6,6 +6,7 @@ import json
 from django.db import models
 from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
+from apps.static.models import Type
 from apps.base.models import ExternalMapping
 from constants import type_constants
 
@@ -19,6 +20,7 @@ class TableAPIView(CoreAPIView):
         self.data_to_load = None
         self.accepted_type_ids = []
         self.type_id = None
+        self.type = None
         self.external_id_prefix = None
         self.records = []
 
@@ -38,6 +40,7 @@ class TableAPIView(CoreAPIView):
             self.add_message(f'invalid typeId {self.type_id}', success=False)
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
+            self.type = Type.objects.get(type_id=self.type_id)
 
     def load_json(self, request):
         loaded = True
@@ -191,6 +194,10 @@ class TableAPIView(CoreAPIView):
         response = super().build_response()
 
         response['header']['record_count'] = len(self.records)
+        response['header']['type'] = {
+            'type_id': self.type.type_id,
+            'description': self.type.description
+        }
         response['detail'] = self.records
 
         return response

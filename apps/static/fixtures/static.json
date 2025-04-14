@@ -492,6 +492,54 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "00H",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_item",
+      "code": "pos",
+      "description": "point of sale item",
+      "description_short": "point of sale item",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_ITEM_POINT_OF_SALE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "01",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-14 00:00+0000",
+      "last_updated": "2025-04-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "00J",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_item",
+      "code": "inventory",
+      "description": "inventory item",
+      "description_short": "inventory item",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_ITEM_INVENTORY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "02",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-14 00:00+0000",
+      "last_updated": "2025-04-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "00K",
     "fields": {
       "parent_type_id": "000",
