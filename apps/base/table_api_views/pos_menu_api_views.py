@@ -6,10 +6,10 @@ from constants import type_constants
 class AuthorizedPosMenuAPIView(AuthorizedHotelAPIView):
     def __init__(self):
         super().__init__()
-        self.app_name = 'res'
+        self.app_name = 'base'
         self.model_name = 'PosMenu'
         self.accepted_type_ids = [
-            type_constants.RES_POS_MENU_MAIN
+            type_constants.BASE_POS_MENU_MAIN
         ]
 
     def get_value_list(self):

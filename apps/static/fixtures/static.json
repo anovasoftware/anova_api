@@ -549,7 +549,7 @@
       "description_short": "Main Menu",
       "description_long": "",
       "description2": "",
-      "type_key": "RES_POS_MENU_MAIN",
+      "type_key": "BASE_POS_MENU_MAIN",
       "group1": "",
       "flag1": "",
       "flag2": "",

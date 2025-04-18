@@ -197,6 +197,34 @@ class Person(BaseModel):
 # AUTOGEN_END_Person#
 
 
+# AUTOGEN_BEGIN_PosMenu#
+class PosMenu(BaseModel):
+    pos_menu_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    category            = models.ForeignKey("base.Category", on_delete=models.CASCADE, related_name='+', default='A9999')
+    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    menu_start_date     = models.DateTimeField(default=today)
+    menu_end_date       = models.DateTimeField(default=end_of_time)
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_pos_menu'
+        verbose_name_plural = 'Pont of Sale Menus (base_pos_menu)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'pos_menu'
+# AUTOGEN_END_PosMenu#
+
+
 # AUTOGEN_BEGIN_User#
 class User(AbstractUser, BaseModel):
     user_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
