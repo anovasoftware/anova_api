@@ -543,7 +543,7 @@
     "pk": "00K",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "res_pos_menu",
+      "grouping": "base_pos_menu",
       "code": "main menu",
       "description": "Main Menu",
       "description_short": "Main Menu",
@@ -560,6 +560,30 @@
       "internal_comment": "",
       "created_date": "2025-04-09 00:00+0000",
       "last_updated": "2025-04-09 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "00L",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_pos_menu_item",
+      "code": "regular item",
+      "description": "regular item",
+      "description_short": "regular item",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_POS_MENU_ITEM_REGULAR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-18 00:00+0000",
+      "last_updated": "2025-04-18 00:00+0000"  
     }
   }
 ,  {

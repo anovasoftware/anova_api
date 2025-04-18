@@ -225,6 +225,29 @@ class PosMenu(BaseModel):
 # AUTOGEN_END_PosMenu#
 
 
+# AUTOGEN_BEGIN_PosMenuItem#
+class PosMenuItem(BaseModel):
+    pos_menu_item_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    pos_menu         = models.ForeignKey("base.PosMenu", on_delete=models.CASCADE, related_name='+')
+    item             = models.ForeignKey("base.Item", on_delete=models.CASCADE, related_name='+')
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='00L')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    price            = models.DecimalField(max_digits= 11, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_pos_menu_item'
+        verbose_name_plural = 'pos_menu/item junction (base_pos_menu_item)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'pos_menu_item'
+# AUTOGEN_END_PosMenuItem#
+
+
 # AUTOGEN_BEGIN_User#
 class User(AbstractUser, BaseModel):
     user_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )

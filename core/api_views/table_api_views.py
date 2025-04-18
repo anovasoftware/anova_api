@@ -194,10 +194,11 @@ class TableAPIView(CoreAPIView):
         response = super().build_response()
 
         response['header']['record_count'] = len(self.records)
-        response['header']['type'] = {
-            'type_id': self.type.type_id,
-            'description': self.type.description
-        }
+        if self.type:
+            response['header']['type'] = {
+                'type_id': self.type.type_id,
+                'description': self.type.description
+            }
         response['detail'] = self.records
 
         return response
