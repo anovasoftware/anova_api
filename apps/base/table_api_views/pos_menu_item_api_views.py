@@ -11,6 +11,7 @@ class AuthorizedPosMenuItemAPIView(AuthorizedHotelAPIView):
         self.accepted_type_ids = [
             type_constants.BASE_POS_MENU_ITEM_REGULAR
         ]
+        self.hotel_id_field = 'pos_menu__hotel_id'
 
     def get_value_list(self):
         value_list = [
