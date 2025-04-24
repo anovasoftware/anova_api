@@ -36,11 +36,14 @@ class TableAPIView(CoreAPIView):
 
         if not self.success:
             pass
-        elif self.type_id not in self.accepted_type_ids:
+        elif self.type_id not in self.accepted_type_ids and 'ALL' not in self.accepted_type_ids:
             self.add_message(f'invalid typeId {self.type_id}', success=False)
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
-            self.type = Type.objects.get(type_id=self.type_id)
+            try:
+                self.type = Type.objects.get(type_id=self.type_id)
+            except Exception as e:
+                pass
 
     def load_json(self, request):
         loaded = True
@@ -79,10 +82,12 @@ class TableAPIView(CoreAPIView):
         # ]
 
     def get_query_filter(self):
-        type_ids = [self.type_id, type_constants.NOT_APPLICABLE]
-        filters = {
-            'type_id__in': type_ids
-        }
+        filters = {}
+        if self.type:
+            type_ids = [self.type_id, type_constants.NOT_APPLICABLE]
+            filters = {
+                'type_id__in': type_ids
+            }
         return filters
 
     def post_get(self, request):

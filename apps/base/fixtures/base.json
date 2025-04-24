@@ -153,6 +153,7 @@
       "model_name": "Company",
       "external_id": "VMS-0000-AG-000000",
       "internal_id": "A0000",
+      "external_pk": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-22 00:00+0000",
@@ -169,6 +170,7 @@
       "model_name": "Currency",
       "external_id": "CU-USD",
       "internal_id": "01",
+      "external_pk": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-10 00:00+0000",
@@ -185,6 +187,7 @@
       "model_name": "Currency",
       "external_id": "CU-GBP",
       "internal_id": "02",
+      "external_pk": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-10 00:00+0000",
@@ -201,6 +204,7 @@
       "model_name": "Currency",
       "external_id": "CU-EUR",
       "internal_id": "03",
+      "external_pk": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-10 00:00+0000",
@@ -329,6 +333,27 @@
       "internal_comment": "",
       "created_date": "2025-04-13 00:00+0000",
       "last_updated": "2025-04-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Item",
+    "pk": "A00000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "category_id": "A0000",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "order_by": "99",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "item_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-22 00:00+0000",
+      "last_updated": "2025-04-22 00:00+0000"  
     }
   }
 
