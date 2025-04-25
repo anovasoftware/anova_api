@@ -11,6 +11,7 @@ from apps.base.table_api_views.pos_menu_item_api_views import AuthorizedPosMenuI
 
 from apps.res.table_api_views.guest_api_views import AuthorizedGuestAPIView
 from apps.res.table_api_views.guest_room_api_views import AuthorizedGuestRoomAPIView
+from apps.res.table_api_views.event_api_views import AuthorizedEventAPIView
 from apps.res.table_api_views.room_api_views import AuthorizedRoomAPIView
 from apps.res.table_api_views.reservation_api_views import AuthorizedReservationAPIView
 from apps.res.table_api_views.transaction_api_views import AuthorizedTransactionAPIView
@@ -25,6 +26,7 @@ urlpatterns = [
     path('base/pos_menu/', AuthorizedPosMenuAPIView.as_view()),
     path('base/pos_menu_item/', AuthorizedPosMenuItemAPIView.as_view()),
 
+    path('res/event/', AuthorizedEventAPIView.as_view()),
     path('res/guest/', AuthorizedGuestAPIView.as_view()),
     path('res/guest_room/', AuthorizedGuestRoomAPIView.as_view()),
     path('res/reservation/', AuthorizedReservationAPIView.as_view()),

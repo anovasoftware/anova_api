@@ -7,6 +7,36 @@ from core.models import BaseModel
 # from .models_extended import *
 
 
+# AUTOGEN_BEGIN_Event#
+class Event(BaseModel):
+    event_id            = models.CharField(max_length=  6, blank=False, unique=False, primary_key=True )
+    parent_event        = models.ForeignKey("self", on_delete=models.CASCADE, to_field='event_id', related_name="+", db_column="parent_event_id", default=None, null=True)
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='999')
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    code                = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False)
+    description         = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False)
+    event_start_date    = models.DateTimeField(default=beginning_of_time)
+    event_end_date      = models.DateTimeField(default=end_of_time)
+    start_date          = models.DateTimeField(default=today)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_event'
+        verbose_name_plural = 'events (res_event)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'event'
+# AUTOGEN_END_Event#
+
+
 # AUTOGEN_BEGIN_Guest#
 class Guest(BaseModel):
     guest_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )

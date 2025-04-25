@@ -37,7 +37,14 @@ class TableAPIView(CoreAPIView):
         if not self.success:
             pass
         elif self.type_id not in self.accepted_type_ids and 'ALL' not in self.accepted_type_ids:
-            self.add_message(f'invalid typeId {self.type_id}', success=False)
+            message = f'invalid typeId {self.type_id}.'
+            valid_types = ''
+
+            for type_id in self.accepted_type_ids:
+                valid_types += f', {type_id}'
+            valid_types = valid_types[2:]
+            message += f'{message} valid types: {valid_types}'
+            self.add_message(message, success=False)
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
             try:
