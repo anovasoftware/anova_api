@@ -91,5 +91,47 @@
       "last_updated": "2025-03-15 00:00+0000"  
     }
   }
+,  {
+    "model": "res.Event",
+    "pk": "A00000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "event_start_date": "1900-01-01 00:00+0000",
+      "event_end_date": "2099-12-31 00:00+0000",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-26 00:00+0000",
+      "last_updated": "2025-04-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Event",
+    "pk": "A99999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "event_start_date": "1900-01-01 00:00+0000",
+      "event_end_date": "2099-12-31 00:00+0000",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-26 00:00+0000",
+      "last_updated": "2025-04-26 00:00+0000"  
+    }
+  }
 
 ]

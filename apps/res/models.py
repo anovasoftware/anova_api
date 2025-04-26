@@ -144,6 +144,7 @@ class Transaction(BaseModel):
     type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     hotel            = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    event            = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
     guest            = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
     server_guest     = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
     description      = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
@@ -160,5 +161,34 @@ class Transaction(BaseModel):
     def __str__(self):
         return 'transaction'
 # AUTOGEN_END_Transaction#
+
+
+# AUTOGEN_BEGIN_TransactionSale#
+class TransactionSale(BaseModel):
+    transaction_sale_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    transaction         = models.ForeignKey("res.Transaction", on_delete=models.CASCADE, related_name='+')
+    pos_menu_item       = models.ForeignKey("base.PosMenuItem", on_delete=models.CASCADE, related_name='+')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    description         = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False)
+    quantity            = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    price               = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    service_rate        = models.DecimalField(max_digits=  8, decimal_places=  4, blank=False, unique=False, primary_key=False, default=0.00)
+    discount_rate       = models.DecimalField(max_digits=  8, decimal_places=  4, blank=False, unique=False, primary_key=False, default=0.00)
+    discount_flat       = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    allowance           = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_transaction_sale'
+        verbose_name_plural = 'Transaction Sales (res_transaction_sale)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'transaction_sale'
+# AUTOGEN_END_TransactionSale#
 
 
