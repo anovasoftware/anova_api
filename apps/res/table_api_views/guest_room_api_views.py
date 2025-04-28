@@ -71,10 +71,11 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         return filters
 
     def post_get(self, request):
-        mask_fields = [
-            'guest__person__first_name',
-            'guest__person__last_name',
-        ]
+        mask_fields = []
+        # mask_fields = [
+        #     'guest__person__first_name',
+        #     'guest__person__last_name',
+        # ]
 
         for record in self.records:
             for mask_field in mask_fields:

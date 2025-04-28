@@ -15,6 +15,7 @@ from apps.res.table_api_views.event_api_views import AuthorizedEventAPIView
 from apps.res.table_api_views.room_api_views import AuthorizedRoomAPIView
 from apps.res.table_api_views.reservation_api_views import AuthorizedReservationAPIView
 from apps.res.table_api_views.transaction_api_views import AuthorizedTransactionAPIView
+from apps.res.table_api_views.transaction_item_api_views import AuthorizedTransactionItemAPIView
 
 urlpatterns = [
     path('base/category/', AuthorizedCategoryAPIView.as_view()),
@@ -32,4 +33,5 @@ urlpatterns = [
     path('res/reservation/', AuthorizedReservationAPIView.as_view()),
     path('res/room/', AuthorizedRoomAPIView.as_view()),
     path('res/transaction/', AuthorizedTransactionAPIView.as_view()),
+    path('res/transaction_item/', AuthorizedTransactionItemAPIView.as_view()),
 ]

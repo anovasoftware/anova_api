@@ -23,6 +23,8 @@ class TableAPIView(CoreAPIView):
         self.type = None
         self.external_id_prefix = None
         self.records = []
+        self.json_required = True
+        self.posting_type = 'batch'
 
     def load_request(self, request):
         super().load_request(request)
@@ -65,7 +67,8 @@ class TableAPIView(CoreAPIView):
 
         except json.JSONDecodeError as e:
             loaded = False
-            self.set_message(f'invalid JSON format in request body: {str(e)}', success=False)
+            if self.json_required:
+                self.set_message(f'invalid JSON format in request body: {str(e)}', success=False)
 
         return loaded
 
@@ -132,6 +135,14 @@ class TableAPIView(CoreAPIView):
                 self.set_message('must supply a field named external_id', success=False)
 
     def _post(self, request):
+        if not self.posting_type:
+            pass
+        elif self.posting_type == 'batch':
+            self._post_batch(request)
+        elif self.posting_type == 'simple':
+            self._post_simple(request)
+
+    def _post_batch(self, request):
         records_created = 0
         records_updated = 0
 
@@ -167,6 +178,9 @@ class TableAPIView(CoreAPIView):
         self.data['records_created'] = records_created
         self.data['records_updated'] = records_updated
         # self.set_message('under construction', success=False)
+
+    def _post_simple(self, request):
+        self.add_message('_post_simple not defined', success=False)
 
     def get_external_mapping(self, record):
         mapping: ExternalMapping

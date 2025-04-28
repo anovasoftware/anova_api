@@ -163,11 +163,11 @@ class Transaction(BaseModel):
 # AUTOGEN_END_Transaction#
 
 
-# AUTOGEN_BEGIN_TransactionSale#
-class TransactionSale(BaseModel):
-    transaction_sale_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    transaction         = models.ForeignKey("res.Transaction", on_delete=models.CASCADE, related_name='+')
-    pos_menu_item       = models.ForeignKey("base.PosMenuItem", on_delete=models.CASCADE, related_name='+')
+# AUTOGEN_BEGIN_TransactionItem#
+class TransactionItem(BaseModel):
+    transaction_item_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    transaction         = models.ForeignKey("res.Transaction", on_delete=models.CASCADE, related_name='transactionItems')
+    item                = models.ForeignKey("base.Item", on_delete=models.CASCADE, related_name='+')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     description         = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False)
@@ -183,12 +183,12 @@ class TransactionSale(BaseModel):
     last_updated        = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table            = 'res_transaction_sale'
-        verbose_name_plural = 'Transaction Sales (res_transaction_sale)'
+        db_table            = 'res_transaction_item'
+        verbose_name_plural = 'Transaction Items (res_transaction_item)'
         ordering            = []
         
     def __str__(self):
-        return 'transaction_sale'
-# AUTOGEN_END_TransactionSale#
+        return 'transaction_item'
+# AUTOGEN_END_TransactionItem#
 
 

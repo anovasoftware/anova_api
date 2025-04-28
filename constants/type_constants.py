@@ -15,6 +15,7 @@ RES_GUEST_GUEST = '00B'                                          # guestRES_GUE
 HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_reservation
 RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_room
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  res_transaction
-RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_SALE = '00P'                                     # chargeRES_TRANSACTION_STAGED_SALE = '00N'                              # staged charge#  static_client
+RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_SALE = '00P'                                     # chargeRES_TRANSACTION_STAGED_SALE = '00N'                              # staged charge#  res_transaction_item
+RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  static_client
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  user_user
 USER_REAL = '041'                                                # real user

@@ -732,6 +732,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "00T",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_transaction_item",
+      "code": "regular",
+      "description": "regular",
+      "description_short": "regular",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_TRANSACTION_ITEM_REGULAR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-27 00:00+0000",
+      "last_updated": "2025-04-27 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",

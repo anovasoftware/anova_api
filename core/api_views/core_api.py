@@ -7,6 +7,7 @@ from apps.static.models import Status
 # from apps.bridge.models import Manifest
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
+from decimal import Decimal, InvalidOperation
 
 
 class CoreAPIView(GenericAPIView):
@@ -28,14 +29,11 @@ class CoreAPIView(GenericAPIView):
         self.user_id = None
         self.response_format = 'camel_case'
 
-    # def setup(self, request, *args, **kwargs):
-    #     # super().initial(request, *args, **kwargs)
-    #     self.third_party_flag = self.kwargs.get('thirdPartyFlag', 'N')
-    #     super().setup(request, *args, **kwargs)
+    def dispatch(self, request, *args, **kwargs):
+        # Set third_party_flag before the view logic runs
+        self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
+        return super().dispatch(request, *args, **kwargs)
 
-    # def setup(self, request, *args, **kwargs):
-    #     self.third_party_flag = kwargs.get('thirdPartyFlag', 'N')
-    #     super().setup(request, *args, **kwargs)
 
     def get_response(self):
         response = self.build_response()
@@ -80,9 +78,9 @@ class CoreAPIView(GenericAPIView):
         self.request_id = getattr(request, "request_id", "unknown")
         self.debug_flag = self.get_param('debugFlag', 'N', False)
         self.user_id = request.user.user_id
-        # self.access_user_id = request.user.access_user_id
+        print('user')
 
-    def get_param(self, key, default_value, required):
+    def get_param(self, key, default_value, required, parameter_type=None):
         ret_value = default_value
         params: Request = self.request.query_params
 
@@ -95,6 +93,13 @@ class CoreAPIView(GenericAPIView):
 
         if key != 'debugFlag':
             self.params[key] = ret_value
+
+        if parameter_type and parameter_type == 'decimal':
+            try:
+                ret_value = Decimal(ret_value)
+            except InvalidOperation as e:
+                self.add_message(f'{key} format error. expecting {parameter_type}:  {str(e)}', success=False)
+
         return ret_value
 
     def add_message(self, message, success=True):
@@ -181,6 +186,7 @@ class AuthorizedAPIView(CoreAPIView):
 
     def load_request(self, request):
         super().load_request(request)
+
         self.user_id = request.user.user_id
 
 
