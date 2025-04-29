@@ -223,6 +223,7 @@ class TableAPIView(CoreAPIView):
         if self.type:
             response['header']['type'] = {
                 'type_id': self.type.type_id,
+                'code': self.type.code,
                 'description': self.type.description
             }
         response['detail'] = self.records

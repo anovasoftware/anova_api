@@ -18,8 +18,6 @@ class AuthorizedHotelItemAPIView(AuthorizedHotelAPIView):
             # 'type__type_id',
             # 'type__description',
             'hotel_item_id',
-            'code',
-            'description',
             'special_item_type__type_id',
             'special_item_type__description',
             'item__item_id',
