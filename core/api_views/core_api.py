@@ -97,6 +97,7 @@ class CoreAPIView(GenericAPIView):
         if parameter_type and parameter_type == 'decimal':
             try:
                 ret_value = Decimal(ret_value)
+                self.params[key] = ret_value
             except InvalidOperation as e:
                 self.add_message(f'{key} format error. expecting {parameter_type}:  {str(e)}', success=False)
 

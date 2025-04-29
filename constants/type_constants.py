@@ -12,7 +12,9 @@ BASE_POS_MENU_MAIN = '00K'                                       # main menu# 
 BASE_POS_MENU_ITEM_REGULAR = '00L'                               # regular item#  res_event
 RES_EVENT_CRUISE = '00R'                                         # cruiseRES_EVENT_TOUR = '00S'                                           # tour#  res_guest
 RES_GUEST_GUEST = '00B'                                          # guestRES_GUEST_STAFF = '00C'                                          # staff/crew#  res_hotel
-HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_reservation
+HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_hotel_item
+RES_HOTEL_ITEM_SPECIAL_ITEM = '00V'                              # special items#  res_hotel_item.special_item
+RES_HOTEL_ITEM_SPECIAL_ITEM_INTERNET_GUEST = '00W'               # guest internet#  res_reservation
 RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_room
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  res_transaction
 RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_SALE = '00P'                                     # chargeRES_TRANSACTION_STAGED_SALE = '00N'                              # staged charge#  res_transaction_item
