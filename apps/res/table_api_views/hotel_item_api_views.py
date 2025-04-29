@@ -20,6 +20,8 @@ class AuthorizedHotelItemAPIView(AuthorizedHotelAPIView):
             'hotel_item_id',
             'special_item_type__type_id',
             'special_item_type__description',
+            'special_item_type__code',
+            'special_item_type__type_key',
             'item__item_id',
             'item__description'
         ] + super().get_value_list()
