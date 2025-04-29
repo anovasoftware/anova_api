@@ -14,10 +14,12 @@ class AuthorizedHotelItemAPIView(AuthorizedHotelAPIView):
 
     def get_value_list(self):
         value_list = [
-            'hotel__description',
+            # 'hotel__description',
+            # 'type__type_id',
+            # 'type__description',
             'hotel_item_id',
-            'type__type_id',
-            'type__description',
+            'code',
+            'description',
             'special_item_type__type_id',
             'special_item_type__description',
             'item__item_id',
