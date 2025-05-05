@@ -10,6 +10,7 @@ def run():
 
     apps = ['static', 'base', 'res', 'bridge']
 
+    commands.append('manage.py migrate authtoken')
     for app in apps:
         commands.append(f'manage.py migrate {app}')
         commands.append(f'manage.py loaddata {app}.json')

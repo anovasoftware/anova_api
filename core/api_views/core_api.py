@@ -110,6 +110,7 @@ class CoreAPIView(GenericAPIView):
             self.set_message('call failed')
 
     def set_message(self, message, success=True):
+        self.messages.append(message)
         self.message = message
         self.success = self.success and success
 

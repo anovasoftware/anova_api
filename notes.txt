@@ -2,6 +2,12 @@ netstat -aon | findstr :8000
 tasklist | findstr 9032
 taskkill /PID 9032 /F
 
+pg_dump -h anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com -U postgres -p 5432 -d anova-db-01 -Fc -f aws_backup.dump
+
+telnet anova-db-instance.c67cge4yy1qv.us-east-1.rds.amazonaws.com 5432
+
+
+
 Given:
 1. pycharm ide
 2. windows os
