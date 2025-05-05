@@ -1,0 +1,89 @@
+http://localhost:8000/api/v1/table/base/category/?hotelId=A001&typeId=020 ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/category/?hotelId=A001&typeId=020 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DD490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/res/room/?hotelId=A001&typeId=008 ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/res/room/?hotelId=A001&typeId=008 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DE6C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/person/?clientId=001&typeId=013 ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/person/?clientId=001&typeId=013 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DDBB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/res/reservation/?hotelId=A001&typeId=009 ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/res/reservation/?hotelId=A001&typeId=009 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DEA20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/res/guest/?hotelId=A001&typeId=00B ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/res/guest/?hotelId=A001&typeId=00B (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DE900>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/res/guest/?hotelId=A001&typeId=00B ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/res/guest/?hotelId=A001&typeId=00B (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DE510>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/res/guest_room/?hotelId=A001&typeId=000 ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/res/guest_room/?hotelId=A001&typeId=000 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DE780>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/category/?hotelId=A001&typeId=00D ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/category/?hotelId=A001&typeId=00D (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DF950>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/category/?hotelId=A001&typeId=00F ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/category/?hotelId=A001&typeId=00F (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F46354320>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/pos_menu/?hotelId=A001&typeId=00K ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/pos_menu/?hotelId=A001&typeId=00K (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F46354CB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/chart_field/?hotelId=A001&typeId=00G ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/chart_field/?hotelId=A001&typeId=00G (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DFA10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/item/?hotelId=A001&typeId=00H ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/item/?hotelId=A001&typeId=00H (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DEEA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/item/?hotelId=A001&typeId=00H ERROR => HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/table/base/item/?hotelId=A001&typeId=00H (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025F462DD670>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+http://localhost:8000/api/v1/table/base/category/?hotelId=A001&typeId=020 => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"020","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"020","code":"","description":"Room/Cabin Category"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/room/?hotelId=A001&typeId=008 => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"008","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"008","code":"Cabin","description":"Cabin"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/person/?clientId=001&typeId=013 => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"013","clientId":"001"}},"header":{"recordCount":0,"type":{"typeId":"013","code":"","description":"Hotel/Ship Guest"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/reservation/?hotelId=A001&typeId=009 => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"009","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"009","code":"Internal","description":"Internal Reservation"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/guest/?hotelId=A001&typeId=00B => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00B","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00B","code":"Guest","description":"Guest"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/guest/?hotelId=A001&typeId=00B => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00B","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00B","code":"Guest","description":"Guest"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/guest_room/?hotelId=A001&typeId=000 => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"000","hotelId":"A001","roomCode":null}},"header":{"recordCount":0,"type":{"typeId":"000","code":"N/A","description":"Not Applicable"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/category/?hotelId=A001&typeId=00D => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00D","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00D","code":"menu1","description":"POS Menu Category 1"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/category/?hotelId=A001&typeId=00F => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00F","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00F","code":"menu2","description":"POS Menu Category 2"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/pos_menu/?hotelId=A001&typeId=00K => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00K","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00K","code":"main menu","description":"Main Menu"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/chart_field/?hotelId=A001&typeId=00G => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00G","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00G","code":"revenue account","description":"revenue account"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/item/?hotelId=A001&typeId=00H => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00H","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00H","code":"pos","description":"point of sale item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/item/?hotelId=A001&typeId=00H => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00H","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00H","code":"pos","description":"point of sale item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/item/?hotelId=A001&typeId=00H => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00H","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00H","code":"pos","description":"point of sale item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/item/?hotelId=A001&typeId=00H => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00H","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00H","code":"pos","description":"point of sale item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/pos_menu_item/?hotelId=A001&typeId=00L => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00L","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00L","code":"regular item","description":"regular item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/pos_menu_item/?hotelId=A001&typeId=00L => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00L","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00L","code":"regular item","description":"regular item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/pos_menu_item/?hotelId=A001&typeId=00L => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00L","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00L","code":"regular item","description":"regular item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/base/pos_menu_item/?hotelId=A001&typeId=00L => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00L","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00L","code":"regular item","description":"regular item"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/event/?clientId=001&hotelId=A001&typeId=00R => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00R","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00R","code":"Cruise","description":"Cruise"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
+http://localhost:8000/api/v1/table/res/hotel_item/?hotelId=A001&typeId=00V => 200
+{"status":"success","message":"call successful","meta":{"version":"03.01.05","databaseKey":"local","parameters":{"typeId":"00V","hotelId":"A001"}},"header":{"recordCount":0,"type":{"typeId":"00V","code":"special items","description":"special items"},"hotel":{"hotelId":"A001","description":"Magellan Explorer"}},"detail":[]}
+
