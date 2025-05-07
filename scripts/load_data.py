@@ -1,12 +1,14 @@
+import os
 import json
 import requests
 
+token = os.getenv('ANOVA_TOKEN')
 # Step 1: Load JSON from file
 file = 'c:\\anovaFTP\\ftp\\data\\anova3.json'
 success = True
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Token 483db79a3ccfe109445f8b8a303f113dd985746f'
+    'Authorization': f'Token {token}'
 }
 
 
