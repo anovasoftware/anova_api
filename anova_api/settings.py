@@ -187,6 +187,8 @@ load_dotenv('.env')
 
 # HOST = os.getenv('HOST')
 DATABASE_KEY = os.getenv('DATABASE_KEY')
+if not DATABASE_KEY:
+    raise Exception("DATABASE_KEY environment variable not set")
 DATABASE = DATABASE_DEFINITIONS[DATABASE_KEY]
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 

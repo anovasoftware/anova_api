@@ -2,7 +2,7 @@ import os
 import json
 import requests
 
-token = os.getenv('ANOVA_TOKEN')
+token = os.getenv('TOKEN_A00001')
 # Step 1: Load JSON from file
 file = 'c:\\anovaFTP\\ftp\\data\\anova3.json'
 success = True

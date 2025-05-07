@@ -1,6 +1,7 @@
 psycopg2-binary==2.9.10
 python-dotenv==1.0.1
 termcolor==2.5.0
+colorama==0.4.6
 django-apscheduler==0.7.0
 django-cors-headers==4.6.0
 djangorestframework==3.15.2
