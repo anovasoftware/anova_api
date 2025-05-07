@@ -92,6 +92,74 @@
     }
   }
 ,  {
+    "model": "res.Reservation",
+    "pk": "A00000",
+    "fields": {
+      "hotel_id": "A000",
+      "type_id": "000",
+      "status_id": "001",
+      "travel_agency_company_id": "A0000",
+      "person_id": "A00000",
+      "grouping": "ALL",
+      "reservation_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Reservation",
+    "pk": "A99999",
+    "fields": {
+      "hotel_id": "A000",
+      "type_id": "000",
+      "status_id": "001",
+      "travel_agency_company_id": "A0000",
+      "person_id": "A00000",
+      "grouping": "ALL",
+      "reservation_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Guest",
+    "pk": "A00000",
+    "fields": {
+      "reservation_id": "A00000",
+      "type_id": "000",
+      "status_id": "001",
+      "person_id": "A00000",
+      "responsible_guest_id": "A00000",
+      "grouping": "ALL",
+      "guest_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Guest",
+    "pk": "A99999",
+    "fields": {
+      "reservation_id": "A00000",
+      "type_id": "000",
+      "status_id": "001",
+      "person_id": "A00000",
+      "responsible_guest_id": "A00000",
+      "grouping": "ALL",
+      "guest_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
     "model": "res.Event",
     "pk": "A00000",
     "fields": {

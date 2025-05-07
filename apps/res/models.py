@@ -121,6 +121,8 @@ class Reservation(BaseModel):
     status                   = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     travel_agency_company    = models.ForeignKey("base.Company", on_delete=models.CASCADE, related_name='+', default='A0000')
     person                   = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
+    grouping                 = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+    reservation_key          = models.CharField(max_length= 25, blank=False, unique=False, primary_key=False, default='')
     static_flag              = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment         = models.TextField(blank=True , unique=False, primary_key=False)
     created_date             = models.DateTimeField(auto_now_add=True)

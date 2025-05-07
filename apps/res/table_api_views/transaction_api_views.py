@@ -1,6 +1,6 @@
 from decimal import Decimal
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
-from constants import type_constants, event_constants, status_constants
+from constants import type_constants, event_constants, status_constants, guest_constants
 from apps.res.models import Guest, HotelItem, Transaction, TransactionItem
 from apps.base.models import Category, Item
 from apps.static.models import Type
@@ -68,10 +68,11 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
     def _post_simple_save(self, request):
         record = {
             'type_id': type_constants.RES_TRANSACTION_STAGED_SALE,
+            'status_id': status_constants.QUEUED,
             'hotel_id': self.hotel_id,
             'event_id': event_constants.TO_BE_ANNOUNCED,
             'guest_id': self.guest_id,
-            'server_guest_id': self.guest_id
+            'server_guest_id': guest_constants.NOT_APPLICABLE
         }
         transaction = Transaction.objects.create(**record)
 

@@ -204,6 +204,57 @@
     }
   }
 ,  {
+    "model": "static.Status",
+    "pk": "004",
+    "fields": {
+      "grouping": "res_transaction",
+      "code": "Queued",
+      "description": "Queued",
+      "status_key": "QUEUED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "008",
+    "fields": {
+      "grouping": "res_transaction",
+      "code": "Posted",
+      "description": "Posted",
+      "status_key": "POSTED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "009",
+    "fields": {
+      "grouping": "res_transaction",
+      "code": "Cancelled",
+      "description": "Cancelled",
+      "status_key": "CANCELLED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-05-07 00:00+0000",
+      "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Type",
     "pk": "000",
     "fields": {
