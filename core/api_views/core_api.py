@@ -34,7 +34,6 @@ class CoreAPIView(GenericAPIView):
         self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
         return super().dispatch(request, *args, **kwargs)
 
-
     def get_response(self):
         response = self.build_response()
 
@@ -77,8 +76,11 @@ class CoreAPIView(GenericAPIView):
     def load_request(self, request):
         self.request_id = getattr(request, "request_id", "unknown")
         self.debug_flag = self.get_param('debugFlag', 'N', False)
-        self.user_id = request.user.user_id
-        print('user')
+
+        if hasattr(request.user, 'user_id'):
+            self.user_id = request.user.user_id
+        else:
+            self.user_id = None  # or 'anonymous', or skip setting it
 
     def get_param(self, key, default_value, required, parameter_type=None):
         ret_value = default_value
@@ -199,7 +201,7 @@ class NonAuthorizedAPIView(CoreAPIView):
         super().__init__(**kwargs)
 
 
-class TestAPI(CoreAPIView):
+class TestAPI(NonAuthorizedAPIView):
     def __init__(self):
         super().__init__()
         self.param1 = False
