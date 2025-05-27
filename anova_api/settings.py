@@ -201,5 +201,5 @@ EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'jburke@anovasoftware.com'
-EMAIL_HOST_PASSWORD = 'n!pUfyfBH9'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = 'support@anovasoftware.com'
