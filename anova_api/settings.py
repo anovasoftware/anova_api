@@ -195,3 +195,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DATABASES = {
     'default': DATABASE
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'jburke@anovasoftware.com'
+EMAIL_HOST_PASSWORD = 'n!pUfyfBH9'
+DEFAULT_FROM_EMAIL = 'support@anovasoftware.com'

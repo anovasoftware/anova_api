@@ -4,7 +4,7 @@ from core.api_views.core_api import TestAPI, GuestRoomAPI
 from django.urls import path, include
 
 urlpatterns = [
-    path('public/', include('core.urls.urls_public')),
+    path('api/v1/public/', include('core.urls.urls_public')),
     path('admin/', admin.site.urls),
     path('record/guest_room/', GuestRoomAPI.as_view(), name='guest-room'),
 

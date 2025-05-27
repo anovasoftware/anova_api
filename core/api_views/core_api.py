@@ -194,14 +194,14 @@ class AuthorizedAPIView(CoreAPIView):
         self.user_id = request.user.user_id
 
 
-class NonAuthorizedAPIView(CoreAPIView):
+class PublicAPIView(CoreAPIView):
     permission_classes = [AllowAny]
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class TestAPI(NonAuthorizedAPIView):
+class TestAPI(PublicAPIView):
     def __init__(self):
         super().__init__()
         self.param1 = False

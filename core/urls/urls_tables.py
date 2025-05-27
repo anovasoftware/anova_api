@@ -2,6 +2,7 @@ from django.urls import path
 
 from apps.base.table_api_views.category_api_views import AuthorizedCategoryAPIView
 from apps.base.table_api_views.chart_field_api_views import AuthorizedChartFieldAPIView
+from apps.base.table_api_views.email_api_views import AuthorizedEmailAPIView
 from apps.base.table_api_views.company_api_views import AuthorizedCompanyAPIView
 from apps.base.table_api_views.hotel_type_api_views import AuthorizedHotelTypeAPIView
 from apps.base.table_api_views.item_api_views import AuthorizedItemAPIView
@@ -22,6 +23,7 @@ urlpatterns = [
     path('base/category/', AuthorizedCategoryAPIView.as_view()),
     path('base/chart_field/', AuthorizedChartFieldAPIView.as_view()),
     path('base/company/', AuthorizedCompanyAPIView.as_view()),
+    path('base/email/', AuthorizedEmailAPIView.as_view()),
     path('base/hotel_type/', AuthorizedHotelTypeAPIView.as_view()),
     path('base/item/', AuthorizedItemAPIView.as_view()),
     path('base/person/', AuthorizedPersonAPIView.as_view()),

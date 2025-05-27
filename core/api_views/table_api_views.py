@@ -1,5 +1,6 @@
 from django.contrib.messages import success
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, nest_records
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, nest_records, PublicAPIView
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.apps import apps
 from django.http import JsonResponse
 import json
@@ -29,7 +30,8 @@ class TableAPIView(CoreAPIView):
     def load_request(self, request):
         super().load_request(request)
 
-        self.type_id = self.get_param('typeId', None, True)
+        if not self.type_id:
+            self.type_id = self.get_param('typeId', None, True)
 
         if not self.app_name:
             self.add_message('self.app_name not defined', success=False)
@@ -232,4 +234,8 @@ class TableAPIView(CoreAPIView):
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):
+    pass
+
+
+class PublicTableAPIView(PublicAPIView, TableAPIView):
     pass
