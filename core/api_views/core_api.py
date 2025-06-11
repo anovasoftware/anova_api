@@ -53,6 +53,7 @@ class CoreAPIView(GenericAPIView):
 
     def build_response(self):
         status = 'success' if self.success else 'error'
+        user_logged_in = self.user_id is not None
         response = {
             'status': status,
             'message': self.message,
@@ -64,7 +65,11 @@ class CoreAPIView(GenericAPIView):
                 # 'request-id': self.request_id,
                 'parameters': self.params,
             },
-            'header': {}
+            'header': {
+                'user': {
+                    'logged_in': user_logged_in
+                }
+            }
             # 'data': self.data
         }
 

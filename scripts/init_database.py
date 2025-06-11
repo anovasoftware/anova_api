@@ -20,6 +20,8 @@ from core.utilities.token_utilities import initialize_tokens_from_env
 
 
 def run():
+    # initialize_tokens_from_env()
+    # return
     manage_path = 'C:/Projects3/anova_api/manage.py'
     python_path = f'"{sys.executable}" '
     print(f'running manage.py commands 1: {python_path}')

@@ -52,20 +52,20 @@
       "type_id": "012",
       "status_id": "001",
       "client_id": "000",
-      "grouping": "Third Party",
+      "grouping": "Partners",
       "order_by": "99",
       "code": "",
-      "first_name": "Vladan",
+      "first_name": "Jonathan",
       "middle_name": "",
-      "last_name": "Antanasijevi",
+      "last_name": "Selby",
       "birth_date": "1900-01-01 00:00+0000",
       "email": "",
       "gender_type_id": "701",
-      "person_key": "",
+      "person_key": "SELBY_JONATHAN",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2025-03-19 00:00+0000",
-      "last_updated": "2025-03-19 00:00+0000"  
+      "created_date": "2025-05-31 00:00+0000",
+      "last_updated": "2025-05-31 00:00+0000"  
     }
   }
 ,  {
@@ -123,24 +123,24 @@
     "fields": {
       "access_user_id": "A00002",
       "type_id": "041",
-      "person_id": "A00001",
-      "grouping": "Third Party",
+      "person_id": "A00002",
+      "grouping": "Partners",
       "code": "",
-      "description": "Antanasijevi, Vladan",
-      "username": "vladan@antamedia.com",
+      "description": "Selby, Jonathan",
+      "username": "jon@xaxero.com",
       "password": "",
-      "is_staff": true,
+      "is_staff": false,
       "is_active": true,
-      "is_superuser": true,
-      "user_key": "",
-      "start_date": "2025-03-10 00:00+0000",
+      "is_superuser": false,
+      "user_key": "SELBY_JONATHAN",
+      "start_date": "2025-05-31 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
       "effective_status_id": "021",
       "static_flag": "Y",
       "external_id": "",
       "internal_comment": "",
-      "created_date": "2025-03-10 00:00+0000",
-      "last_updated": "2025-03-10 00:00+0000"  
+      "created_date": "2025-05-31 00:00+0000",
+      "last_updated": "2025-05-31 00:00+0000"  
     }
   }
 ,  {

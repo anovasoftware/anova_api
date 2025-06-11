@@ -35,7 +35,16 @@ def initialize_tokens_from_env():
             user_id = key[6:]
             try:
                 user = User.objects.get(pk=user_id)
-                Token.objects.update_or_create(user=user, defaults={'key': value})
+
+                Token.objects.filter(user=user).delete()
+                Token.objects.create(user=user, key=value)
+
+                # token, created = Token.objects.update_or_create(
+                #     user=user,
+                #     defaults={
+                #         'key': value
+                #     }
+                # )
                 log_message(f'✓ Token set for user {user_id}')
                 updated += 1
             except User.DoesNotExist:
