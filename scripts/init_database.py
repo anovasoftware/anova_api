@@ -12,7 +12,7 @@ if os.getenv("ENVIRONMENT", "local") == "local":
 
 DATABASE_KEY = os.getenv('DATABASE_KEY')
 if not DATABASE_KEY:
-    raise Exception("DATABASE_KEY environment variable not set")
+    raise Exception("DATABASE_KEY environment variable not set.2")
 
 # os.environ.setdefault("DATABASE_KEY", "local")
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'anova_api.settings')  # 🔁 Replace with actual module (e.g., 'anova_api.settings')
