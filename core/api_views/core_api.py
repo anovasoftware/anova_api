@@ -8,6 +8,7 @@ from apps.static.models import Status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
+from django.http import JsonResponse
 
 
 class CoreAPIView(GenericAPIView):
@@ -373,3 +374,5 @@ def convert_to_camel_case(obj):
 #       }
 #    ]
 # }
+def health_check(request):
+    return JsonResponse({'status': 'ok'})

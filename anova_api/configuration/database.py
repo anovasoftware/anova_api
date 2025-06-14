@@ -1,7 +1,9 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv('.env')
+# Only load .env if running locally
+if os.getenv("ENVIRONMENT", "local") == "local":
+    load_dotenv('.env')
 
 HOST = os.getenv('HOST')
 DATABASE_ID = os.getenv('DATABASE_ID')

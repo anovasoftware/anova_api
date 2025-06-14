@@ -184,7 +184,9 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
-load_dotenv('.env')
+# Only load .env if running locally
+if os.getenv("ENVIRONMENT", "local") == "local":
+    load_dotenv('.env')
 
 # HOST = os.getenv('HOST')
 DATABASE_KEY = os.getenv('DATABASE_KEY')

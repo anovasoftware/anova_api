@@ -2,8 +2,13 @@ import os
 import sys
 from dotenv import load_dotenv
 
-env_file = 'c:\\projects3\\anova_api\\.env'
-load_dotenv(env_file)
+# Only load .env if running locally
+if os.getenv("ENVIRONMENT", "local") == "local":
+    env_file = 'c:\\projects3\\anova_api\\.env'
+    load_dotenv(env_file)
+
+# env_file = 'c:\\projects3\\anova_api\\.env'
+# load_dotenv(env_file)
 
 DATABASE_KEY = os.getenv('DATABASE_KEY')
 if not DATABASE_KEY:
