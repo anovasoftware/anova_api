@@ -2,8 +2,10 @@ from django.contrib import admin
 from django.urls import path
 from core.api_views.core_api import TestAPI, GuestRoomAPI
 from django.urls import path, include
+from core.api_views.core_api import health_check
 
 urlpatterns = [
+    path("health/", health_check),
     path('api/v1/public/', include('core.urls.urls_public')),
     path('admin/', admin.site.urls),
     path('record/guest_room/', GuestRoomAPI.as_view(), name='guest-room'),
