@@ -159,7 +159,9 @@ AUTH_USER_MODEL = 'base.User'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",  # Angular dev server
     "https://anovasea.net",   # Production URL
-    "https://anova-ui-env.eba-wsngbtz9.us-east-1.elasticbeanstalk.com"
+    "https://anova-ui-env.eba-wsngbtz9.us-east-1.elasticbeanstalk.com",
+    "http://app.anovasea.net",  # ✅ Add this for the current frontend origin
+    "https://app.anovasea.net",  # ✅ Add this for HTTPS frontend
 ]
 # Optional (for development only)
 # CORS_ALLOW_ALL_ORIGINS = True
