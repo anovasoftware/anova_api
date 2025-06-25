@@ -279,6 +279,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "002",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_menu",
+      "code": "header bar",
+      "description": "Header Bar",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "MENU_HEADER_BAR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-24 00:00+0000",
+      "last_updated": "2025-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "004",
     "fields": {
       "parent_type_id": "000",
@@ -1140,6 +1164,75 @@
       "internal_comment": "",
       "created_date": "2025-03-10 00:00+0000",
       "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "000",
+    "fields": {
+      "type_id": "002",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "order_by": "00",
+      "description": "HOME",
+      "title": "Welcome!",
+      "sub_title": "Body, mind and soul...",
+      "breadcrumb_name": "Home",
+      "route": "/home",
+      "params": "",
+      "icon": "",
+      "grouping": "Header Bar",
+      "menu_key": "HOME",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-24 00:00+0000",
+      "last_updated": "2025-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "001",
+    "fields": {
+      "type_id": "002",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "order_by": "01",
+      "description": "ABOUT",
+      "title": "About Us!",
+      "sub_title": "",
+      "breadcrumb_name": "About",
+      "route": "/navigator/001",
+      "params": "",
+      "icon": "",
+      "grouping": "",
+      "menu_key": "ABOUT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-24 00:00+0000",
+      "last_updated": "2025-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "002",
+    "fields": {
+      "type_id": "002",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "order_by": "02",
+      "description": "MODULES",
+      "title": "Modules",
+      "sub_title": "",
+      "breadcrumb_name": "Modules",
+      "route": "/navigator/002",
+      "params": "",
+      "icon": "",
+      "grouping": "",
+      "menu_key": "MODULES",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-24 00:00+0000",
+      "last_updated": "2025-06-24 00:00+0000"  
     }
   }
 ,  {

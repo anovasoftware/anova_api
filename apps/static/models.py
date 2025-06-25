@@ -82,6 +82,37 @@ class Hotel(BaseModel):
 # AUTOGEN_END_Hotel#
 
 
+# AUTOGEN_BEGIN_Menu#
+class Menu(BaseModel):
+    menu_id          = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    parent_menu      = models.ForeignKey("self", on_delete=models.CASCADE, to_field='menu_id', related_name="+", db_column="parent_menu_id", default=None, null=True)
+    order_by         = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='00')
+    description      = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False)
+    title            = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False)
+    sub_title        = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False)
+    breadcrumb_name  = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False)
+    route            = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False)
+    params           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    icon             = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False)
+    grouping         = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False)
+    menu_key         = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_menu'
+        verbose_name_plural = 'menus (static_menu)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'menu'
+# AUTOGEN_END_Menu#
+
+
 # AUTOGEN_BEGIN_Status#
 class Status(BaseModel):
     status_id        = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
