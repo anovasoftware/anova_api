@@ -8,11 +8,12 @@ class PublicMenuAPIView(PublicTableAPIView):
         super().__init__()
         self.app_name = 'static'
         self.model_name = 'Menu'
-        self.type_id = None
+        self.type_id = 'ALL'
         self.menu_id = None
         self.menu = None
         self.accepted_type_ids = [
-            type_constants.MENU_HEADER_BAR
+            'ALL'
+            # type_constants.MENU_HEADER_BAR
         ]
 
         self.user = None
@@ -29,11 +30,14 @@ class PublicMenuAPIView(PublicTableAPIView):
     def get_value_list(self):
         value_list = [
             'menu_id',
+            'type_id',
             'description',
             'title',
             'sub_title',
             'breadcrumb_name',
-            'route'
+            'route',
+            'page__page_id',
+            'page__description',
         ]
 
         value_list += super().get_value_list()

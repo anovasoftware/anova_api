@@ -1170,19 +1170,20 @@
     "model": "static.Menu",
     "pk": "000",
     "fields": {
-      "type_id": "002",
+      "type_id": "000",
       "status_id": "001",
       "parent_menu_id": "000",
+      "page_id": "000",
       "order_by": "00",
-      "description": "HOME",
-      "title": "Welcome!",
-      "sub_title": "Body, mind and soul...",
-      "breadcrumb_name": "Home",
-      "route": "/home",
+      "description": "Not Applicable",
+      "title": "",
+      "sub_title": "",
+      "breadcrumb_name": "",
+      "route": "",
       "params": "",
       "icon": "",
-      "grouping": "Header Bar",
-      "menu_key": "HOME",
+      "grouping": "",
+      "menu_key": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-06-24 00:00+0000",
@@ -1196,16 +1197,17 @@
       "type_id": "002",
       "status_id": "001",
       "parent_menu_id": "000",
+      "page_id": "001",
       "order_by": "01",
-      "description": "ABOUT",
-      "title": "About Us!",
+      "description": "HOME",
+      "title": "Welcome!",
       "sub_title": "",
-      "breadcrumb_name": "About",
+      "breadcrumb_name": "Home",
       "route": "/navigator/001",
       "params": "",
       "icon": "",
-      "grouping": "",
-      "menu_key": "ABOUT",
+      "grouping": "Header Bar",
+      "menu_key": "HOME",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-06-24 00:00+0000",
@@ -1219,20 +1221,109 @@
       "type_id": "002",
       "status_id": "001",
       "parent_menu_id": "000",
+      "page_id": "002",
+      "order_by": "02",
+      "description": "ABOUT",
+      "title": "About Us",
+      "sub_title": "",
+      "breadcrumb_name": "About",
+      "route": "/navigator/002",
+      "params": "",
+      "icon": "",
+      "grouping": "Header Bar",
+      "menu_key": "ABOUT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-24 00:00+0000",
+      "last_updated": "2025-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "003",
+    "fields": {
+      "type_id": "002",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "page_id": "003",
       "order_by": "02",
       "description": "MODULES",
       "title": "Modules",
       "sub_title": "",
       "breadcrumb_name": "Modules",
-      "route": "/navigator/002",
+      "route": "/navigator/003",
       "params": "",
       "icon": "",
-      "grouping": "",
+      "grouping": "Header Bar",
       "menu_key": "MODULES",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-06-24 00:00+0000",
       "last_updated": "2025-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "001",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Home",
+      "description": "Home",
+      "grouping": "Public",
+      "page_key": "HOME",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-25 00:00+0000",
+      "last_updated": "2025-06-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "About",
+      "description": "About",
+      "grouping": "Public",
+      "page_key": "ABOUT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-25 00:00+0000",
+      "last_updated": "2025-06-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "003",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Modules",
+      "description": "Modules",
+      "grouping": "Public",
+      "page_key": "MODULES",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-25 00:00+0000",
+      "last_updated": "2025-06-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "grouping": "Public",
+      "page_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-25 00:00+0000",
+      "last_updated": "2025-06-25 00:00+0000"  
     }
   }
 ,  {

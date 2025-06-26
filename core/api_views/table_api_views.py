@@ -96,7 +96,8 @@ class TableAPIView(CoreAPIView):
     def get_query_filter(self):
         filters = {}
         if self.type:
-            type_ids = [self.type_id, type_constants.NOT_APPLICABLE]
+            # type_ids = [self.type_id, type_constants.NOT_APPLICABLE]
+            type_ids = [self.type_id, ]
             filters = {
                 'type_id__in': type_ids
             }
