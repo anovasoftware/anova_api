@@ -1201,7 +1201,7 @@
       "order_by": "01",
       "description": "HOME",
       "title": "Welcome!",
-      "sub_title": "",
+      "sub_title": "Cruise Software. Simplified.",
       "breadcrumb_name": "Home",
       "route": "/navigator/001",
       "params": "",
