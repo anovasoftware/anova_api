@@ -20,5 +20,5 @@ RES_ROOM_CABIN = '008'                                           # cabinRES_ROO
 RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_SALE = '00P'                                     # chargeRES_TRANSACTION_STAGED_SALE = '00N'                              # staged charge#  res_transaction_item
 RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  static_client
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  static_menu
-MENU_HEADER_BAR = '002'                                          # header bar#  user_user
+MENU_HEADER_BAR = '002'                                          # header barMENU_STAND_ALONE = '003'                                         # standalone (eg, login, home)#  user_user
 USER_REAL = '041'                                                # real user

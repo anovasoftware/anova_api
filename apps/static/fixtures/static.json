@@ -303,6 +303,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "003",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_menu",
+      "code": "standalone",
+      "description": "Standalone (eg, login, home)",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "MENU_STAND_ALONE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-29 00:00+0000",
+      "last_updated": "2025-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "004",
     "fields": {
       "parent_type_id": "000",
@@ -1194,14 +1218,14 @@
     "model": "static.Menu",
     "pk": "001",
     "fields": {
-      "type_id": "002",
+      "type_id": "003",
       "status_id": "001",
       "parent_menu_id": "000",
       "page_id": "001",
       "order_by": "01",
       "description": "HOME",
-      "title": "Welcome!",
-      "sub_title": "Cruise Software. Simplified.",
+      "title": "",
+      "sub_title": "",
       "breadcrumb_name": "Home",
       "route": "/navigator/001",
       "params": "",
@@ -1246,7 +1270,7 @@
       "status_id": "001",
       "parent_menu_id": "000",
       "page_id": "003",
-      "order_by": "02",
+      "order_by": "03",
       "description": "MODULES",
       "title": "Modules",
       "sub_title": "",
@@ -1260,6 +1284,30 @@
       "internal_comment": "",
       "created_date": "2025-06-24 00:00+0000",
       "last_updated": "2025-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "004",
+    "fields": {
+      "type_id": "003",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "page_id": "004",
+      "order_by": "04",
+      "description": "LOGIN",
+      "title": "Login",
+      "sub_title": "",
+      "breadcrumb_name": "Modules",
+      "route": "/navigator/004",
+      "params": "",
+      "icon": "",
+      "grouping": "Header Bar",
+      "menu_key": "LOGIN",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-28 00:00+0000",
+      "last_updated": "2025-06-28 00:00+0000"  
     }
   }
 ,  {
@@ -1324,6 +1372,22 @@
       "internal_comment": "",
       "created_date": "2025-06-25 00:00+0000",
       "last_updated": "2025-06-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "004",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Logn",
+      "description": "Login",
+      "grouping": "Public",
+      "page_key": "LOGIN",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-06-29 00:00+0000",
+      "last_updated": "2025-06-29 00:00+0000"  
     }
   }
 ,  {
