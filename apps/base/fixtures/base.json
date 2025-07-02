@@ -102,7 +102,7 @@
       "code": "",
       "description": "Burke, John W.",
       "username": "jburke@anovasoftware.com",
-      "password": "",
+      "password": "pbkdf2_sha256$870000$pQvaxa0DGrKve0Y6VnSZvP$Cf8VEEeX1KqOPo+xO4Aa0ctamJZkINsMk1RL4Id6zUs=",
       "is_staff": true,
       "is_active": true,
       "is_superuser": true,
