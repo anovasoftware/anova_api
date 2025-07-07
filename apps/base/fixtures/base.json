@@ -144,6 +144,58 @@
     }
   }
 ,  {
+    "model": "base.User",
+    "pk": "A00000",
+    "fields": {
+      "access_user_id": "A00000",
+      "type_id": "042",
+      "person_id": "A00000",
+      "grouping": "All",
+      "code": "",
+      "description": "Not Applicable",
+      "username": "dummyA00000@anovasoftware.com",
+      "password": "",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false,
+      "user_key": "NOT_APPLICABLE",
+      "start_date": "2025-07-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "external_id": "",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.User",
+    "pk": "A99999",
+    "fields": {
+      "access_user_id": "A00000",
+      "type_id": "042",
+      "person_id": "A00000",
+      "grouping": "All",
+      "code": "",
+      "description": "Not Applicable",
+      "username": "dummyA99999@anovasoftware.com",
+      "password": "",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false,
+      "user_key": "TO_BE_ANNOUNCED",
+      "start_date": "2025-07-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "external_id": "",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.ExternalMapping",
     "pk": "A00000001",
     "fields": {

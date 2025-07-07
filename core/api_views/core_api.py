@@ -28,6 +28,7 @@ class CoreAPIView(GenericAPIView):
         self.data = {}
         self.request_id = ''
         self.user_id = None
+        self.access_user_id = None
         self.response_format = 'camel_case'
 
     def dispatch(self, request, *args, **kwargs):
@@ -38,17 +39,9 @@ class CoreAPIView(GenericAPIView):
     def get_response(self):
         response = self.build_response()
 
-        # if self.response_format == 'snake_case':
-        #     response['meta'] = {
-        #         'version': constants.VERSION,
-        #         'database_key': os.getenv('DATABASE_KEY'),
-        #         # 'database-id':  os.getenv('DATABASE_ID'),
-        #         # 'request-id': self.request_id,
-        #         'supplied_parameters': self.params,
-        #     }
-        #     response['data'] = self.data
         if self.response_format == 'camel_case':
-            response = convert_to_camel_case(response)
+            # response = convert_to_camel_case(response)
+            response = format_response(response)
 
         return Response(response)
 
@@ -87,6 +80,8 @@ class CoreAPIView(GenericAPIView):
             self.user_id = request.user.user_id
         else:
             self.user_id = None  # or 'anonymous', or skip setting it
+
+        self.access_user_id = self.user_id
 
     def get_param(self, key, default_value, required, parameter_type=None):
         ret_value = default_value
@@ -322,21 +317,49 @@ def nest_records(records):
     return [nest_record(record) for record in records]
 
 
-def convert_to_camel_case(obj):
+# def convert_to_camel_case(obj):
+#     def snake_to_camel(s):
+#         parts = s.split('_')
+#         return parts[0] + ''.join(word.capitalize() for word in parts[1:])
+#
+#     new_obj = obj
+#     if isinstance(obj, dict):
+#         new_obj = {}
+#         for k, v in obj.items():
+#             new_key = snake_to_camel(k)
+#             new_obj[new_key] = convert_to_camel_case(v)
+#     elif isinstance(obj, list):
+#         new_obj = [convert_to_camel_case(item) for item in obj]
+#
+#     return new_obj
+#
+
+def format_response(obj, level=0):
     def snake_to_camel(s):
+        # return s
         parts = s.split('_')
         return parts[0] + ''.join(word.capitalize() for word in parts[1:])
 
+    new_obj = obj
     if isinstance(obj, dict):
         new_obj = {}
         for k, v in obj.items():
+            indent = ' -' * level
+            # print(f'{indent} {k}')
             new_key = snake_to_camel(k)
-            new_obj[new_key] = convert_to_camel_case(v)
-        return new_obj
+            new_obj[new_key] = format_response(v, level+1)
     elif isinstance(obj, list):
-        return [convert_to_camel_case(item) for item in obj]
-    else:
-        return obj
+        new_obj = []
+        for item in obj:
+            if isinstance(item, dict):
+                item = nest_record(item)
+            # print(f'{" -" * level} PROCESSING LIST ELEMENT: {item}')
+            result = format_response(item, level + 1)
+            new_obj.append(result)
+
+    return new_obj
+
+
 
 # JSON response
 # {
@@ -374,5 +397,7 @@ def convert_to_camel_case(obj):
 #       }
 #    ]
 # }
+
+
 def health_check(request):
     return JsonResponse({'status': 'ok'})

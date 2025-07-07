@@ -22,6 +22,7 @@ class TableAPIView(CoreAPIView):
         self.accepted_type_ids = []
         self.type_id = None
         self.type = None
+        self.external_id_required = True
         self.external_id_prefix = None
         self.records = []
         self.json_required = True
@@ -134,7 +135,7 @@ class TableAPIView(CoreAPIView):
             #     self.set_message(message, success=False)
             if 'pk' not in record.keys():
                 self.set_message('must supply a field named pk', success=False)
-            if 'external_id' not in record.keys():
+            if self.external_id_required and 'external_id' not in record.keys():
                 self.set_message('must supply a field named external_id', success=False)
 
     def _post(self, request):

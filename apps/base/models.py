@@ -94,6 +94,39 @@ class Company(BaseModel):
 # AUTOGEN_END_Company#
 
 
+# AUTOGEN_BEGIN_EventLog#
+class EventLog(BaseModel):
+    event_log_id     = models.CharField(max_length=  7, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    user             = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
+    access_user      = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
+    client_ip        = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    string01         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string02         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string03         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string04         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    text01           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    text02           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    text03           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    list01           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    list02           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    list03           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_event_log'
+        verbose_name_plural = 'event logs (base_event_log)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'event_log'
+# AUTOGEN_END_EventLog#
+
+
 # AUTOGEN_BEGIN_ExternalMapping#
 class ExternalMapping(BaseModel):
     external_mapping_id = models.CharField(max_length=  9, blank=False, unique=True , primary_key=True )
@@ -275,7 +308,7 @@ class PosMenuItem(BaseModel):
 class User(AbstractUser, BaseModel):
     user_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
     access_user_id      = models.CharField(max_length=  6, blank=False, unique=False, primary_key=False, default='')
-    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, default='041')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='041')
     person              = models.ForeignKey("base.Person", on_delete=models.CASCADE, default='A9999')
     grouping            = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
     code                = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False)

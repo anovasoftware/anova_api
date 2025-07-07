@@ -56,6 +56,73 @@ class Currency(BaseModel):
 # AUTOGEN_END_Currency#
 
 
+# AUTOGEN_BEGIN_Form#
+class Form(BaseModel):
+    form_id                 = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
+    type                    = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status                  = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    description             = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False, default='')
+    header                  = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False, default='')
+    data_source_application = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    data_source_model_name  = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    save_button_label       = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    save_button_action      = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='saveAndClose')
+    grouping                = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
+    form_key                = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    static_flag             = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment        = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date            = models.DateTimeField(auto_now_add=True)
+    last_updated            = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_form'
+        verbose_name_plural = 'forms (static_form)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'form'
+# AUTOGEN_END_Form#
+
+
+# AUTOGEN_BEGIN_FormField#
+class FormField(BaseModel):
+    form_field_id                       = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
+    form                                = models.ForeignKey("static.Form", on_delete=models.CASCADE, related_name='+', default='000')
+    type                                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000', null=True)
+    status                              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    order_by                            = models.CharField(max_length=  2, blank=True , unique=False, primary_key=False)
+    control_type                        = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+    tab_name                            = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    label                               = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False, default='')
+    name                                = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    default_value                       = models.CharField(max_length=150, blank=False, unique=False, primary_key=False, default='')
+    data_source_application             = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    data_source_model_name              = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    data_source_filter                  = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    data_source_filter_effective_status = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    data_source_order                   = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    display_value                       = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    data_source_fields                  = models.CharField(max_length=150, blank=False, unique=False, primary_key=False, default='')
+    data_source_fstring                 = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False, default='')
+    data_source_key_field               = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    disabled_create                     = models.BooleanField(default=False)
+    disabled_update                     = models.BooleanField(default=False)
+    required_flag                       = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='N')
+    static_flag                         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment                    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date                        = models.DateTimeField(auto_now_add=True)
+    last_updated                        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_form_field'
+        verbose_name_plural = 'form fields (static_form_field)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'form_field'
+# AUTOGEN_END_FormField#
+
+
 # AUTOGEN_BEGIN_Hotel#
 class Hotel(BaseModel):
     hotel_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )

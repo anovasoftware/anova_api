@@ -1,5 +1,45 @@
 [
   {
+    "model": "static.Form",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "not applicable",
+      "header": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "save_button_label": "",
+      "save_button_action": "",
+      "grouping": "Global",
+      "form_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-02 00:00+0000",
+      "last_updated": "2025-07-02 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Form",
+    "pk": "001",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "login",
+      "header": "Log in to your account",
+      "data_source_application": "base",
+      "data_source_model_name": "EventLog",
+      "save_button_label": "Login",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "LOGIN",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-02 00:00+0000",
+      "last_updated": "2025-07-02 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -207,7 +247,7 @@
     "model": "static.Status",
     "pk": "004",
     "fields": {
-      "grouping": "res_transaction",
+      "grouping": "ALL",
       "code": "Queued",
       "description": "Queued",
       "status_key": "QUEUED",
@@ -252,6 +292,40 @@
       "internal_comment": "",
       "created_date": "2025-05-07 00:00+0000",
       "last_updated": "2025-05-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00B",
+    "fields": {
+      "grouping": "ALL",
+      "code": "Success",
+      "description": "Success",
+      "status_key": "SUCCESS",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00C",
+    "fields": {
+      "grouping": "ALL",
+      "code": "Failed",
+      "description": "Failed",
+      "status_key": "FAILED",
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
     }
   }
 ,  {
@@ -903,6 +977,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "00X",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_event_log",
+      "code": "login attempt",
+      "description": "Login Attempt",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_EVENT_LOGIN_ATTEMPT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",
@@ -978,7 +1076,7 @@
     "pk": "041",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "user_user",
+      "grouping": "base_user",
       "code": "",
       "description": "real user",
       "description_short": "real user",
@@ -995,6 +1093,126 @@
       "internal_comment": "",
       "created_date": "2025-03-10 00:00+0000",
       "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "042",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_user",
+      "code": "",
+      "description": "dummy user",
+      "description_short": "dummy user",
+      "description_long": "",
+      "description2": "",
+      "type_key": "USER_DUMMY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "601",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form",
+      "code": "",
+      "description": "report parameters",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FORM_REPORT_PARAMETER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-02 00:00+0000",
+      "last_updated": "2025-07-02 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "602",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form",
+      "code": "",
+      "description": "data entry forms",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FORM_DATA_ENTRY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-02 00:00+0000",
+      "last_updated": "2025-07-02 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "00Z",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_control",
+      "code": "hidden",
+      "description": "hidden",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_HIDDEN",
+      "group1": "X",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-07 00:00+0000",
+      "last_updated": "2025-07-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "00Y",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_control",
+      "code": "textbox",
+      "description": "textbox",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_TEXTBOX",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
     }
   }
 ,  {
@@ -1504,6 +1722,99 @@
       "internal_comment": "",
       "created_date": "2025-04-11 00:00+0000",
       "last_updated": "2025-04-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00101",
+    "fields": {
+      "form_id": "001",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "01",
+      "control_type": "email",
+      "tab_name": "Detail",
+      "label": "Email Address",
+      "name": "string01",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00102",
+    "fields": {
+      "form_id": "001",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "02",
+      "control_type": "password",
+      "tab_name": "Detail",
+      "label": "Password",
+      "name": "string02",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00103",
+    "fields": {
+      "form_id": "001",
+      "type_id": "00Z",
+      "status_id": "001",
+      "order_by": "02",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Event Type",
+      "name": "type_id",
+      "default_value": "00X",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-07 00:00+0000",
+      "last_updated": "2025-07-07 00:00+0000"  
     }
   }
 
