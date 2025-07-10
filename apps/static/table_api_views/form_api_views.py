@@ -78,7 +78,8 @@ class PublicFormAPIView(PublicTableAPIView):
             'type__description',
             'name',
             'label',
-            'default_value'
+            'default_value',
+            'required_flag',
         ).order_by(
             'order_by'
         )
