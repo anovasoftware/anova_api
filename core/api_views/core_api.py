@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
 from django.http import JsonResponse
+from rest_framework import status
 
 
 class CoreAPIView(GenericAPIView):
@@ -19,6 +20,7 @@ class CoreAPIView(GenericAPIView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.status_code = status.HTTP_200_OK
         self.third_party_flag = 'N'
         self.success = True
         self.debug_flag = 'N'
@@ -30,6 +32,7 @@ class CoreAPIView(GenericAPIView):
         self.user_id = None
         self.access_user_id = None
         self.response_format = 'camel_case'
+        self.redirect = None
 
     def dispatch(self, request, *args, **kwargs):
         # Set third_party_flag before the view logic runs
@@ -43,14 +46,16 @@ class CoreAPIView(GenericAPIView):
             # response = convert_to_camel_case(response)
             response = format_response(response)
 
-        return Response(response)
+        return Response(response, status=self.status_code)
 
     def build_response(self):
-        status = 'success' if self.success else 'error'
+        result = 'success' if self.success else 'error'
+
         user_logged_in = self.user_id is not None
         response = {
-            'status': status,
+            'result': result,
             'message': self.message,
+            # 'redirect': self.redirect,
             'meta': {
                 'version': constants.VERSION,
                 # '3flag': self.third_party_flag,
@@ -63,8 +68,8 @@ class CoreAPIView(GenericAPIView):
                 'user': {
                     'logged_in': user_logged_in
                 }
-            }
-            # 'data': self.data
+            },
+            'data': self.data
         }
 
         if len(self.messages) > 0:
@@ -106,13 +111,15 @@ class CoreAPIView(GenericAPIView):
 
         return ret_value
 
-    def add_message(self, message, success=True):
+    def add_message(self, message, success=True, status_code=status.HTTP_200_OK):
+        self.status_code = status_code
         self.messages.append(message)
         self.success = self.success and success
         if not self.success:
-            self.set_message('call failed')
+            self.set_message('call failed', success=success, status_code=status_code)
 
-    def set_message(self, message, success=True):
+    def set_message(self, message, success=True, status_code=status.HTTP_200_OK):
+        self.status_code = status_code
         self.messages.append(message)
         self.message = message
         self.success = self.success and success

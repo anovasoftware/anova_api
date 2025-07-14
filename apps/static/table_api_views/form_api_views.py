@@ -108,9 +108,10 @@ class PublicFormAPIView(PublicTableAPIView):
     def get_field_value(self, field):
         return field.get('default_value') or ''
 
-    def _post(self, request):
+    def pre_post(self, request):
         self.record = request.data
-        print(self.record)
+
+    def _post(self, request):
         self.save_record(self.base_model)
     #
 
