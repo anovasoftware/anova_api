@@ -21,7 +21,6 @@ class Form001APIView(PublicFormAPIView):
 
         self.username = record['string01']
         self.password = record['string02']
-        self.password = '102129!!'
 
         record['string02'] = '#' * len(self.password)
 
