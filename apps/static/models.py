@@ -230,6 +230,34 @@ class Status(BaseModel):
 # AUTOGEN_END_Status#
 
 
+# AUTOGEN_BEGIN_Text#
+class Text(BaseModel):
+    text_id             = models.CharField(max_length=  5, blank=False, unique=False, primary_key=True , default='')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    description         = models.CharField(max_length=100, blank=False, unique=False, primary_key=False)
+    description_short   = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False)
+    description_long    = models.TextField(blank=False, unique=False, primary_key=False)
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    grouping            = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False)
+    text_key            = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_text'
+        verbose_name_plural = 'freeform text including page content (static_text)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'text'
+# AUTOGEN_END_Text#
+
+
 # AUTOGEN_BEGIN_Type#
 class Type(BaseModel):
     type_id           = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )

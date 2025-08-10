@@ -1217,6 +1217,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "010",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_text",
+      "code": "web content",
+      "description": "web content",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "TEXT_WEB_CONTENT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-08-09 00:00+0000",
+      "last_updated": "2025-08-09 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "700",
     "fields": {
       "parent_type_id": "000",
@@ -1686,6 +1710,26 @@
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
       "last_updated": "2025-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Text",
+    "pk": "A0001",
+    "fields": {
+      "type_id": "010",
+      "status_id": "001",
+      "description": "##AVAILABLE",
+      "description_short": "",
+      "description_long": "",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "Pages",
+      "text_key": "PAGE_ABOUT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-08-09 00:00+0000",
+      "last_updated": "2025-08-09 00:00+0000"  
     }
   }
 ,  {

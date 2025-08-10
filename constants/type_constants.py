@@ -24,4 +24,5 @@ RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  s
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  static_form
 FORM_DATA_ENTRY = '602'                                          # data entry formsFORM_REPORT_PARAMETER = '601'                                    # report parameters#  static_form_control
 CONTROL_HIDDEN = '00Z'                                           # hiddenCONTROL_TEXTBOX = '00Y'                                          # textbox#  static_menu
-MENU_HEADER_BAR = '002'                                          # header barMENU_STAND_ALONE = '003'                                         # standalone (eg, login, home)
+MENU_HEADER_BAR = '002'                                          # header barMENU_STAND_ALONE = '003'                                         # standalone (eg, login, home)#  static_text
+TEXT_WEB_CONTENT = '010'                                         # web content
