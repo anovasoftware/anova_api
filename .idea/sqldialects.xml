@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SqlDialectMappings">
-    <file url="file://$USER_HOME$/aws2-2025_05_01_16_38_26-dump.sql" dialect="PostgreSQL" />
-    <file url="file://$USER_HOME$/aws2-2025_05_01_16_48_28-dump.sql" dialect="PostgreSQL" />
-  </component>
-</project>

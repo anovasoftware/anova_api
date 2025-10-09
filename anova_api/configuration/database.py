@@ -5,28 +5,29 @@ from dotenv import load_dotenv
 if os.getenv("ENVIRONMENT", "local") == "local":
     load_dotenv('.env')
 
-HOST = os.getenv('HOST')
-DATABASE_ID = os.getenv('DATABASE_ID')
-PASSWORD = os.getenv('DB_PASSWORD')
+DB_HOST = os.getenv('DB_HOST')
+DATABASE_NAME = os.getenv('DATABASE_NAME')
+PASSWORD = os.getenv('DATABASE_PASSWORD')
 
 # print(f"HOST: {HOST}")
 # print(f"DATABASE ID: {DATABASE_ID}")
 
 DATABASE_DEFINITIONS = {
     'local': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': f'anova-db-{DATABASE_ID}',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': "django.db.backends.postgresql",
+        'NAME': DATABASE_NAME,
         'USER': 'postgres',
         'PASSWORD': PASSWORD,
-        'HOST': f'{HOST}',
+        'HOST': DB_HOST,
         'PORT': '5432'
     },
     'production': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': f'anova-db-{DATABASE_ID}',
+        'NAME': DATABASE_NAME,
         'USER': 'postgres',
         'PASSWORD': PASSWORD,
-        'HOST': f'{HOST}',
+        'HOST': DB_HOST,
         'PORT': '5432'
     },
 

@@ -1,18 +1,23 @@
-# Use the official Python image based on Ubuntu
-FROM python:3.11
+# syntax=docker/dockerfile:1
+FROM python:3.11-slim
 
-# Install netcat
-RUN apt-get update && apt-get install -y netcat-openbsd
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+WORKDIR /app
 
-EXPOSE 8000
-WORKDIR /anova_api
-LABEL authors="anovaadm"
+# System deps only if you need to compile some wheels; keep minimal otherwise
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY ./requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Install deps
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
+# App code
 COPY . .
 
-# Set the entrypoint to run the Django application
-ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8000", "anova_api.wsgi:application"]
+# Expose Django/Gunicorn port
+EXPOSE 8000
+
+# Run your bootstrap script; it will start the server
+# (set START_SERVER=1 and USE_GUNICORN=1 in docker-compose)
+CMD ["python", "docker_startup.py"]

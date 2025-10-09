@@ -10,3 +10,5 @@ aws.xml
 notes.txt
 .env
 x.log
+*.iml
+docker*.*

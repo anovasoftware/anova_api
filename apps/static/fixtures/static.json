@@ -1433,6 +1433,23 @@
     }
   }
 ,  {
+    "model": "static.Client",
+    "pk": "002",
+    "fields": {
+      "parent_client_id": "000",
+      "type_id": "004",
+      "status_id": "001",
+      "code": "GADV",
+      "description": "G Adventures",
+      "grouping": "Cruise Line",
+      "client_key": "G_ADVENTURES",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-09-13 00:00+0000",
+      "last_updated": "2025-09-13 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Menu",
     "pk": "000",
     "fields": {
@@ -1766,6 +1783,24 @@
       "internal_comment": "",
       "created_date": "2025-04-11 00:00+0000",
       "last_updated": "2025-04-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Hotel",
+    "pk": "A002",
+    "fields": {
+      "type_id": "006",
+      "status_id": "001",
+      "client_id": "002",
+      "code": "EXP2",
+      "description": "Expedition 2",
+      "vms_identifier": "1302",
+      "grouping": "CRUISE SHIPS",
+      "hotel_key": "EXPEDITION2",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-09-13 00:00+0000",
+      "last_updated": "2025-09-13 00:00+0000"  
     }
   }
 ,  {

@@ -1,57 +1,96 @@
+#!/usr/bin/env python3
+"""
+init_database.py
+Run once locally to bootstrap the DB when Postgres is in Docker.cls
+- Applies migrations (optionally makemigrations)
+- Loads fixtures for selected apps if present
+- Initializes tokens from env
+"""
+
 import os
-import sys
-from dotenv import load_dotenv
+from pathlib import Path
 
-# Only load .env if running locally
-if os.getenv("ENVIRONMENT", "local") == "local":
-    env_file = 'c:\\projects3\\anova_api\\.env'
-    load_dotenv(env_file)
+# --- Environment / Django setup --------------------------------------------
+ENVIRONMENT = os.getenv("ENVIRONMENT", "local").lower()
 
-# env_file = 'c:\\projects3\\anova_api\\.env'
-# load_dotenv(env_file)
+# If running locally, load .env next to manage.py unless already loaded
+if ENVIRONMENT == "local":
+    try:
+        from dotenv import load_dotenv, find_dotenv
+        env_path = find_dotenv(usecwd=True) or str(Path(__file__).resolve().parent / ".env")
+        if env_path:
+            load_dotenv(env_path)
+    except Exception:
+        pass
 
-DATABASE_KEY = os.getenv('DATABASE_KEY')
+DATABASE_KEY = os.getenv("DATABASE_KEY")
 if not DATABASE_KEY:
-    raise Exception("DATABASE_KEY environment variable not set.2")
+    raise Exception("DATABASE_KEY environment variable not set.")
 
-# os.environ.setdefault("DATABASE_KEY", "local")
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'anova_api.settings')  # 🔁 Replace with actual module (e.g., 'anova_api.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "anova_api.settings")
 
-# ✅ Setup Django
-import django
+import django  # noqa: E402
 django.setup()
 
-from core.utilities.token_utilities import initialize_tokens_from_env
+# --- Imports that require Django to be set up -------------------------------
+from django.core.management import call_command  # noqa: E402
+from django.conf import settings  # noqa: E402
+from core.utilities.token_utilities import initialize_tokens_from_env  # noqa: E402
+
+
+def load_data_if_exists(fixture_path: Path) -> bool:
+    """Attempt to loaddata if the fixture exists. Return True if loaded."""
+    if fixture_path.is_file():
+        print(f"Loading fixture: {fixture_path}")
+        try:
+            call_command("loaddata", str(fixture_path))
+            return True
+        except Exception as e:
+            print(f"loaddata failed for {fixture_path}: {e}")
+    return False
 
 
 def run():
-    # initialize_tokens_from_env()
-    # return
-    manage_path = 'C:/Projects3/anova_api/manage.py'
-    python_path = f'"{sys.executable}" '
-    print(f'running manage.py commands 1: {python_path}')
-    commands = []
+    # Controls
+    run_makemigrations = os.getenv("RUN_MAKEMIGRATIONS", "0") == "1"
+    apps = [a.strip() for a in os.getenv("DJANGO_APPS", "static,base,authtoken,res,bridge").split(",") if a.strip()]
 
-    commands += [f'{manage_path} makemigrations']
+    project_root = Path(settings.BASE_DIR) if hasattr(settings, "BASE_DIR") else Path(__file__).resolve().parent
+    print(f"Project root: {project_root}")
 
-    apps = ['static', 'base', 'res', 'bridge']
+    # --- Migrations ---------------------------------------------------------
+    print("Applying database migrations...")
+    # if run_makemigrations:
+    call_command("makemigrations", "--noinput")
+    # call_command("migrate", "--noinput")
+    # call_command("migrate", "authtoken", "--noinput")
 
-    commands.append(f'{manage_path} migrate authtoken')
     for app in apps:
-        commands.append(f'{manage_path} migrate {app}')
-        commands.append(f'{manage_path} loaddata {app}.json')
+        # If specific per-app migrate is desired (not necessary, but mirrors your original)
+        call_command("migrate", app, "--noinput")
 
-    # Removed token fixture
-    # commands.append('manage.py loaddata authtoken_token.json')
+        # Try common fixture locations:
+        # candidates = [
+        #     project_root / f"{app}.json",
+        #     project_root / app / "fixtures" / f"{app}.json",
+        # ]
+        # p = f'{project_root}/apps/{app}/fixtures/{app}.json'
+        p = project_root / "apps" / app / "fixtures" / f"{app}.json"
+        loaded = load_data_if_exists(p)
+        # loaded = any(loaddata_if_exists(p) for p in candidates)
+        if not loaded:
+            print(f'Fixture {p} not loaded.')
 
-    for command in commands:
-        print(command)
-        cmd = python_path + command
-        os.system(cmd)
-
+    # --- Token init ---------------------------------------------------------
     print("Running token initialization from environment...")
-    initialize_tokens_from_env()
+    try:
+        initialize_tokens_from_env()
+        print("Token initialization complete.")
+    except Exception as exc:
+        print(f"Token initialization failed: {exc}")
+
+    print("Database initialization complete.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
