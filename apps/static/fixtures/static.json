@@ -1384,6 +1384,30 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "043",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_user",
+      "code": "",
+      "description": "api consumer",
+      "description_short": "api consumer",
+      "description_long": "",
+      "description2": "",
+      "type_key": "USER_API_CONSUMER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-10-11 00:00+0000",
+      "last_updated": "2025-10-11 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {

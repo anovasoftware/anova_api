@@ -223,7 +223,7 @@ class TableAPIView(CoreAPIView):
     def build_response(self):
         response = super().build_response()
 
-        response['header']['record_count'] = len(self.records)
+        response['meta']['record_count'] = len(self.records)
         if self.type:
             response['header']['type'] = {
                 'type_id': self.type.type_id,

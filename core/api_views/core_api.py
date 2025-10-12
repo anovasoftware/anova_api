@@ -4,6 +4,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.request import Request
 from constants import constants
 from apps.static.models import Status
+from apps.base.models import User
 # from apps.bridge.models import Manifest
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
@@ -25,12 +26,14 @@ class CoreAPIView(GenericAPIView):
         self.success = True
         self.debug_flag = 'N'
         self.params = {}
-        self.message = 'call successful'
+        self.message = 'Request completed successfully'
         self.messages = []
         self.data = {}
         self.request_id = ''
         self.user_id = None
+        self.user = None
         self.access_user_id = None
+        self.access_user = None
         self.response_format = 'camel_case'
         self.redirect = None
 
@@ -52,9 +55,12 @@ class CoreAPIView(GenericAPIView):
         result = 'success' if self.success else 'error'
 
         user_logged_in = self.user_id is not None
+        username = self.user.username if self.user else ''
         response = {
-            'result': result,
+            'success': self.success,
+            'code': 'ok',
             'message': self.message,
+            # 'result': result,
             # 'redirect': self.redirect,
             'meta': {
                 'version': constants.VERSION,
@@ -64,12 +70,14 @@ class CoreAPIView(GenericAPIView):
                 # 'request-id': self.request_id,
                 'parameters': self.params,
             },
+            'data': self.data,
             'header': {
                 'user': {
+                    'user_id': self.user_id,
+                    'username': username,
                     'logged_in': user_logged_in
                 }
             },
-            'data': self.data
         }
 
         if len(self.messages) > 0:
@@ -83,6 +91,7 @@ class CoreAPIView(GenericAPIView):
 
         if hasattr(request.user, 'user_id'):
             self.user_id = request.user.user_id
+            self.user = User.objects.get(pk=self.user_id)
         else:
             self.user_id = None  # or 'anonymous', or skip setting it
 
