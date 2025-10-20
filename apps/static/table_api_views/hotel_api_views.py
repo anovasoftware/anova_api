@@ -1,11 +1,9 @@
-from django.contrib.messages import success
 from django.core.exceptions import ObjectDoesNotExist
-
 from core.api_views.table_api_views import AuthorizedTableAPIView
 from apps.static.models import Hotel
 from apps.res.models import Guest
 
-from constants import type_constants
+from constants import type_constants, status_constants
 
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
@@ -27,14 +25,23 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         if self.success:
             try:
                 self.hotel = Hotel.objects.get(pk=self.hotel_id)
+                user_hotels = self.user.userHotels.filter(
+                    hotel_id=self.hotel_id,
+                    effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
+                )
+                if not user_hotels.exists():
+                    message = f'access denied to hotel_id: {self.hotel_id}'
+                    self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
             except ObjectDoesNotExist as e:
-                self.add_message(f'invalid hotelId: {self.hotel_id}', success=False)
+                message = f'hotel_id not found: {self.hotel_id}'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
-        if self.guest_id:
+        if self.success and self.guest_id:
             if Guest.objects.filter(pk=self.guest_id).exists():
                 self.guest = Guest.objects.get(pk=self.guest_id)
             else:
-                self.add_message(f'invalid guest_id: {self.guest_id}', success=False)
+                message = f'guest_id not found: {self.guest_id}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def get_query_filter(self):
         filters = super().get_query_filter()
@@ -48,7 +55,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
         if self.hotel:
             hotel = self.hotel
-            response['header']['hotel'] = {
+            response['context']['hotel'] = {
                 'hotel_id': hotel.hotel_id,
                 # 'type__description': hotel.type.description,
                 'description': hotel.description
@@ -56,7 +63,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         if self.guest:
             guest = self.guest
             person = guest.person
-            response['header']['guest'] = {
+            response['context']['guest'] = {
                 'guest_id': guest.guest_id,
                 'person': {
                     'person_id': person.person_id,

@@ -88,7 +88,7 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         response = super().build_response()
 
         if self.room:
-            response['header']['room'] = {
+            response['context']['room'] = {
                 'code': self.room.code
             }
 

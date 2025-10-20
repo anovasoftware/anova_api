@@ -42,5 +42,5 @@ class Form001APIView(PublicFormAPIView):
             self.set_message(
                 message='Invalid username or password',
                 success=False,
-                status_code=status.HTTP_401_UNAUTHORIZED
+                http_status=status.HTTP_401_UNAUTHORIZED
             )

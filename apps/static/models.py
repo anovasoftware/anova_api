@@ -212,6 +212,7 @@ class Status(BaseModel):
     code             = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False)
     description      = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
     status_key       = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    status_code      = models.IntegerField(default=0)
     flag1            = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
     group1           = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='')
     order_by         = models.CharField(max_length=  2, blank=True , unique=False, primary_key=False, default="99")

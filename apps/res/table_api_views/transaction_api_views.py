@@ -92,7 +92,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
 
         if self.item:
             item = self.item
-            response['header']['item'] = {
+            response['context']['item'] = {
                 'item_id': item.item_id,
                 'description': item.description
             }

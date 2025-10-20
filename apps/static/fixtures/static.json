@@ -47,6 +47,7 @@
       "code": "N/A",
       "description": "Not Applicable",
       "status_key": "NOT_APPLICABLE",
+      "status_code": 0,
       "flag1": "#",
       "group1": "",
       "order_by": "99",
@@ -64,6 +65,7 @@
       "code": "Active",
       "description": "Active",
       "status_key": "ACTIVE",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -81,6 +83,7 @@
       "code": "Inactive",
       "description": "Inactive",
       "status_key": "INACTIVE",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -98,142 +101,7 @@
       "code": "Deleted",
       "description": "Deleted",
       "status_key": "DELETED",
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "005",
-    "fields": {
-      "grouping": "ALL",
-      "code": "Yes",
-      "description": "Yes",
-      "status_key": "ALL_YES",
-      "flag1": "",
-      "group1": "",
-      "order_by": "01",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "006",
-    "fields": {
-      "grouping": "ALL",
-      "code": "No",
-      "description": "No",
-      "status_key": "ALL_NO",
-      "flag1": "",
-      "group1": "",
-      "order_by": "02",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "007",
-    "fields": {
-      "grouping": "ALL",
-      "code": "ND",
-      "description": "Not Disclosed",
-      "status_key": "ALL_NOT_DISCLOSED",
-      "flag1": "",
-      "group1": "",
-      "order_by": "03",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "999",
-    "fields": {
-      "grouping": "ALL",
-      "code": "TBA",
-      "description": "To Be Announced",
-      "status_key": "TO_BE_ANNOUNCED",
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "021",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Current",
-      "description": "Current",
-      "status_key": "EFFECTIVE_STATUS_CURRENT",
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "022",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Future",
-      "description": "Future",
-      "status_key": "EFFECTIVE_STATUS_FUTURE",
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "023",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Expired",
-      "description": "Expired",
-      "status_key": "EFFECTIVE_STATUS_EXPIRED",
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "024",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Stale",
-      "description": "Stale",
-      "status_key": "EFFECTIVE_STATUS_STALE",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -251,6 +119,7 @@
       "code": "Queued",
       "description": "Queued",
       "status_key": "QUEUED",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -262,12 +131,67 @@
   }
 ,  {
     "model": "static.Status",
+    "pk": "005",
+    "fields": {
+      "grouping": "ALL",
+      "code": "Yes",
+      "description": "Yes",
+      "status_key": "ALL_YES",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "006",
+    "fields": {
+      "grouping": "ALL",
+      "code": "No",
+      "description": "No",
+      "status_key": "ALL_NO",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "02",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "007",
+    "fields": {
+      "grouping": "ALL",
+      "code": "ND",
+      "description": "Not Disclosed",
+      "status_key": "ALL_NOT_DISCLOSED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "03",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
     "pk": "008",
     "fields": {
       "grouping": "res_transaction",
       "code": "Posted",
       "description": "Posted",
       "status_key": "POSTED",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -285,6 +209,7 @@
       "code": "Cancelled",
       "description": "Cancelled",
       "status_key": "CANCELLED",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -302,6 +227,7 @@
       "code": "Success",
       "description": "Success",
       "status_key": "SUCCESS",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -319,6 +245,205 @@
       "code": "Failed",
       "description": "Failed",
       "status_key": "FAILED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00D",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "OK",
+      "status_key": "HTTP_OK",
+      "status_code": 200,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "021",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Current",
+      "description": "Current",
+      "status_key": "EFFECTIVE_STATUS_CURRENT",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "022",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Future",
+      "description": "Future",
+      "status_key": "EFFECTIVE_STATUS_FUTURE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "023",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Expired",
+      "description": "Expired",
+      "status_key": "EFFECTIVE_STATUS_EXPIRED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "024",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Stale",
+      "description": "Stale",
+      "status_key": "EFFECTIVE_STATUS_STALE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "999",
+    "fields": {
+      "grouping": "ALL",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "status_key": "TO_BE_ANNOUNCED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00F",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Bad Request",
+      "status_key": "HTTP_BAD_REQUEST",
+      "status_code": 400,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00G",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Unauthorized",
+      "status_key": "HTTP_UNAUTHORIZED",
+      "status_code": 401,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00H",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Forbidden",
+      "status_key": "HTTP_FORBIDDEN",
+      "status_code": 403,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00J",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Access Denied",
+      "status_key": "HTTP_ACCESS_DENIED",
+      "status_code": 403,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00K",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Internal Server Error",
+      "status_key": "HTTP_INTERNAL_SERVER_ERROR",
+      "status_code": 500,
       "flag1": "",
       "group1": "",
       "order_by": "99",
@@ -1817,7 +1942,7 @@
       "status_id": "001",
       "client_id": "002",
       "code": "EXP2",
-      "description": "Expedition 2",
+      "description": "Expedition",
       "vms_identifier": "1302",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "EXPEDITION2",

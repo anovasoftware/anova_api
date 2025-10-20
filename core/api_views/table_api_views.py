@@ -35,9 +35,9 @@ class TableAPIView(CoreAPIView):
             self.type_id = self.get_param('typeId', None, True)
 
         if not self.app_name:
-            self.add_message('self.app_name not defined', success=False)
+            self.add_message('self.app_name not defined', http_status_id='VALIDATION_ERROR')
         if not self.model_name:
-            self.add_message('self.model_name not defined', success=False)
+            self.add_message('self.model_name not defined', http_status_id='VALIDATION_ERROR')
 
         if not self.success:
             pass
@@ -49,7 +49,7 @@ class TableAPIView(CoreAPIView):
                 valid_types += f', {type_id}'
             valid_types = valid_types[2:]
             message += f'{message} valid types: {valid_types}'
-            self.add_message(message, success=False)
+            self.add_message(message, http_status_id='VALIDATION_ERROR')
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
             try:
@@ -71,7 +71,8 @@ class TableAPIView(CoreAPIView):
         except json.JSONDecodeError as e:
             loaded = False
             if self.json_required:
-                self.set_message(f'invalid JSON format in request body: {str(e)}', success=False)
+                message = f'invalid JSON format in request body: {str(e)}'
+                self.set_message(message, http_status_id='VALIDATION_ERROR')
 
         return loaded
 
@@ -85,7 +86,8 @@ class TableAPIView(CoreAPIView):
                 queryset = model.objects.filter(**query_filter).values(*fields)
                 self.records = list(queryset)
             except LookupError:
-                self.add_message(f'Model {self.model_name} in app {self.app_name} not found', success=False)
+                message = f'Model {self.model_name} in app {self.app_name} not found'
+                self.add_message(message, http_status_id='VALIDATION_ERROR')
 
     def get_value_list(self):
         return []
@@ -113,11 +115,11 @@ class TableAPIView(CoreAPIView):
         if not self.load_json(request):
             pass
         elif not self.data_to_load:
-            self.set_message('no json data supplied', success=False)
+            self.set_message('no json data supplied', http_status_id='VALIDATION_ERROR')
         elif len(self.data_to_load) == 0:
-            self.set_message('empty json file', success=True)
+            self.set_message('empty json file', http_status_id='VALIDATION_ERROR')
         elif self.expand_record_with_internal_ids() and not self.success:
-            self.set_message('missing foreign key mapping(s)', success=False)
+            self.set_message('missing foreign key mapping(s)', http_status_id='VALIDATION_ERROR')
         else:
             model = self.model
             model_fields = {field.name for field in model._meta.get_fields() if isinstance(field, models.Field)}
@@ -134,9 +136,9 @@ class TableAPIView(CoreAPIView):
             #     message = f'Warning: These fields do not exist in {model.__name__}: {missing_fields}'
             #     self.set_message(message, success=False)
             if 'pk' not in record.keys():
-                self.set_message('must supply a field named pk', success=False)
+                self.set_message('must supply a field named pk', http_status_id='VALIDATION_ERROR')
             if self.external_id_required and 'external_id' not in record.keys():
-                self.set_message('must supply a field named external_id', success=False)
+                self.set_message('must supply a field named external_id', http_status_id='VALIDATION_ERROR')
 
     def _post(self, request):
         if not self.posting_type:
@@ -184,7 +186,7 @@ class TableAPIView(CoreAPIView):
         # self.set_message('under construction', success=False)
 
     def _post_simple(self, request):
-        self.add_message('_post_simple not defined', success=False)
+        self.add_message('_post_simple not defined', http_status_id='SERVER_ERROR')
 
     def get_external_mapping(self, record):
         mapping: ExternalMapping
@@ -210,7 +212,7 @@ class TableAPIView(CoreAPIView):
                         internal_id = ExternalMapping.objects.get(external_id=external_id).internal_id
                     except ExternalMapping.DoesNotExist:
                         message = f'{field}: internal_id not found for external_id={external_id}, pk={pk}'
-                        self.add_message(message, success=False)
+                        self.add_message(message, http_status_id='SERVER_ERROR')
                         internal_id = None  # or handle the missing case however you like
                     record[f'{model_prefix}_id'] = internal_id
                 if not self.success:
@@ -225,12 +227,12 @@ class TableAPIView(CoreAPIView):
 
         response['meta']['record_count'] = len(self.records)
         if self.type:
-            response['header']['type'] = {
+            response['context']['type'] = {
                 'type_id': self.type.type_id,
                 'code': self.type.code,
                 'description': self.type.description
             }
-        response['detail'] = self.records
+        response['data']['items'] = self.records
 
         return response
 

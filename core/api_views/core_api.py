@@ -2,7 +2,7 @@ import os
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from rest_framework.request import Request
-from constants import constants
+from constants import constants, status_constants
 from apps.static.models import Status
 from apps.base.models import User
 # from apps.bridge.models import Manifest
@@ -11,19 +11,16 @@ from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
 from django.http import JsonResponse
 from rest_framework import status
+from core.services.core_service import CoreService
+# from constants.constants import API_CODES
 
 
 class CoreAPIView(GenericAPIView):
-    # def dispatch(self, request, *args, **kwargs):
-    #     self.third_party_flag = kwargs.get('thirdPartyFlag', 'N')
-    #     return super().dispatch(request, *args, **kwargs)
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.status_code = status.HTTP_200_OK
+        self.http_status = status.HTTP_200_OK
         self.third_party_flag = 'N'
-        self.success = True
         self.debug_flag = 'N'
         self.params = {}
         self.message = 'Request completed successfully'
@@ -36,6 +33,7 @@ class CoreAPIView(GenericAPIView):
         self.access_user = None
         self.response_format = 'camel_case'
         self.redirect = None
+        self.http_status_id = status_constants.HTTP_OK
 
     def dispatch(self, request, *args, **kwargs):
         # Set third_party_flag before the view logic runs
@@ -45,20 +43,25 @@ class CoreAPIView(GenericAPIView):
     def get_response(self):
         response = self.build_response()
 
+        if self.debug_flag == 'Y':
+            response['messages'] = ['debug mode is on']
+
         if self.response_format == 'camel_case':
             # response = convert_to_camel_case(response)
             response = format_response(response)
 
-        return Response(response, status=self.status_code)
+        return Response(response, status=self.http_status)
 
     def build_response(self):
-        result = 'success' if self.success else 'error'
+        http_status = self.get_http_status_details()
 
         user_logged_in = self.user_id is not None
         username = self.user.username if self.user else ''
+        self.http_status = http_status['http_status']
+
         response = {
-            'success': self.success,
-            'code': 'ok',
+            'success':http_status['success'],
+            'code': http_status['code'],
             'message': self.message,
             # 'result': result,
             # 'redirect': self.redirect,
@@ -70,14 +73,15 @@ class CoreAPIView(GenericAPIView):
                 # 'request-id': self.request_id,
                 'parameters': self.params,
             },
-            'data': self.data,
-            'header': {
+            'context': {
                 'user': {
                     'user_id': self.user_id,
                     'username': username,
                     'logged_in': user_logged_in
                 }
             },
+            'data': self.data,
+            'errors': []
         }
 
         if len(self.messages) > 0:
@@ -105,8 +109,9 @@ class CoreAPIView(GenericAPIView):
             ret_value = params[key]
 
         if required and not ret_value:
-            self.message = 'missing parameter(s)'
-            self.add_message(f'missing parameter: {key}', success=False)
+            message = f'missing parameter: {key}'
+            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            return None
 
         if key != 'debugFlag':
             self.params[key] = ret_value
@@ -116,44 +121,43 @@ class CoreAPIView(GenericAPIView):
                 ret_value = Decimal(ret_value)
                 self.params[key] = ret_value
             except InvalidOperation as e:
-                self.add_message(f'{key} format error. expecting {parameter_type}:  {str(e)}', success=False)
+                message = f'{key} format error. expecting {parameter_type}:  {str(e)}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         return ret_value
 
-    def add_message(self, message, success=True, status_code=status.HTTP_200_OK):
-        self.status_code = status_code
+    def add_message(self, message, http_status_id=None):
+        if http_status_id:
+            self.http_status_id = http_status_id
         self.messages.append(message)
-        self.success = self.success and success
-        if not self.success:
-            self.set_message('call failed', success=success, status_code=status_code)
+        # if not self.success:
+        #     self.set_message('call failed', success=success, status_code=status_code)
 
-    def set_message(self, message, success=True, status_code=status.HTTP_200_OK):
-        self.status_code = status_code
+    def set_message(self, message, http_status_id=None):
+        if http_status_id:
+            self.http_status_id = http_status_id
         self.messages.append(message)
         self.message = message
-        self.success = self.success and success
 
     def get(self, request):
         try:
             self.load_request(request)
-            # if self.status == 200:
             if self.success:
                 self.pre_get(request)
                 if self.success:
+                    self._get(request)
                     if self.success:
-                        self._get(request)
-                        if self.success:
-                            self.post_get(request)
+                        self.post_get(request)
         except Exception as e:
-            self.add_message(f'get() error:  {str(e)}', success=False)
-
+            message = f'get() error:  {str(e)}'
+            self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
         return self.get_response()
 
     def pre_get(self, request):
         pass
 
     def _get(self, request):
-        self.set_message('get() not defined', success=False)
+        self.set_message('get() not defined', http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
     def post_get(self, request):
         pass
@@ -178,26 +182,42 @@ class CoreAPIView(GenericAPIView):
         pass
 
     def _post(self, request):
-        self.set_message('post() not defined', success=False)
+        self.set_message('post() not defined')
 
     def post_post(self, request):
         pass
 
-    # def success_response(self, data=None, message="Success", status_code=status.HTTP_200_OK):
-    #     return Response({
-    #         "success": self.success,
-    #         "message": message,
-    #         "data": data if data is not None else {},
-    #     }, status=status_code)
+    # def is_success(self):
+    #     success = False
+    #     try:
+    #         status_code = CoreService.get_http_statuses().get(pk=self.http_status_id).status_code
+    #     except Exception as e:
+    #         self.set_message(f'error determining status: {str(e)}')
     #
-    # @staticmethod
-    # def error_response(errors=None, message="An error occurred", status_code=status.HTTP_400_BAD_REQUEST):
-    #     return Response({
-    #         "success": False,
-    #         "message": message,
-    #         "errors": errors if errors is not None else [],
-    #     }, status=status_code)
+    #     return success
 
+
+    def get_http_status_details(self):
+        status_dict = {
+            'http_status': 500,
+            'code': 'Internal Server Error',
+            'success': False
+        }
+        try:
+            status_obj = Status.objects.get(pk=self.http_status_id)
+            http_status = status_obj.status_code
+            status_dict = {
+                'http_status': status_obj.status_code,
+                'code': status_obj.description,
+                'success': 200 <= http_status < 300
+            }
+        except Exception as e:
+            self.set_message(f'error determining status: {str(e)}')
+        return status_dict
+
+    @property
+    def success(self):
+        return CoreService.get_success(self.http_status_id)
 
 class AuthorizedAPIView(CoreAPIView):
     permission_classes = [IsAuthenticated]
@@ -254,7 +274,7 @@ class GuestRoomAPI(AuthorizedAPIView):
         self.room_id = self.get_param('room_id', '', True)
 
     def _get(self, request):
-        status = Status.objects.get(pk='001')
+        # status = Status.objects.get(pk='001')
         self.message = 'under construction'
 
         # manifests = Manifest.objects.filter(
@@ -417,3 +437,13 @@ def format_response(obj, level=0):
 
 def health_check(request):
     return JsonResponse({'status': 'ok'})
+
+
+# def is_http_success(code_key: str) -> bool:
+#     entry = API_CODES.get(code_key)
+#     if not entry:
+#         # Unknown code? treat as unsuccessful.
+#         return False
+#     _, declared_success, http_status = entry
+#     # 2xx responses are always successful, even if declared_success was mis-set
+#     return 200 <= http_status < 300
