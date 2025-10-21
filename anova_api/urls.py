@@ -4,6 +4,7 @@ from core.api_views.core_api import GuestRoomAPI
 from django.urls import path, include
 from core.api_views.core_api import health_check
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+# urls.py
 
 
 urlpatterns = [
@@ -20,4 +21,5 @@ urlpatterns = [
     path('api/v1/external/', include('core.urls.urls_tables')),
 ]
 # https://yourPMS/GetRoomGuests?room=123&hotelId=xxxyy
+
 

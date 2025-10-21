@@ -19,7 +19,9 @@ class CoreAPIView(GenericAPIView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.http_status = status.HTTP_200_OK
+        self.http_status_id = status_constants.HTTP_OK
+        # self.http_status = status.HTTP_200_OK
+        self.http_statuses = CoreService.get_http_statuses()
         self.third_party_flag = 'N'
         self.debug_flag = 'N'
         self.params = {}
@@ -33,7 +35,6 @@ class CoreAPIView(GenericAPIView):
         self.access_user = None
         self.response_format = 'camel_case'
         self.redirect = None
-        self.http_status_id = status_constants.HTTP_OK
 
     def dispatch(self, request, *args, **kwargs):
         # Set third_party_flag before the view logic runs
@@ -50,14 +51,15 @@ class CoreAPIView(GenericAPIView):
             # response = convert_to_camel_case(response)
             response = format_response(response)
 
-        return Response(response, status=self.http_status)
+        status_code = self.http_statuses[self.http_status_id]['status_code']
+        return Response(response, status=status_code)
 
     def build_response(self):
-        http_status = self.get_http_status_details()
+        http_status = self.http_statuses[self.http_status_id]
 
         user_logged_in = self.user_id is not None
         username = self.user.username if self.user else ''
-        self.http_status = http_status['http_status']
+        # self.http_status = http_status['http_status']
 
         response = {
             'success':http_status['success'],
@@ -103,7 +105,7 @@ class CoreAPIView(GenericAPIView):
 
     def get_param(self, key, default_value, required, parameter_type=None):
         ret_value = default_value
-        params: Request = self.request.query_params
+        params = self.request.GET
 
         if key in params:
             ret_value = params[key]
@@ -217,7 +219,7 @@ class CoreAPIView(GenericAPIView):
 
     @property
     def success(self):
-        return CoreService.get_success(self.http_status_id)
+        return self.http_statuses[self.http_status_id]['success']
 
 class AuthorizedAPIView(CoreAPIView):
     permission_classes = [IsAuthenticated]
