@@ -1,6 +1,7 @@
 class CoreService:
     _http_statuses = None
     _http_classes = None
+    _data_seeded = False
 
     @classmethod
     def load_http_statuses(cls):
@@ -19,8 +20,16 @@ class CoreService:
                     'success': 200 <= s.status_code < 300,
                 }
                 for s in statuses
+
             }
         return cls._http_classes
+
+    @classmethod
+    def seed_database(cls):
+        if not cls._data_seeded:
+            from apps.base.utilities.hotel_utilities import load_hotel_types
+            load_hotel_types()
+            cls._data_seeded = True
 
     # property-style alias (optional)
     # http_statuses = property(get_http_statuses)

@@ -1,6 +1,6 @@
 from core.api_views.table_api_views import PublicTableAPIView
 from apps.base.models import User
-from constants import type_constants
+from constants import type_constants, status_constants
 # from utilities.user_utilities import get_user_roles
 # from django.db.models import Case, When, Value as V, Q
 # from utilities.user_utilities import is_impersonator, is_developer
@@ -31,8 +31,8 @@ class PublicUserAPIView(PublicTableAPIView):
             try:
                 self.user = User.objects.filter(user_id=self.user_id)
             except Exception as e:
-                self.set_message(f'room not found: {self.user_id}', success=False)
-
+                message = f'room not found: {self.user_id}'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
     def get_value_list(self):
         value_list = [
             'username',

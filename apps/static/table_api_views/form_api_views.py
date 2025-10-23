@@ -32,9 +32,9 @@ class PublicFormAPIView(PublicTableAPIView):
         self.form_id = self.get_param('form_id', self.form_id, required=False)
 
         if not self.form_id:
-            self.add_message(f'form_id is not defined.', success=True)
+            self.add_message(f'form_id is not defined.', http_status_id=status_constants.HTTP_OK)
         if not self.base_model:
-            self.add_message(f'base_model is not defined.', success=True)
+            self.add_message(f'base_model is not defined.', http_status_id=status_constants.HTTP_OK)
 
         if self.success:
             self.client_ip = get_client_ip(request)
@@ -88,7 +88,8 @@ class PublicFormAPIView(PublicTableAPIView):
     def post_get(self, request):
         mask_fields = []
         if self.form_id and len(self.records) == 0:
-            self.set_message(f'form_id={self.form_id} not defined.', success=False)
+            message = f'form_id={self.form_id} not defined.'
+            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         else:
             self.form = self.records[0].copy()
             # self.form['form_fields'] = self.form_fields

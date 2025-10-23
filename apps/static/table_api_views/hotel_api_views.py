@@ -4,7 +4,7 @@ from apps.static.models import Hotel
 from apps.res.models import Guest
 
 from constants import type_constants, status_constants
-
+from core.services.core_service import CoreService
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     def __init__(self):
@@ -55,11 +55,8 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
         if self.hotel:
             hotel = self.hotel
-            response['context']['hotel'] = {
-                'hotel_id': hotel.hotel_id,
-                # 'type__description': hotel.type.description,
-                'description': hotel.description
-            }
+            response['context']['hotel_id'] = hotel.hotel_id
+            response['context']['hotel_description'] = hotel.hotel_id
         if self.guest:
             guest = self.guest
             person = guest.person

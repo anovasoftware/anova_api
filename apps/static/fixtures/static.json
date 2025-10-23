@@ -698,7 +698,7 @@
     "fields": {
       "parent_type_id": "000",
       "grouping": "res_guest",
-      "code": "Staff",
+      "code": "Staff/Crew",
       "description": "Staff/Crew",
       "description_short": "Staff/Crew",
       "description_long": "",

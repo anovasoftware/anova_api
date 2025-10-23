@@ -40,7 +40,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
                 if Type.objects.filter(type_key=special_item_type_id).exists():
                     self.hotel_type = Type.objects.get(type_key=special_item_type_id)
                 else:
-                    self.set_message(f'invalid itemKey={self.item_key}.', success=False)
+                    self.set_message(f'invalid itemKey={self.item_key}.',status_constants.HTTP_BAD_REQUEST)
 
     def get_value_list(self):
         value_list = [
@@ -63,7 +63,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         else:
             self.set_message(f'unable to find item associated with itemKey: {self.item_key}')
 
-        self.set_message('under construction', success=False)
+        self.set_message('under construction', http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def _post_simple_save(self, request):
         record = {

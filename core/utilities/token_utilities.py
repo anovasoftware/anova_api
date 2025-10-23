@@ -18,7 +18,7 @@ def generate_user_token(username: str):
 
 # in a python window:
 # from core.utilities.token_utilities import generate_user_token
-# generate_user_token('jburke@anovasoftware.com')
+# generate_user_token('anova')
 def generate_secure_token(length=40):
     return secrets.token_hex(length // 2)  # token_hex generates hex string, so divide length by 2
     # # Example usage

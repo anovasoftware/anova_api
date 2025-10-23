@@ -18,14 +18,14 @@ from core.services.core_service import CoreService
 class CoreAPIView(GenericAPIView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
+        CoreService.seed_database()
         self.http_status_id = status_constants.HTTP_OK
         # self.http_status = status.HTTP_200_OK
         self.http_statuses = CoreService.get_http_statuses()
         self.third_party_flag = 'N'
         self.debug_flag = 'N'
         self.params = {}
-        self.message = 'Request completed successfully'
+        self.message = None
         self.messages = []
         self.data = {}
         self.request_id = ''
@@ -35,11 +35,25 @@ class CoreAPIView(GenericAPIView):
         self.access_user = None
         self.response_format = 'camel_case'
         self.redirect = None
+        self.result_shape = 'nested'
 
     def dispatch(self, request, *args, **kwargs):
         # Set third_party_flag before the view logic runs
         self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
         return super().dispatch(request, *args, **kwargs)
+
+    def load_request(self, request):
+        self.request_id = getattr(request, "request_id", "unknown")
+        self.debug_flag = self.get_param('debugFlag', 'N', False)
+        self.result_shape = self.get_param('shape', 'nested', False)
+
+        if hasattr(request.user, 'user_id'):
+            self.user_id = request.user.user_id
+            self.user = User.objects.get(pk=self.user_id)
+        else:
+            self.user_id = None  # or 'anonymous', or skip setting it
+
+        self.access_user_id = self.user_id
 
     def get_response(self):
         response = self.build_response()
@@ -61,6 +75,9 @@ class CoreAPIView(GenericAPIView):
         username = self.user.username if self.user else ''
         # self.http_status = http_status['http_status']
 
+        if not self.message:
+            self.message = 'Request completed successfully' if self.success else 'Request failed'
+
         response = {
             'success':http_status['success'],
             'code': http_status['code'],
@@ -76,11 +93,8 @@ class CoreAPIView(GenericAPIView):
                 'parameters': self.params,
             },
             'context': {
-                'user': {
-                    'user_id': self.user_id,
-                    'username': username,
-                    'logged_in': user_logged_in
-                }
+                'user_id': self.user_id,
+                'username': username,
             },
             'data': self.data,
             'errors': []
@@ -90,18 +104,6 @@ class CoreAPIView(GenericAPIView):
             response['messages'] = self.messages
 
         return response
-
-    def load_request(self, request):
-        self.request_id = getattr(request, "request_id", "unknown")
-        self.debug_flag = self.get_param('debugFlag', 'N', False)
-
-        if hasattr(request.user, 'user_id'):
-            self.user_id = request.user.user_id
-            self.user = User.objects.get(pk=self.user_id)
-        else:
-            self.user_id = None  # or 'anonymous', or skip setting it
-
-        self.access_user_id = self.user_id
 
     def get_param(self, key, default_value, required, parameter_type=None):
         ret_value = default_value
@@ -132,6 +134,9 @@ class CoreAPIView(GenericAPIView):
         if http_status_id:
             self.http_status_id = http_status_id
         self.messages.append(message)
+
+        if not self.message:
+            self.message = message
         # if not self.success:
         #     self.set_message('call failed', success=success, status_code=status_code)
 
@@ -176,7 +181,8 @@ class CoreAPIView(GenericAPIView):
                         if self.success:
                             self.post_post(request)
         except Exception as e:
-            self.add_message(f'post error:  {str(e)}', success=False)
+            message = f'post() error:  {str(e)}'
+            self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
         return self.get_response()
 
@@ -199,23 +205,23 @@ class CoreAPIView(GenericAPIView):
     #     return success
 
 
-    def get_http_status_details(self):
-        status_dict = {
-            'http_status': 500,
-            'code': 'Internal Server Error',
-            'success': False
-        }
-        try:
-            status_obj = Status.objects.get(pk=self.http_status_id)
-            http_status = status_obj.status_code
-            status_dict = {
-                'http_status': status_obj.status_code,
-                'code': status_obj.description,
-                'success': 200 <= http_status < 300
-            }
-        except Exception as e:
-            self.set_message(f'error determining status: {str(e)}')
-        return status_dict
+    # def get_http_status_details(self):
+    #     status_dict = {
+    #         'http_status': 500,
+    #         'code': 'Internal Server Error',
+    #         'success': False
+    #     }
+    #     try:
+    #         status_obj = Status.objects.get(pk=self.http_status_id)
+    #         http_status = status_obj.status_code
+    #         status_dict = {
+    #             'http_status': status_obj.status_code,
+    #             'code': status_obj.description,
+    #             'success': 200 <= http_status < 300
+    #         }
+    #     except Exception as e:
+    #         self.set_message(f'error determining status: {str(e)}')
+    #     return status_dict
 
     @property
     def success(self):
@@ -351,8 +357,29 @@ def nest_record(record):
     return nested
 
 
-def nest_records(records):
-    return [nest_record(record) for record in records]
+def flat_record(record: dict) -> dict:
+    flat = {}
+
+    def _flatten(prefix, value):
+        if isinstance(value, dict):
+            for k, v in value.items():
+                _flatten(f'{prefix}__{k}' if prefix else k, v)
+        else:
+            flat[prefix] = value
+
+    _flatten('', record)
+    # Replace double underscores with single underscores
+    return {k.replace('__', '_'): v for k, v in flat.items()}
+
+
+def transform_records(records, shape='nested'):
+    # return [nest_record(record) for record in records]
+    if shape == 'flat':
+        records_adjusted = [flat_record(record) for record in records]
+    else:
+        records_adjusted = [nest_record(record) for record in records]
+
+    return records_adjusted
 
 
 # def convert_to_camel_case(obj):

@@ -4,6 +4,7 @@ from core.api_views.core_api import GuestRoomAPI
 from django.urls import path, include
 from core.api_views.core_api import health_check
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 # urls.py
 
 
@@ -19,7 +20,13 @@ urlpatterns = [
     path('api/v1/form/', include('core.urls.urls_forms')),
     path('api/v1/table/', include('core.urls.urls_tables')),
     path('api/v1/external/', include('core.urls.urls_tables')),
+
+    # --- NEW: schema + docs ---
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
+
 # https://yourPMS/GetRoomGuests?room=123&hotelId=xxxyy
 
 

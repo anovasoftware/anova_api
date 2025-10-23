@@ -1,5 +1,5 @@
 from django.contrib.messages import success
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, nest_records, PublicAPIView
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.apps import apps
 from django.http import JsonResponse
@@ -9,7 +9,7 @@ from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
 from apps.static.models import Type
 from apps.base.models import ExternalMapping
-from constants import type_constants
+from constants import type_constants, status_constants
 
 
 class TableAPIView(CoreAPIView):
@@ -37,7 +37,7 @@ class TableAPIView(CoreAPIView):
         if not self.app_name:
             self.add_message('self.app_name not defined', http_status_id='VALIDATION_ERROR')
         if not self.model_name:
-            self.add_message('self.model_name not defined', http_status_id='VALIDATION_ERROR')
+            self.add_message('self.model_name not defined', http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if not self.success:
             pass
@@ -49,7 +49,7 @@ class TableAPIView(CoreAPIView):
                 valid_types += f', {type_id}'
             valid_types = valid_types[2:]
             message += f'{message} valid types: {valid_types}'
-            self.add_message(message, http_status_id='VALIDATION_ERROR')
+            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
             try:
@@ -107,7 +107,7 @@ class TableAPIView(CoreAPIView):
         return filters
 
     def post_get(self, request):
-        self.records = nest_records(self.records)
+        self.records = transform_records(self.records, shape=self.result_shape)
         # self.data['record_count'] = len(self.records)
         # self.data['records'] = expanded_records
 
@@ -115,11 +115,13 @@ class TableAPIView(CoreAPIView):
         if not self.load_json(request):
             pass
         elif not self.data_to_load:
-            self.set_message('no json data supplied', http_status_id='VALIDATION_ERROR')
+            self.set_message('no json data supplied', http_status_id=status_constants.HTTP_BAD_REQUEST)
         elif len(self.data_to_load) == 0:
-            self.set_message('empty json file', http_status_id='VALIDATION_ERROR')
+            self.set_message('empty json file', http_status_id=status_constants.HTTP_BAD_REQUEST)
         elif self.expand_record_with_internal_ids() and not self.success:
-            self.set_message('missing foreign key mapping(s)', http_status_id='VALIDATION_ERROR')
+            pass
+            # message = 'missing foreign key mapping(s)'
+            # self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         else:
             model = self.model
             model_fields = {field.name for field in model._meta.get_fields() if isinstance(field, models.Field)}
@@ -212,7 +214,7 @@ class TableAPIView(CoreAPIView):
                         internal_id = ExternalMapping.objects.get(external_id=external_id).internal_id
                     except ExternalMapping.DoesNotExist:
                         message = f'{field}: internal_id not found for external_id={external_id}, pk={pk}'
-                        self.add_message(message, http_status_id='SERVER_ERROR')
+                        self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
                         internal_id = None  # or handle the missing case however you like
                     record[f'{model_prefix}_id'] = internal_id
                 if not self.success:
@@ -226,13 +228,13 @@ class TableAPIView(CoreAPIView):
         response = super().build_response()
 
         response['meta']['record_count'] = len(self.records)
-        if self.type:
-            response['context']['type'] = {
-                'type_id': self.type.type_id,
-                'code': self.type.code,
-                'description': self.type.description
-            }
-        response['data']['items'] = self.records
+        # if self.type:
+        #     response['context']['type'] = {
+        #         'type_id': self.type.type_id,
+        #         'code': self.type.code,
+        #         'description': self.type.description
+        #     }
+        response['data']['records'] = self.records
 
         return response
 

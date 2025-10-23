@@ -15,7 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from anova_api.configuration.database import DATABASE_DEFINITIONS
 from datetime import timedelta
-
+from constants import constants
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_apscheduler',
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_spectacular',
     'apps.static.config.StaticConfig',
     'apps.base.config.BaseConfig',
     'apps.res.config.ResConfig',
@@ -81,7 +82,28 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",  # Requires authentication by default
     ],
+    "DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema',
 }
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Anova API",
+    "DESCRIPTION": "Internal/partner API for PMS modules.",
+    "VERSION": constants.VERSION,
+    "SERVE_INCLUDE_SCHEMA": False,
+    "COMPONENT_SPLIT_REQUEST": True,
+
+    # This tells Swagger/Redoc how your token is passed
+    "SECURITY_SCHEMES": {
+        "TokenAuth": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization",
+            "description": "Use format: Token <your_token>",
+        },
+    },
+    "SECURITY": [{"TokenAuth": []}],
+}
+
 ROOT_URLCONF = 'anova_api.urls'
 
 TEMPLATES = [

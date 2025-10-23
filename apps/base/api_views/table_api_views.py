@@ -1,7 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from core.api_views.table_api_views import AuthorizedTableAPIView
 from apps.static.models import Client
-from constants import client_constants
+from constants import client_constants, status_constants
 
 
 class AuthorizedClientAPIView(AuthorizedTableAPIView):
@@ -18,7 +18,8 @@ class AuthorizedClientAPIView(AuthorizedTableAPIView):
             try:
                 client = Client.objects.get(pk=self.client_id)
             except ObjectDoesNotExist as e:
-                self.add_message(f'invalid clientId: {self.client_id}', success=False)
+                message = f'invalid clientId: {self.client_id}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def get_query_filter(self):
         filters = super().get_query_filter()
