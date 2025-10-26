@@ -50,14 +50,18 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             'guest__type__code',
             'guest__person__last_name',
             'guest__person__first_name',
+            'guest__person__salutation',
             'guest__person__birth_date',
             'guest__person__email',
             'arrival_date',
             'departure_date',
 
-            'room_id',
-            'guest__guest_id',
             'guest__reservation_id',
+            'guest__guest_id',
+            'guest__person_id',
+            'room_id',
+
+
             # 'room__hotel__hotel_id',
             # 'room__hotel__description',
             # 'room__category__code',
