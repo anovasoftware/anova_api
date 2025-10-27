@@ -226,14 +226,15 @@ class TableAPIView(CoreAPIView):
 
     def build_response(self):
         response = super().build_response()
-
-        response['meta']['record_count'] = len(self.records)
+        record_count = len(self.records)
+        response['meta']['record_count'] = record_count
         # if self.type:
         #     response['context']['type'] = {
         #         'type_id': self.type.type_id,
         #         'code': self.type.code,
         #         'description': self.type.description
         #     }
+        # response['data']['valid'] = record_count > 0
         response['data']['records'] = self.records
 
         return response

@@ -10,7 +10,9 @@ class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
         self.model_name = 'Guest'
         self.hotel_id_field = 'reservation__hotel_id'
         self.accepted_type_ids = [
+            type_constants.NOT_APPLICABLE,
             type_constants.RES_GUEST_GUEST,
+            type_constants.RES_GUEST_CREW,
             type_constants.RES_GUEST_STAFF
         ]
 

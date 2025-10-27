@@ -55,6 +55,7 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             'guest__person__email',
             'arrival_date',
             'departure_date',
+            'guest__authorized_to_charge_flag',
 
             'guest__reservation_id',
             'guest__guest_id',
