@@ -196,6 +196,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://anova-ui-env.eba-wsngbtz9.us-east-1.elasticbeanstalk.com",
     "http://app.anovasea.net",  # ✅ Add this for the current frontend origin
     "https://app.anovasea.net",  # ✅ Add this for HTTPS frontend
+    "https://www.anovasea.net",  # ✅ Add this for HTTPS frontend
 ]
 # Optional (for development only)
 # CORS_ALLOW_ALL_ORIGINS = True
