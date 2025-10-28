@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 if os.getenv("ENVIRONMENT", "local") == "local":
     load_dotenv('.env')
 
-DB_HOST = os.getenv('DB_HOST')
+DATABASE_HOST = os.getenv('DATABASE_HOST')
 DATABASE_NAME = os.getenv('DATABASE_NAME')
 PASSWORD = os.getenv('DATABASE_PASSWORD')
 
@@ -19,7 +19,7 @@ DATABASE_DEFINITIONS = {
         'NAME': DATABASE_NAME,
         'USER': 'postgres',
         'PASSWORD': PASSWORD,
-        'HOST': DB_HOST,
+        'HOST': DATABASE_HOST,
         'PORT': '5432'
     },
     'production': {
@@ -27,7 +27,7 @@ DATABASE_DEFINITIONS = {
         'NAME': DATABASE_NAME,
         'USER': 'postgres',
         'PASSWORD': PASSWORD,
-        'HOST': DB_HOST,
+        'HOST': DATABASE_HOST,
         'PORT': '5432'
     },
 
