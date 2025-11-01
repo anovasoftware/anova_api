@@ -39,6 +39,7 @@ ALLOWED_HOSTS = [
     'api.anovasea.net',
     "34.233.187.33",  # Add your Elastic Beanstalk instance's IP
     ".elasticbeanstalk.com",  # Allow AWS EB subdomains
+    "anova-api.onrender.com",
 ]
 
 # Application definition
