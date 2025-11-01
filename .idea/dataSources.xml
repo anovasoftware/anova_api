@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/anova_db_01</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="render-anova" uuid="e11efbb4-0726-48b9-94ec-2d82d46f9ee6">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-d42vpvodl3ps73crdr80-a.virginia-postgres.render.com:5432/anova_db_instance_01?sslmode=require</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
