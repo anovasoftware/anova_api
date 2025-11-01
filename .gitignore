@@ -3,6 +3,7 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+staticfiles/
 
 anova-eb-key.pem
 anova_api/configuration/production/.env
