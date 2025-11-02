@@ -86,10 +86,6 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema',
 }
-CSRF_TRUSTED_ORIGINS = os.getenv(
-    'CSRF_TRUSTED_ORIGINS',
-    ''
-).split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "Anova API",
@@ -227,6 +223,12 @@ CORS_ALLOW_HEADERS = [
     "Accept",
     "X-Requested-With"
 ]
+
+CSRF_TRUSTED_ORIGINS = os.getenv(
+    'CSRF_TRUSTED_ORIGINS',
+    ''
+).split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
+
 
 
 # Only load .env if running locally

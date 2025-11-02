@@ -7,6 +7,7 @@ if os.getenv("ENVIRONMENT", "local") == "local":
 
 DATABASE_HOST = os.getenv('DATABASE_HOST')
 DATABASE_NAME = os.getenv('DATABASE_NAME')
+DATABASE_USER = os.getenv('DATABASE_USER')
 PASSWORD = os.getenv('DATABASE_PASSWORD')
 
 # print(f"HOST: {HOST}")
@@ -25,7 +26,7 @@ DATABASE_DEFINITIONS = {
     'production': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': DATABASE_NAME,
-        'USER': 'postgres',
+        'USER': DATABASE_USER,
         'PASSWORD': PASSWORD,
         'HOST': DATABASE_HOST,
         'PORT': '5432'
