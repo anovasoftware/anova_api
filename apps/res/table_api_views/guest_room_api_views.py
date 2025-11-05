@@ -1,10 +1,76 @@
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, parameters
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter
 from django.utils import timezone
-from constants import type_constants, status_constants
-from apps.res.models import Room
+from constants import type_constants
 from core.utilities.string_utilities import mask_string
+from drf_spectacular.utils import extend_schema, extend_schema_view
+from core.utilities.api_utilities import build_record_fields, expand_record_dict, make_envelope
+from drf_spectacular.utils import inline_serializer
+from rest_framework import serializers as s
+
+record_dict = {
+    'room__code': {
+        'name': 'roomCode',
+        'description': 'Room code (e.g., 101).',
+    },
+    'guest__type__code': {},
+    'guest__person__last_name': {},
+    'guest__person__first_name': {},
+    'guest__person__salutation': {},
+    'guest__person__birth_date': {
+        'description': 'Birth date (e.g., 1990-01-01).',
+        'type': s.DateTimeField
+    },
+    'guest__person__email': {},
+    'arrival_date': {
+        'type': s.DateTimeField
+    },
+    'departure_date': {
+        'type': s.DateTimeField
+    },
+    'guest__authorized_to_charge_flag': {},
+    'guest__reservation_id': {},
+    'guest__guest_id': {},
+    'guest__person_id': {},
+    'room_id': {},
+}
+record_dict = expand_record_dict(record_dict)
+record_fields = build_record_fields(record_dict)
+GuestRoomRecord = inline_serializer(name='GuestRoomRecord', fields=record_fields)
+GuestRoomResponse = make_envelope(GuestRoomRecord)
+
+parameters = parameters + [
+    OpenApiParameter(
+        name='roomCode',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=False,
+        description='Room code (e.g., 101).'
+    ),
+    OpenApiParameter(
+        name='lastName',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=False,
+        description='Last name of guest (e.g., Johnson).'
+    ),
+]
 
 
+# GuestRoomRecord = make_record_serializer('GuestRoomRecord', record_fields)
+# GuestRoomEnvelope = make_envelope(GuestRoomRecord)
+
+@extend_schema_view(
+    get=extend_schema(
+        summary='Retrieve guest information with room/cabin assignment',
+        description='Returns guest room/cabin info for a given room code or guest ID.',
+        tags=['Guest Room'],
+        parameters=parameters,
+        responses={200: GuestRoomResponse},
+    ),
+    post=extend_schema(exclude=True),
+)
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     def __init__(self):
         super().__init__()
@@ -18,9 +84,6 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             'guestId': None
         }
 
-        # self.room_code = None
-        # self.last_name = None
-        # self.guest_id = None
         self.room = None
         self.accepted_type_ids = [
             type_constants.NOT_APPLICABLE,
@@ -28,45 +91,11 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
 
     def load_request(self, request):
         super().load_request(request)
-        # self.room_code = self.get_param('roomCode', None, False)
-        # self.last_name = self.get_param('lastName', None, False)
-
         for option in self.search_options.keys():
             self.search_options[option] = self.get_param(option, None, False)
 
-        # if self.room_code:
-        #     try:
-        #         self.room = Room.objects.get(
-        #             hotel_id=self.hotel_id,
-        #             code=self.room_code
-        #         )
-        #     except Exception as e:
-        #         message = f'room not found: {self.room_code}'
-        #         self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-
     def get_value_list(self):
-        value_list = [
-            'room__code',
-            'guest__type__code',
-            'guest__person__last_name',
-            'guest__person__first_name',
-            'guest__person__salutation',
-            'guest__person__birth_date',
-            'guest__person__email',
-            'arrival_date',
-            'departure_date',
-            'guest__authorized_to_charge_flag',
-
-            'guest__reservation_id',
-            'guest__guest_id',
-            'guest__person_id',
-            'room_id',
-
-
-            # 'room__hotel__hotel_id',
-            # 'room__hotel__description',
-            # 'room__category__code',
-        ]
+        value_list = list(record_dict.keys())
         if self.room:
             pass
 
@@ -113,16 +142,4 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     def build_response(self):
         response = super().build_response()
 
-        # if self.room:
-        #     response['context']['room'] = {
-        #         'code': self.room.code
-        #     }
-
         return response
-
-
-    # def post_get(self, request):
-    #     super().post_get(request)
-
-# class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
-#     pass

@@ -1,10 +1,29 @@
+from core.api_views.table_api_views import AuthorizedTableAPIView, parameters
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter
 from django.core.exceptions import ObjectDoesNotExist
-from core.api_views.table_api_views import AuthorizedTableAPIView
 from apps.static.models import Hotel
 from apps.res.models import Guest
 
-from constants import type_constants, status_constants
-from core.services.core_service import CoreService
+from constants import status_constants
+
+parameters = parameters + [
+    OpenApiParameter(
+        name='hotelId',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=True,
+        description='Hotel/ship code (contact Anova for details).'
+    ),
+    OpenApiParameter(
+        name='guestId',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=False,
+        description='Guest/passenger id (folio)'
+    ),
+]
+
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     def __init__(self):

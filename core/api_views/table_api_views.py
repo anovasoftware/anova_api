@@ -1,15 +1,25 @@
-from django.contrib.messages import success
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView, parameters
 from django.apps import apps
-from django.http import JsonResponse
 import json
 from django.db import models
-from django.db.models import Q
 from core.utilities.database_utilties import get_active_dict
 from apps.static.models import Type
 from apps.base.models import ExternalMapping
-from constants import type_constants, status_constants
+from constants import status_constants
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter
+
+type_id_helper = 'typeId helper'
+
+parameters = parameters + [
+    OpenApiParameter(
+        name='typeId',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=True,
+        description=f'Type ID {type_id_helper}',
+    ),
+]
 
 
 class TableAPIView(CoreAPIView):

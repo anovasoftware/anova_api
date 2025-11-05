@@ -5,14 +5,25 @@ from rest_framework.request import Request
 from constants import constants, status_constants
 from apps.static.models import Status
 from apps.base.models import User
-# from apps.bridge.models import Manifest
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
 from django.http import JsonResponse
-from rest_framework import status
 from core.services.core_service import CoreService
-# from constants.constants import API_CODES
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter
+
+parameters = [
+    OpenApiParameter(
+        name='shape',
+        type=OpenApiTypes.STR,
+        default='nested',
+        location='query',
+        required=False,
+        description='Result shape. (nested or flat)'
+    ),
+]
+
 
 
 class CoreAPIView(GenericAPIView):

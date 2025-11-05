@@ -87,14 +87,50 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema',
 }
 
+# SPECTACULAR_SETTINGS = {
+#     "TITLE": "Anova API",
+#     "DESCRIPTION": "Internal/partner API for PMS modules.",
+#     "VERSION": constants.VERSION,
+#     "SERVE_INCLUDE_SCHEMA": False,
+#     "COMPONENT_SPLIT_REQUEST": True,
+#     "DEFAULT_GENERATOR_CLASS": "drf_spectacular.generators.SchemaGenerator",
+#
+#     # Limit docs to just this endpoint (adjust path as needed)
+#     "SCHEMA_PATH_PREFIX": r"/api/v1/table/res/guest_room",
+#
+#     # Token authentication details for Swagger/Redoc
+#     "SECURITY_SCHEMES": {
+#         "TokenAuth": {
+#             "type": "apiKey",
+#             "in": "header",
+#             "name": "Authorization",
+#             "description": "Use format: Token <your_token>",
+#         },
+#     },
+#     "SECURITY": [{"TokenAuth": []}],
+#
+#     # Keep default schema behaviour
+#     "DEFAULT_AUTO_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+#     "COMPONENT_NO_READ_ONLY_REQUIRED": True,
+# }
 SPECTACULAR_SETTINGS = {
     "TITLE": "Anova API",
     "DESCRIPTION": "Internal/partner API for PMS modules.",
     "VERSION": constants.VERSION,
-    "SERVE_INCLUDE_SCHEMA": False,
-    "COMPONENT_SPLIT_REQUEST": True,
 
-    # This tells Swagger/Redoc how your token is passed
+    # Keep schema served but exclude the schema itself from being included as a path
+    "SERVE_INCLUDE_SCHEMA": False,
+
+    # Good defaults
+    "COMPONENT_SPLIT_REQUEST": True,
+    "DEFAULT_GENERATOR_CLASS": "drf_spectacular.generators.SchemaGenerator",
+    "DEFAULT_AUTO_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "COMPONENT_NO_READ_ONLY_REQUIRED": True,
+
+    # Optional: show your production server URL in the docs
+    # "SERVERS": [{"url": "https://api.anovasea.net"}],
+
+    # Auth for Swagger/Redoc
     "SECURITY_SCHEMES": {
         "TokenAuth": {
             "type": "apiKey",

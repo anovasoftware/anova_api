@@ -1,4 +1,4 @@
-VERSION = '03.01.06'
+VERSION = '03.01.07'
 
 from rest_framework import status as drf_status
 #

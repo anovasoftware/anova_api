@@ -25,12 +25,16 @@ urlpatterns = [
 
     path('api/v1/form/', include('core.urls.urls_forms')),
     path('api/v1/table/', include('core.urls.urls_tables')),
-    path('api/v1/external/', include('core.urls.urls_tables')),
+    # path('api/v1/external/', include('core.urls.urls_tables')),
 
     # --- NEW: schema + docs ---
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    # path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    # path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+
+    path("api/schema/", SpectacularAPIView.as_view(urlconf="core.urls.urls_docs"), name="schema"),
+    path("docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+    path("redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]
 
 # https://yourPMS/GetRoomGuests?room=123&hotelId=xxxyy
