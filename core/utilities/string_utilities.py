@@ -17,3 +17,8 @@ def mask_string(s):
     if not s:
         return ""
     return s[0] + "#" * (len(s) - 1)
+
+
+def snake_to_camel(s):
+    parts = s.split('_')
+    return parts[0] + ''.join(word.capitalize() for word in parts[1:])

@@ -346,6 +346,23 @@
     }
   }
 ,  {
+    "model": "base.ExternalMapping",
+    "pk": "A00000005",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "app_name": "res",
+      "model_name": "Room",
+      "external_id": "VMS-0000-CB-00001",
+      "internal_id": "A003",
+      "external_pk": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-04-10 00:00+0000",
+      "last_updated": "2025-04-10 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.ChartField",
     "pk": "A00G001",
     "fields": {

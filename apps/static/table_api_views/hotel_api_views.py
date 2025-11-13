@@ -75,7 +75,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         if self.hotel:
             hotel = self.hotel
             response['context']['hotel_id'] = hotel.hotel_id
-            response['context']['hotel_description'] = hotel.hotel_id
+            response['context']['hotel_description'] = hotel.description
         if self.guest:
             guest = self.guest
             person = guest.person

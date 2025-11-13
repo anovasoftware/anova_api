@@ -10,30 +10,39 @@ from drf_spectacular.utils import inline_serializer
 from rest_framework import serializers as s
 
 record_dict = {
-    'room__code': {
-        'name': 'roomCode',
-        'description': 'Room code (e.g., 101).',
-    },
-    'guest__type__code': {},
-    'guest__person__last_name': {},
-    'guest__person__first_name': {},
-    'guest__person__salutation': {},
+    'room__code': { 'description': 'Room/Cabin.', },
+    'guest__type__code': { 'description': 'Guest type.', },
+    'guest__person__last_name': {'description': 'Guest last name.', },
+    'guest__person__first_name': {'description': 'Guest first name.', },
+    'guest__person__salutation': {'description': 'Guest salutation.', },
     'guest__person__birth_date': {
         'description': 'Birth date (e.g., 1990-01-01).',
         'type': s.DateTimeField
     },
-    'guest__person__email': {},
+    'guest__person__email': {'description': 'Guest email address.', },
     'arrival_date': {
+        'description': 'Guest arrival date.',
         'type': s.DateTimeField
     },
     'departure_date': {
+        'description': 'Guest departure date.',
         'type': s.DateTimeField
     },
-    'guest__authorized_to_charge_flag': {},
-    'guest__reservation_id': {},
-    'guest__guest_id': {},
-    'guest__person_id': {},
-    'room_id': {},
+    'guest__authorized_to_charge_flag': {
+        'description': 'Authorized to charge (Y or N).',
+    },
+    'guest__reservation_id': {
+        'description': 'Reservation ID. Booking reference.'
+    },
+    'guest__guest_id': {
+        'description': 'Guest Identifier (folio number)'
+    },
+    'guest__person_id': {
+        'description': 'Internal person identifier'
+    },
+    'room_id': {
+        'description': 'Internal room/cabin identifier'
+    },
 }
 record_dict = expand_record_dict(record_dict)
 record_fields = build_record_fields(record_dict)

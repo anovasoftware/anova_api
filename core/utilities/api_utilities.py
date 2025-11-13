@@ -1,7 +1,7 @@
 from rest_framework import serializers as s
 from rest_framework import serializers
 from drf_spectacular.utils import inline_serializer
-
+from core.utilities.string_utilities import snake_to_camel
 
 
 def get_client_ip(request):
@@ -34,9 +34,14 @@ def build_record_fields(record_dict):
     fields = {}
     for key, spec in record_dict.items():
         name = spec.get('name', key.replace('__', '_'))
-        field_class  = spec.get('type', s.CharField)
         description = spec.get('description', f'Field for {name}')
-        fields[name] = field_class (help_text=description, required=False, allow_null=True)
+        field_class  = spec.get('type', s.CharField)
+        example = spec.get('example', f'Field for {name}')
+        fields[name] = field_class (
+            help_text=description,
+            required=False,
+            allow_null=False,
+        )
     return fields
 
 
@@ -47,18 +52,13 @@ def expand_record_dict(record_dict=None):
 
     for key, val in record_dict.items():
         if 'name' not in val:
-            val['name'] = key.replace('__', '_')
+            name = key.replace('__', '_')
+            name = snake_to_camel(name)
+            val['name'] = name
+
         if 'description' not in val:
             val['description'] = default_description.format(name=val['name'])
         if 'type' not in val:
-            # # Example: add some custom type logic
-            # if 'date' in key:
-            #     val['type'] = s.DateTimeField
-            # elif 'flag' in key:
-            #     val['type'] = s.BooleanField
-            # elif key.endswith('_id'):
-            #     val['type'] = s.IntegerField
-            # else:
-                val['type'] = s.CharField
+            val['type'] = s.CharField
 
     return record_dict

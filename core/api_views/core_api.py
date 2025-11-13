@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from core.services.core_service import CoreService
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
+from core.utilities.string_utilities import snake_to_camel
 
 parameters = [
     OpenApiParameter(
@@ -411,10 +412,10 @@ def transform_records(records, shape='nested'):
 #
 
 def format_response(obj, level=0):
-    def snake_to_camel(s):
-        # return s
-        parts = s.split('_')
-        return parts[0] + ''.join(word.capitalize() for word in parts[1:])
+    # def snake_to_camel(s):
+    #     # return s
+    #     parts = s.split('_')
+    #     return parts[0] + ''.join(word.capitalize() for word in parts[1:])
 
     new_obj = obj
     if isinstance(obj, dict):
