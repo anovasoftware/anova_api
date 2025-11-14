@@ -278,6 +278,32 @@
     }
   }
 ,  {
+    "model": "base.User",
+    "pk": "A00006",
+    "fields": {
+      "access_user_id": "A00006",
+      "type_id": "043",
+      "person_id": "A00000",
+      "grouping": "API Consumer",
+      "code": "",
+      "description": "Anova2",
+      "username": "anova2",
+      "password": "",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false,
+      "user_key": "ANOVA",
+      "start_date": "2025-11-14 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "external_id": "",
+      "internal_comment": "",
+      "created_date": "2025-10-22 00:00+0000",
+      "last_updated": "2025-11-14 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.ExternalMapping",
     "pk": "A00000001",
     "fields": {
