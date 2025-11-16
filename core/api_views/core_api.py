@@ -14,6 +14,11 @@ from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from core.utilities.string_utilities import snake_to_camel
 
+context = {
+    'user_id': '002149',
+    'username': 'Acme API Consumer, Inc.',
+}
+
 parameters = [
     OpenApiParameter(
         name='shape',

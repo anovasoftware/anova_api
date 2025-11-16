@@ -1,4 +1,5 @@
 from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView, parameters
+from core.api_views.core_api import context
 from django.apps import apps
 import json
 from django.db import models
@@ -9,15 +10,16 @@ from constants import status_constants
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 
-type_id_helper = 'typeId helper'
+# type_id_helper = 'typeId helper'
 
+context = context
 parameters = parameters + [
     OpenApiParameter(
         name='typeId',
         type=OpenApiTypes.STR,
         location='query',
         required=True,
-        description=f'Type ID {type_id_helper}',
+        description=f'Type Id (contact Anova for details)',
     ),
 ]
 
@@ -118,8 +120,6 @@ class TableAPIView(CoreAPIView):
 
     def post_get(self, request):
         self.records = transform_records(self.records, shape=self.result_shape)
-        # self.data['record_count'] = len(self.records)
-        # self.data['records'] = expanded_records
 
     def pre_post(self, request):
         if not self.load_json(request):
@@ -237,7 +237,7 @@ class TableAPIView(CoreAPIView):
     def build_response(self):
         response = super().build_response()
         record_count = len(self.records)
-        response['meta']['record_count'] = record_count
+        response['data']['record_count'] = record_count
         # if self.type:
         #     response['context']['type'] = {
         #         'type_id': self.type.type_id,

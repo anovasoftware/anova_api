@@ -1,4 +1,4 @@
-from core.api_views.table_api_views import AuthorizedTableAPIView, parameters
+from core.api_views.table_api_views import AuthorizedTableAPIView, parameters, context
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from django.core.exceptions import ObjectDoesNotExist
@@ -6,6 +6,9 @@ from apps.static.models import Hotel
 from apps.res.models import Guest
 
 from constants import status_constants
+
+context['hotel_id'] = 'A332'
+context['hotel_description'] = 'MS Diamond'
 
 parameters = parameters + [
     OpenApiParameter(

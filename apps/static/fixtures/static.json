@@ -1823,6 +1823,78 @@
     }
   }
 ,  {
+    "model": "static.Role",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "grouping": "ALL ROLES",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "role_key": "NOT_APPLICABLE",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Role",
+    "pk": "999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "grouping": "ALL ROLES",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "role_key": "TO_BE_ANNOUNCED",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Role",
+    "pk": "001",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "grouping": "ALL ROLES",
+      "code": "ADMIN",
+      "description": "System Administrator",
+      "role_key": "SYSTEM_ADMINISTRATOR",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Role",
+    "pk": "002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "grouping": "API CONSUMER",
+      "code": "API1",
+      "description": "API Consumer 1",
+      "role_key": "API_CONSUMER_1",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Currency",
     "pk": "00",
     "fields": {

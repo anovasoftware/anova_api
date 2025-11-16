@@ -1,53 +1,37 @@
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, parameters
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, parameters, context
 from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import OpenApiParameter
+from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 from django.utils import timezone
 from constants import type_constants
 from core.utilities.string_utilities import mask_string
 from drf_spectacular.utils import extend_schema, extend_schema_view
-from core.utilities.api_utilities import build_record_fields, expand_record_dict, make_envelope
+from core.utilities.api_utilities import get_record_fields, expand_record_dict, get_docs_envelope, get_docs_envelope_example
+from core.utilities.api_utilities import get_parameters_from_open_api_parameters, get_docs_record_example
 from drf_spectacular.utils import inline_serializer
-from rest_framework import serializers as s
+
+context = context
 
 record_dict = {
-    'room__code': { 'description': 'Room/Cabin.', },
-    'guest__type__code': { 'description': 'Guest type.', },
-    'guest__person__last_name': {'description': 'Guest last name.', },
-    'guest__person__first_name': {'description': 'Guest first name.', },
-    'guest__person__salutation': {'description': 'Guest salutation.', },
-    'guest__person__birth_date': {
-        'description': 'Birth date (e.g., 1990-01-01).',
-        'type': s.DateTimeField
-    },
-    'guest__person__email': {'description': 'Guest email address.', },
-    'arrival_date': {
-        'description': 'Guest arrival date.',
-        'type': s.DateTimeField
-    },
-    'departure_date': {
-        'description': 'Guest departure date.',
-        'type': s.DateTimeField
-    },
-    'guest__authorized_to_charge_flag': {
-        'description': 'Authorized to charge (Y or N).',
-    },
-    'guest__reservation_id': {
-        'description': 'Reservation ID. Booking reference.'
-    },
-    'guest__guest_id': {
-        'description': 'Guest Identifier (folio number)'
-    },
-    'guest__person_id': {
-        'description': 'Internal person identifier'
-    },
-    'room_id': {
-        'description': 'Internal room/cabin identifier'
-    },
+    'room__code': {'description': 'Room/Cabin.', 'example': '302'},
+    'guest__type__code': {'description': 'Guest type.', 'example': 'Guest'},
+    'guest__person__last_name': {'description': 'Guest last name.', 'example': '####'},
+    'guest__person__first_name': {'description': 'Guest first name.', 'example': '##'},
+    'guest__person__salutation': {'description': 'Guest salutation.', 'example': 'MR'},
+    'guest__person__birth_date': {'description': 'Birth date (e.g., 1990-01-01).', 'example': '1955-08-20T00:00:00Z'},
+    'guest__person__email': {'description': 'Guest email address.', 'example': ''},
+    'arrival_date': {'description': 'Guest arrival date.', 'example': '2025-10-29T00:00:00Z'},
+    'departure_date': {'description': 'Guest departure date.', 'example': '2025-11-17T00:00:00Z'},
+    'guest__authorized_to_charge_flag': {'description': 'Authorized to charge (Y or N).', 'example': 'Y'},
+    'guest__reservation_id': {'description': 'Reservation ID. Booking reference.', 'example': '0000F8'},
+    'guest__guest_id': {'description': 'Guest Identifier (folio number)', 'example': '0000DY'},
+    'guest__person_id': {'description': 'Internal person identifier', 'example': '0000DZ'},
+    'room_id': {'description': 'Internal room/cabin identifier', 'example': '006H'},
 }
+
 record_dict = expand_record_dict(record_dict)
-record_fields = build_record_fields(record_dict)
-GuestRoomRecord = inline_serializer(name='GuestRoomRecord', fields=record_fields)
-GuestRoomResponse = make_envelope(GuestRoomRecord)
+record_fields = get_record_fields(record_dict)
+record_serializer = inline_serializer(name='Record', fields=record_fields)
+response_envelope = get_docs_envelope(record_serializer)
 
 parameters = parameters + [
     OpenApiParameter(
@@ -66,9 +50,12 @@ parameters = parameters + [
     ),
 ]
 
+docs_example = get_docs_envelope_example(
+    context=context,
+    records=[get_docs_record_example(record_dict), ],
+    parameters=get_parameters_from_open_api_parameters(parameters),
+)
 
-# GuestRoomRecord = make_record_serializer('GuestRoomRecord', record_fields)
-# GuestRoomEnvelope = make_envelope(GuestRoomRecord)
 
 @extend_schema_view(
     get=extend_schema(
@@ -76,7 +63,13 @@ parameters = parameters + [
         description='Returns guest room/cabin info for a given room code or guest ID.',
         tags=['Guest Room'],
         parameters=parameters,
-        responses={200: GuestRoomResponse},
+        responses={200: response_envelope},
+        examples=[
+            OpenApiExample(
+                'GuestRoomSuccess',
+                value=docs_example,  # <-- YOUR full envelope example here
+            )
+        ]
     ),
     post=extend_schema(exclude=True),
 )
@@ -152,3 +145,5 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         response = super().build_response()
 
         return response
+
+# core/utilities/api_examples.py

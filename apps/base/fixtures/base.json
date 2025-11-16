@@ -618,5 +618,22 @@
       "last_updated": "2025-11-15 00:00+0000"  
     }
   }
+,  {
+    "model": "base.UserHotel",
+    "pk": "A00006",
+    "fields": {
+      "user_id": "A00003",
+      "hotel_id": "A002",
+      "type_id": "000",
+      "status_id": "001",
+      "start_date": "2025-11-16 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
 
 ]

@@ -39,16 +39,3 @@ class AuthorizedEmailAPIView(AuthorizedAPIView):
         except Exception as e:
             self.set_message(f'email NOT sent {str(e)}')
 
-    # def build_response(self):
-    #     response = super().build_response()
-    #
-    #     response['header']['record_count'] = len(self.records)
-    #     if self.type:
-    #         response['header']['type'] = {
-    #             'type_id': self.type.type_id,
-    #             'code': self.type.code,
-    #             'description': self.type.description
-    #         }
-    #     response['detail'] = self.records
-    #
-    #     return response

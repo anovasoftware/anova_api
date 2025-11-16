@@ -115,7 +115,7 @@ REST_FRAMEWORK = {
 # }
 SPECTACULAR_SETTINGS = {
     "TITLE": "Anova API",
-    "DESCRIPTION": "Internal/partner API for PMS modules.",
+    "DESCRIPTION": "Internal/partner API for Anova modules.",
     "VERSION": constants.VERSION,
 
     # Keep schema served but exclude the schema itself from being included as a path
@@ -140,6 +140,11 @@ SPECTACULAR_SETTINGS = {
         },
     },
     "SECURITY": [{"TokenAuth": []}],
+    "SWAGGER_UI_SETTINGS": {
+        "defaultModelsExpandDepth": -1,
+        "defaultModelExpandDepth": 0
+    },
+    "SCHEMA_SORT_KEYS": False
 }
 
 ROOT_URLCONF = 'anova_api.urls'
