@@ -2,7 +2,7 @@ from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, 
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 from django.utils import timezone
-from constants import type_constants
+from constants import type_constants, process_constants
 from core.utilities.string_utilities import mask_string
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from core.utilities.api_utilities import get_record_fields, expand_record_dict, get_docs_envelope, get_docs_envelope_example
@@ -74,6 +74,8 @@ docs_example = get_docs_envelope_example(
     post=extend_schema(exclude=True),
 )
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.BASE_GUEST_ROOM
+
     def __init__(self):
         super().__init__()
         self.app_name = 'res'

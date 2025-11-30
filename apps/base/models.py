@@ -305,6 +305,87 @@ class PosMenuItem(BaseModel):
 # AUTOGEN_END_PosMenuItem#
 
 
+# AUTOGEN_BEGIN_Position#
+class Position(BaseModel):
+    position_id        = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
+    parent_position    = models.ForeignKey("self", on_delete=models.CASCADE, to_field='position_id', related_name="+", db_column="parent_position_id", default=None, null=True)
+    type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    hotel              = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name="+", default='A000')
+    code               = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    description        = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    email              = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    grouping           = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    position_key       = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    static_flag        = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment   = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date       = models.DateTimeField(auto_now_add=True)
+    last_updated       = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_position'
+        verbose_name_plural = 'Positions (base_position)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'position'
+# AUTOGEN_END_Position#
+
+
+# AUTOGEN_BEGIN_Role#
+class Role(BaseModel):
+    role_id          = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
+    parent_role      = models.ForeignKey("self", on_delete=models.CASCADE, to_field='role_id', related_name="+", db_column="parent_role_id", default=None, null=True)
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    hotel            = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    grouping         = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
+    code             = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False, default='')
+    description      = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
+    role_key         = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    group1           = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+    group2           = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_role'
+        verbose_name_plural = 'roles (base_role)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'role'
+# AUTOGEN_END_Role#
+
+
+# AUTOGEN_BEGIN_RoleProcess#
+class RoleProcess(BaseModel):
+    role_process_id  = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    role             = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name="+", default='A999')
+    process          = models.ForeignKey("static.Process", on_delete=models.CASCADE, related_name="+", default='A00000')
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    can_create       = models.BooleanField(default=False)
+    can_read         = models.BooleanField(default=False)
+    can_update       = models.BooleanField(default=False)
+    can_delete       = models.BooleanField(default=False)
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_role_process'
+        verbose_name_plural = 'Role/Process junction (base_role_process)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'role_process'
+# AUTOGEN_END_RoleProcess#
+
+
 # AUTOGEN_BEGIN_User#
 class User(AbstractUser, BaseModel):
     user_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
@@ -362,5 +443,31 @@ class UserHotel(BaseModel):
     def __str__(self):
         return 'user_hotel'
 # AUTOGEN_END_UserHotel#
+
+
+# AUTOGEN_BEGIN_UserRole#
+class UserRole(BaseModel):
+    user_role_id        = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+')
+    role                = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name='+')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    access_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='')
+    start_date          = models.DateTimeField(default=timezone.now)
+    end_date            = models.DateTimeField(default=timezone.now)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_user_role'
+        verbose_name_plural = 'user roles (base_user_role)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'user_role'
+# AUTOGEN_END_UserRole#
 
 

@@ -2,9 +2,9 @@ import os
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from rest_framework.request import Request
-from constants import constants, status_constants
+from constants import constants, status_constants, role_constants
 from apps.static.models import Status
-from apps.base.models import User
+from apps.base.models import User, UserRole, RoleProcess
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
@@ -31,8 +31,15 @@ parameters = [
 ]
 
 
-
 class CoreAPIView(GenericAPIView):
+    process_id = None
+
+    def initial(self, request, *args, **kwargs):
+        if self.access_user_id is None:
+            self.access_user_id = request.user.user_id
+
+        super().initial(request, *args, **kwargs)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         CoreService.seed_database()
@@ -96,7 +103,7 @@ class CoreAPIView(GenericAPIView):
             self.message = 'Request completed successfully' if self.success else 'Request failed'
 
         response = {
-            'success':http_status['success'],
+            'success': http_status['success'],
             'code': http_status['code'],
             'message': self.message,
             # 'result': result,
@@ -221,7 +228,6 @@ class CoreAPIView(GenericAPIView):
     #
     #     return success
 
-
     # def get_http_status_details(self):
     #     status_dict = {
     #         'http_status': 500,
@@ -244,8 +250,61 @@ class CoreAPIView(GenericAPIView):
     def success(self):
         return self.http_statuses[self.http_status_id]['success']
 
+
 class AuthorizedAPIView(CoreAPIView):
-    permission_classes = [IsAuthenticated]
+    process_id = None
+    permission_classes = [IsAuthenticated, ]
+    user_roles = None
+    role_processes = None
+
+    def _load_user_access(self):
+        user_id = self.access_user_id
+
+        if not user_id:
+            self.user_roles = UserRole.objects.none()
+            self.role_processes = RoleProcess.objects.none()
+
+        else:
+            user_roles = UserRole.objects.filter(
+                user_id=user_id,
+                status_id=status_constants.ACTIVE,
+                effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
+            ).values(
+                'role_id',
+                'role__description'
+            )
+            user_processes = RoleProcess.objects.filter(
+                role__in=user_roles.values('role_id'),
+                process__status_id=status_constants.ACTIVE,
+            )
+
+            self.user_roles = user_roles
+            self.role_processes = user_processes
+            return
+
+    def user_has_access(self, user, process_id: str) -> bool:
+        has_access = False
+        self._load_user_access()
+        v = list(self.role_processes.values())
+        if user and user.is_authenticated:
+            if self.user_roles.filter(role_id=role_constants.SYSTEM_ADMINISTRATOR).exists():
+                has_access = True
+            elif self.role_processes.filter(process_id=process_id).exists():
+                has_access = True
+
+        return has_access
+
+    def initial(self, request, *args, **kwargs):
+        super().initial(request, *args, **kwargs)
+
+        if self.process_id is None:
+            message = f'{self.__class__.__name__} requires process_id but one was defined.'
+            self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
+
+        if self.success:
+            if not self.user_has_access(request.user, self.process_id):
+                message = f'User not authorized for this process ({self.process_id}).',
+                self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -429,7 +488,7 @@ def format_response(obj, level=0):
             indent = ' -' * level
             # print(f'{indent} {k}')
             new_key = snake_to_camel(k)
-            new_obj[new_key] = format_response(v, level+1)
+            new_obj[new_key] = format_response(v, level + 1)
     elif isinstance(obj, list):
         new_obj = []
         for item in obj:
@@ -440,7 +499,6 @@ def format_response(obj, level=0):
             new_obj.append(result)
 
     return new_obj
-
 
 
 # JSON response
@@ -483,7 +541,6 @@ def format_response(obj, level=0):
 
 def health_check(request):
     return JsonResponse({'status': 'ok'})
-
 
 # def is_http_success(code_key: str) -> bool:
 #     entry = API_CODES.get(code_key)

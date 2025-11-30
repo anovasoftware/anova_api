@@ -10,7 +10,8 @@ BASE_ITEM_INVENTORY = '00J'                                      # inventory ite
 PERSON_HOTEL_GUEST = '013'                                       # hotel/ship guestPERSON_REGULAR = '012'                                           # regular person#  base_person.gender
 GENDER_FEMALE = '702'                                            # femaleGENDER_MALE = '701'                                              # maleGENDER_NOT_APPLICABLE = '700'                                    # not applicableGENDER_NOT_DISCLOSED = '704'                                     # not disclosed#  base_pos_menu
 BASE_POS_MENU_MAIN = '00K'                                       # main menu#  base_pos_menu_item
-BASE_POS_MENU_ITEM_REGULAR = '00L'                               # regular item#  base_user
+BASE_POS_MENU_ITEM_REGULAR = '00L'                               # regular item#  base_position
+BASE_POSITION_ONBOARD = '001'                                    # onboard position#  base_user
 USER_API_CONSUMER = '043'                                        # api consumerUSER_DUMMY = '042'                                               # dummy userUSER_REAL = '041'                                                # real user#  res_event
 RES_EVENT_CRUISE = '00R'                                         # cruiseRES_EVENT_TOUR = '00S'                                           # tour#  res_guest
 RES_GUEST_CREW = '00C'                                           # crewRES_GUEST_GUEST = '00B'                                          # guestRES_GUEST_STAFF = '011'                                          # staff#  res_hotel

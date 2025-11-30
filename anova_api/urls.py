@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+
+from anova_api import urls_auto
 from core.api_views.core_api import GuestRoomAPI
 from django.urls import path, include
 from core.api_views.core_api import health_check
@@ -24,7 +26,8 @@ urlpatterns = [
     path('record/guest_room/', GuestRoomAPI.as_view(), name='guest-room'),
 
     path('api/v1/form/', include('core.urls.urls_forms')),
-    path('api/v1/table/', include('core.urls.urls_tables')),
+    # path('api/v1/table/', include('core.urls.urls_tables')),
+    path('api/v1/', include('anova_api.urls_auto')),
     # path('api/v1/external/', include('core.urls.urls_tables')),
 
     # --- NEW: schema + docs ---

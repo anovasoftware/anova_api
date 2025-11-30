@@ -1,14 +1,15 @@
-#!/usr/bin/env python3
-"""
-init_database.py
-Run once locally to bootstrap the DB when Postgres is in Docker.cls
-- Applies migrations (optionally makemigrations)
-- Loads fixtures for selected apps if present
-- Initializes tokens from env
-"""
-
 import os
 from pathlib import Path
+
+
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RESET = "\033[0m"
+
+def print_error(msg: str):
+    print(f"{RED}{msg}{RESET}")
+
 
 # --- Environment / Django setup --------------------------------------------
 ENVIRONMENT = os.getenv("ENVIRONMENT", "local").lower()
@@ -46,14 +47,15 @@ def load_data_if_exists(fixture_path: Path) -> bool:
             call_command("loaddata", str(fixture_path))
             return True
         except Exception as e:
-            print(f"loaddata failed for {fixture_path}: {e}")
+            print_error(f"loaddata failed for {fixture_path}: {e}")
     return False
 
 
 def run():
     # Controls
     run_makemigrations = os.getenv("RUN_MAKEMIGRATIONS", "0") == "1"
-    apps = [a.strip() for a in os.getenv("DJANGO_APPS", "static,base,authtoken,res,bridge").split(",") if a.strip()]
+    # apps = [a.strip() for a in os.getenv("DJANGO_APPS", "static,base,authtoken,res,bridge").split(",") if a.strip()]
+    apps = [a.strip() for a in os.getenv("DJANGO_APPS", "static,base,authtoken,res").split(",") if a.strip()]
 
     project_root = Path(settings.BASE_DIR) if hasattr(settings, "BASE_DIR") else Path(__file__).resolve().parent
     print(f"Project root: {project_root}")
@@ -76,10 +78,11 @@ def run():
         # ]
         # p = f'{project_root}/apps/{app}/fixtures/{app}.json'
         p = project_root / "apps" / app / "fixtures" / f"{app}.json"
-        loaded = load_data_if_exists(p)
-        # loaded = any(loaddata_if_exists(p) for p in candidates)
-        if not loaded:
-            print(f'Fixture {p} not loaded.')
+        if app not in ["authtoken",]:
+            loaded = load_data_if_exists(p)
+            # loaded = any(loaddata_if_exists(p) for p in candidates)
+            if not loaded:
+                print_error(f'Fixture {p} not loaded.')
 
     # --- Token init ---------------------------------------------------------
     print("Running token initialization from environment...")

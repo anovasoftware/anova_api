@@ -304,6 +304,136 @@
     }
   }
 ,  {
+    "model": "base.Role",
+    "pk": "A000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "ALL ROLES",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "role_key": "NOT_APPLICABLE",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Role",
+    "pk": "A001",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "ALL ROLES",
+      "code": "ADMIN",
+      "description": "System Administrator",
+      "role_key": "SYSTEM_ADMINISTRATOR",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Role",
+    "pk": "A002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "API CONSUMER",
+      "code": "API1",
+      "description": "API Consumer 1 (icafe)",
+      "role_key": "API_CONSUMER_1",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Role",
+    "pk": "A999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "ALL ROLES",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "role_key": "TO_BE_ANNOUNCED",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-16 00:00+0000",
+      "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.UserRole",
+    "pk": "A00001",
+    "fields": {
+      "user_id": "A00001",
+      "role_id": "A001",
+      "type_id": "000",
+      "status_id": "001",
+      "access_flag": "#",
+      "start_date": "2025-11-28 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-28 00:00+0000",
+      "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.UserRole",
+    "pk": "A00002",
+    "fields": {
+      "user_id": "A00003",
+      "role_id": "A002",
+      "type_id": "000",
+      "status_id": "001",
+      "access_flag": "#",
+      "start_date": "2025-11-28 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-28 00:00+0000",
+      "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.UserRole",
+    "pk": "A00003",
+    "fields": {
+      "user_id": "A00005",
+      "role_id": "A001",
+      "type_id": "000",
+      "status_id": "001",
+      "access_flag": "#",
+      "start_date": "2025-11-28 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-28 00:00+0000",
+      "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.ExternalMapping",
     "pk": "A00000001",
     "fields": {
@@ -633,6 +763,60 @@
       "internal_comment": "",
       "created_date": "2025-11-16 00:00+0000",
       "last_updated": "2025-11-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleProcess",
+    "pk": "A00001",
+    "fields": {
+      "role_id": "A002",
+      "process_id": "00D",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": false,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-28 00:00+0000",
+      "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Position",
+    "pk": "A0000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "email": "",
+      "grouping": "General",
+      "position_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-30 00:00+0000",
+      "last_updated": "2025-11-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Position",
+    "pk": "A9999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "email": "",
+      "grouping": "General",
+      "position_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-30 00:00+0000",
+      "last_updated": "2025-11-30 00:00+0000"  
     }
   }
 

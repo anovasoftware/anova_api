@@ -1246,6 +1246,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "001",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_position",
+      "code": "onboard",
+      "description": "Onboard Position",
+      "description_short": "Onboard Position",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_POSITION_ONBOARD",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-30 00:00+0000",
+      "last_updated": "2025-11-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "011",
     "fields": {
       "parent_type_id": "000",
@@ -1823,78 +1847,6 @@
     }
   }
 ,  {
-    "model": "static.Role",
-    "pk": "000",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "grouping": "ALL ROLES",
-      "code": "N/A",
-      "description": "Not Applicable",
-      "role_key": "NOT_APPLICABLE",
-      "group1": "",
-      "group2": "",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-11-16 00:00+0000",
-      "last_updated": "2025-11-16 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Role",
-    "pk": "999",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "grouping": "ALL ROLES",
-      "code": "TBA",
-      "description": "To Be Announced",
-      "role_key": "TO_BE_ANNOUNCED",
-      "group1": "",
-      "group2": "",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-11-16 00:00+0000",
-      "last_updated": "2025-11-16 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Role",
-    "pk": "001",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "grouping": "ALL ROLES",
-      "code": "ADMIN",
-      "description": "System Administrator",
-      "role_key": "SYSTEM_ADMINISTRATOR",
-      "group1": "",
-      "group2": "",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-11-16 00:00+0000",
-      "last_updated": "2025-11-16 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Role",
-    "pk": "002",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "grouping": "API CONSUMER",
-      "code": "API1",
-      "description": "API Consumer 1",
-      "role_key": "API_CONSUMER_1",
-      "group1": "",
-      "group2": "",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-11-16 00:00+0000",
-      "last_updated": "2025-11-16 00:00+0000"  
-    }
-  }
-,  {
     "model": "static.Currency",
     "pk": "00",
     "fields": {
@@ -2046,6 +1998,348 @@
       "internal_comment": "",
       "created_date": "2025-09-13 00:00+0000",
       "last_updated": "2025-09-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "001",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Category",
+      "description": "Category",
+      "route": "table/base/category/",
+      "view": "AuthorizedCategoryAPIView",
+      "module_path": "apps.base.table_api_views.category_api_views",
+      "grouping": "table",
+      "process_key": "BASE_CATEGORY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Chart Field",
+      "description": "Chart Field",
+      "route": "table/base/chart_field/",
+      "view": "AuthorizedChartFieldAPIView",
+      "module_path": "apps.base.table_api_views.chart_field_api_views",
+      "grouping": "table",
+      "process_key": "BASE_CHART_FIELD",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "003",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Company",
+      "description": "Company",
+      "route": "table/base/company/",
+      "view": "AuthorizedCompanyAPIView",
+      "module_path": "apps.base.table_api_views.company_api_views",
+      "grouping": "table",
+      "process_key": "BASE_COMPANY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "004",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Email",
+      "description": "Email",
+      "route": "table/base/email/",
+      "view": "AuthorizedEmailAPIView",
+      "module_path": "apps.base.table_api_views.email_api_views",
+      "grouping": "table",
+      "process_key": "BASE_EMAIL",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "005",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Hotel_type",
+      "description": "Hotel_type",
+      "route": "table/base/hotel_type/",
+      "view": "AuthorizedHotelTypeAPIView",
+      "module_path": "apps.base.table_api_views.hotel_type_api_views",
+      "grouping": "table",
+      "process_key": "BASE_HOTEL_TYPE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "006",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Item",
+      "description": "Item",
+      "route": "table/base/item/",
+      "view": "AuthorizedItemAPIView",
+      "module_path": "apps.base.table_api_views.item_api_views",
+      "grouping": "table",
+      "process_key": "BASE_ITEM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "007",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Person",
+      "description": "Person",
+      "route": "table/base/person/",
+      "view": "AuthorizedPersonAPIView",
+      "module_path": "apps.base.table_api_views.person_api_views",
+      "grouping": "table",
+      "process_key": "BASE_PERSON",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "008",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Por Menu",
+      "description": "Por Menu",
+      "route": "table/base/pos_menu/",
+      "view": "AuthorizedPosMenuAPIView",
+      "module_path": "apps.base.table_api_views.pos_menu_api_views",
+      "grouping": "table",
+      "process_key": "BASE_POS_MENU",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "009",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Pos Menu /tem",
+      "description": "Pos Menu /tem",
+      "route": "table/base/pos_menu_item/",
+      "view": "AuthorizedPosMenuItemAPIView",
+      "module_path": "apps.base.table_api_views.pos_menu_item_api_views",
+      "grouping": "table",
+      "process_key": "BASE_POS_MENU_ITEM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00B",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Event",
+      "description": "Event",
+      "route": "table/res/event/",
+      "view": "AuthorizedEventAPIView",
+      "module_path": "apps.res.table_api_views.event_api_views",
+      "grouping": "table",
+      "process_key": "BASE_EVENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00C",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Guest",
+      "description": "Guest",
+      "route": "table/res/guest/",
+      "view": "AuthorizedGuestAPIView",
+      "module_path": "apps.res.table_api_views.guest_api_views",
+      "grouping": "table",
+      "process_key": "BASE_GUEST",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00D",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Guest/Room",
+      "description": "Guest/Room",
+      "route": "table/res/guest_room/",
+      "view": "AuthorizedGuestRoomAPIView",
+      "module_path": "apps.res.table_api_views.guest_room_api_views",
+      "grouping": "table",
+      "process_key": "BASE_GUEST_ROOM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00F",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Hotel/item",
+      "description": "Hotel/item",
+      "route": "table/res/hotel_item/",
+      "view": "AuthorizedHotelItemAPIView",
+      "module_path": "apps.res.table_api_views.hotel_item_api_views",
+      "grouping": "table",
+      "process_key": "BASE_HOTEL_ITEM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00G",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Reservation",
+      "description": "Reservation",
+      "route": "table/res/reservation/",
+      "view": "AuthorizedReservationAPIView",
+      "module_path": "apps.res.table_api_views.reservation_api_views",
+      "grouping": "table",
+      "process_key": "BASE_RESERVATION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00J",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Room",
+      "description": "Room",
+      "route": "table/res/room/",
+      "view": "AuthorizedRoomAPIView",
+      "module_path": "apps.res.table_api_views.room_api_views",
+      "grouping": "table",
+      "process_key": "BASE_ROOM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00K",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Transaction",
+      "description": "Transaction",
+      "route": "table/res/transaction/",
+      "view": "AuthorizedTransactionAPIView",
+      "module_path": "apps.res.table_api_views.transaction_api_views",
+      "grouping": "table",
+      "process_key": "BASE_TRANSACTION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00L",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Transaction/item",
+      "description": "Transaction/item",
+      "route": "table/res/transaction_item/",
+      "view": "AuthorizedTransactionItemAPIView",
+      "module_path": "apps.res.table_api_views.transaction_item_api_views",
+      "grouping": "table",
+      "process_key": "BASE_TRANSACTION_ITEM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00M",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Position",
+      "description": "Posittion",
+      "route": "table/base/position/",
+      "view": "AuthorizedPositionAPIView",
+      "module_path": "apps.base.table_api_views.position_api_views",
+      "grouping": "table",
+      "process_key": "BASE_POSITION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-30 00:00+0000",
+      "last_updated": "2025-11-30 00:00+0000"  
     }
   }
 ,  {

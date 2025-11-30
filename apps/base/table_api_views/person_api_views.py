@@ -16,7 +16,8 @@ class AuthorizedPersonAPIView(AuthorizedClientAPIView):
         value_list = [
             'person_id',
             'type_id',
-            'first_name'
+            'first_name',
+            'last_name',
         ]
         return value_list
 

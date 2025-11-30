@@ -205,31 +205,31 @@ class Page(BaseModel):
 # AUTOGEN_END_Page#
 
 
-# AUTOGEN_BEGIN_Role#
-class Role(BaseModel):
-    role_id          = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
-    parent_role      = models.ForeignKey("self", on_delete=models.CASCADE, to_field='role_id', related_name="+", db_column="parent_role_id", default=None, null=True)
-    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
-    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
-    grouping         = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
-    code             = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False, default='')
-    description      = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
-    role_key         = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
-    group1           = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
-    group2           = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+# AUTOGEN_BEGIN_Process#
+class Process(BaseModel):
+    process_id       = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True , default='')
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    code             = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    description      = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    route            = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False, default='')
+    view             = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    module_path      = models.CharField(max_length=100, blank=False, unique=False, primary_key=False, default='')
+    grouping         = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    process_key      = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
     created_date     = models.DateTimeField(auto_now_add=True)
     last_updated     = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table            = 'static_role'
-        verbose_name_plural = 'roles (static_role)'
+        db_table            = 'static_process'
+        verbose_name_plural = 'processes (static_process)'
         ordering            = []
         
     def __str__(self):
-        return 'role'
-# AUTOGEN_END_Role#
+        return 'process'
+# AUTOGEN_END_Process#
 
 
 # AUTOGEN_BEGIN_Status#

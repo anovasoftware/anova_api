@@ -19,6 +19,20 @@ class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
     def get_value_list(self):
         value_list = [
             'guest_id',
-            'person__first_name'
+            'authorized_to_charge_flag',
+            'type__type_id',
+            'type__code',
+            'type__description',
+            'person__first_name',
+            'person__last_name'
         ] + super().get_value_list()
+
         return value_list
+
+    def get_query_filter(self):
+        filters = super().get_query_filter()
+
+        filters['type_id'] = self.type_id
+
+        return filters
+
