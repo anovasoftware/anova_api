@@ -66,6 +66,7 @@ class TableAPIView(CoreAPIView):
             self.model = apps.get_model(self.app_name, self.model_name)
             try:
                 self.type = Type.objects.get(type_id=self.type_id)
+                context['type__description'] = self.type.description
             except Exception as e:
                 pass
 
@@ -239,7 +240,7 @@ class TableAPIView(CoreAPIView):
         record_count = len(self.records)
         response['data']['record_count'] = record_count
         # if self.type:
-        #     response['context']['type'] = {
+        #     response['context']['type__description'] = {
         #         'type_id': self.type.type_id,
         #         'code': self.type.code,
         #         'description': self.type.description

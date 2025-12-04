@@ -784,6 +784,24 @@
     }
   }
 ,  {
+    "model": "base.RoleProcess",
+    "pk": "A00002",
+    "fields": {
+      "role_id": "A002",
+      "process_id": "00K",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": true,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-28 00:00+0000",
+      "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Position",
     "pk": "A0000",
     "fields": {

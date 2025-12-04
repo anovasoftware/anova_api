@@ -74,7 +74,7 @@ docs_example = get_docs_envelope_example(
     post=extend_schema(exclude=True),
 )
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
-    process_id = process_constants.BASE_GUEST_ROOM
+    process_id = process_constants.RES_GUEST_ROOM
 
     def __init__(self):
         super().__init__()

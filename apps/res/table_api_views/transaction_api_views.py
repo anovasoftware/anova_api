@@ -1,6 +1,6 @@
 from decimal import Decimal
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
-from constants import type_constants, event_constants, status_constants, guest_constants
+from constants import type_constants, event_constants, status_constants, guest_constants, process_constants
 from apps.res.models import Guest, HotelItem, Transaction, TransactionItem
 from apps.base.models import Category, Item
 from apps.static.models import Type
@@ -8,12 +8,15 @@ from apps.static.models import Type
 
 # http://api.anovasea.net/api/v1/external/res/charge?room=<room>&amount=<amount>&guestId=<guestId>
 class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.RES_TRANSACTION
+
     def __init__(self):
         super().__init__()
         self.app_name = 'res'
         self.model_name = 'Transaction'
         self.accepted_type_ids = [
             type_constants.RES_TRANSACTION_STAGED_SALE,
+            type_constants.RES_TRANSACTION_STAGED_REFUND,
             type_constants.RES_TRANSACTION_SALE,
             type_constants.RES_TRANSACTION_PAYMENT
         ]
@@ -26,21 +29,22 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
     def load_request(self, request):
         super().load_request(request)
 
-        self.posting_type = self.get_param('postingType', None, True)
+        if request.method == 'POST':
+            self.posting_type = self.get_param('postingType', None, True)
 
-        if self.posting_type in ['simple', ]:
-            self.json_required = False
+            if self.posting_type and self.posting_type in ['simple', ]:
+                self.json_required = False
 
-            self.guest_id = self.get_param('guestId', None, True)
-            self.item_key = self.get_param('itemKey', None, True)
-            self.amount = self.get_param('amount', None, True, parameter_type='decimal')
+                self.guest_id = self.get_param('guestId', None, True)
+                self.item_key = self.get_param('itemKey', None, True)
+                self.amount = self.get_param('amount', None, True, parameter_type='decimal')
 
-            if self.success:
-                special_item_type_id = f'RES_HOTEL_ITEM_SPECIAL_ITEM_{self.item_key}'
-                if Type.objects.filter(type_key=special_item_type_id).exists():
-                    self.hotel_type = Type.objects.get(type_key=special_item_type_id)
-                else:
-                    self.set_message(f'invalid itemKey={self.item_key}.',status_constants.HTTP_BAD_REQUEST)
+                if self.success:
+                    special_item_type_id = f'RES_HOTEL_ITEM_SPECIAL_ITEM_{self.item_key}'
+                    if Type.objects.filter(type_key=special_item_type_id).exists():
+                        self.hotel_type = Type.objects.get(type_key=special_item_type_id)
+                    else:
+                        self.set_message(f'invalid itemKey={self.item_key}.',status_constants.HTTP_BAD_REQUEST)
 
     def get_value_list(self):
         value_list = [
