@@ -1,9 +1,11 @@
 from apps.base.api_views.table_api_views import AuthorizedClientAPIView
 
-from constants import type_constants
+from constants import type_constants, process_constants
 
 
 class AuthorizedCompanyAPIView(AuthorizedClientAPIView):
+    process_id = process_constants.BASE_COMPANY
+
     def __init__(self):
         super().__init__()
         self.app_name = 'base'

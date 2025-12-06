@@ -1,9 +1,11 @@
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 
-from constants import type_constants
+from constants import type_constants, process_constants
 
 
 class AuthorizedPosMenuItemAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.BASE_POS_MENU_ITEM
+
     def __init__(self):
         super().__init__()
         self.app_name = 'base'
