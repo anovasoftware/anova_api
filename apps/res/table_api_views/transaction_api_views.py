@@ -3,7 +3,8 @@ from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from constants import type_constants, event_constants, status_constants, guest_constants, process_constants
 from apps.res.models import Guest, HotelItem, Transaction, TransactionItem
 from apps.base.models import Category, Item
-from apps.static.models import Type
+from apps.static.models import Type, Currency
+from django.db.models import Q
 
 
 # http://api.anovasea.net/api/v1/external/res/charge?room=<room>&amount=<amount>&guestId=<guestId>
@@ -17,27 +18,34 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         self.accepted_type_ids = [
             type_constants.RES_TRANSACTION_STAGED_SALE,
             type_constants.RES_TRANSACTION_STAGED_REFUND,
-            type_constants.RES_TRANSACTION_SALE,
-            type_constants.RES_TRANSACTION_PAYMENT
+            # type_constants.RES_TRANSACTION_SALE,
+            # type_constants.RES_TRANSACTION_PAYMENT
         ]
         self.hotel_type = None
         self.room_code = None
-        self.item_key = None
+        self.item_id = None
+        self.item_description = None
         self.amount = 0.00
+        self.currency_code = None
+        self.currency_id = None
         self.item = None
 
     def load_request(self, request):
         super().load_request(request)
 
         if request.method == 'POST':
-            self.posting_type = self.get_param('postingType', None, True)
+            # self.posting_type = self.get_param('postingType', None, True)
+            self.guest_id = self.get_param('guestId', None, True)
 
             if self.posting_type and self.posting_type in ['simple', ]:
                 self.json_required = False
 
-                self.guest_id = self.get_param('guestId', None, True)
-                self.item_key = self.get_param('itemKey', None, True)
                 self.amount = self.get_param('amount', None, True, parameter_type='decimal')
+                self.set_currency_id()
+                self.set_item_id()
+
+                # self.currency_id = self.get_param('currencyId', None, False)
+                # self.item_key = self.get_param('itemKey', None, True)
 
                 if self.success:
                     special_item_type_id = f'RES_HOTEL_ITEM_SPECIAL_ITEM_{self.item_key}'
@@ -45,6 +53,32 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
                         self.hotel_type = Type.objects.get(type_key=special_item_type_id)
                     else:
                         self.set_message(f'invalid itemKey={self.item_key}.',status_constants.HTTP_BAD_REQUEST)
+
+    def set_currency_id(self):
+        self.currency_code = self.get_param('currencyCode', None, False)
+        self.currency_id = self.get_param('currencyId', None, False)
+
+        if not self.currency_id and not self.currency_code:
+            message = 'currencyId or currencyCode not supplied.'
+            self.add_message(message, http_status_id='VALIDATION_ERROR')
+        elif self.currency_id and self.currency_code:
+            message = 'currencyId and currencyCode supplied. only one is allowed.'
+            self.add_message(message, http_status_id='VALIDATION_ERROR')
+        elif self.currency_id:
+            currencies = Currency.objects.filter(pk=self.currency_id)
+            if currencies.count() == 0:
+                message = f'invalid currencyId={self.currency_id}.'
+                self.add_message(message, http_status_id='VALIDATION_ERROR')
+            else:
+                self.currency_code = currencies[0].code
+        elif self.currency_code:
+            self.currency_code = self.currency_code.upper()
+            currencies = Currency.objects.filter(code=self.currency_code)
+            if currencies.count() == 0:
+                message = f'invalid currencyCode={self.currency_code}.'
+                self.add_message(message, http_status_id='VALIDATION_ERROR')
+            else:
+                self.currency_id = currencies[0].pk
 
     def get_value_list(self):
         value_list = [
@@ -94,6 +128,10 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
     def build_response(self):
         response = super().build_response()
 
+        if self.currency_code:
+            response['context']['currencyId'] = self.currency_id
+            response['context']['currencyCode'] = self.currency_code
+
         if self.item:
             item = self.item
             response['context']['item'] = {
@@ -102,3 +140,13 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             }
         return response
 
+
+# def get_currency_id(currency: str):
+#     currency_id = None
+#     currencies =Currency.objects.filter(
+#             Q(currency_id=currency) | Q(code=currency)
+#         )
+#     if currencies.count() == 1:
+#         currency_id = currencies[0].currency_id
+#
+#     return currency_id

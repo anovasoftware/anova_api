@@ -70,6 +70,9 @@ class TableAPIView(CoreAPIView):
             except Exception as e:
                 pass
 
+        if request.method == 'POST':
+            self.posting_type = self.get_param('postingType', 'batch', False)
+
     def load_json(self, request):
         loaded = True
         try:

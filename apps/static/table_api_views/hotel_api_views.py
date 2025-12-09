@@ -82,13 +82,15 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         if self.guest:
             guest = self.guest
             person = guest.person
-            response['context']['guest'] = {
-                'guest_id': guest.guest_id,
-                'person': {
-                    'person_id': person.person_id,
-                    'last_name': person.last_name,
-                    'first_name': person.first_name
-                },
-            }
+            response['context']['guestId'] = guest.guest_id
+            response['context']['guestName'] = f'{person.last_name}/{person.first_name}'
+            # response['context']['guest'] = {
+            #     'guest_id': guest.guest_id,
+            #     'person': {
+            #         'person_id': person.person_id,
+            #         'last_name': person.last_name,
+            #         'first_name': person.first_name
+            #     },
+            # }
 
         return response
