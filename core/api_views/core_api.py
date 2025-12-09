@@ -35,9 +35,10 @@ class CoreAPIView(GenericAPIView):
     process_id = None
 
     def initial(self, request, *args, **kwargs):
-        if self.access_user_id is None:
-            self.access_user_id = request.user.user_id
+        # safe default
+        self.access_user_id = None
 
+        # allow child classes to decide how to handle authentication
         super().initial(request, *args, **kwargs)
 
     def __init__(self, **kwargs):
@@ -256,6 +257,12 @@ class AuthorizedAPIView(CoreAPIView):
     permission_classes = [IsAuthenticated, ]
     user_roles = None
     role_processes = None
+
+    def initial(self, request, *args, **kwargs):
+        if self.access_user_id is None:
+            self.access_user_id = request.user.user_id
+
+        super().initial(request, *args, **kwargs)
 
     def _load_user_access(self):
         user_id = self.access_user_id

@@ -1,9 +1,10 @@
 from core.api_views.table_api_views import PublicTableAPIView
 from apps.static.models import Menu
-from constants import type_constants, status_constants
+from constants import type_constants, status_constants, process_constants
 
 
 class PublicMenuAPIView(PublicTableAPIView):
+
     def __init__(self):
         super().__init__()
         self.app_name = 'static'
