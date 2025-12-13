@@ -2367,6 +2367,25 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "00N",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Email",
+      "description": "Email",
+      "route": "table/base/email/",
+      "view": "AuthorizedEmailAPIView",
+      "module_path": "apps.base.table_api_views.email_api_views",
+      "grouping": "table",
+      "process_key": "BASE_EMAIL",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-13 00:00+0000",
+      "last_updated": "2025-12-13 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {

@@ -1,8 +1,11 @@
 from core.api_views.core_api import AuthorizedAPIView
 from django.core.mail import send_mail
+from constants import process_constants
 
 
 class AuthorizedEmailAPIView(AuthorizedAPIView):
+    process_id = process_constants.BASE_EMAIL
+
     def __init__(self):
         super().__init__()
 
