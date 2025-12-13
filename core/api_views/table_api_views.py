@@ -39,6 +39,7 @@ class TableAPIView(CoreAPIView):
         self.records = []
         self.json_required = True
         self.posting_type = 'batch'
+        self.currency_id = None
 
     def load_request(self, request):
         super().load_request(request)
@@ -201,6 +202,15 @@ class TableAPIView(CoreAPIView):
         self.data['records_updated'] = records_updated
         # self.set_message('under construction', success=False)
 
+    def _get_record(self, request):
+        record = {
+            'user_id': self.user_id,
+        }
+        if self.currency_id:
+            record['currency_id'] = self.currency_id
+
+        return record
+
     def _post_simple(self, request):
         self.add_message('_post_simple not defined', http_status_id='SERVER_ERROR')
 
@@ -242,6 +252,11 @@ class TableAPIView(CoreAPIView):
         response = super().build_response()
         record_count = len(self.records)
         response['data']['record_count'] = record_count
+
+        if self.type:
+            response['context']['typeId'] = self.type.type_id
+            response['context']['typeDescription'] = self.type.description
+
         # if self.type:
         #     response['context']['type__description'] = {
         #         'type_id': self.type.type_id,

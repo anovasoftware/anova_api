@@ -172,18 +172,22 @@ class Room(BaseModel):
 
 # AUTOGEN_BEGIN_Transaction#
 class Transaction(BaseModel):
-    transaction_id   = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
-    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    hotel            = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
-    event            = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
-    guest            = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
-    server_guest     = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
-    description      = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
-    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
-    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
-    created_date     = models.DateTimeField(auto_now_add=True)
-    last_updated     = models.DateTimeField(auto_now=True)
+    transaction_id              = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                        = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status                      = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    hotel                       = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    event                       = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    guest                       = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
+    server_guest                = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')
+    currency                    = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    user                        = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
+    description                 = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
+    external_reference          = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False, default='')
+    external_authorization_code = models.CharField(max_length= 25, blank=True , unique=False, primary_key=False, default='')
+    static_flag                 = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment            = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date                = models.DateTimeField(auto_now_add=True)
+    last_updated                = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table            = 'res_transaction'

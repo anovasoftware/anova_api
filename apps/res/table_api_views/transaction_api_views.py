@@ -19,14 +19,13 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             # type_constants.RES_TRANSACTION_SALE,
             # type_constants.RES_TRANSACTION_PAYMENT
         ]
-        self.hotel_type = None
-        self.room_code = None
         self.item_id = None
         self.item_description = None
         self.amount = 0.00
         self.currency_code = None
-        self.currency_id = None
         self.item = None
+        self.external_reference = None
+        self.external_authorization_code = None
 
     def load_request(self, request):
         super().load_request(request)
@@ -34,6 +33,8 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         if request.method == 'POST':
             # self.posting_type = self.get_param('postingType', None, True)
             self.guest_id = self.get_param('guestId', None, True)
+            self.external_reference = self.get_param('externalReference', None, True)
+            self.external_authorization_code = self.get_param('externalAuthorizationCode', '')
 
             if self.posting_type and self.posting_type in ['simple', ]:
                 self.json_required = False
@@ -41,6 +42,9 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
                 self.amount = self.get_param('amount', None, True, parameter_type='decimal')
                 self.set_currency_id()
                 self.set_item_id()
+
+                if self.success:
+                    self.item = Item.objects.get(pk=self.item_id)
 
     def set_currency_id(self):
         self.currency_code = self.get_param('currencyCode', None, False)
@@ -111,30 +115,38 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         ]
         return value_list
 
-    def _post_simple(self, request):
-        hotel_type = self.hotel_type
-        hotel_items = HotelItem.objects.filter(
-            hotel_id=self.hotel_id,
-            special_item_type_id=hotel_type.type_id
-        )
-        if hotel_items.count() == 1:
-            hotel_item = hotel_items[0]
-            self.item = Item.objects.get(pk=hotel_item.item_id)
-            self._post_simple_save(request)
-        else:
-            self.set_message(f'unable to find item associated with itemKey: {self.item_key}')
+    # def _post_simple(self, request):
+    #     hotel_type = self.hotel_type
+    #     hotel_items = HotelItem.objects.filter(
+    #         hotel_id=self.hotel_id,
+    #         special_item_type_id=hotel_type.type_id
+    #     )
+    #     if hotel_items.count() == 1:
+    #         hotel_item = hotel_items[0]
+    #         self.item = Item.objects.get(pk=hotel_item.item_id)
+    #         self._post_simple_save(request)
+    #     else:
+    #         self.set_message(f'unable to find item associated with itemKey: {self.item_key}')
+    #
+    #     self.set_message('under construction', http_status_id=status_constants.HTTP_BAD_REQUEST)
 
-        self.set_message('under construction', http_status_id=status_constants.HTTP_BAD_REQUEST)
-
-    def _post_simple_save(self, request):
-        record = {
-            'type_id': type_constants.RES_TRANSACTION_STAGED_SALE,
+    def _get_record(self, request):
+        record = super()._get_record(request)
+        record = record | {
+            'type_id': self.type_id,
             'status_id': status_constants.QUEUED,
-            'hotel_id': self.hotel_id,
             'event_id': event_constants.TO_BE_ANNOUNCED,
             'guest_id': self.guest_id,
-            'server_guest_id': guest_constants.NOT_APPLICABLE
+            'server_guest_id': guest_constants.NOT_APPLICABLE,
+            'description': self.item_description,
+            'external_reference': self.external_reference,
+            'external_authorization_code': self.external_authorization_code,
         }
+
+        return record
+
+    def _post_simple(self, request):
+        record = self._get_record(request)
         transaction = Transaction.objects.create(**record)
 
         record_item = {

@@ -130,7 +130,7 @@ class CoreAPIView(GenericAPIView):
 
         return response
 
-    def get_param(self, key, default_value, required, parameter_type=None):
+    def get_param(self, key, default_value, required=False, parameter_type=None):
         ret_value = default_value
         params = self.request.GET
 

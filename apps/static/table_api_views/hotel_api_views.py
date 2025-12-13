@@ -72,6 +72,14 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
         return filters  # This will be used in queryset.filter()
 
+    def _get_record(self, request):
+        record = super()._get_record(request)
+
+        record = record | {
+            'hotel_id': self.hotel_id,
+        }
+        return record
+
     def build_response(self):
         response = super().build_response()
 
