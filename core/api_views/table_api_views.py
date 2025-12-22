@@ -1,4 +1,6 @@
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView, parameters
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView, parameters, \
+    post_only_parameters
+from core.api_views.core_api import post_only_parameters,get_only_parameters
 from core.api_views.core_api import context
 from django.apps import apps
 import json
@@ -21,7 +23,17 @@ parameters = parameters + [
         required=True,
         description=f'Type Id (contact Anova for details)',
     ),
+    OpenApiParameter(
+        name='postingType',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=False,
+        default='batch',
+        description=f'Posting type (batch or simple).',
+    ),
 ]
+post_only_parameters = post_only_parameters + ['postingType']
+get_only_parameters = get_only_parameters + []
 
 
 class TableAPIView(CoreAPIView):
@@ -73,6 +85,12 @@ class TableAPIView(CoreAPIView):
 
         if request.method == 'POST':
             self.posting_type = self.get_param('postingType', 'batch', False)
+
+    def load_models(self, request):
+        super().load_models(request)
+
+    def validate(self, request):
+        super().validate(request)
 
     def load_json(self, request):
         loaded = True

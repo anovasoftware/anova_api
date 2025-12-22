@@ -1,12 +1,99 @@
 from decimal import Decimal
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, context, parameters
+from apps.static.table_api_views.hotel_api_views import post_only_parameters, get_only_parameters
 from constants import type_constants, event_constants, status_constants, guest_constants, process_constants
-from apps.res.models import Guest, HotelItem, Transaction, TransactionItem
-from apps.base.models import Category, Item
-from apps.static.models import Type, Currency
 
+from apps.res.models import Transaction, TransactionItem
+from apps.base.models import Item
+from apps.static.models import Currency
 
+from core.utilities.api_docs_utilties import override_parameters, params_for
+from core.utilities.api_docs_utilties import build_docs_response
+
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, extend_schema_view
+from drf_spectacular.utils import OpenApiParameter, OpenApiExample
+from drf_spectacular.openapi import AutoSchema
+
+context = context or {}
+
+record_dict = {
+    'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
+    'description': {'description': 'Description of transaction.', 'example': '1GB INTERNET VOUCHER'},
+    'guest_id': {'description': 'Guest id.', 'example': '002149'}
+}
+parameters = override_parameters(parameters, 'guestId', required=True)
+
+parameters = parameters + [
+    OpenApiParameter(
+        name='amount',
+        type=OpenApiTypes.NUMBER,
+        location='query',
+        required=True,
+        description='Transaction amount (e.g., 7.29).'
+    ),
+    OpenApiParameter(
+        name='currencyCode',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=True,
+        description='ISO currency code (e.g., USD).'
+    ),
+    OpenApiParameter(
+        name='externalReference',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=True,
+        description='External reference identifier (e.g., R00088).'
+    ),
+    OpenApiParameter(
+        name='externalAuthorizationCode',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=False,
+        description='External authorization or approval code.'
+    ),
+    OpenApiParameter(
+        name='itemDescription',
+        type=OpenApiTypes.STR,
+        location='query',
+        required=True,
+        description='Description of item or service (e.g., 1GB INTERNET VOUCHER).'
+    ),
+]
+get_only_parameters = get_only_parameters + []
+post_only_parameters = post_only_parameters + ['amount', 'currencyCode', ]
+
+record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
+    record_dict=record_dict,
+    context=context,
+    parameters=parameters,
+)
+
+@extend_schema_view(
+    get=extend_schema(exclude=True),
+    post=extend_schema(
+        summary='Post a charge or refund to a guest.',
+        description='Post a charge or refund to a guest.',
+        tags=['Transaction'],
+        parameters=params_for(
+            method='POST',
+            parameters=parameters,
+            post_only=post_only_parameters,
+            get_only=get_only_parameters
+        ),
+        responses={200: response_envelope},
+        examples=[
+            OpenApiExample(
+                'TransactionSuccess',
+                value=docs_example,  # <-- YOUR full envelope example here
+            )
+        ]
+    ),
+)
+##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
+    schema = AutoSchema()
     process_id = process_constants.RES_TRANSACTION
 
     def __init__(self):
@@ -26,13 +113,14 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         self.item = None
         self.external_reference = None
         self.external_authorization_code = None
+        self.transaction = None
 
     def load_request(self, request):
+        self.guest_id_required = self.is_post()
         super().load_request(request)
 
         if request.method == 'POST':
-            # self.posting_type = self.get_param('postingType', None, True)
-            self.guest_id = self.get_param('guestId', None, True)
+            # self.guest_id = self.get_param('guestId', None, True)
             self.external_reference = self.get_param('externalReference', None, True)
             self.external_authorization_code = self.get_param('externalAuthorizationCode', '')
 
@@ -43,8 +131,19 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
                 self.set_currency_id()
                 self.set_item_id()
 
-                if self.success:
-                    self.item = Item.objects.get(pk=self.item_id)
+    def load_models(self, request):
+        super().load_models(request)
+        self.item = Item.objects.get(pk=self.item_id)
+
+    def validate(self, request):
+        super().validate(request)
+        if not self.guest.authorized_to_charge_flag == 'Y':
+            message = f'guest_id={self.guest_id} not authorized to charge.'
+            self.add_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)
+        if self.success and Transaction.objects.filter(external_reference=self.external_reference).exists():
+            message = f'externalReference={self.external_reference} already exists.'
+            self.set_message(message, http_status_id=status_constants.HTTP_FORBIDDEN)
+
 
     def set_currency_id(self):
         self.currency_code = self.get_param('currencyCode', None, False)
@@ -106,13 +205,16 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             else:
                 self.item_id = items[0].pk
 
-
     def get_value_list(self):
-        value_list = [
-            'transaction_id',
-            'description',
-            'transactionItems'
-        ]
+        value_list = list(record_dict.keys())
+        # value_list = [
+        #     'transaction_id',
+        #     'description',
+        #     'guest_id'
+        #     # 'status__status_id',
+        #     # 'status__description',
+        #     # 'transactionItems'
+        # ]
         return value_list
 
     # def _post_simple(self, request):
@@ -129,6 +231,9 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
     #         self.set_message(f'unable to find item associated with itemKey: {self.item_key}')
     #
     #     self.set_message('under construction', http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+    def validate_request(self, request):
+        pass
 
     def _get_record(self, request):
         record = super()._get_record(request)
@@ -158,7 +263,11 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             'quantity': Decimal(1.00),
             'price': self.amount
         }
+        self.transaction = transaction
         transaction_item = TransactionItem.objects.create(**record_item)
+
+        fields = self.get_value_list()
+        self.records = list(Transaction.objects.filter(pk=transaction.transaction_id).values(*fields))
 
     def build_response(self):
         response = super().build_response()
@@ -171,12 +280,15 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             response['context']['itemId'] = self.item_id
             response['context']['itemDescription'] = self.item_description
 
-        if self.item:
-            item = self.item
-            response['context']['item'] = {
-                'item_id': item.item_id,
-                'description': item.description
-            }
+        # if self.item:
+        #     item = self.item
+        #     response['context']['item'] = {
+        #         'item_id': item.item_id,
+        #         'description': item.description
+        #     }
+
+        # if self.transaction:
+        #     response['data']['transactionId'] = self.transaction.transaction_id
         return response
 
 

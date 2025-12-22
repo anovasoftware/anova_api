@@ -5,11 +5,11 @@ from django.utils import timezone
 from constants import type_constants, process_constants
 from core.utilities.string_utilities import mask_string
 from drf_spectacular.utils import extend_schema, extend_schema_view
-from core.utilities.api_utilities import get_record_fields, expand_record_dict, get_docs_envelope, get_docs_envelope_example
-from core.utilities.api_utilities import get_parameters_from_open_api_parameters, get_docs_record_example
-from drf_spectacular.utils import inline_serializer
+from apps.static.table_api_views.hotel_api_views import post_only_parameters, get_only_parameters
+from core.utilities.api_docs_utilties import override_parameters, params_for
+from core.utilities.api_docs_utilties import build_docs_response
 
-context = context
+context = context or {}
 
 record_dict = {
     'room__code': {'description': 'Room/Cabin.', 'example': '302'},
@@ -28,11 +28,6 @@ record_dict = {
     'room_id': {'description': 'Internal room/cabin identifier', 'example': '006H'},
 }
 
-record_dict = expand_record_dict(record_dict)
-record_fields = get_record_fields(record_dict)
-record_serializer = inline_serializer(name='Record', fields=record_fields)
-response_envelope = get_docs_envelope(record_serializer)
-
 parameters = parameters + [
     OpenApiParameter(
         name='roomCode',
@@ -49,12 +44,25 @@ parameters = parameters + [
         description='Last name of guest (e.g., Johnson).'
     ),
 ]
+get_only_parameters = get_only_parameters + []
+post_only_parameters = post_only_parameters + ['amount', 'currencyCode', ]
 
-docs_example = get_docs_envelope_example(
+record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
+    record_dict=record_dict,
     context=context,
-    records=[get_docs_record_example(record_dict), ],
-    parameters=get_parameters_from_open_api_parameters(parameters),
+    parameters=parameters,
 )
+
+# record_dict = expand_record_dict(record_dict)
+# record_fields = get_record_fields(record_dict)
+# record_serializer = inline_serializer(name='Record', fields=record_fields)
+# response_envelope = get_docs_envelope(record_serializer)
+#
+# docs_example = get_docs_envelope_example(
+#     context=context,
+#     records=[get_docs_record_example(record_dict), ],
+#     parameters=get_parameters_from_open_api_parameters(parameters),
+# )
 
 
 @extend_schema_view(
@@ -62,7 +70,13 @@ docs_example = get_docs_envelope_example(
         summary='Retrieve guest information with room/cabin assignment',
         description='Returns guest room/cabin info for a given room code or guest ID.',
         tags=['Guest Room'],
-        parameters=parameters,
+        parameters=params_for(
+            method='GET',
+            parameters=parameters,
+            post_only=post_only_parameters,
+            get_only=get_only_parameters
+        ),
+
         responses={200: response_envelope},
         examples=[
             OpenApiExample(
@@ -73,6 +87,7 @@ docs_example = get_docs_envelope_example(
     ),
     post=extend_schema(exclude=True),
 )
+##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.RES_GUEST_ROOM
 

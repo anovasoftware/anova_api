@@ -30,19 +30,24 @@ parameters = [
     ),
 ]
 
+post_only_parameters = []
+get_only_parameters = []
+
 
 class CoreAPIView(GenericAPIView):
     process_id = None
+    request_method = None
 
     def initial(self, request, *args, **kwargs):
         # safe default
         self.access_user_id = None
-
+        self.request_method = request.method.upper()
         # allow child classes to decide how to handle authentication
         super().initial(request, *args, **kwargs)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
         CoreService.seed_database()
         self.http_status_id = status_constants.HTTP_OK
         # self.http_status = status.HTTP_200_OK
@@ -62,6 +67,12 @@ class CoreAPIView(GenericAPIView):
         self.redirect = None
         self.result_shape = 'nested'
 
+    def is_get(self):
+        return self.request_method == 'GET'
+
+    def is_post(self):
+        return self.request_method == 'POST'
+
     def dispatch(self, request, *args, **kwargs):
         # Set third_party_flag before the view logic runs
         self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
@@ -74,11 +85,17 @@ class CoreAPIView(GenericAPIView):
 
         if hasattr(request.user, 'user_id'):
             self.user_id = request.user.user_id
-            self.user = User.objects.get(pk=self.user_id)
         else:
             self.user_id = None  # or 'anonymous', or skip setting it
 
         self.access_user_id = self.user_id
+
+    def load_models(self, request):
+        pass
+        # self.user = User.objects.get(pk=self.user_id)
+
+    def validate(self, request):
+        pass
 
     def get_response(self):
         response = self.build_response()
@@ -174,12 +191,17 @@ class CoreAPIView(GenericAPIView):
     def get(self, request):
         try:
             self.load_request(request)
+
             if self.success:
-                self.pre_get(request)
+                self.load_models(request)
                 if self.success:
-                    self._get(request)
+                    self.validate(request)
                     if self.success:
-                        self.post_get(request)
+                        self.pre_get(request)
+                        if self.success:
+                            self._get(request)
+                            if self.success:
+                                self.post_get(request)
         except Exception as e:
             message = f'get() error:  {str(e)}'
             self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
@@ -197,14 +219,17 @@ class CoreAPIView(GenericAPIView):
     def post(self, request):
         try:
             self.load_request(request)
-            # if self.status == 200:
+
             if self.success:
-                self.pre_post(request)
+                self.load_models(request)
                 if self.success:
+                    self.validate(request)
                     if self.success:
-                        self._post(request)
+                        self.pre_post(request)
                         if self.success:
-                            self.post_post(request)
+                            self._post(request)
+                            if self.success:
+                                self.post_post(request)
         except Exception as e:
             message = f'post() error:  {str(e)}'
             self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
@@ -253,6 +278,7 @@ class CoreAPIView(GenericAPIView):
 
 
 class AuthorizedAPIView(CoreAPIView):
+    http_method_names = ['get', 'post', 'options', 'head']
     process_id = None
     permission_classes = [IsAuthenticated, ]
     user_roles = None
@@ -324,6 +350,10 @@ class AuthorizedAPIView(CoreAPIView):
         super().load_request(request)
 
         self.user_id = request.user.user_id
+
+    def load_models(self, request):
+        super().load_models(request)
+        self.user = User.objects.get(pk=self.user_id)
 
 
 class PublicAPIView(CoreAPIView):

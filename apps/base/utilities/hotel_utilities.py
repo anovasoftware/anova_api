@@ -20,7 +20,7 @@ def load_hotel_types():
                 type_id=_type.type_id,
                 defaults={'hotel': hotel, 'type': _type}
             )
-            print(f'HotelType: {hotel_type} created={created}')
+            # print(f'HotelType: {hotel_type} created={created}')
             # if (hotel.hotel_id, type.type_id) not in existing_pairs:
             #     new_hotel_types.append(
             #         HotelType(hotel_id=hotel.hotel_id, type_id=type.type_id)
