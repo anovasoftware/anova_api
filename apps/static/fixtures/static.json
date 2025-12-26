@@ -1150,6 +1150,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "015",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_job",
+      "code": "VMS-ETL",
+      "description": "VMS - ETL",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_JOB_VMS_ETL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-26 00:00+0000",
+      "last_updated": "2025-12-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",
@@ -2383,6 +2407,25 @@
       "internal_comment": "",
       "created_date": "2025-12-13 00:00+0000",
       "last_updated": "2025-12-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00P",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Job",
+      "description": "Job",
+      "route": "table/base/job/",
+      "view": "AuthorizedJobAPIView",
+      "module_path": "apps.base.table_api_views.job_api_views",
+      "grouping": "table",
+      "process_key": "BASE_JOB",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-26 00:00+0000",
+      "last_updated": "2025-12-26 00:00+0000"  
     }
   }
 ,  {
