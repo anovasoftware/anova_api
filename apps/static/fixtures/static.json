@@ -454,6 +454,60 @@
     }
   }
 ,  {
+    "model": "static.Status",
+    "pk": "00F",
+    "fields": {
+      "grouping": "base_job_run",
+      "code": "",
+      "description": "In progress",
+      "status_key": "JOB_RUN_IN_PROGRESS",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-28 00:00+0000",
+      "last_updated": "2025-12-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00G",
+    "fields": {
+      "grouping": "base_job_run",
+      "code": "",
+      "description": "Success",
+      "status_key": "JOB_RUN_SUCCESS",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-28 00:00+0000",
+      "last_updated": "2025-12-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00H",
+    "fields": {
+      "grouping": "base_job_run",
+      "code": "",
+      "description": "Failure",
+      "status_key": "JOB_RUN_FAILURE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-28 00:00+0000",
+      "last_updated": "2025-12-28 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Type",
     "pk": "000",
     "fields": {
@@ -2392,25 +2446,6 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "00N",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "code": "Email",
-      "description": "Email",
-      "route": "table/base/email/",
-      "view": "AuthorizedEmailAPIView",
-      "module_path": "apps.base.table_api_views.email_api_views",
-      "grouping": "table",
-      "process_key": "BASE_EMAIL",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-12-13 00:00+0000",
-      "last_updated": "2025-12-13 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Process",
     "pk": "00P",
     "fields": {
       "type_id": "000",
@@ -2426,6 +2461,25 @@
       "internal_comment": "",
       "created_date": "2025-12-26 00:00+0000",
       "last_updated": "2025-12-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00Q",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Job Run",
+      "description": "Job Run",
+      "route": "table/base/job_run/",
+      "view": "AuthorizedJobRunAPIView",
+      "module_path": "apps.base.table_api_views.job_run_api_views",
+      "grouping": "table",
+      "process_key": "BASE_JOB_RUN",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-12-26 00:00+0000",
+      "last_updated": "2025-12-28 00:00+0000"  
     }
   }
 ,  {

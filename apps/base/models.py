@@ -248,6 +248,32 @@ class Job(BaseModel):
 # AUTOGEN_END_Job#
 
 
+# AUTOGEN_BEGIN_JobRun#
+class JobRun(BaseModel):
+    job_run_id       = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    job              = models.ForeignKey("base.Job", on_delete=models.CASCADE, related_name="+")
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='041')
+    hotel            = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    user             = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name="+", default='A00000', null=True)
+    start_date       = models.DateTimeField(default=beginning_of_time)
+    end_date         = models.DateTimeField(default=end_of_time)
+    record_count     = models.IntegerField(default=-1)
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_job_run'
+        verbose_name_plural = 'job run (base_job_run)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'job_run'
+# AUTOGEN_END_JobRun#
+
+
 # AUTOGEN_BEGIN_Person#
 class Person(BaseModel):
     person_id        = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
