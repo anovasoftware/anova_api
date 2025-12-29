@@ -39,8 +39,4 @@ class Form001APIView(PublicFormAPIView):
             self.data['redirect'] = f'navigator/{page_constants.HOME}'
             self.data['user'] = UserSerializer(user).data
         else:
-            self.set_message(
-                message='Invalid username or password',
-                success=False,
-                http_status=status.HTTP_401_UNAUTHORIZED
-            )
+            self.set_message(message='Invalid username or password', http_status_id=status.HTTP_401_UNAUTHORIZED)

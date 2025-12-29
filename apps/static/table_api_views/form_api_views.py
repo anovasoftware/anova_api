@@ -138,12 +138,8 @@ class PublicFormAPIView(PublicTableAPIView):
 
             pk = record.pk
             # self.data['record_id'] = self.record_id
-            success = True
         except Exception as e:
-            self.add_message(str(e), False)
-            success = False
-
-        self.success = success
+            self.add_message(f'error saving record: {str(e)}.', http_status_id='BAD_REQUEST')
 
     def build_response(self):
         response = super().build_response()
