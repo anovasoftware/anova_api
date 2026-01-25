@@ -1,9 +1,9 @@
 import os
+
+from django.db.models.functions import datetime
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
-from rest_framework.request import Request
 from constants import constants, status_constants, role_constants
-from apps.static.models import Status
 from apps.base.models import User, UserRole, RoleProcess
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
@@ -13,6 +13,11 @@ from core.services.core_service import CoreService
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from core.utilities.string_utilities import snake_to_camel
+from core.api_views.api_params import ParamSpec, _to_str, COMMON_PARAMS
+from dataclasses import replace
+from django.utils import timezone
+
+
 
 context = {
     'user_id': '002149',
@@ -37,6 +42,12 @@ get_only_parameters = []
 class CoreAPIView(GenericAPIView):
     process_id = None
     request_method = None
+    COMMON_PARAMS = COMMON_PARAMS
+    PARAM_SPECS = ('shape', 'debugFlag')
+    PARAM_OVERRIDES = {
+        # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
+    }
+
 
     def initial(self, request, *args, **kwargs):
         # safe default
@@ -53,7 +64,7 @@ class CoreAPIView(GenericAPIView):
         # self.http_status = status.HTTP_200_OK
         self.http_statuses = CoreService.get_http_statuses()
         self.third_party_flag = 'N'
-        self.debug_flag = 'N'
+        self.debug_flag = None
         self.params = {}
         self.message = None
         self.messages = []
@@ -65,7 +76,8 @@ class CoreAPIView(GenericAPIView):
         self.access_user = None
         self.response_format = 'camel_case'
         self.redirect = None
-        self.result_shape = 'nested'
+        # self.result_shape = '#'
+        self.today = timezone.localdate()
 
     def is_get(self):
         return self.request_method == 'GET'
@@ -78,10 +90,104 @@ class CoreAPIView(GenericAPIView):
         self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
         return super().dispatch(request, *args, **kwargs)
 
+    def get_param_overrides(self):
+        merged = {}
+
+        # base → subclass so subclass wins
+        for cls in reversed(self.__class__.mro()):
+            overrides_map = getattr(cls, 'PARAM_OVERRIDES', None)
+            if overrides_map:
+                merged.update(overrides_map)
+
+        return merged
+
+    def get_param_spec(self, key, param_overrides=None):
+        spec = self.COMMON_PARAMS[key]
+
+        if key in param_overrides:
+            overrides = param_overrides[key]
+            spec = replace(self.COMMON_PARAMS[key], **overrides)
+        # if param_overrides:
+        #     spec = self.COMMON_PARAMS[key]
+        #     spec = replace(spec, **param_overrides)
+        #
+        #
+        # # Apply overrides from base classes first, then subclasses override later
+        # for cls in reversed(self.__class__.mro()):
+        #     overrides_map = getattr(cls, 'PARAM_OVERRIDES', None)
+        #     if not overrides_map:
+        #         continue
+        #
+        #     overrides = overrides_map.get(key)
+        #     if overrides:
+        #         spec = replace(spec, **overrides)
+        #
+        return spec
+
+    def get_param_from_spec(self, spec):
+        required = spec.required_get if self.is_get() else spec.required_post
+
+        value = self.get_param(
+            key=spec.name,
+            default_value=spec.default,
+            required=required,
+            parameter_type=getattr(spec, 'parameter_type', None),
+        )
+
+        # get_param() already logged missing required and returned None
+        if value:
+            allowed = spec.allowed
+            if allowed is not None:
+                allowed_values = allowed() if callable(allowed) else allowed
+                if value not in allowed_values:
+                    valid = ', '.join(str(x) for x in allowed_values)
+                    message = f'invalid {spec.name} {value}. valid {spec.name} values: {valid}'
+                    self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+                    return None
+
+            # Assign to target attribute (new, spec-driven)
+        dest = getattr(spec, 'dest', None)
+        if dest:
+            setattr(self, dest, value)
+
+        return value
+
+    def get_param(self, key, default_value, required=False, parameter_type=None):
+        ret_value = default_value
+        params = self.request.GET
+
+        if key in params:
+            ret_value = params[key]
+
+        if required and not ret_value:
+            message = f'missing parameter: {key}'
+            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            return None
+
+        # if key != 'debugFlag':
+        #     self.params[key] = ret_value
+        self.params[key] = ret_value
+
+        if parameter_type and parameter_type == 'decimal':
+            try:
+                ret_value = Decimal(ret_value)
+                self.params[key] = ret_value
+            except InvalidOperation as e:
+                message = f'{key} format error. expecting {parameter_type}:  {str(e)}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+        return ret_value
+
     def load_request(self, request):
         self.request_id = getattr(request, "request_id", "unknown")
-        self.debug_flag = self.get_param('debugFlag', 'N', False)
-        self.result_shape = self.get_param('shape', 'nested', False)
+
+        try:
+            param_overrides = self.get_param_overrides()
+            for key in self.PARAM_SPECS:
+                spec = self.get_param_spec(key, param_overrides)
+                self.get_param_from_spec(spec)
+        except Exception as e:
+            self.add_message(f'error loading request parameters: {str(e)}', http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if hasattr(request.user, 'user_id'):
             self.user_id = request.user.user_id
@@ -95,6 +201,15 @@ class CoreAPIView(GenericAPIView):
         # self.user = User.objects.get(pk=self.user_id)
 
     def validate(self, request):
+        if self.is_get():
+            self.validate_get(request)
+        if self.is_post():
+            self.validate_post(request)
+
+    def validate_get(self, request):
+        pass
+
+    def validate_post(self, request):
         pass
 
     def get_response(self):
@@ -146,31 +261,6 @@ class CoreAPIView(GenericAPIView):
             response['messages'] = self.messages
 
         return response
-
-    def get_param(self, key, default_value, required=False, parameter_type=None):
-        ret_value = default_value
-        params = self.request.GET
-
-        if key in params:
-            ret_value = params[key]
-
-        if required and not ret_value:
-            message = f'missing parameter: {key}'
-            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-            return None
-
-        if key != 'debugFlag':
-            self.params[key] = ret_value
-
-        if parameter_type and parameter_type == 'decimal':
-            try:
-                ret_value = Decimal(ret_value)
-                self.params[key] = ret_value
-            except InvalidOperation as e:
-                message = f'{key} format error. expecting {parameter_type}:  {str(e)}'
-                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-
-        return ret_value
 
     def add_message(self, message, http_status_id=None):
         if http_status_id:

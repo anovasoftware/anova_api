@@ -4,7 +4,7 @@ from apps.static.table_api_views.hotel_api_views import post_only_parameters, ge
 from constants import type_constants, event_constants, status_constants, guest_constants, process_constants
 
 from apps.res.models import Transaction, TransactionItem
-from apps.base.models import Item
+from apps.base.models import Item, ExternalMapping
 from apps.static.models import Currency
 
 from core.utilities.api_docs_utilties import override_parameters, params_for
@@ -15,12 +15,16 @@ from drf_spectacular.utils import extend_schema, extend_schema_view
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 from drf_spectacular.openapi import AutoSchema
 
+
 context = context or {}
 
 record_dict = {
     'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
     'description': {'description': 'Description of transaction.', 'example': '1GB INTERNET VOUCHER'},
-    'guest_id': {'description': 'Guest id.', 'example': '002149'}
+    'guest_id': {'description': 'Guest id.', 'example': '002149'},
+    'event_id': {'description': 'Event id.', 'example': '009112'},
+    'currency_id': {'description': 'Currency', 'example': '002'},
+    # 'item_id': {'description': 'POS Item Id', 'example': '0100091'}
 }
 parameters = override_parameters(parameters, 'guestId', required=True)
 
@@ -93,6 +97,12 @@ record_dict, record_serializer, response_envelope, docs_example = build_docs_res
 )
 ##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('statusId', 'guestId')
+    PARAM_OVERRIDES = {
+        'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
+        'guestId': dict(required_post=True, )
+    }
+
     schema = AutoSchema()
     process_id = process_constants.RES_TRANSACTION
 
@@ -103,9 +113,13 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         self.accepted_type_ids = [
             type_constants.RES_TRANSACTION_STAGED_SALE,
             type_constants.RES_TRANSACTION_STAGED_REFUND,
+            type_constants.RES_TRANSACTION_STAGED
             # type_constants.RES_TRANSACTION_SALE,
             # type_constants.RES_TRANSACTION_PAYMENT
         ]
+        # self.accepted_status_ids = [
+        #     status_constants.QUEUED,
+        # ]
         self.item_id = None
         self.item_description = None
         self.amount = 0.00
@@ -115,11 +129,25 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         self.external_authorization_code = None
         self.transaction = None
 
+    # def get_param_spec(self, key):
+    #     spec = super().get_param_spec(key)
+    #
+    #     if spec.name == 'statusId':
+    #         spec = replace(
+    #             spec,
+    #             required_get=True,
+    #             allowed=(status_constants.QUEUED,)
+    #         )
+    #
+    #     return spec
+
     def load_request(self, request):
-        self.guest_id_required = self.is_post()
         super().load_request(request)
 
-        if request.method == 'POST':
+        # if self.is_get():
+        #     self.load_status(required=True)
+
+        if self.is_post():
             # self.guest_id = self.get_param('guestId', None, True)
             self.external_reference = self.get_param('externalReference', None, True)
             self.external_authorization_code = self.get_param('externalAuthorizationCode', '')
@@ -133,17 +161,81 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
 
     def load_models(self, request):
         super().load_models(request)
-        self.item = Item.objects.get(pk=self.item_id)
 
-    def validate(self, request):
-        super().validate(request)
+        # self.load_status(self.status_id)
+        if self.is_post():
+            self.item = Item.objects.get(pk=self.item_id)
+
+    # def validate(self, request):
+    #     super().validate(request)
+
+    def _get(self, request):
+        super()._get(request)
+
+        if self.success:
+            transaction_ids = {record.get('transaction_id') for record in self.records if record.get('transaction_id')}
+
+            transaction_items = TransactionItem.objects.filter(
+                transaction_id__in=transaction_ids,
+                status_id=status_constants.ACTIVE
+            ).values(
+                'transaction_item_id',
+                'transaction_id',
+                'item_id',
+                'item__description',
+                'quantity',
+                'price',
+            )
+
+            external_mappings = {
+                'guest_id': { 'app_name': 'res', 'model_name': 'Guest'},
+                'event_id': { 'app_name': 'res', 'model_name': 'Event'},
+                'currency_id': { 'app_name': 'static', 'model_name': 'Currency'},
+            }
+
+            for key, value in external_mappings.items():
+                field_name = f'external_{key}'
+                app_name = value['app_name']
+                model_name = value['model_name']
+                self.add_external_mapping_to_records(
+                    field_name,
+                    key,
+                    app_name=app_name,
+                    model_name=model_name,
+                    records=self.records
+                )
+
+            for record in self.records:
+                transaction_id = record['transaction_id']
+
+                record['transaction_items'] = []
+                for transaction_item in transaction_items.filter(transaction_id=transaction_id):
+                    record['transaction_items'].append(
+                        {
+                            'transaction_item_id': transaction_item['transaction_item_id'],
+                            'transaction_id': transaction_item['transaction_id'],
+                            'item_id': transaction_item['item_id'],
+                            'description': transaction_item['item__description'],
+                            'quantity': transaction_item['quantity'],
+                            'price': transaction_item['price'],
+                        }
+                    )
+                self.add_external_mapping_to_records(
+                    field_name='external_item_id',
+                    from_field_name='item_id',
+                    app_name='base',
+                    model_name='Item',
+                    records=record['transaction_items']
+                )
+
+
+    def validate_post(self, request):
         if not self.guest.authorized_to_charge_flag == 'Y':
             message = f'guest_id={self.guest_id} not authorized to charge.'
             self.add_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)
         if self.success and Transaction.objects.filter(external_reference=self.external_reference).exists():
             message = f'externalReference={self.external_reference} already exists.'
             self.set_message(message, http_status_id=status_constants.HTTP_FORBIDDEN)
-
 
     def set_currency_id(self):
         self.currency_code = self.get_param('currencyCode', None, False)
@@ -207,15 +299,13 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
 
     def get_value_list(self):
         value_list = list(record_dict.keys())
-        # value_list = [
-        #     'transaction_id',
-        #     'description',
-        #     'guest_id'
-        #     # 'status__status_id',
-        #     # 'status__description',
-        #     # 'transactionItems'
-        # ]
         return value_list
+
+    def get_query_filter(self):
+        filters = super().get_query_filter()
+        filters['status_id'] = self.status_id
+        filters['event_id'] = self.hotel_extension.current_event_id
+        return filters
 
     # def _post_simple(self, request):
     #     hotel_type = self.hotel_type
@@ -240,7 +330,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         record = record | {
             'type_id': self.type_id,
             'status_id': status_constants.QUEUED,
-            'event_id': event_constants.TO_BE_ANNOUNCED,
+            'event_id': self.hotel_extension.current_event_id,
             'guest_id': self.guest_id,
             'server_guest_id': guest_constants.NOT_APPLICABLE,
             'description': self.item_description,

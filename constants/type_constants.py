@@ -21,7 +21,7 @@ RES_HOTEL_ITEM_SPECIAL_ITEM = '00V'                              # special items
 RES_HOTEL_ITEM_SPECIAL_ITEM_INTERNET = '00W'                     # internet#  res_reservation
 RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_room
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  res_transaction
-RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_SALE = '00P'                                     # chargeRES_TRANSACTION_STAGED_REFUND = '014'                            # staged refundRES_TRANSACTION_STAGED_SALE = '00N'                              # staged charge#  res_transaction_item
+RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_SALE = '00P'                                     # chargeRES_TRANSACTION_STAGED = '016'                                   # staged transactionsRES_TRANSACTION_STAGED_REFUND = '014'                            # staged refundRES_TRANSACTION_STAGED_SALE = '00N'                              # staged charge#  res_transaction_item
 RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  static_client
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  static_form
 FORM_DATA_ENTRY = '602'                                          # data entry formsFORM_REPORT_PARAMETER = '601'                                    # report parameters#  static_form_control

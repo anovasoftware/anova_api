@@ -4,7 +4,7 @@ from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from django.core.exceptions import ObjectDoesNotExist
 from apps.static.models import Hotel
-from apps.res.models import Guest
+from apps.res.models import Guest, GuestRoom, Event, HotelExtension
 
 from constants import status_constants
 
@@ -32,6 +32,12 @@ post_only_parameters = post_only_parameters + []
 
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
+    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS + ('hotelId', )
+    PARAM_OVERRIDES = {
+        'hotelId': dict(required_get=True, required_post=True, )
+    }
+
+
     def __init__(self):
         super().__init__()
         self.hotel = None
@@ -39,37 +45,15 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         self.hotel_id = None
         self.hotel_id_field = 'hotel_id'
         self.hotel = None
+        self.hotel_extension = None
         self.guest_id = None
-        self.guest_id_required = False
         self.guest = None
-        self.required_parameters = ['hotelId', ]
+        self.guest_room = None
+        self.event = None
+        # self.required_parameters = ['hotelId', ]
 
     def load_request(self, request):
         super().load_request(request)
-
-        self.hotel_id = self.get_param('hotelId', None, required=True)
-        self.guest_id = self.get_param('guestId', None, required=self.guest_id_required)
-
-        # if self.success:
-        #     try:
-        #         self.hotel = Hotel.objects.get(pk=self.hotel_id)
-        #         user_hotels = self.user.userHotels.filter(
-        #             hotel_id=self.hotel_id,
-        #             effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
-        #         )
-        #         if not user_hotels.exists():
-        #             message = f'access denied to hotel_id: {self.hotel_id}'
-        #             self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
-        #     except ObjectDoesNotExist as e:
-        #         message = f'hotel_id not found: {self.hotel_id}'
-        #         self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-
-        # if self.success and self.guest_id:
-        #     if Guest.objects.filter(pk=self.guest_id).exists():
-        #         self.guest = Guest.objects.get(pk=self.guest_id)
-        #     else:
-        #         message = f'guest_id not found: {self.guest_id}'
-        #         self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def load_models(self, request):
         super().load_models(request)
@@ -83,6 +67,11 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
             if not user_hotels.exists():
                 message = f'access denied to hotel_id: {self.hotel_id}'
                 self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
+            else:
+                self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
+                if not self.hotel_extension:
+                    message = f'hotel_extension not found for hotel_id: {self.hotel_id}'
+                    self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         except ObjectDoesNotExist as e:
             message = f'hotel_id not found: {self.hotel_id}'
             self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
@@ -90,7 +79,29 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         if self.success and self.guest_id:
             guests = Guest.objects.filter(pk=self.guest_id)
             if guests.exists():
-                self.guest = Guest.objects.get(pk=self.guest_id)
+                self.guest = Guest.objects.get(
+                    reservation__hotel_id=self.hotel_id,
+                    pk=self.guest_id
+                )
+
+                self.guest_room = GuestRoom.objects.filter(
+                    room__hotel_id=self.hotel_id,
+                    guest_id=self.guest_id,
+                    arrival_date__date__lte=self.today,
+                    departure_date__date__gt=self.today
+                ).first()
+                if not self.guest_room:
+                    message = f'guest {self.guest.guest_id} is not onboard currently.'
+                    self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+                if self.success:
+                    self.event = Event.objects.filter(
+                        hotel_id=self.hotel_id,
+                        start_date__date__lte=self.today,
+                        end_date__date__gt=self.today,
+                    ).first()
+                    if not self.event:
+                        message = f'no event scheduled today.'
+                        self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
             else:
                 message = f'guest_id not found: {self.guest_id}'
                 self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)

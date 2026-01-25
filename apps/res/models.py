@@ -89,6 +89,28 @@ class GuestRoom(BaseModel):
 # AUTOGEN_END_GuestRoom#
 
 
+# AUTOGEN_BEGIN_HotelExtension#
+class HotelExtension(BaseModel):
+    hotel_extension_id = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
+    hotel              = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    current_event      = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    static_flag        = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment   = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date       = models.DateTimeField(auto_now_add=True)
+    last_updated       = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_hotel_extension'
+        verbose_name_plural = 'hotels/cruise ships extension (res_hotel_extension)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'hotel_extension'
+# AUTOGEN_END_HotelExtension#
+
+
 # AUTOGEN_BEGIN_HotelItem#
 class HotelItem(BaseModel):
     hotel_item_id        = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )

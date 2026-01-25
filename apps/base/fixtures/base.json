@@ -458,7 +458,7 @@
       "status_id": "001",
       "app_name": "static",
       "model_name": "Currency",
-      "external_id": "CU-USD",
+      "external_id": "CU-00001",
       "internal_id": "01",
       "external_pk": "",
       "static_flag": "Y",
@@ -475,7 +475,7 @@
       "status_id": "001",
       "app_name": "static",
       "model_name": "Currency",
-      "external_id": "CU-GBP",
+      "external_id": "CU-00002",
       "internal_id": "02",
       "external_pk": "",
       "static_flag": "Y",
@@ -492,7 +492,7 @@
       "status_id": "001",
       "app_name": "static",
       "model_name": "Currency",
-      "external_id": "CU-EUR",
+      "external_id": "CU-00003",
       "internal_id": "03",
       "external_pk": "",
       "static_flag": "Y",
@@ -516,6 +516,23 @@
       "internal_comment": "",
       "created_date": "2025-04-10 00:00+0000",
       "last_updated": "2025-04-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.ExternalMapping",
+    "pk": "A00000006",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "app_name": "res",
+      "model_name": "Room",
+      "external_id": "VMS-0000-CB-00000",
+      "internal_id": "A000",
+      "external_pk": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-12-22 00:00+0000",
+      "last_updated": "2026-12-22 00:00+0000"  
     }
   }
 ,  {

@@ -1,9 +1,11 @@
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 
-from constants import type_constants
+from constants import type_constants, process_constants
 
 
 class AuthorizedHotelItemAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.RES_HOTEL_ITEM
+
     def __init__(self):
         super().__init__()
         self.app_name = 'res'

@@ -455,7 +455,7 @@
   }
 ,  {
     "model": "static.Status",
-    "pk": "00F",
+    "pk": "00L",
     "fields": {
       "grouping": "base_job_run",
       "code": "",
@@ -473,7 +473,7 @@
   }
 ,  {
     "model": "static.Status",
-    "pk": "00G",
+    "pk": "00M",
     "fields": {
       "grouping": "base_job_run",
       "code": "",
@@ -491,7 +491,7 @@
   }
 ,  {
     "model": "static.Status",
-    "pk": "00H",
+    "pk": "00N",
     "fields": {
       "grouping": "base_job_run",
       "code": "",
@@ -534,7 +534,7 @@
     "model": "static.Type",
     "pk": "014",
     "fields": {
-      "parent_type_id": "000",
+      "parent_type_id": "016",
       "grouping": "res_transaction",
       "code": "staged refund",
       "description": "staged refund",
@@ -990,7 +990,7 @@
     "model": "static.Type",
     "pk": "00N",
     "fields": {
-      "parent_type_id": "000",
+      "parent_type_id": "016",
       "grouping": "res_transaction",
       "code": "staged charge",
       "description": "staged charge",
@@ -1224,6 +1224,30 @@
       "internal_comment": "",
       "created_date": "2025-12-26 00:00+0000",
       "last_updated": "2025-12-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "016",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_transaction",
+      "code": "staged transactions",
+      "description": "staged transactions",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_TRANSACTION_STAGED",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-01-04 00:00+0000",
+      "last_updated": "2026-01-04 00:00+0000"  
     }
   }
 ,  {
@@ -2480,6 +2504,25 @@
       "internal_comment": "",
       "created_date": "2025-12-26 00:00+0000",
       "last_updated": "2025-12-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00R",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Hotel Extension",
+      "description": "Hotel Extension",
+      "route": "table/res/hotel_extension/",
+      "view": "AuthorizedHotelExtensionAPIView",
+      "module_path": "apps.res.table_api_views.hotel_extension_api_views",
+      "grouping": "table",
+      "process_key": "RES_HOTEL_EXTENSION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-01-23 00:00+0000",
+      "last_updated": "2026-01-23 00:00+0000"  
     }
   }
 ,  {

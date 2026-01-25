@@ -37,6 +37,8 @@ get_only_parameters = get_only_parameters + []
 
 
 class TableAPIView(CoreAPIView):
+    PARAM_SPECS = CoreAPIView.PARAM_SPECS
+
     def __init__(self):
         super().__init__()
         self.app_name = None
@@ -44,7 +46,9 @@ class TableAPIView(CoreAPIView):
         self.model: models.Model = None
         self.data_to_load = None
         self.accepted_type_ids = []
+        # self.accepted_status_ids = []
         self.type_id = None
+        self.status_id = None
         self.type = None
         self.external_id_required = True
         self.external_id_prefix = None
@@ -285,6 +289,45 @@ class TableAPIView(CoreAPIView):
         response['data']['records'] = self.records
 
         return response
+
+    # def set_status_id(self, default_value=None, required=False):
+    #     status_id = self.get_param('statusId', default_value=default_value, required=required)
+    #
+    #     if self.success and status_id not in self.accepted_status_ids:
+    #         message = f'invalid statusId {status_id}.'
+    #         valid_statuses = ''
+    #         for status_id in self.accepted_status_ids:
+    #             valid_statuses += f', {status_id}'
+    #         valid_statuses = valid_statuses[2:]
+    #         message += f'{message} valid types: {valid_statuses}'
+    #         self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+    def load_status(self, status_id):
+        pass
+
+    def add_external_mapping_to_records(self, field_name, from_field_name, app_name, model_name, records):
+        unique_ids = {record.get(from_field_name) for record in records if record.get(from_field_name)}
+
+        mappings = ExternalMapping.objects.filter(
+            internal_id__in=unique_ids,
+            app_name=app_name,
+            model_name=model_name
+        ).values_list(
+            'internal_id',
+            'external_id'
+        )
+        mappings = {
+            internal_id: {
+                'external_id_root': external_id,
+                'external_id': external_id.rsplit('-', 1)[-1] if external_id else None,
+            }
+            for internal_id, external_id in mappings
+        }
+
+        for record in records:
+            internal_id = record[from_field_name]
+
+            record[field_name] = mappings[internal_id]['external_id']
 
 
 class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):
