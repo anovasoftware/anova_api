@@ -69,9 +69,9 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
                 self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
             else:
                 self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
-                if not self.hotel_extension:
-                    message = f'hotel_extension not found for hotel_id: {self.hotel_id}'
-                    self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+                # if not self.hotel_extension:
+                #     message = f'hotel_extension not found for hotel_id: {self.hotel_id}'
+                #     self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         except ObjectDoesNotExist as e:
             message = f'hotel_id not found: {self.hotel_id}'
             self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
