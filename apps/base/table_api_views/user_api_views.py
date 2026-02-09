@@ -1,6 +1,6 @@
 from core.api_views.table_api_views import PublicTableAPIView
 from apps.base.models import User
-from constants import type_constants, status_constants
+from constants import type_constants, status_constants, process_constants
 # from utilities.user_utilities import get_user_roles
 # from django.db.models import Case, When, Value as V, Q
 # from utilities.user_utilities import is_impersonator, is_developer
@@ -13,14 +13,27 @@ from constants import type_constants, status_constants
 
 
 class PublicUserAPIView(PublicTableAPIView):
+    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                type_constants.NOT_APPLICABLE,
+            )
+        )
+    }
+
+    process_id = None
+
     def __init__(self):
         super().__init__()
         self.app_name = 'base'
         self.model_name = 'User'
         self.type_id = '000'
-        self.accepted_type_ids = [
-            type_constants.NOT_APPLICABLE,
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.NOT_APPLICABLE,
+        # ]
 
         self.user = None
 

@@ -29,7 +29,7 @@
       "header": "Log in to your account",
       "data_source_application": "base",
       "data_source_model_name": "EventLog",
-      "save_button_label": "Login",
+      "save_button_label": "Log In",
       "save_button_action": "saveAndClose",
       "grouping": "Global",
       "form_key": "LOGIN",
@@ -1963,7 +1963,7 @@
       "type_id": "000",
       "status_id": "001",
       "code": "Logn",
-      "description": "Login",
+      "description": "Welcome! Log into your account",
       "grouping": "Public",
       "page_key": "LOGIN",
       "static_flag": "Y",
@@ -2523,6 +2523,25 @@
       "internal_comment": "",
       "created_date": "2026-01-23 00:00+0000",
       "last_updated": "2026-01-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00S",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "TransactionStatus",
+      "description": "Transaction Status",
+      "route": "table/res/transaction_status/",
+      "view": "AuthorizedTransactionStatusAPIView",
+      "module_path": "apps.res.table_api_views.transaction_api_views",
+      "grouping": "table",
+      "process_key": "RES_TRANSACTION_STATUS",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-02 00:00+0000",
+      "last_updated": "2026-02-02 00:00+0000"  
     }
   }
 ,  {

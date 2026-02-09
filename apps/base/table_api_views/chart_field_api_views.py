@@ -3,6 +3,17 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedChartFieldAPIView(AuthorizedHotelAPIView):
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                type_constants.BASE_CHART_FIELD_REVENUE,
+            )
+        )
+    }
+
     process_id = process_constants.BASE_CHART_FIELD
 
     def __init__(self):
@@ -10,9 +21,9 @@ class AuthorizedChartFieldAPIView(AuthorizedHotelAPIView):
         self.app_name = 'base'
         self.model_name = 'ChartField'
         self.hotel_id_field = 'hotel_id'
-        self.accepted_type_ids = [
-            type_constants.BASE_CHART_FIELD_REVENUE,
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.BASE_CHART_FIELD_REVENUE,
+        # ]
 
     def load_request(self, request):
         super().load_request(request)

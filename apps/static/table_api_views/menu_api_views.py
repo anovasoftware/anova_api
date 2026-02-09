@@ -4,6 +4,18 @@ from constants import type_constants, status_constants, process_constants
 
 
 class PublicMenuAPIView(PublicTableAPIView):
+    process_id = None
+
+    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                'ALL'
+            )
+        )
+    }
 
     def __init__(self):
         super().__init__()
@@ -12,10 +24,10 @@ class PublicMenuAPIView(PublicTableAPIView):
         self.type_id = 'ALL'
         self.menu_id = None
         self.menu = None
-        self.accepted_type_ids = [
-            'ALL'
-            # type_constants.MENU_HEADER_BAR
-        ]
+        # self.accepted_type_ids = [
+        #     'ALL'
+        #     # type_constants.MENU_HEADER_BAR
+        # ]
 
         self.user = None
 

@@ -14,6 +14,7 @@ class ParamSpec:
     cast: Callable[[Any], Any]   # str -> int, str -> str, etc
     required_get: bool = False
     required_post: bool = False
+    required_patch: bool = False
     description: str = ''
     default: Any = None
     allowed: Optional[Iterable[Any]] = None   # list/tuple/set or callable later
@@ -70,4 +71,21 @@ COMMON_PARAMS = {
         description='Status id for the request.',
         allowed=None,
     ),
+    'recordId': ParamSpec(
+        name='recordId',
+        dest='record_id',
+        kind='either',
+        cast=_to_str,
+        description='Record id for the request.',
+        allowed=None,
+    ),
+    'typeId': ParamSpec(
+        name='typeId',
+        dest='type_id',
+        kind='either',
+        cast=_to_str,
+        description='Type id for the request.',
+        allowed=None,
+    ),
+
 }

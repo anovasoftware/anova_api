@@ -91,6 +91,18 @@ record_dict, record_serializer, response_envelope, docs_example = build_docs_res
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.RES_GUEST_ROOM
 
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                type_constants.NOT_APPLICABLE,
+            )
+        )
+    }
+
+
     def __init__(self):
         super().__init__()
         self.app_name = 'res'
@@ -104,9 +116,9 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         }
 
         self.room = None
-        self.accepted_type_ids = [
-            type_constants.NOT_APPLICABLE,
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.NOT_APPLICABLE,
+        # ]
 
     def load_request(self, request):
         super().load_request(request)

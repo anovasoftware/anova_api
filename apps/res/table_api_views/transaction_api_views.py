@@ -7,6 +7,8 @@ from apps.res.models import Transaction, TransactionItem
 from apps.base.models import Item, ExternalMapping
 from apps.static.models import Currency
 
+from django.core.exceptions import ObjectDoesNotExist
+
 from core.utilities.api_docs_utilties import override_parameters, params_for
 from core.utilities.api_docs_utilties import build_docs_response
 
@@ -97,26 +99,34 @@ record_dict, record_serializer, response_envelope, docs_example = build_docs_res
 )
 ##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('statusId', 'guestId')
+    process_id = process_constants.RES_TRANSACTION
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('statusId', 'guestId', 'typeId')
     PARAM_OVERRIDES = {
         'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
-        'guestId': dict(required_post=True, )
+        'guestId': dict(required_post=True, ),
+        'type_id': dict(
+            # required_patch=False,
+            allowed=(
+                type_constants.RES_TRANSACTION_STAGED_SALE,
+                type_constants.RES_TRANSACTION_STAGED_REFUND,
+                type_constants.RES_TRANSACTION_STAGED
+            )
+        )
     }
 
     schema = AutoSchema()
-    process_id = process_constants.RES_TRANSACTION
 
     def __init__(self):
         super().__init__()
         self.app_name = 'res'
         self.model_name = 'Transaction'
-        self.accepted_type_ids = [
-            type_constants.RES_TRANSACTION_STAGED_SALE,
-            type_constants.RES_TRANSACTION_STAGED_REFUND,
-            type_constants.RES_TRANSACTION_STAGED
-            # type_constants.RES_TRANSACTION_SALE,
-            # type_constants.RES_TRANSACTION_PAYMENT
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.RES_TRANSACTION_STAGED_SALE,
+        #     type_constants.RES_TRANSACTION_STAGED_REFUND,
+        #     type_constants.RES_TRANSACTION_STAGED
+        #     # type_constants.RES_TRANSACTION_SALE,
+        #     # type_constants.RES_TRANSACTION_PAYMENT
+        # ]
         # self.accepted_status_ids = [
         #     status_constants.QUEUED,
         # ]
@@ -382,12 +392,45 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         return response
 
 
-# def get_currency_id(currency: str):
-#     currency_id = None
-#     currencies =Currency.objects.filter(
-#             Q(currency_id=currency) | Q(code=currency)
-#         )
-#     if currencies.count() == 1:
-#         currency_id = currencies[0].currency_id
-#
-#     return currency_id
+class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('recordId', 'statusId')
+    PARAM_OVERRIDES = {
+        'recordId': dict(required_patch=True),
+        'statusId': dict(required_patch=True, allowed=(status_constants.POSTED,)),
+        'typeId': dict(required_patch=False),
+    }
+
+    schema = AutoSchema()
+    process_id = process_constants.RES_TRANSACTION_STATUS
+
+    def __init__(self):
+        super().__init__()
+        self.app_name = 'res'
+        self.model_name = 'Transaction'
+
+    def load_request(self, request):
+        super().load_request(request)
+
+    def load_models(self, request):
+        super().load_models(request)
+
+        try:
+            self.record = Transaction.objects.get(pk=self.record_id)
+        except ObjectDoesNotExist as e:
+            message = f'record_id  not found: {self.record_id}'
+            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+    def validate(self, request):
+        super().validate(request)
+
+        if self.record.status_id != status_constants.QUEUED:
+            message = f'id={self.record_id} is not in queued status.'
+            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+
+    def _patch(self, request):
+        # message = f'change status of id={self.record_id} from {self.record.status_id} to {self.status_id}.'
+        # self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+        if self.success:
+            self.record.status_id = self.status_id
+            self.record.save()

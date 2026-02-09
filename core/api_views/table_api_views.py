@@ -37,7 +37,7 @@ get_only_parameters = get_only_parameters + []
 
 
 class TableAPIView(CoreAPIView):
-    PARAM_SPECS = CoreAPIView.PARAM_SPECS
+    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('typeId', )
 
     def __init__(self):
         super().__init__()
@@ -53,6 +53,8 @@ class TableAPIView(CoreAPIView):
         self.external_id_required = True
         self.external_id_prefix = None
         self.records = []
+        self.record_id = None
+        self.record = None
         self.json_required = True
         self.posting_type = 'batch'
         self.currency_id = None
@@ -60,8 +62,8 @@ class TableAPIView(CoreAPIView):
     def load_request(self, request):
         super().load_request(request)
 
-        if not self.type_id:
-            self.type_id = self.get_param('typeId', None, True)
+        # if not self.type_id:
+        #     self.type_id = self.get_param('typeId', None, True)
 
         if not self.app_name:
             self.add_message('self.app_name not defined', http_status_id='VALIDATION_ERROR')
@@ -70,15 +72,15 @@ class TableAPIView(CoreAPIView):
 
         if not self.success:
             pass
-        elif self.type_id not in self.accepted_type_ids and 'ALL' not in self.accepted_type_ids:
-            message = f'invalid typeId {self.type_id}.'
-            valid_types = ''
-
-            for type_id in self.accepted_type_ids:
-                valid_types += f', {type_id}'
-            valid_types = valid_types[2:]
-            message += f'{message} valid types: {valid_types}'
-            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+        # elif self.type_id not in self.accepted_type_ids and 'ALL' not in self.accepted_type_ids:
+        #     message = f'invalid typeId {self.type_id}.'
+        #     valid_types = ''
+        #
+        #     for type_id in self.accepted_type_ids:
+        #         valid_types += f', {type_id}'
+        #     valid_types = valid_types[2:]
+        #     message += f'{message} valid types: {valid_types}'
+        #     self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         else:
             self.model = apps.get_model(self.app_name, self.model_name)
             try:

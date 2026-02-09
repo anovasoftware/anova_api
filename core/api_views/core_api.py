@@ -85,6 +85,9 @@ class CoreAPIView(GenericAPIView):
     def is_post(self):
         return self.request_method == 'POST'
 
+    def is_patch(self):
+        return self.request_method == 'PATCH'
+
     def dispatch(self, request, *args, **kwargs):
         # Set third_party_flag before the view logic runs
         self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
@@ -125,7 +128,15 @@ class CoreAPIView(GenericAPIView):
         return spec
 
     def get_param_from_spec(self, spec):
-        required = spec.required_get if self.is_get() else spec.required_post
+        if self.is_get():
+            required = spec.required_get
+        elif self.is_post():
+            required = spec.required_post
+        elif self.is_patch():
+            required = spec.required_patch
+        else:
+            required = False
+        # required = spec.required_get if self.is_get() else spec.required_post
 
         value = self.get_param(
             key=spec.name,
@@ -335,32 +346,35 @@ class CoreAPIView(GenericAPIView):
     def post_post(self, request):
         pass
 
-    # def is_success(self):
-    #     success = False
-    #     try:
-    #         status_code = CoreService.get_http_statuses().get(pk=self.http_status_id).status_code
-    #     except Exception as e:
-    #         self.set_message(f'error determining status: {str(e)}')
-    #
-    #     return success
+    def patch(self, request):
+        try:
+            self.load_request(request)
 
-    # def get_http_status_details(self):
-    #     status_dict = {
-    #         'http_status': 500,
-    #         'code': 'Internal Server Error',
-    #         'success': False
-    #     }
-    #     try:
-    #         status_obj = Status.objects.get(pk=self.http_status_id)
-    #         http_status = status_obj.status_code
-    #         status_dict = {
-    #             'http_status': status_obj.status_code,
-    #             'code': status_obj.description,
-    #             'success': 200 <= http_status < 300
-    #         }
-    #     except Exception as e:
-    #         self.set_message(f'error determining status: {str(e)}')
-    #     return status_dict
+            if self.success:
+                self.load_models(request)
+                if self.success:
+                    self.validate(request)
+                    if self.success:
+                        self.pre_patch(request)
+                        if self.success:
+                            self._patch(request)
+                            if self.success:
+                                self.post_patch(request)
+        except Exception as e:
+            message = f'post() error:  {str(e)}'
+            self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
+
+        return self.get_response()
+
+    def pre_patch(self, request):
+        pass
+
+    def _patch(self, request):
+        self.set_message('patch() not defined')
+
+    def post_patch(self, request):
+        pass
+
 
     @property
     def success(self):
@@ -368,7 +382,7 @@ class CoreAPIView(GenericAPIView):
 
 
 class AuthorizedAPIView(CoreAPIView):
-    http_method_names = ['get', 'post', 'options', 'head']
+    http_method_names = ['get', 'post', 'patch', 'options', 'head']
     process_id = None
     permission_classes = [IsAuthenticated, ]
     user_roles = None

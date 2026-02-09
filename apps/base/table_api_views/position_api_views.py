@@ -6,13 +6,24 @@ from constants import type_constants, process_constants
 class AuthorizedPositionAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.BASE_POSITION
 
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                type_constants.BASE_POSITION_ONBOARD,
+            )
+        )
+    }
+
     def __init__(self):
         super().__init__()
         self.app_name = 'base'
         self.model_name = 'Position'
-        self.accepted_type_ids = [
-            type_constants.BASE_POSITION_ONBOARD,
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.BASE_POSITION_ONBOARD,
+        # ]
 
     def get_value_list(self):
         value_list = [

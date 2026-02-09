@@ -1,5 +1,5 @@
 from core.api_views.table_api_views import PublicTableAPIView
-from constants import status_constants
+from constants import status_constants, type_constants, process_constants
 from apps.static.models import FormField
 from core.utilities.database_utilties import get_active_dict
 from core.utilities.api_utilities import get_client_ip
@@ -8,6 +8,19 @@ from django.utils import timezone
 
 
 class PublicFormAPIView(PublicTableAPIView):
+    process_id = None
+
+    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                'ALL'
+            )
+        )
+    }
+
     form_id = None
     base_model = None
 
@@ -20,9 +33,9 @@ class PublicFormAPIView(PublicTableAPIView):
         self.external_id_required = False
         self.form = None
         self.form_fields = {}
-        self.accepted_type_ids = [
-            'ALL'
-        ]
+        # self.accepted_type_ids = [
+        #     'ALL'
+        # ]
         self.client_ip = '000.000.000.000'
 
         self.user = None

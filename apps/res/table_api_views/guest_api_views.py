@@ -6,17 +6,31 @@ from constants import type_constants, process_constants
 class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.RES_GUEST
 
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                type_constants.NOT_APPLICABLE,
+                type_constants.RES_GUEST_GUEST,
+                type_constants.RES_GUEST_CREW,
+                type_constants.RES_GUEST_STAFF
+            )
+        )
+    }
+
     def __init__(self):
         super().__init__()
         self.app_name = 'res'
         self.model_name = 'Guest'
         self.hotel_id_field = 'reservation__hotel_id'
-        self.accepted_type_ids = [
-            type_constants.NOT_APPLICABLE,
-            type_constants.RES_GUEST_GUEST,
-            type_constants.RES_GUEST_CREW,
-            type_constants.RES_GUEST_STAFF
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.NOT_APPLICABLE,
+        #     type_constants.RES_GUEST_GUEST,
+        #     type_constants.RES_GUEST_CREW,
+        #     type_constants.RES_GUEST_STAFF
+        # ]
 
     def get_value_list(self):
         value_list = [

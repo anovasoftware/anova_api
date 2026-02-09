@@ -4,15 +4,20 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedHotelItemAPIView(AuthorizedHotelAPIView):
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(required_get=True, required_post=True, allowed=(type_constants.RES_HOTEL_ITEM_SPECIAL_ITEM,))
+    }
+
     process_id = process_constants.RES_HOTEL_ITEM
 
     def __init__(self):
         super().__init__()
         self.app_name = 'res'
         self.model_name = 'HotelItem'
-        self.accepted_type_ids = [
-            type_constants.RES_HOTEL_ITEM_SPECIAL_ITEM
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.RES_HOTEL_ITEM_SPECIAL_ITEM
+        # ]
 
     def get_value_list(self):
         value_list = [

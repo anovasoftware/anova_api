@@ -4,15 +4,26 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedPosMenuAPIView(AuthorizedHotelAPIView):
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=True,
+            required_post=True,
+            allowed=(
+                type_constants.BASE_POS_MENU_MAIN
+            )
+        )
+    }
+
     process_id = process_constants.BASE_POS_MENU
 
     def __init__(self):
         super().__init__()
         self.app_name = 'base'
         self.model_name = 'PosMenu'
-        self.accepted_type_ids = [
-            type_constants.BASE_POS_MENU_MAIN
-        ]
+        # self.accepted_type_ids = [
+        #     type_constants.BASE_POS_MENU_MAIN
+        # ]
 
     def get_value_list(self):
         value_list = [
