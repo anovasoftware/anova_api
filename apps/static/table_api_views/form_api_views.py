@@ -13,8 +13,8 @@ class PublicFormAPIView(PublicTableAPIView):
     PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
     PARAM_OVERRIDES = {
         'typeId': dict(
-            required_get=True,
-            required_post=True,
+            required_get=False,
+            required_post=False,
             allowed=(
                 'ALL'
             )
