@@ -15,11 +15,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='status',
-            field=models.ForeignKey(default='00Q', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status'),
+            field=models.ForeignKey(default='001', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status'),
         ),
         migrations.AddField(
             model_name='user',
             name='verification_status',
-            field=models.ForeignKey(default='010', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status'),
+            field=models.ForeignKey(default='001', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='static.status'),
         ),
     ]
