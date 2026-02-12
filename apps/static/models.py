@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import datetime
 from core.utilities.date_utilities import beginning_of_time, end_of_time, today
 from core.models import BaseModel
+from core.utilities.database_utilties import ModelUtilities as ModelUtil
 # from .models_extended import *
 
 
@@ -84,6 +85,33 @@ class Form(BaseModel):
 # AUTOGEN_END_Form#
 
 
+# AUTOGEN_BEGIN_FormExtra#
+class FormExtra(BaseModel):
+    form_extra_id    = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
+    form             = models.ForeignKey("static.Form", on_delete=models.CASCADE, related_name='+', default='000')
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    target_form      = models.ForeignKey("static.Form", on_delete=models.CASCADE, related_name='+', default='000')
+    order_by         = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='00')
+    description      = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    label            = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    grouping         = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    form_extra_key   = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_form_extra'
+        verbose_name_plural = 'form extras (static_form_extra)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'form_extra'
+# AUTOGEN_END_FormExtra#
+
+
 # AUTOGEN_BEGIN_FormField#
 class FormField(BaseModel):
     form_field_id                       = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
@@ -95,6 +123,7 @@ class FormField(BaseModel):
     tab_name                            = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     label                               = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False, default='')
     name                                = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    mapping_name                        = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
     default_value                       = models.CharField(max_length=150, blank=False, unique=False, primary_key=False, default='')
     data_source_application             = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     data_source_model_name              = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')

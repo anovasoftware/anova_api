@@ -28,7 +28,7 @@
       "description": "login",
       "header": "Log in to your account",
       "data_source_application": "base",
-      "data_source_model_name": "EventLog",
+      "data_source_model_name": "Parameter",
       "save_button_label": "Log In",
       "save_button_action": "saveAndClose",
       "grouping": "Global",
@@ -37,6 +37,46 @@
       "internal_comment": "",
       "created_date": "2025-07-02 00:00+0000",
       "last_updated": "2025-07-02 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Form",
+    "pk": "002",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "create account",
+      "header": "Create Account",
+      "data_source_application": "base",
+      "data_source_model_name": "Parameter",
+      "save_button_label": "Create Account",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "CREATE_ACCOUNT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-10 00:00+0000",
+      "last_updated": "2026-02-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Form",
+    "pk": "003",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "forgot password",
+      "header": "Forgot Password",
+      "data_source_application": "base",
+      "data_source_model_name": "Parameter",
+      "save_button_label": "Submit",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "FORGOT_PASSWORD",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
     }
   }
 ,  {
@@ -505,6 +545,204 @@
       "internal_comment": "",
       "created_date": "2025-12-28 00:00+0000",
       "last_updated": "2025-12-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00P",
+    "fields": {
+      "grouping": "base_user",
+      "code": "PENDING",
+      "description": "Created but not verified",
+      "status_key": "USER_PENDING",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00Q",
+    "fields": {
+      "grouping": "base_user",
+      "code": "ACTIVE",
+      "description": "Active User",
+      "status_key": "USER_ACTIVE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00R",
+    "fields": {
+      "grouping": "base_user",
+      "code": "EXPIRED",
+      "description": "Expired",
+      "status_key": "USER_EXPIRED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00S",
+    "fields": {
+      "grouping": "base_user",
+      "code": "DELETED",
+      "description": "Deleted",
+      "status_key": "USER_DELETED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00T",
+    "fields": {
+      "grouping": "base_user",
+      "code": "LOCKED",
+      "description": "Locked",
+      "status_key": "USER_LOCKED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00V",
+    "fields": {
+      "grouping": "base_user.verification",
+      "code": "REQUESTED",
+      "description": "Code created but not sent",
+      "status_key": "USER_VERIFICATION_REQUESTED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "0",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00W",
+    "fields": {
+      "grouping": "base_user.verification",
+      "code": "SENT",
+      "description": "Code created and sent",
+      "status_key": "USER_VERIFICATION_SENT",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "0",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00X",
+    "fields": {
+      "grouping": "base_user.verification",
+      "code": "VERIFIED",
+      "description": "Code verified",
+      "status_key": "USER_VERIFICATION_VERIFIED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "00Z",
+    "fields": {
+      "grouping": "base_user.verification",
+      "code": "FAILED",
+      "description": "Code failed",
+      "status_key": "USER_VERIFICATION_FAILED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "010",
+    "fields": {
+      "grouping": "base_user.verification",
+      "code": "BYPASS",
+      "description": "Code not required",
+      "status_key": "USER_VERIFICATION_BYPASS",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "011",
+    "fields": {
+      "grouping": "base_user.verification",
+      "code": "CANCEL",
+      "description": "Verfication Cancelled",
+      "status_key": "USER_VERIFICATION_CANCELLED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
     }
   }
 ,  {
@@ -1183,13 +1421,13 @@
     "pk": "00X",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "base_event_log",
+      "grouping": "base_parameter",
       "code": "login attempt",
       "description": "Login Attempt",
       "description_short": "",
       "description_long": "",
       "description2": "",
-      "type_key": "BASE_EVENT_LOGIN_ATTEMPT",
+      "type_key": "BASE_PARAMETER_LOGIN",
       "group1": "",
       "flag1": "",
       "flag2": "",
@@ -1248,6 +1486,30 @@
       "internal_comment": "",
       "created_date": "2026-01-04 00:00+0000",
       "last_updated": "2026-01-04 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "017",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_extra",
+      "code": "link",
+      "description": "Link",
+      "description_short": "Link",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FORM_EXTRA_LINK",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-10 00:00+0000",
+      "last_updated": "2026-02-10 00:00+0000"  
     }
   }
 ,  {
@@ -1704,6 +1966,54 @@
       "internal_comment": "",
       "created_date": "2025-10-11 00:00+0000",
       "last_updated": "2025-10-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "018",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_parameter",
+      "code": "create account",
+      "description": "Creae Account",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_PARAMETER_CREATE_ACCOUNT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "019",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_user_veridication",
+      "code": "email",
+      "description": "EMail Verification",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_USER_VERIFICATION_EMAIL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-12 00:00+0000",
+      "last_updated": "2026-02-12 00:00+0000"  
     }
   }
 ,  {
@@ -2556,6 +2866,7 @@
       "tab_name": "Detail",
       "label": "Email Address",
       "name": "string01",
+      "mapping_name": "username",
       "default_value": "",
       "data_source_application": "",
       "data_source_model_name": "",
@@ -2587,6 +2898,7 @@
       "tab_name": "Detail",
       "label": "Password",
       "name": "string02",
+      "mapping_name": "password",
       "default_value": "",
       "data_source_application": "",
       "data_source_model_name": "",
@@ -2613,11 +2925,12 @@
       "form_id": "001",
       "type_id": "00Z",
       "status_id": "001",
-      "order_by": "02",
+      "order_by": "03",
       "control_type": "",
       "tab_name": "Detail",
-      "label": "Event Type",
+      "label": "Parameter Type",
       "name": "type_id",
+      "mapping_name": "",
       "default_value": "00X",
       "data_source_application": "",
       "data_source_model_name": "",
@@ -2635,6 +2948,300 @@
       "internal_comment": "",
       "created_date": "2025-07-07 00:00+0000",
       "last_updated": "2025-07-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00201",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "01",
+      "control_type": "email",
+      "tab_name": "Detail",
+      "label": "Email Address",
+      "name": "string01",
+      "mapping_name": "username",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00206",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "06",
+      "control_type": "password",
+      "tab_name": "Detail",
+      "label": "Password",
+      "name": "string06",
+      "mapping_name": "password1",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00207",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "07",
+      "control_type": "password",
+      "tab_name": "Detail",
+      "label": "Re-enter Password",
+      "name": "string07",
+      "mapping_name": "password2",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-05 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00203",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "002",
+      "order_by": "03",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "First Name",
+      "name": "string03",
+      "mapping_name": "first_name",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00205",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "002",
+      "order_by": "05",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Last Name",
+      "name": "string05",
+      "mapping_name": "last_name",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00208",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Z",
+      "status_id": "001",
+      "order_by": "08",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Parameter Type",
+      "name": "type_id",
+      "mapping_name": "",
+      "default_value": "018",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-07 00:00+0000",
+      "last_updated": "2025-07-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00204",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "002",
+      "order_by": "04",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Middle Name",
+      "name": "string04",
+      "mapping_name": "middle_name",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00202",
+    "fields": {
+      "form_id": "002",
+      "type_id": "00Y",
+      "status_id": "002",
+      "order_by": "02",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Salutation (Mr., Mrs....)",
+      "name": "string02",
+      "mapping_name": "salutation",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-11 00:00+0000",
+      "last_updated": "2026-02-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormExtra",
+    "pk": "001",
+    "fields": {
+      "form_id": "001",
+      "type_id": "017",
+      "status_id": "002",
+      "target_form_id": "002",
+      "order_by": "01",
+      "description": "Forgot password",
+      "label": "Forgot password?",
+      "grouping": "extras",
+      "form_extra_key": "FORGOT_PASSWORD",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-10 00:00+0000",
+      "last_updated": "2026-02-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormExtra",
+    "pk": "002",
+    "fields": {
+      "form_id": "001",
+      "type_id": "017",
+      "status_id": "001",
+      "target_form_id": "002",
+      "order_by": "02",
+      "description": "Create account",
+      "label": "Create account",
+      "grouping": "extras",
+      "form_extra_key": "CREATE_ACCOUNT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-10 00:00+0000",
+      "last_updated": "2026-02-10 00:00+0000"  
     }
   }
 

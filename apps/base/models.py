@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import datetime
 from core.utilities.date_utilities import beginning_of_time, end_of_time, today
 from core.models import BaseModel
+from core.utilities.database_utilties import ModelUtilities as ModelUtil
 # from .models_extended import *
 
 
@@ -92,39 +93,6 @@ class Company(BaseModel):
     def __str__(self):
         return 'company'
 # AUTOGEN_END_Company#
-
-
-# AUTOGEN_BEGIN_EventLog#
-class EventLog(BaseModel):
-    event_log_id     = models.CharField(max_length=  7, blank=False, unique=True , primary_key=True )
-    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
-    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    user             = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
-    access_user      = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
-    client_ip        = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
-    string01         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
-    string02         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
-    string03         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
-    string04         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
-    text01           = models.TextField(blank=False, unique=False, primary_key=False, default='')
-    text02           = models.TextField(blank=False, unique=False, primary_key=False, default='')
-    text03           = models.TextField(blank=False, unique=False, primary_key=False, default='')
-    list01           = models.TextField(blank=False, unique=False, primary_key=False, default='')
-    list02           = models.TextField(blank=False, unique=False, primary_key=False, default='')
-    list03           = models.TextField(blank=False, unique=False, primary_key=False, default='')
-    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
-    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
-    created_date     = models.DateTimeField(auto_now_add=True)
-    last_updated     = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        db_table            = 'base_event_log'
-        verbose_name_plural = 'event logs (base_event_log)'
-        ordering            = []
-        
-    def __str__(self):
-        return 'event_log'
-# AUTOGEN_END_EventLog#
 
 
 # AUTOGEN_BEGIN_ExternalMapping#
@@ -274,6 +242,42 @@ class JobRun(BaseModel):
 # AUTOGEN_END_JobRun#
 
 
+# AUTOGEN_BEGIN_Parameter#
+class Parameter(BaseModel):
+    parameter_id     = models.CharField(max_length=  7, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    user             = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
+    access_user      = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+', default='A99999')
+    client_ip        = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    string01         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string02         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string03         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string04         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string05         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string06         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    string07         = models.CharField(max_length=255, blank=False, unique=False, primary_key=False, default='')
+    text01           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    text02           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    text03           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    list01           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    list02           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    list03           = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_parameter'
+        verbose_name_plural = 'parameters (base_parameter)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'parameter'
+# AUTOGEN_END_Parameter#
+
+
 # AUTOGEN_BEGIN_Person#
 class Person(BaseModel):
     person_id        = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
@@ -302,7 +306,7 @@ class Person(BaseModel):
         ordering            = []
         
     def __str__(self):
-        return self.last_name+', '+self.first_name
+        return ModelUtil.get_full_name(self.last_name, self.first_name, self.middle_name, self.salutation)
 # AUTOGEN_END_Person#
 
 
@@ -440,27 +444,29 @@ class RoleProcess(BaseModel):
 
 # AUTOGEN_BEGIN_User#
 class User(AbstractUser, BaseModel):
-    user_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    access_user_id      = models.CharField(max_length=  6, blank=False, unique=False, primary_key=False, default='')
-    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='041')
-    person              = models.ForeignKey("base.Person", on_delete=models.CASCADE, default='A9999')
-    grouping            = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
-    code                = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False)
-    description         = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
-    # username            = models.CharField(max_length=150, blank=True , unique=False, primary_key=False)
-    # password            = models.CharField(max_length=100, blank=True , unique=False, primary_key=False, null=True)
-    # is_staff            = models.BooleanField(default=True)
-    # is_active           = models.BooleanField(default=True)
-    # is_superuser        = models.BooleanField(default=False)
-    user_key            = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False, default='')
-    start_date          = models.DateTimeField(default=today)
-    end_date            = models.DateTimeField(default=end_of_time)
-    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
-    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
-    external_id         = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False)
-    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
-    created_date        = models.DateTimeField(auto_now_add=True)
-    last_updated        = models.DateTimeField(auto_now=True)
+    user_id                = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    access_user_id         = models.CharField(max_length=  6, blank=False, unique=False, primary_key=False, default='')
+    type                   = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='041')
+    status                 = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='00Q')
+    verification_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='010')
+    person                 = models.ForeignKey("base.Person", on_delete=models.CASCADE, default='A9999')
+    grouping               = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
+    code                   = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False)
+    description            = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
+    # username               = models.CharField(max_length=150, blank=True , unique=False, primary_key=False)
+    # password               = models.CharField(max_length=100, blank=True , unique=False, primary_key=False, null=True)
+    # is_staff               = models.BooleanField(default=True)
+    # is_active              = models.BooleanField(default=True)
+    # is_superuser           = models.BooleanField(default=False)
+    user_key               = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False, default='')
+    start_date             = models.DateTimeField(default=today)
+    end_date               = models.DateTimeField(default=end_of_time)
+    effective_status       = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
+    static_flag            = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    external_id            = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False)
+    internal_comment       = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date           = models.DateTimeField(auto_now_add=True)
+    last_updated           = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table            = 'base_user'
@@ -521,5 +527,28 @@ class UserRole(BaseModel):
     def __str__(self):
         return 'user_role'
 # AUTOGEN_END_UserRole#
+
+
+# AUTOGEN_BEGIN_UserVerification#
+class UserVerification(BaseModel):
+    user_verfication_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    email_sent_date     = models.DateTimeField(default=end_of_time)
+    verification_date   = models.DateTimeField(default=end_of_time)
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_user_verification'
+        verbose_name_plural = 'user verification (base_user_verification)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'user_verification'
+# AUTOGEN_END_UserVerification#
 
 

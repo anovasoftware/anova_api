@@ -51,3 +51,10 @@ def get_active_dict(model: models.Model, record0: dict(), base_fields=False):
             continue
 
     return record
+
+
+class ModelUtilities:
+    @staticmethod
+    def get_full_name(first, middle, last, salutation):
+        full_name = f'{last}, {first}' + ' '.join(p.strip() for p in [middle, salutation] if p)
+        return full_name

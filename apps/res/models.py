@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import datetime
 from core.utilities.date_utilities import beginning_of_time, end_of_time, today
 from core.models import BaseModel
+from core.utilities.database_utilties import ModelUtilities as ModelUtil
 # from .models_extended import *
 
 

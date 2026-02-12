@@ -1,5 +1,5 @@
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, transform_records, PublicAPIView, parameters, \
-    post_only_parameters
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, parameters, post_only_parameters
+from core.utilities.api_utilities import transform_records
 from core.api_views.core_api import post_only_parameters,get_only_parameters
 from core.api_views.core_api import context
 from django.apps import apps

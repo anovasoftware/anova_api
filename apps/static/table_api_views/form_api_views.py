@@ -1,25 +1,23 @@
 from core.api_views.table_api_views import PublicTableAPIView
+from core.utilities.api_utilities import transform_records
 from constants import status_constants, type_constants, process_constants
-from apps.static.models import FormField
+from apps.static.models import FormField, FormExtra
 from core.utilities.database_utilties import get_active_dict
-from core.utilities.api_utilities import get_client_ip
 from django.db import models
 from django.utils import timezone
+from apps.base.models import Parameter
 
 
 class PublicFormAPIView(PublicTableAPIView):
     process_id = None
 
     PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
-    PARAM_OVERRIDES = {
-        'typeId': dict(
-            required_get=False,
-            required_post=False,
-            allowed=(
-                'ALL'
-            )
-        )
-    }
+    # PARAM_OVERRIDES = {
+    #     'formId': dict(
+    #         required_get=True,
+    #         required_post=True,
+    #     )
+    # }
 
     form_id = None
     base_model = None
@@ -32,25 +30,25 @@ class PublicFormAPIView(PublicTableAPIView):
         self.type_id = 'ALL'
         self.external_id_required = False
         self.form = None
-        self.form_fields = {}
-        # self.accepted_type_ids = [
-        #     'ALL'
-        # ]
-        self.client_ip = '000.000.000.000'
+        self.form_fields = []
+        self.form_extras = []
 
         self.user = None
 
     def load_request(self, request):
         super().load_request(request)
-        self.form_id = self.get_param('form_id', self.form_id, required=False)
-
-        if not self.form_id:
-            self.add_message(f'form_id is not defined.', http_status_id=status_constants.HTTP_OK)
+        # self.form_id = self.get_param('form_id', self.form_id, required=False)
+        #
+        # if not self.form_id:
+        #     self.add_message(f'form_id is not defined.', http_status_id=status_constants.HTTP_OK)
         if not self.base_model:
             self.add_message(f'base_model is not defined.', http_status_id=status_constants.HTTP_OK)
 
-        if self.success:
-            self.client_ip = get_client_ip(request)
+    def load_models(self, request):
+        super().load_models(request)
+
+        self.load_form_fields()
+        self.load_form_extras()
 
     def get_value_list(self):
         value_list = [
@@ -77,8 +75,9 @@ class PublicFormAPIView(PublicTableAPIView):
     def _get(self, request):
         super()._get(request)
 
-        if self.success:
-            self.load_form_fields()
+        # if self.success:
+        #     self.load_form_fields()
+        #     self.load_form_extras()
 
     def load_form_fields(self):
         form_fields = FormField.objects.filter(
@@ -88,8 +87,10 @@ class PublicFormAPIView(PublicTableAPIView):
             'form_field_id',
             'type_id',
             'control_type',
+            'type__type_id',
             'type__description',
             'name',
+            'mapping_name',
             'label',
             'default_value',
             'required_flag',
@@ -97,6 +98,22 @@ class PublicFormAPIView(PublicTableAPIView):
             'order_by'
         )
         self.form_fields = list(form_fields)
+
+    def load_form_extras(self):
+        form_extras = FormExtra.objects.filter(
+            form_id = self.form_id,
+            status_id = status_constants.ACTIVE
+        ).values(
+            'form_extra_id',
+            'type__type_id',
+            'type__description',
+            'description',
+            'label',
+            'target_form_id',
+        ).order_by(
+            'order_by'
+        )
+        self.form_extras = list(form_extras)
 
     def post_get(self, request):
         mask_fields = []
@@ -107,7 +124,9 @@ class PublicFormAPIView(PublicTableAPIView):
             self.form = self.records[0].copy()
             # self.form['form_fields'] = self.form_fields
             enriched_fields = [self.enrich_form_field(f) for f in self.form_fields]
-            self.form['form_fields'] = enriched_fields
+
+            self.form['form_fields'] = transform_records(enriched_fields, self.result_shape)
+            self.form['form_extras'] = transform_records(self.form_extras, self.result_shape)
 
         super().post_get(request)
 
@@ -161,4 +180,37 @@ class PublicFormAPIView(PublicTableAPIView):
             response['form'] = self.form
 
         return response
+
+
+class FormParameterAPIView(PublicFormAPIView):
+    PARAM_SPECS = PublicFormAPIView.PARAM_SPECS
+    base_model = Parameter
+
+    def __init__(self):
+        super().__init__()
+
+        self.parameters = {}
+
+    # def load_request(self, request):
+    #     super().load_request(request)
+    #
+    # def load_models(self, request):
+    #     super().load_models(request)
+
+    def pre_post(self, request):
+        self.build_record(request)
+
+    def build_record(self, request):
+        record = request.data
+
+        for field in self.form_fields:
+            name = field['name']
+            mapping_name = field['mapping_name']
+            value = record[name]
+            self.parameters[mapping_name] = record[name]
+            if field['control_type'] == 'password':
+                record[name] = '#' * len(value)
+
+        self.record = record
+
 
