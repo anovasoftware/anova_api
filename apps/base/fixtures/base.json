@@ -298,7 +298,7 @@
       "access_user_id": "A00000",
       "type_id": "042",
       "status_id": "001",
-      "verification_status_id": "v",
+      "verification_status_id": "001",
       "person_id": "A00000",
       "grouping": "All",
       "code": "",
