@@ -52,7 +52,10 @@ class CoreAPIView(GenericAPIView):
         self.access_user_id = None
         self.request_method = request.method.upper()
         # allow child classes to decide how to handle authentication
-        super().initial(request, *args, **kwargs)
+        try:
+            super().initial(request, *args, **kwargs)
+        except Exception as e:
+            self.add_message(f'{str(e)} [core_api.initial() error]', http_status_id=status_constants.HTTP_UNAUTHORIZED)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -402,17 +405,18 @@ class AuthorizedAPIView(CoreAPIView):
     def initial(self, request, *args, **kwargs):
         super().initial(request, *args, **kwargs)
 
-        if self.access_user_id is None:
-            self.access_user_id = request.user.user_id
-
-        if self.process_id is None:
-            message = f'{self.__class__.__name__} requires process_id but one was defined.'
-            self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
-
         if self.success:
-            if not self.user_has_access(request.user, self.process_id):
-                message = f'User not authorized for this process ({self.process_id}).',
+            if self.access_user_id is None:
+                self.access_user_id = request.user.user_id
+
+            if self.process_id is None:
+                message = f'{self.__class__.__name__} requires process_id but one was defined.'
                 self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
+
+            if self.success:
+                if not self.user_has_access(request.user, self.process_id):
+                    message = f'User not authorized for this process ({self.process_id}).',
+                    self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
 
     def _load_user_access(self):

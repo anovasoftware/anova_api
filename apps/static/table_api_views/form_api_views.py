@@ -1,14 +1,17 @@
 from core.api_views.table_api_views import PublicTableAPIView
-from core.utilities.api_utilities import transform_records
-from constants import status_constants, type_constants, process_constants
-from apps.static.models import FormField, FormExtra
-from core.utilities.database_utilties import get_active_dict
-from django.db import models
+from core.api_views.table_api_views import TableAPIView
+from apps.static.models import Form, FormField, FormExtra
 from django.utils import timezone
 from apps.base.models import Parameter
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, parameters, post_only_parameters
+from core.utilities.api_utilities import transform_records
+from django.db import models
+from core.utilities.database_utilties import get_active_dict
+from constants import status_constants
+from django.apps import apps
 
 
-class PublicFormAPIView(PublicTableAPIView):
+class FormAPIView(TableAPIView):
     process_id = None
 
     PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
@@ -20,6 +23,7 @@ class PublicFormAPIView(PublicTableAPIView):
     # }
 
     form_id = None
+    base_app = None
     base_model = None
 
     def __init__(self):
@@ -41,11 +45,16 @@ class PublicFormAPIView(PublicTableAPIView):
         #
         # if not self.form_id:
         #     self.add_message(f'form_id is not defined.', http_status_id=status_constants.HTTP_OK)
-        if not self.base_model:
-            self.add_message(f'base_model is not defined.', http_status_id=status_constants.HTTP_OK)
+        # if not self.base_model:
+        #     self.add_message(f'base_model is not defined.', http_status_id=status_constants.HTTP_OK)
 
     def load_models(self, request):
         super().load_models(request)
+        form = Form.objects.filter(form_id=self.form_id).first()
+        self.base_app = form.data_source_application
+        base_app_str = self.base_app
+        base_model_str =form.data_source_model_name
+        self.base_model = apps.get_model(base_app_str, base_model_str)
 
         self.load_form_fields()
         self.load_form_extras()
@@ -180,6 +189,14 @@ class PublicFormAPIView(PublicTableAPIView):
             response['form'] = self.form
 
         return response
+
+
+class PublicFormAPIView(PublicAPIView, FormAPIView):
+    pass
+
+class AuthorizedFormAPIView(AuthorizedAPIView, FormAPIView):
+    pass
+
 
 
 class FormParameterAPIView(PublicFormAPIView):

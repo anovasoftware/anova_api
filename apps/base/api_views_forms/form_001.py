@@ -7,6 +7,7 @@ from apps.base.serializers.user import UserSerializer
 
 # login form
 class Form001APIView(FormParameterAPIView):
+    process_id = None
     form_id = form_constants.LOGIN
 
     def __init__(self):
@@ -26,6 +27,7 @@ class Form001APIView(FormParameterAPIView):
             self.data['access'] = str(refresh.access_token)
             self.data['redirect'] = f'navigator/{page_constants.HOME}'
             self.data['user'] = UserSerializer(user).data
+            self.data['user']['is_logged_in'] = True
         else:
             message = 'Invalid username or password'
             self.set_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)

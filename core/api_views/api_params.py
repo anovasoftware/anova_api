@@ -71,6 +71,14 @@ COMMON_PARAMS = {
         description='Status id for the request.',
         allowed=None,
     ),
+    'workingUserId': ParamSpec(
+        name='workingUserId',
+        dest='working_user_Id',
+        kind='either',
+        cast=_to_str,
+        description='Working user id for the request.',
+        allowed=None,
+    ),
     'recordId': ParamSpec(
         name='recordId',
         dest='record_id',
