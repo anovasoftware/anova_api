@@ -6,7 +6,7 @@ from constants import type_constants, status_constants, process_constants
 class PublicMenuAPIView(PublicTableAPIView):
     process_id = None
 
-    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=False,

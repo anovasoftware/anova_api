@@ -26,7 +26,8 @@ RES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_T
 RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  static_client
 CLIENT_CRUISE_LINE = '004'                                       # cruise line#  static_form
 FORM_DATA_ENTRY = '602'                                          # data entry formsFORM_REPORT_PARAMETER = '601'                                    # report parameters#  static_form_control
-CONTROL_HIDDEN = '00Z'                                           # hiddenCONTROL_TEXTBOX = '00Y'                                          # textbox#  static_form_extra
+CONTROL_CUSTOM = '01B'                                           # ##available##CONTROL_HIDDEN = '00Z'                                           # hiddenCONTROL_TEXTBOX = '00Y'                                          # textbox#  static_form_extra
 FORM_EXTRA_LINK = '017'                                          # link#  static_menu
-MENU_HEADER_BAR = '002'                                          # header barMENU_STAND_ALONE = '003'                                         # standalone (eg, login, home)#  static_text
+MENU_HEADER_BAR = '002'                                          # header barMENU_STAND_ALONE = '003'                                         # standalone (eg, login, home)#  static_process
+PROFILE_USER_REQUIRED_ONLY = '021'                               # user required only#  static_text
 TEXT_WEB_CONTENT = '010'                                         # web content

@@ -1,3 +1,5 @@
+# from Demos.SystemParametersInfo import new_value
+
 from core.api_views.table_api_views import PublicTableAPIView
 from core.api_views.table_api_views import TableAPIView
 from apps.static.models import Form, FormField, FormExtra
@@ -7,20 +9,25 @@ from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIVie
 from core.utilities.api_utilities import transform_records
 from django.db import models
 from core.utilities.database_utilties import get_active_dict
-from constants import status_constants
+from constants import status_constants, type_constants
 from django.apps import apps
 
 
 class FormAPIView(TableAPIView):
     process_id = None
 
-    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
-    # PARAM_OVERRIDES = {
-    #     'formId': dict(
-    #         required_get=True,
-    #         required_post=True,
-    #     )
-    # }
+    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('recordId', 'action')
+    PARAM_OVERRIDES = {
+        'recordId': dict(
+            required_get=True,
+            required_post=False,
+        ),
+        'action': dict(
+            required_get=True,
+            required_post=False,
+        ),
+
+    }
 
     form_id = None
     base_app = None
@@ -36,10 +43,11 @@ class FormAPIView(TableAPIView):
         self.form = None
         self.form_fields = []
         self.form_extras = []
-
-        self.user = None
+        # self.user = None
+        self.record = None
 
     def load_request(self, request):
+        print(self.record_id)
         super().load_request(request)
         # self.form_id = self.get_param('form_id', self.form_id, required=False)
         #
@@ -58,6 +66,68 @@ class FormAPIView(TableAPIView):
 
         self.load_form_fields()
         self.load_form_extras()
+        self.load_form()
+    # def load_models_get(self, request):
+    #     super().load_models_get(request)
+    #     form = Form.objects.filter(form_id=self.form_id).first()
+    #     self.base_app = form.data_source_application
+    #     base_app_str = self.base_app
+    #     base_model_str =form.data_source_model_name
+    #     self.base_model = apps.get_model(base_app_str, base_model_str)
+    #
+    #     self.load_form_fields()
+    #     self.load_form_extras()
+    #     self.load_form()
+    #
+    # def load_models_post(self, request):
+    #     super().load_models_post(request)
+
+    def load_form(self):
+        value_fields = []
+        for form_field in self.form_fields:
+            if form_field.get('custom_flag') == 'Y':
+                pass
+                # self.custom[fc.name] = None
+            else:
+                value_fields.append(form_field['name'])
+
+        value_fields.append('pk')
+        value_fields.append('static_flag')
+
+        # if self.django_utility.model_has_field(self.model, 'status_id'):
+        #     self.value_fields.append('status_id')
+
+        if self.action == 'create':
+            self.record = self.new_record()
+        else:
+            records = self.base_model.objects.filter(pk=self.record_id)
+            if records.count() == 0:
+                self.add_message(f'Record not found. Id {self.record_id}', False)
+            else:
+                self.record = records.values(*value_fields)[0]
+
+    def new_record(self):
+        record = {}
+        for form_field in self.form_fields:
+            value = None
+            name = form_field['name']
+            dv = form_field['default_value']
+
+            if form_field['type__group1'] == 'char':
+                value = dv
+            # if fc.type.group1 == 'date':
+            #     value = self.date_utility.get_date(flag=dv)
+            # if fc.type.group1 == 'decimal':
+            #     if dv == '':
+            #         value = Decimal(0)
+            #     else:
+            #         value = Decimal(eval(dv))
+
+            record[name] = value
+
+        record['pk'] = 'new'
+
+        return record
 
     def get_value_list(self):
         value_list = [
@@ -98,15 +168,28 @@ class FormAPIView(TableAPIView):
             'control_type',
             'type__type_id',
             'type__description',
+            'type__group1',
             'name',
             'mapping_name',
             'label',
             'default_value',
             'required_flag',
+            'disabled_create',
+            'disabled_update',
+            'custom_flag',
         ).order_by(
             'order_by'
         )
-        self.form_fields = list(form_fields)
+
+        action_key = f'disabled_{self.action}'
+        self.form_fields = []
+
+        for field in form_fields:
+            disabled_flag = field.get(action_key, False)
+            field['readonly'] = disabled_flag
+            self.form_fields.append(field)
+
+        # self.form_fields = list(form_fields)
 
     def load_form_extras(self):
         form_extras = FormExtra.objects.filter(
@@ -130,12 +213,20 @@ class FormAPIView(TableAPIView):
             message = f'form_id={self.form_id} not defined.'
             self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         else:
-            self.form = self.records[0].copy()
-            # self.form['form_fields'] = self.form_fields
+            form = self.records[0].copy()
+            form['readonly'] = self.record.get('static_flag') == 'Y'
+
+            # loop through again to update any settings based on action
+            form_readonly = form.get('readonly')
+            for field in self.form_fields:
+                field['readonly'] = field.get('readonly') or form_readonly
+
             enriched_fields = [self.enrich_form_field(f) for f in self.form_fields]
 
-            self.form['form_fields'] = transform_records(enriched_fields, self.result_shape)
-            self.form['form_extras'] = transform_records(self.form_extras, self.result_shape)
+            form['form_fields'] = transform_records(enriched_fields, self.result_shape)
+            form['form_extras'] = transform_records(self.form_extras, self.result_shape)
+
+            self.data['form'] = form
 
         super().post_get(request)
 
@@ -148,7 +239,19 @@ class FormAPIView(TableAPIView):
         }
 
     def get_field_value(self, field):
-        return field.get('default_value') or ''
+        value = ''
+        name = field.get('name')
+        record = self.record
+        if False:
+            pass
+        elif name == 'username' and self.user:
+            value = self.user.username
+        elif record and name in record:
+            value = record[name]
+        else:
+            return field.get('default_value') or ''
+
+        return value
 
     def pre_post(self, request):
         self.record = request.data
@@ -158,7 +261,7 @@ class FormAPIView(TableAPIView):
     #
 
     def save_record(self, model: models.Model):
-        pk = self.record['pk']
+        record_id = self.record['recordId']
 
         record = get_active_dict(model, self.record)
 
@@ -173,12 +276,12 @@ class FormAPIView(TableAPIView):
         record = get_active_dict(model, record)
         try:
             pk_name = model._meta.pk.name
-            pk = None if pk == 'new' else pk
+            record_id = None if record_id == 'new' else record_id
 
-            record, created = model.objects.update_or_create(**{pk_name: pk}, defaults=record)
+            record, created = model.objects.update_or_create(**{pk_name: record_id}, defaults=record)
 
-            pk = record.pk
-            # self.data['record_id'] = self.record_id
+            self.record_id = record.pk
+            self.data['record_id'] = self.record_id
         except Exception as e:
             self.add_message(f'error saving record: {str(e)}.', http_status_id='BAD_REQUEST')
 

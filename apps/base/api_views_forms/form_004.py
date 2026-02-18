@@ -1,12 +1,12 @@
 from apps.static.table_api_views.form_api_views import AuthorizedFormAPIView
 from constants import form_constants, process_constants, status_constants
-from apps.base.models import Person
+from apps.base.models import User
 
 # user profile
 class AuthorizedForm004APIView(AuthorizedFormAPIView):
     process_id = process_constants.FORM_004
     form_id = form_constants.PROFILE
-    PARAM_SPECS = AuthorizedFormAPIView.PARAM_SPECS + ('workingUserId', )
+    # PARAM_SPECS = AuthorizedFormAPIView.PARAM_SPECS + ('workingUserId', )
 
     def __init__(self):
         super().__init__()
@@ -14,10 +14,10 @@ class AuthorizedForm004APIView(AuthorizedFormAPIView):
 
     def load_request(self, request):
         super().load_request(request)
-        print(request.data)
-        params = self.get_param('params', {})
-        self.working_user_id = params.get('workingUserId', None)
-        print(self.working_user_id)
+        # print(request.data)
+        # params = self.get_param('params', {})
+        # self.working_user_id = params.get('workingUserId', None)
+        # print(self.working_user_id)
 
     def get_field_value(self, field):
         value = ''
@@ -42,5 +42,8 @@ class AuthorizedForm004APIView(AuthorizedFormAPIView):
 
     def post_post(self, request):
         super().post_post(request)
+        user_id = self.user.user_id
+
+        User.objects.filter(pk=user_id).update(person_id=self.record_id)
 
 

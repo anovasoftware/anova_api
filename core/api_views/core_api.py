@@ -1,7 +1,9 @@
 import os
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
-from constants import constants, status_constants, role_constants
+
+from apps.static.models import Process
+from constants import constants, status_constants, role_constants, type_constants
 from apps.base.models import User, UserRole, RoleProcess
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
@@ -175,20 +177,22 @@ class CoreAPIView(GenericAPIView):
         if required and not ret_value:
             message = f'missing parameter: {key}'
             self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-            return None
+            ret_value = None
+        else:
+            # self.params[key] = ret_value
 
-        # if key != 'debugFlag':
-        #     self.params[key] = ret_value
-        self.params[key] = ret_value
+            if parameter_type and parameter_type == 'decimal':
+                try:
+                    ret_value = Decimal(ret_value)
+                    # self.params[key] = ret_value
+                except InvalidOperation as e:
+                    message = f'{key} format error. expecting {parameter_type}:  {str(e)}'
+                    self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
-        if parameter_type and parameter_type == 'decimal':
-            try:
-                ret_value = Decimal(ret_value)
-                self.params[key] = ret_value
-            except InvalidOperation as e:
-                message = f'{key} format error. expecting {parameter_type}:  {str(e)}'
-                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+        if ret_value or required:
+            self.params[key] = ret_value
 
+        print(f'{key} = {ret_value}')
         return ret_value
 
     def load_request(self, request):
@@ -214,8 +218,21 @@ class CoreAPIView(GenericAPIView):
 
 
     def load_models(self, request):
+        if self.is_get():
+            self.load_models_get(request)
+        elif self.is_post():
+            self.load_models_post(request)
+        elif self.is_patch():
+            self.load_models_patch(request)
+
+    def load_models_get(self, request):
         pass
-        # self.user = User.objects.get(pk=self.user_id)
+
+    def load_models_post(self, request):
+        pass
+
+    def load_models_patch(self, request):
+        pass
 
     def validate(self, request):
         if self.is_get():
@@ -414,8 +431,11 @@ class AuthorizedAPIView(CoreAPIView):
                 self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
             if self.success:
-                if not self.user_has_access(request.user, self.process_id):
-                    message = f'User not authorized for this process ({self.process_id}).',
+                process = Process.objects.get(process_id=self.process_id)
+                if process.type_id == type_constants.PROFILE_USER_REQUIRED_ONLY:
+                    pass
+                elif not self.user_has_access(request.user, self.process_id):
+                    message = f'User {request.user.username} is not authorized for this process ({self.process_id}).'
                     self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
 
@@ -467,6 +487,7 @@ class AuthorizedAPIView(CoreAPIView):
     def load_models(self, request):
         super().load_models(request)
         self.user = User.objects.get(pk=self.user_id)
+        self.access_user = User.objects.get(pk=self.access_user_id)
 
 
 class PublicAPIView(CoreAPIView):

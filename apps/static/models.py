@@ -119,6 +119,7 @@ class FormField(BaseModel):
     type                                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000', null=True)
     status                              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     order_by                            = models.CharField(max_length=  2, blank=True , unique=False, primary_key=False)
+    custom_flag                         = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='N')
     control_type                        = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
     tab_name                            = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     label                               = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False, default='')

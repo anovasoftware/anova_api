@@ -31,3 +31,5 @@ class Form001APIView(FormParameterAPIView):
         else:
             message = 'Invalid username or password'
             self.set_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)
+
+            # token, created = Token.objects.get_or_create(user=user)

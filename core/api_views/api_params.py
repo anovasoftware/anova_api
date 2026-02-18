@@ -23,6 +23,13 @@ def with_allowed(spec: ParamSpec, allowed):
     return ParamSpec(**{**spec.__dict__, 'allowed': allowed})
 
 COMMON_PARAMS = {
+    'action': ParamSpec(
+        name='action',
+        dest='action',
+        kind='either',
+        cast=_to_str,
+        description='Action.',
+    ),
     'debugFlag': ParamSpec(
         name='debugFlag',
         dest='debug_flag',
@@ -52,7 +59,7 @@ COMMON_PARAMS = {
         dest='item_id',
         kind='either',
         cast=_to_str,
-        description='Hotel id for the request.',
+        description='Item id for the request.',
     ),
     'shape': ParamSpec(
         name='shape',
