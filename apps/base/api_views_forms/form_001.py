@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import status
 from apps.base.serializers.user import UserSerializer
+from apps.base.utilities.user_utilities import get_user_profile
 
 # login form
 class Form001APIView(FormParameterAPIView):
@@ -26,10 +27,12 @@ class Form001APIView(FormParameterAPIView):
             self.data['refresh'] = str(refresh)
             self.data['access'] = str(refresh.access_token)
             self.data['redirect'] = f'navigator/{page_constants.HOME}'
-            self.data['user'] = UserSerializer(user).data
-            self.data['user']['is_logged_in'] = True
+            self.data['user'] = get_user_profile(user, True)
+            # self.data['user'] = UserSerializer(user).data
+            # self.data['user']['is_logged_in'] = True
         else:
             message = 'Invalid username or password'
             self.set_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)
 
             # token, created = Token.objects.get_or_create(user=user)
+

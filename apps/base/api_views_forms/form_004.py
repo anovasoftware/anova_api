@@ -1,6 +1,7 @@
 from apps.static.table_api_views.form_api_views import AuthorizedFormAPIView
 from constants import form_constants, process_constants, status_constants
 from apps.base.models import User
+from apps.base.utilities.user_utilities import get_user_profile
 
 # user profile
 class AuthorizedForm004APIView(AuthorizedFormAPIView):
@@ -45,5 +46,8 @@ class AuthorizedForm004APIView(AuthorizedFormAPIView):
         user_id = self.user.user_id
 
         User.objects.filter(pk=user_id).update(person_id=self.record_id)
+        user = User.objects.get(pk=user_id)
+
+        self.data['user'] = get_user_profile(user, True)
 
 
