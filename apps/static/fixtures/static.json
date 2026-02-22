@@ -2505,6 +2505,24 @@
     }
   }
 ,  {
+    "model": "static.Hotel",
+    "pk": "A003",
+    "fields": {
+      "type_id": "006",
+      "status_id": "001",
+      "client_id": "001",
+      "code": "MEG",
+      "description": "Magellan Discoverer",
+      "vms_identifier": "1401",
+      "grouping": "CRUISE SHIPS",
+      "hotel_key": "MAGELLAN_DISCOVERER",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-22 00:00+0000",
+      "last_updated": "2026-02-22 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Process",
     "pk": "001",
     "fields": {
