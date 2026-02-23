@@ -15,7 +15,7 @@ from drf_spectacular.utils import OpenApiParameter
 from core.api_views.api_params import ParamSpec, _to_str, COMMON_PARAMS
 from dataclasses import replace
 from django.utils import timezone
-from core.utilities.api_utilities import format_response
+from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
 from core.utilities.api_utilities import get_client_ip
 
 
@@ -59,6 +59,11 @@ class CoreAPIView(GenericAPIView):
         except Exception as e:
             self.add_message(f'{str(e)} [core_api.initial() error]', http_status_id=status_constants.HTTP_UNAUTHORIZED)
 
+    def dispatch(self, request, *args, **kwargs):
+        # Set third_party_flag before the view logic runs
+        self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
+        return super().dispatch(request, *args, **kwargs)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -91,11 +96,6 @@ class CoreAPIView(GenericAPIView):
 
     def is_patch(self):
         return self.request_method == 'PATCH'
-
-    def dispatch(self, request, *args, **kwargs):
-        # Set third_party_flag before the view logic runs
-        self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
-        return super().dispatch(request, *args, **kwargs)
 
     def get_param_overrides(self):
         merged = {}
@@ -413,68 +413,104 @@ class AuthorizedAPIView(CoreAPIView):
     user_roles = None
     role_processes = None
 
-    # def initial(self, request, *args, **kwargs):
-    #     if self.access_user_id is None:
-    #         self.access_user_id = request.user.user_id
-    #
-    #     super().initial(request, *args, **kwargs)
-
     def initial(self, request, *args, **kwargs):
         super().initial(request, *args, **kwargs)
 
-        if self.success:
-            if self.access_user_id is None:
-                self.access_user_id = request.user.user_id
+        # Ensure we have an access user
+        if self.success and self.access_user_id is None and getattr(request, 'user', None) and request.user.is_authenticated:
+            self.access_user_id = request.user.user_id
 
-            if self.process_id is None:
-                message = f'{self.__class__.__name__} requires process_id but one was defined.'
+        # process_id is required on subclasses
+        if self.success and  not self.process_id:
+            message = f'{self.__class__.__name__} requires process_id but none was defined.'
+            self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
+
+        if self.success:
+            process = Process.objects.filter(process_id=self.process_id).only('process_id', 'type_id').first()
+
+            if not process:
+                message = f'Invalid process_id ({self.process_id}) for {self.__class__.__name__}.'
                 self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
+            if self.success and  not process_supports_method(process, self.request_method):
+                message = f'Method {request.method} not allowed for process ({self.process_id}).'
+                self.set_message(message, http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)  # 405
+
             if self.success:
-                process = Process.objects.get(process_id=self.process_id)
                 if process.type_id == type_constants.PROFILE_USER_REQUIRED_ONLY:
                     pass
                 elif not self.user_has_access(request.user, self.process_id):
                     message = f'User {request.user.username} is not authorized for this process ({self.process_id}).'
                     self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
-
+        return
 
     def _load_user_access(self):
         user_id = self.access_user_id
+        user_roles = UserRole.objects.none()
+        role_processes = RoleProcess.objects.none()
 
         if not user_id:
-            self.user_roles = UserRole.objects.none()
-            self.role_processes = RoleProcess.objects.none()
-
+            pass
         else:
-            user_roles = UserRole.objects.filter(
-                user_id=user_id,
-                status_id=status_constants.ACTIVE,
-                effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
-            ).values(
-                'role_id',
-                'role__description'
-            )
-            user_processes = RoleProcess.objects.filter(
-                role__in=user_roles.values('role_id'),
-                process__status_id=status_constants.ACTIVE,
-            )
+            if not self.user_roles:
+                user_roles = UserRole.objects.filter(
+                    user_id=user_id,
+                    status_id=status_constants.ACTIVE,
+                    effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
+                # ).values(
+                #     'role_id',
+                #     'role__description'
+                )
+            if not self.role_processes:
+                role_processes = RoleProcess.objects.filter(
+                    role__in=user_roles.values('role_id'),
+                    process__status_id=status_constants.ACTIVE,
+                )
 
             self.user_roles = user_roles
-            self.role_processes = user_processes
+            self.role_processes = role_processes
             return
 
-    def user_has_access(self, user, process_id: str) -> bool:
-        has_access = False
-        self._load_user_access()
-        v = list(self.role_processes.values())
-        if user and user.is_authenticated:
-            if self.user_roles.filter(role_id=role_constants.SYSTEM_ADMINISTRATOR).exists():
-                has_access = True
-            elif self.role_processes.filter(process_id=process_id).exists():
-                has_access = True
+    # def _required_flag_for_method(self, request_method: str) -> str | None:
+    #     method = (request_method or '').upper()
+    #     if method in ('GET', 'HEAD', 'OPTIONS'):
+    #         return 'can_read'
+    #     if method == 'POST':
+    #         return 'can_create'
+    #     if method in ('PUT', 'PATCH'):
+    #         return 'can_update'
+    #     if method == 'DELETE':
+    #         return 'can_delete'
+    #     return None
 
-        return has_access
+    def user_has_access(self, user, process_id: str) -> bool:
+        if not user or not user.is_authenticated:
+            return False
+
+        self._load_user_access()
+
+        # System admin bypass
+        if self.user_roles.filter(role_id=role_constants.SYSTEM_ADMINISTRATOR).exists():
+            return True
+
+        flag = required_flag_for_method(self.request_method)
+        if flag is None:
+            return False
+
+        # Process-level row must exist AND flag must be true
+        return self.role_processes.filter(process_id=process_id, **{flag: True}).exists()
+
+    # def user_has_access(self, user, process_id: str) -> bool:
+    #     has_access = False
+    #     self._load_user_access()
+    #     v = list(self.role_processes.values())
+    #     if user and user.is_authenticated:
+    #         if self.user_roles.filter(role_id=role_constants.SYSTEM_ADMINISTRATOR).exists():
+    #             has_access = True
+    #         elif self.role_processes.filter(process_id=process_id).exists():
+    #             has_access = True
+    #
+    #     return has_access
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

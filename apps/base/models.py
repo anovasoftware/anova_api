@@ -420,7 +420,7 @@ class Role(BaseModel):
 class RoleProcess(BaseModel):
     role_process_id  = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
     role             = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name="+", default='A999')
-    process          = models.ForeignKey("static.Process", on_delete=models.CASCADE, related_name="+", default='A00000')
+    process          = models.ForeignKey("static.Process", on_delete=models.CASCADE, related_name="+", null=True)
     type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
     status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
     can_create       = models.BooleanField(default=False)
@@ -450,6 +450,7 @@ class User(AbstractUser, BaseModel):
     status                 = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='00Q')
     verification_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='010')
     person                 = models.ForeignKey("base.Person", on_delete=models.CASCADE, default='A9999')
+    last_hotel             = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name="+", default='A000')
     grouping               = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
     code                   = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False)
     description            = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)

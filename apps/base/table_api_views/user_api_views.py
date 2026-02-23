@@ -1,4 +1,5 @@
 from core.api_views.table_api_views import PublicTableAPIView
+from core.api_views.table_api_views import AuthorizedTableAPIView
 from apps.base.models import User
 from constants import type_constants, status_constants, process_constants
 # from utilities.user_utilities import get_user_roles
@@ -76,3 +77,22 @@ class PublicUserAPIView(PublicTableAPIView):
         # response['detail']['user'] = 'hello'
         return response
 
+
+class AuthorizedUserAPIView(AuthorizedTableAPIView):
+    process_id = process_constants.BASE_USER
+    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS
+    # PARAM_OVERRIDES = {
+    #     'typeId': dict(
+    #         required_get=True,
+    #         required_post=True,
+    #         allowed=(
+    #             type_constants.PERSON_HOTEL_GUEST,
+    #         )
+    #     )
+    # }
+
+
+    def __init__(self):
+        super().__init__()
+        self.app_name = 'base'
+        self.model_name = 'User'

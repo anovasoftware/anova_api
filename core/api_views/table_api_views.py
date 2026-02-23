@@ -101,9 +101,17 @@ class TableAPIView(CoreAPIView):
             loaded = False
             if self.json_required:
                 message = f'invalid JSON format in request body: {str(e)}'
-                self.set_message(message, http_status_id='VALIDATION_ERROR')
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         return loaded
+
+    def pre_get(self, request):
+        super().pre_get(request)
+        if self.success:
+            fields = self.get_value_list()
+            if len(fields) == 0:
+                message = f'no fields specified for {self.model_name}'
+                self.add_message(message, http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)
 
     def _get(self, request):
         if self.success:
@@ -111,7 +119,6 @@ class TableAPIView(CoreAPIView):
                 model = apps.get_model(self.app_name, self.model_name)
                 fields = self.get_value_list()
                 query_filter = self.get_query_filter()
-
                 queryset = model.objects.filter(**query_filter).values(*fields)
                 self.records = list(queryset)
             except LookupError:

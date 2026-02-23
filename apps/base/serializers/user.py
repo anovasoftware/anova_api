@@ -9,5 +9,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'user_id',
             'username',
-            'person'
+            'person',
+            'last_hotel_id'
         )
