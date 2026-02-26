@@ -81,18 +81,11 @@ class PublicUserAPIView(PublicTableAPIView):
 class AuthorizedUserAPIView(AuthorizedTableAPIView):
     process_id = process_constants.BASE_USER
     PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS
-    # PARAM_OVERRIDES = {
-    #     'typeId': dict(
-    #         required_get=True,
-    #         required_post=True,
-    #         allowed=(
-    #             type_constants.PERSON_HOTEL_GUEST,
-    #         )
-    #     )
-    # }
-
 
     def __init__(self):
         super().__init__()
         self.app_name = 'base'
         self.model_name = 'User'
+
+    def _patch(self, request):
+        super()._patch(request)

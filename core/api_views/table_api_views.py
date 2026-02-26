@@ -86,6 +86,37 @@ class TableAPIView(CoreAPIView):
     def validate(self, request):
         super().validate(request)
 
+    def validate_patch(self, request):
+        allowed_fields = {'pk', 'last_hotel_id'}
+        required_fields = {'pk'}
+        data_to_load = self.data_to_load
+
+        for i, row in enumerate(data_to_load):
+            row_fields = set(row)
+
+            invalid_fields = row_fields - allowed_fields
+            missing_fields = required_fields - row_fields
+
+            if invalid_fields:
+                message = f'Invalid fields: {", ".join(invalid_fields)}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            if self.success and missing_fields:
+                message = f'Missing required fields: {", ".join(missing_fields)}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            if not self.success:
+                break
+
+    def _patch(self, request):
+        records_updated = 0
+
+        for record in self.data_to_load:
+            pk = record['pk']
+            record = get_active_dict(self.model, record)
+
+            records_updated += self.model.objects.filter(pk=pk).update(**record)
+
+        self.data['records_updated'] = records_updated
+
     def load_json(self, request):
         loaded = True
         try:
@@ -172,9 +203,11 @@ class TableAPIView(CoreAPIView):
             #     message = f'Warning: These fields do not exist in {model.__name__}: {missing_fields}'
             #     self.set_message(message, success=False)
             if 'pk' not in record.keys():
-                self.set_message('must supply a field named pk', http_status_id='VALIDATION_ERROR')
+                message = 'must supply a field named pk'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
             if self.external_id_required and 'external_id' not in record.keys():
-                self.set_message('must supply a field named external_id', http_status_id='VALIDATION_ERROR')
+                message = 'must supply a field named external_id'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def _post(self, request):
         if not self.posting_type:
@@ -266,6 +299,10 @@ class TableAPIView(CoreAPIView):
                 break
 
         return True
+
+    def pre_patch(self, request):
+        if not self.load_json(request):
+            pass
 
     def build_response(self):
         response = super().build_response()

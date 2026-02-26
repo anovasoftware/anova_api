@@ -18,7 +18,6 @@ from django.utils import timezone
 from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
 from core.utilities.api_utilities import get_client_ip
 
-
 context = {
     'user_id': '002149',
     'username': 'Acme API Consumer, Inc.',
@@ -47,7 +46,7 @@ class CoreAPIView(GenericAPIView):
     PARAM_OVERRIDES = {
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
-
+    patch_fields_whitelist = []
 
     def initial(self, request, *args, **kwargs):
         # safe default
@@ -204,7 +203,8 @@ class CoreAPIView(GenericAPIView):
                 spec = self.get_param_spec(key, param_overrides)
                 self.get_param_from_spec(spec)
         except Exception as e:
-            self.add_message(f'error loading request parameters: {str(e)}', http_status_id=status_constants.HTTP_BAD_REQUEST)
+            self.add_message(f'error loading request parameters: {str(e)}',
+                             http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if hasattr(request.user, 'user_id'):
             self.user_id = request.user.user_id
@@ -215,7 +215,6 @@ class CoreAPIView(GenericAPIView):
 
         if self.success:
             self.client_ip = get_client_ip(request)
-
 
     def load_models(self, request):
         if self.is_get():
@@ -239,11 +238,16 @@ class CoreAPIView(GenericAPIView):
             self.validate_get(request)
         if self.is_post():
             self.validate_post(request)
+        if self.is_patch():
+            self.validate_patch(request)
 
     def validate_get(self, request):
         pass
 
     def validate_post(self, request):
+        pass
+
+    def validate_patch(self, request):
         pass
 
     def get_response(self):
@@ -374,13 +378,12 @@ class CoreAPIView(GenericAPIView):
     def patch(self, request):
         try:
             self.load_request(request)
-
             if self.success:
                 self.load_models(request)
                 if self.success:
-                    self.validate(request)
+                    self.pre_patch(request)
                     if self.success:
-                        self.pre_patch(request)
+                        self.validate(request)
                         if self.success:
                             self._patch(request)
                             if self.success:
@@ -395,11 +398,10 @@ class CoreAPIView(GenericAPIView):
         pass
 
     def _patch(self, request):
-        self.set_message('patch() not defined')
+        self.set_message('patch() not defined', http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
     def post_patch(self, request):
         pass
-
 
     @property
     def success(self):
@@ -417,11 +419,12 @@ class AuthorizedAPIView(CoreAPIView):
         super().initial(request, *args, **kwargs)
 
         # Ensure we have an access user
-        if self.success and self.access_user_id is None and getattr(request, 'user', None) and request.user.is_authenticated:
+        if self.success and self.access_user_id is None and getattr(request, 'user',
+                                                                    None) and request.user.is_authenticated:
             self.access_user_id = request.user.user_id
 
         # process_id is required on subclasses
-        if self.success and  not self.process_id:
+        if self.success and not self.process_id:
             message = f'{self.__class__.__name__} requires process_id but none was defined.'
             self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
@@ -432,7 +435,7 @@ class AuthorizedAPIView(CoreAPIView):
                 message = f'Invalid process_id ({self.process_id}) for {self.__class__.__name__}.'
                 self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
 
-            if self.success and  not process_supports_method(process, self.request_method):
+            if self.success and not process_supports_method(process, self.request_method):
                 message = f'Method {request.method} not allowed for process ({self.process_id}).'
                 self.set_message(message, http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)  # 405
 
@@ -457,9 +460,9 @@ class AuthorizedAPIView(CoreAPIView):
                     user_id=user_id,
                     status_id=status_constants.ACTIVE,
                     effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
-                # ).values(
-                #     'role_id',
-                #     'role__description'
+                    # ).values(
+                    #     'role_id',
+                    #     'role__description'
                 )
             if not self.role_processes:
                 role_processes = RoleProcess.objects.filter(
@@ -625,8 +628,6 @@ class IsThirdPartyUser(BasePermission):
 
 class ThirdPartyAuthorizedAPIView(AuthorizedAPIView):
     permission_classes = AuthorizedAPIView.permission_classes + [IsThirdPartyUser]
-
-
 
 
 # JSON response

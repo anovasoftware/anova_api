@@ -164,6 +164,7 @@ class Hotel(BaseModel):
     vms_identifier   = models.CharField(max_length=  4, blank=False, unique=False, primary_key=False)
     grouping         = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
     hotel_key        = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
+    public_key       = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False, default='')
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
     created_date     = models.DateTimeField(auto_now_add=True)
