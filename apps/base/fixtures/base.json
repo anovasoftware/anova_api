@@ -328,6 +328,35 @@
     }
   }
 ,  {
+    "model": "base.User",
+    "pk": "A00007",
+    "fields": {
+      "access_user_id": "A00007",
+      "type_id": "043",
+      "status_id": "00Q",
+      "verification_status_id": "010",
+      "person_id": "A00000",
+      "last_hotel_id": "A000",
+      "grouping": "API Consumer",
+      "code": "",
+      "description": "Axess",
+      "username": "axess",
+      "password": "",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false,
+      "user_key": "AXESS",
+      "start_date": "2026-02-26 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "external_id": "",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Role",
     "pk": "A000",
     "fields": {
@@ -404,6 +433,25 @@
     }
   }
 ,  {
+    "model": "base.Role",
+    "pk": "A003",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "API CONSUMER",
+      "code": "API2",
+      "description": "API Consumer Gangway",
+      "role_key": "API_CONSUMER_GANGWAY",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.UserRole",
     "pk": "A00001",
     "fields": {
@@ -455,6 +503,24 @@
       "internal_comment": "",
       "created_date": "2025-11-28 00:00+0000",
       "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.UserRole",
+    "pk": "A00004",
+    "fields": {
+      "user_id": "A00007",
+      "role_id": "A003",
+      "type_id": "000",
+      "status_id": "001",
+      "access_flag": "#",
+      "start_date": "2026-02-26 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
     }
   }
 ,  {
@@ -841,6 +907,23 @@
     }
   }
 ,  {
+    "model": "base.UserHotel",
+    "pk": "A00009",
+    "fields": {
+      "user_id": "A00007",
+      "hotel_id": "A001",
+      "type_id": "000",
+      "status_id": "001",
+      "start_date": "2026-02-27 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-27 00:00+0000",
+      "last_updated": "2026-02-27 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.RoleProcess",
     "pk": "A00001",
     "fields": {
@@ -874,6 +957,24 @@
       "internal_comment": "",
       "created_date": "2025-11-28 00:00+0000",
       "last_updated": "2025-11-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleProcess",
+    "pk": "A00003",
+    "fields": {
+      "role_id": "A003",
+      "process_id": "00W",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": true,
+      "can_read": false,
+      "can_update": false,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
     }
   }
 ,  {

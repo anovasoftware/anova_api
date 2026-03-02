@@ -1,5 +1,5 @@
 VERSION = '03.01.10'
-
+DATE_FORMAT = '%Y-%m-%d'
 from rest_framework import status as drf_status
 #
 # API_CODES = {

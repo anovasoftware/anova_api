@@ -17,6 +17,7 @@ from dataclasses import replace
 from django.utils import timezone
 from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
 from core.utilities.api_utilities import get_client_ip
+from core.utilities.api_utilities import flat_record
 
 context = {
     'user_id': '002149',
@@ -75,6 +76,7 @@ class CoreAPIView(GenericAPIView):
         self.params = {}
         self.message = None
         self.messages = []
+        self.context = {}
         self.data = {}
         self.request_id = ''
         self.user_id = None
@@ -168,10 +170,11 @@ class CoreAPIView(GenericAPIView):
 
     def get_param(self, key, default_value, required=False, parameter_type=None):
         ret_value = default_value
-        params = self.request.GET
 
-        if key in params:
-            ret_value = params[key]
+        if hasattr(self, 'kwargs') and key in self.kwargs:
+            ret_value = self.kwargs.get(key)
+        elif key in self.request.GET:
+            ret_value = self.request.GET[key]
 
         if required and not ret_value:
             message = f'missing parameter: {key}'
@@ -194,7 +197,7 @@ class CoreAPIView(GenericAPIView):
         print(f'{key} = {ret_value}')
         return ret_value
 
-    def load_request(self, request):
+    def load_request(self, request, *args, **kwargs):
         self.request_id = getattr(request, "request_id", "unknown")
 
         try:
@@ -273,6 +276,16 @@ class CoreAPIView(GenericAPIView):
         if not self.message:
             self.message = 'Request completed successfully' if self.success else 'Request failed'
 
+        base_context = {
+            'user_id': self.user_id,
+            'username': username,
+        }
+        if self.context:
+            base_context.update(self.context)
+
+        if self.result_shape == 'flat':
+            base_context = flat_record(base_context)
+
         response = {
             'success': http_status['success'],
             'code': http_status['code'],
@@ -287,10 +300,7 @@ class CoreAPIView(GenericAPIView):
                 # 'request-id': self.request_id,
                 'parameters': self.params,
             },
-            'context': {
-                'user_id': self.user_id,
-                'username': username,
-            },
+            'context': base_context,
             'data': self.data,
             'errors': []
         }
@@ -316,9 +326,9 @@ class CoreAPIView(GenericAPIView):
         self.messages.append(message)
         self.message = message
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         try:
-            self.load_request(request)
+            self.load_request(request, *args, **kwargs)
 
             if self.success:
                 self.load_models(request)
@@ -339,14 +349,14 @@ class CoreAPIView(GenericAPIView):
         pass
 
     def _get(self, request):
-        self.set_message('get() not defined', http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
+        self.set_message('get() not defined', http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)
 
     def post_get(self, request):
         pass
 
-    def post(self, request):
+    def post(self, request,*args, **kwargs):
         try:
-            self.load_request(request)
+            self.load_request(request, *args, **kwargs)
 
             if self.success:
                 self.load_models(request)
@@ -443,7 +453,9 @@ class AuthorizedAPIView(CoreAPIView):
                 if process.type_id == type_constants.PROFILE_USER_REQUIRED_ONLY:
                     pass
                 elif not self.user_has_access(request.user, self.process_id):
-                    message = f'User {request.user.username} is not authorized for this process ({self.process_id}).'
+                    username = request.user.username
+                    method = self.request_method
+                    message = f'User {username} is not authorized for process {method} ({self.process_id}).'
                     self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
         return
 
@@ -518,7 +530,7 @@ class AuthorizedAPIView(CoreAPIView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def load_request(self, request):
+    def load_request(self, request, *args, **kwargs):
         super().load_request(request)
 
         self.user_id = request.user.user_id

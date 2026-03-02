@@ -271,7 +271,7 @@ class Process(BaseModel):
 class Status(BaseModel):
     status_id        = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
     grouping         = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False)
-    code             = models.CharField(max_length= 10, blank=True , unique=False, primary_key=False)
+    code             = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False)
     description      = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
     status_key       = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
     status_code      = models.IntegerField(default=0)

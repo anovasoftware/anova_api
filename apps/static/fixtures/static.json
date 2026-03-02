@@ -335,96 +335,6 @@
   }
 ,  {
     "model": "static.Status",
-    "pk": "021",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Current",
-      "description": "Current",
-      "status_key": "EFFECTIVE_STATUS_CURRENT",
-      "status_code": 0,
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "022",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Future",
-      "description": "Future",
-      "status_key": "EFFECTIVE_STATUS_FUTURE",
-      "status_code": 0,
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "023",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Expired",
-      "description": "Expired",
-      "status_key": "EFFECTIVE_STATUS_EXPIRED",
-      "status_code": 0,
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "024",
-    "fields": {
-      "grouping": "effective_status_id",
-      "code": "Stale",
-      "description": "Stale",
-      "status_key": "EFFECTIVE_STATUS_STALE",
-      "status_code": 0,
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
-    "pk": "999",
-    "fields": {
-      "grouping": "ALL",
-      "code": "TBA",
-      "description": "To Be Announced",
-      "status_key": "TO_BE_ANNOUNCED",
-      "status_code": 0,
-      "flag1": "",
-      "group1": "",
-      "order_by": "99",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-02-25 00:00+0000",
-      "last_updated": "2025-02-25 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Status",
     "pk": "00F",
     "fields": {
       "grouping": "HTTP Status",
@@ -713,6 +623,24 @@
   }
 ,  {
     "model": "static.Status",
+    "pk": "00Y",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Method Not Allowed",
+      "status_key": "HTTP_METHOD_NOT_ALLOWED",
+      "status_code": 405,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-23 00:00+0000",
+      "last_updated": "2026-02-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
     "pk": "00Z",
     "fields": {
       "grouping": "base_user.verification",
@@ -767,20 +695,200 @@
   }
 ,  {
     "model": "static.Status",
-    "pk": "00Y",
+    "pk": "012",
     "fields": {
-      "grouping": "HTTP Status",
-      "code": "",
-      "description": "Method Not Allowed",
-      "status_key": "HTTP_METHOD_NOT_ALLOWED",
-      "status_code": 405,
+      "grouping": "guest",
+      "code": "Arriving",
+      "description": "Arriving",
+      "status_key": "GUEST_ARRIVING",
+      "status_code": 0,
+      "flag1": "A",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "013",
+    "fields": {
+      "grouping": "guest",
+      "code": "Onboard",
+      "description": "Onboard",
+      "status_key": "GUEST_ONBOARD",
+      "status_code": 0,
+      "flag1": "A",
+      "group1": "",
+      "order_by": "02",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "014",
+    "fields": {
+      "grouping": "guest",
+      "code": "Ashore",
+      "description": "Ashore",
+      "status_key": "GUEST_ASHORE",
+      "status_code": 0,
+      "flag1": "A",
+      "group1": "",
+      "order_by": "03",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "015",
+    "fields": {
+      "grouping": "guest",
+      "code": "Disembarked",
+      "description": "Disembarked",
+      "status_key": "GUEST_DISEMBARKED",
+      "status_code": 0,
+      "flag1": "B",
+      "group1": "",
+      "order_by": "04",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "016",
+    "fields": {
+      "grouping": "guest",
+      "code": "Cancelled",
+      "description": "Cancelled",
+      "status_key": "GUEST_CANCELLED",
+      "status_code": 0,
+      "flag1": "B",
+      "group1": "",
+      "order_by": "05",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "021",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Current",
+      "description": "Current",
+      "status_key": "EFFECTIVE_STATUS_CURRENT",
+      "status_code": 0,
       "flag1": "",
       "group1": "",
       "order_by": "99",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-02-23 00:00+0000",
-      "last_updated": "2026-02-23 00:00+0000"  
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "022",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Future",
+      "description": "Future",
+      "status_key": "EFFECTIVE_STATUS_FUTURE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "023",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Expired",
+      "description": "Expired",
+      "status_key": "EFFECTIVE_STATUS_EXPIRED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "024",
+    "fields": {
+      "grouping": "effective_status_id",
+      "code": "Stale",
+      "description": "Stale",
+      "status_key": "EFFECTIVE_STATUS_STALE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "999",
+    "fields": {
+      "grouping": "ALL",
+      "code": "TBA",
+      "description": "To Be Announced",
+      "status_key": "TO_BE_ANNOUNCED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-02-25 00:00+0000",
+      "last_updated": "2025-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "017",
+    "fields": {
+      "grouping": "HTTP Status",
+      "code": "",
+      "description": "Not Found",
+      "status_key": "HTTP_NOT_FOUND",
+      "status_code": 404,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-28 00:00+0000",
+      "last_updated": "2026-02-28 00:00+0000"  
     }
   }
 ,  {
@@ -1552,6 +1660,30 @@
   }
 ,  {
     "model": "static.Type",
+    "pk": "01C",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_guest_activity",
+      "code": "EMBARKED",
+      "description": "Embarked",
+      "description_short": "Embarked",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ACTIVITY_EMBARKED",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
     "pk": "012",
     "fields": {
       "parent_type_id": "000",
@@ -1572,6 +1704,30 @@
       "internal_comment": "",
       "created_date": "2025-03-08 00:00+0000",
       "last_updated": "2025-03-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01D",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_guest_activity",
+      "code": "DISEMBARKED",
+      "description": "Disembarked",
+      "description_short": "Disembarked",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ACTIVITY_DISEMBARKED",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
     }
   }
 ,  {
@@ -2497,11 +2653,11 @@
       "vms_identifier": "",
       "grouping": "OTHER",
       "hotel_key": "NOT_APPLICABLE",
-      "public_key": "",
+      "public_key": "5DV3YEUNJH",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-11 00:00+0000",
-      "last_updated": "2025-04-11 00:00+0000"  
+      "last_updated": "2026-02-25 00:00+0000"  
     }
   }
 ,  {
@@ -2516,11 +2672,11 @@
       "vms_identifier": "1401",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "MAGELLAN_EXPLORER",
-      "public_key": "",
+      "public_key": "WPKJMGM2XQ",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-11 00:00+0000",
-      "last_updated": "2025-04-11 00:00+0000"  
+      "last_updated": "2026-02-25 00:00+0000"  
     }
   }
 ,  {
@@ -2535,11 +2691,11 @@
       "vms_identifier": "1302",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "EXPEDITION2",
-      "public_key": "",
+      "public_key": "NC9DXY9HD4",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-09-13 00:00+0000",
-      "last_updated": "2025-09-13 00:00+0000"  
+      "last_updated": "2026-02-25 00:00+0000"  
     }
   }
 ,  {
@@ -2554,11 +2710,11 @@
       "vms_identifier": "1401",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "MAGELLAN_DISCOVERER",
-      "public_key": "",
+      "public_key": "K8Q9SPF749",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
-      "last_updated": "2026-02-22 00:00+0000"  
+      "last_updated": "2026-02-25 00:00+0000"  
     }
   }
 ,  {
@@ -2573,11 +2729,11 @@
       "vms_identifier": "2002",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "AEGEN_ODYSSEY",
-      "public_key": "",
+      "public_key": "4WSBRDHXNX",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
-      "last_updated": "2026-02-22 00:00+0000"  
+      "last_updated": "2026-02-25 00:00+0000"  
     }
   }
 ,  {
@@ -2847,7 +3003,7 @@
       "grouping": "table",
       "process_key": "RES_GUEST_ROOM",
       "supports_create": true,
-      "supports_read": false,
+      "supports_read": true,
       "supports_update": true,
       "supports_delete": false,
       "static_flag": "Y",
@@ -2869,7 +3025,7 @@
       "module_path": "apps.res.table_api_views.hotel_item_api_views",
       "grouping": "table",
       "process_key": "RES_HOTEL_ITEM",
-      "supports_create": false,
+      "supports_create": true,
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
@@ -3130,6 +3286,29 @@
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
       "last_updated": "2026-02-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00W",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Guest Detail",
+      "description": "Guest Detail",
+      "route": "res/guest/<str:recordId>/",
+      "view": "AuthorizedGuestDetailAPIView",
+      "module_path": "apps.res.api_views.guest_api_views",
+      "grouping": "table",
+      "process_key": "RES_GUEST_DETAIL",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-26 00:00+0000",
+      "last_updated": "2026-02-26 00:00+0000"  
     }
   }
 ,  {

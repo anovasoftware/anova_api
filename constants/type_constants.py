@@ -16,7 +16,8 @@ BASE_POSITION_ONBOARD = '001'                                    # onboard posit
 USER_API_CONSUMER = '043'                                        # api consumerUSER_DUMMY = '042'                                               # dummy userUSER_REAL = '041'                                                # real user#  base_user_veridication
 BASE_USER_VERIFICATION_EMAIL = '019'                             # email verification#  res_event
 RES_EVENT_CRUISE = '00R'                                         # cruiseRES_EVENT_TOUR = '00S'                                           # tour#  res_guest
-RES_GUEST_CREW = '00C'                                           # crewRES_GUEST_GUEST = '00B'                                          # guestRES_GUEST_STAFF = '011'                                          # staff#  res_hotel
+RES_GUEST_CREW = '00C'                                           # crewRES_GUEST_GUEST = '00B'                                          # guestRES_GUEST_STAFF = '011'                                          # staff#  res_guest_activity
+ACTIVITY_DISEMBARKED = '01D'                                     # disembarkedACTIVITY_EMBARKED = '01C'                                        # embarked#  res_hotel
 HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_hotel_item
 RES_HOTEL_ITEM_SPECIAL_ITEM = '00V'                              # special items#  res_hotel_item.special_item
 RES_HOTEL_ITEM_SPECIAL_ITEM_INTERNET = '00W'                     # internet#  res_reservation

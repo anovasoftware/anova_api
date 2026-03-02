@@ -1,3 +1,5 @@
+from django.db.models import Model
+
 from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, parameters, post_only_parameters
 from core.utilities.api_utilities import transform_records
 from core.api_views.core_api import post_only_parameters,get_only_parameters
@@ -54,18 +56,21 @@ class TableAPIView(CoreAPIView):
         self.external_id_prefix = None
         self.action = None
         self.records = []
+        self.record = None
         self.record_id = None
         self.json_required = True
         self.posting_type = 'batch'
         self.currency_id = None
 
-    def load_request(self, request):
+    def load_request(self, request, *args, **kwargs):
         super().load_request(request)
 
         if not self.app_name:
-            self.add_message('self.app_name not defined', http_status_id='VALIDATION_ERROR')
+            message = f'self.app_name not defined'
+            self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
         if not self.model_name:
-            self.add_message('self.model_name not defined', http_status_id=status_constants.HTTP_BAD_REQUEST)
+            message = f'self.model_name not defined'
+            self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
         if not self.success:
             pass
@@ -147,11 +152,13 @@ class TableAPIView(CoreAPIView):
     def _get(self, request):
         if self.success:
             try:
-                model = apps.get_model(self.app_name, self.model_name)
+                model: Model = apps.get_model(self.app_name, self.model_name)
                 fields = self.get_value_list()
                 query_filter = self.get_query_filter()
                 queryset = model.objects.filter(**query_filter).values(*fields)
                 self.records = list(queryset)
+                if len(self.records) == 1:
+                    self.record = self.records[0]
             except LookupError:
                 message = f'Model {self.model_name} in app {self.app_name} not found'
                 self.add_message(message, http_status_id='VALIDATION_ERROR')
@@ -173,8 +180,8 @@ class TableAPIView(CoreAPIView):
             }
         return filters
 
-    def post_get(self, request):
-        self.records = transform_records(self.records, shape=self.result_shape)
+    # def post_get(self, request):
+    #     self.records = transform_records(self.records, shape=self.result_shape)
 
     def pre_post(self, request):
         if not self.load_json(request):
@@ -306,12 +313,13 @@ class TableAPIView(CoreAPIView):
 
     def build_response(self):
         response = super().build_response()
+        self.records = transform_records(self.records, shape=self.result_shape)
         record_count = len(self.records)
         response['data']['record_count'] = record_count
 
         if self.type:
-            response['context']['typeId'] = self.type.type_id
-            response['context']['typeDescription'] = self.type.description
+            response['context']['type_id'] = self.type.type_id
+            response['context']['type_description'] = self.type.description
 
         # if self.type:
         #     response['context']['type__description'] = {

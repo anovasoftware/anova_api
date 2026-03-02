@@ -54,12 +54,26 @@ COMMON_PARAMS = {
         cast=_to_str,
         description='Hotel id for the request.',
     ),
+    'hotelPublicKey': ParamSpec(
+        name='hotelPublicKey',
+        dest='hotel_public_key',
+        kind='either',
+        cast=_to_str,
+        description='Hotel public key for the request.',
+    ),
     'itemId': ParamSpec(
         name='itemId',
         dest='item_id',
         kind='either',
         cast=_to_str,
         description='Item id for the request.',
+    ),
+    'rfidUid': ParamSpec(
+        name='rfidUid',
+        dest='rfid_uid',
+        kind='query',
+        cast=_to_str,
+        description='RFID UID)',
     ),
     'shape': ParamSpec(
         name='shape',
