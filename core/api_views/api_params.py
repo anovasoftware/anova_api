@@ -92,13 +92,13 @@ COMMON_PARAMS = {
         description='Status id for the request.',
         allowed=None,
     ),
-    'workingUserId': ParamSpec(
-        name='workingUserId',
-        dest='working_user_Id',
+    'postingType': ParamSpec(
+        name='postingType',
+        dest='posting_type',
         kind='either',
         cast=_to_str,
-        description='Working user id for the request.',
-        allowed=None,
+        description='Posting type (batch or simple).',
+        allowed=('batch', 'simple', 'detail'),
     ),
     'recordId': ParamSpec(
         name='recordId',

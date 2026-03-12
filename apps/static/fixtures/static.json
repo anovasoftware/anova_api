@@ -100,6 +100,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "005",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "contact us",
+      "header": "Contact Us",
+      "data_source_application": "base",
+      "data_source_model_name": "Person",
+      "save_button_label": "Submit",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "CONTACT_US",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -702,8 +722,8 @@
       "description": "Arriving",
       "status_key": "GUEST_ARRIVING",
       "status_code": 0,
-      "flag1": "A",
-      "group1": "",
+      "flag1": "",
+      "group1": "0",
       "order_by": "01",
       "static_flag": "Y",
       "internal_comment": "",
@@ -720,8 +740,8 @@
       "description": "Onboard",
       "status_key": "GUEST_ONBOARD",
       "status_code": 0,
-      "flag1": "A",
-      "group1": "",
+      "flag1": "",
+      "group1": "1",
       "order_by": "02",
       "static_flag": "Y",
       "internal_comment": "",
@@ -738,8 +758,8 @@
       "description": "Ashore",
       "status_key": "GUEST_ASHORE",
       "status_code": 0,
-      "flag1": "A",
-      "group1": "",
+      "flag1": "",
+      "group1": "1",
       "order_by": "03",
       "static_flag": "Y",
       "internal_comment": "",
@@ -756,8 +776,8 @@
       "description": "Disembarked",
       "status_key": "GUEST_DISEMBARKED",
       "status_code": 0,
-      "flag1": "B",
-      "group1": "",
+      "flag1": "",
+      "group1": "2",
       "order_by": "04",
       "static_flag": "Y",
       "internal_comment": "",
@@ -774,8 +794,8 @@
       "description": "Cancelled",
       "status_key": "GUEST_CANCELLED",
       "status_code": 0,
-      "flag1": "B",
-      "group1": "",
+      "flag1": "",
+      "group1": "3",
       "order_by": "05",
       "static_flag": "Y",
       "internal_comment": "",
@@ -889,6 +909,96 @@
       "internal_comment": "",
       "created_date": "2026-02-28 00:00+0000",
       "last_updated": "2026-02-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "018",
+    "fields": {
+      "grouping": "guest",
+      "code": "NeverArrived",
+      "description": "Never Arrived",
+      "status_key": "GUEST_NEVER_ARRIVED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "3",
+      "order_by": "06",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-02 00:00+0000",
+      "last_updated": "2026-03-02 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "019",
+    "fields": {
+      "grouping": "email_queue",
+      "code": "Queued",
+      "description": "Queued",
+      "status_key": "EMAIL_QUEUE_QUEUED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01B",
+    "fields": {
+      "grouping": "email_queue",
+      "code": "Sent",
+      "description": "Sent",
+      "status_key": "EMAIL_QUEUE_SENT",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01C",
+    "fields": {
+      "grouping": "email_queue",
+      "code": "Failed",
+      "description": "Failed",
+      "status_key": "EMAIL_QUEUE_FAILED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01D",
+    "fields": {
+      "grouping": "email_queue",
+      "code": "Expired",
+      "description": "Expired",
+      "status_key": "EMAIL_QUEUE_EXPIRED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
     }
   }
 ,  {
@@ -2259,6 +2369,30 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "01F",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_email_queue",
+      "code": "ContactUs",
+      "description": "Contact Us",
+      "description_short": "Contact Us",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EMAIL_QUEUE__CONTACT_US",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-12 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -3250,7 +3384,7 @@
       "status_id": "001",
       "code": "Form004",
       "description": "Form004",
-      "route": "form/form_data/004",
+      "route": "form/004",
       "view": "AuthorizedForm004APIView",
       "module_path": "apps.base.api_views_forms.form_004",
       "grouping": "forms",
@@ -3309,6 +3443,98 @@
       "internal_comment": "",
       "created_date": "2026-02-26 00:00+0000",
       "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00X",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Toggle Status",
+      "description": "Toggle Guest Status",
+      "route": "res/guest/<str:recordId>/toggle_status",
+      "view": "AuthorizedGuestDetailToggleStatusAPIView",
+      "module_path": "apps.res.api_views.guest_api_views",
+      "grouping": "table",
+      "process_key": "RES_GUEST_TOGGLE_STATUS",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-02 00:00+0000",
+      "last_updated": "2026-03-02 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00Y",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Form001",
+      "description": "Form001",
+      "route": "form/001",
+      "view": "Form001APIView",
+      "module_path": "apps.base.api_views_forms.form_001",
+      "grouping": "forms",
+      "process_key": "FORM_001",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-10 00:00+0000",
+      "last_updated": "2026-03-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "00Z",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Form005",
+      "description": "Form005",
+      "route": "form/005",
+      "view": "Form005APIView",
+      "module_path": "apps.base.api_views_forms.form_005",
+      "grouping": "forms",
+      "process_key": "FORM_005",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "010",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Form002",
+      "description": "Form002",
+      "route": "form/002",
+      "view": "Form002APIView",
+      "module_path": "apps.base.api_views_forms.form_002",
+      "grouping": "forms",
+      "process_key": "FORM_002",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-12 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
     }
   }
 ,  {
@@ -3837,6 +4063,204 @@
       "internal_comment": "",
       "created_date": "2026-02-13 00:00+0000",
       "last_updated": "2026-02-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00501",
+    "fields": {
+      "form_id": "005",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "email",
+      "tab_name": "Detail",
+      "label": "Email Address",
+      "name": "email",
+      "mapping_name": "",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00502",
+    "fields": {
+      "form_id": "005",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "First Name",
+      "name": "first_name",
+      "mapping_name": "",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00503",
+    "fields": {
+      "form_id": "005",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Last Name",
+      "name": "last_name",
+      "mapping_name": "",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-11 00:00+0000",
+      "last_updated": "2026-03-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00504",
+    "fields": {
+      "form_id": "005",
+      "type_id": "00Z",
+      "status_id": "002",
+      "order_by": "04",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "#AVAILABLE",
+      "name": "type_id",
+      "mapping_name": "",
+      "default_value": "00X",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-07-07 00:00+0000",
+      "last_updated": "2025-07-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00505",
+    "fields": {
+      "form_id": "005",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "05",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Subject",
+      "name": "email_queue.subject",
+      "mapping_name": "",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-12 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00506",
+    "fields": {
+      "form_id": "005",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "06",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "body",
+      "name": "email_queue.body",
+      "mapping_name": "",
+      "default_value": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-12 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
     }
   }
 ,  {

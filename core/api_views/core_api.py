@@ -1,4 +1,4 @@
-import os
+import os, json
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 
@@ -88,6 +88,8 @@ class CoreAPIView(GenericAPIView):
         self.result_shape = '#'
         self.today = timezone.localdate()
         self.client_ip = '000.000.000.000'
+        self.request_data = None
+        self.request_data_required = False
 
     def is_get(self):
         return self.request_method == 'GET'
@@ -218,6 +220,26 @@ class CoreAPIView(GenericAPIView):
 
         if self.success:
             self.client_ip = get_client_ip(request)
+        if self.success:
+            self.load_request_data(request)
+
+    def load_request_data(self, request):
+        try:
+            data = request.data
+            # data = json.loads(request.body.decode('utf-8'))
+            # if data and not isinstance(data, list):
+            #     data = [data]
+            self.request_data = data
+        except json.JSONDecodeError as e:
+            if self.request_data_required:
+                message = f'body missing or invalid format: {str(e)}'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+        except Exception as e:
+            message = f'error loading request body: {str(e)}'
+            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+        if not self.success:
+            pass
 
     def load_models(self, request):
         if self.is_get():
@@ -226,6 +248,12 @@ class CoreAPIView(GenericAPIView):
             self.load_models_post(request)
         elif self.is_patch():
             self.load_models_patch(request)
+
+        # even if a public url, the user may be logged in, so we can still get the user object
+        try:
+            self.user = User.objects.get(pk=self.user_id)
+        except User.DoesNotExist:
+            pass
 
     def load_models_get(self, request):
         pass
@@ -349,7 +377,7 @@ class CoreAPIView(GenericAPIView):
         pass
 
     def _get(self, request):
-        self.set_message('get() not defined', http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)
+        self.set_message('get() not defined', http_status_id=status_constants.HTTP_NOT_FOUND)
 
     def post_get(self, request):
         pass
@@ -378,6 +406,7 @@ class CoreAPIView(GenericAPIView):
 
     def pre_post(self, request):
         pass
+
 
     def _post(self, request):
         self.set_message('post() not defined')
@@ -531,13 +560,13 @@ class AuthorizedAPIView(CoreAPIView):
         super().__init__(**kwargs)
 
     def load_request(self, request, *args, **kwargs):
-        super().load_request(request)
+        super().load_request(request, *args, **kwargs)
 
         self.user_id = request.user.user_id
 
     def load_models(self, request):
         super().load_models(request)
-        self.user = User.objects.get(pk=self.user_id)
+        # self.user = User.objects.get(pk=self.user_id)
         self.access_user = User.objects.get(pk=self.access_user_id)
 
 
@@ -553,8 +582,8 @@ class TestAPI(PublicAPIView):
         super().__init__()
         self.param1 = False
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
         self.param1 = self.get_param('param1', None, True)
 
     def _get(self, request):
@@ -578,8 +607,8 @@ class GuestRoomAPI(AuthorizedAPIView):
         self.hotel_id = ''
         self.room_id = False
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
         self.hotel_id = self.get_param('hotel_id', '', True)
         self.room_id = self.get_param('room_id', '', True)
 

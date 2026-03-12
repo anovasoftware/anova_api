@@ -1,20 +1,52 @@
-# from Demos.SystemParametersInfo import new_value
+from typing import Optional
+from django.db.models import Model
 
 from core.api_views.table_api_views import PublicTableAPIView
-from core.api_views.table_api_views import TableAPIView
+from core.utilities.api_utilities import model_to_field_dict
+
 from apps.static.models import Form, FormField, FormExtra
-from django.utils import timezone
 from apps.base.models import Parameter
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, parameters, post_only_parameters
-from core.utilities.api_utilities import transform_records
+
+from django.utils import timezone
 from django.db import models
-from core.utilities.database_utilties import get_active_dict
-from constants import status_constants, type_constants
 from django.apps import apps
 
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView
+from core.utilities.api_utilities import transform_records
+from core.utilities.database_utilties import get_active_dict
 
-class FormAPIView(TableAPIView):
+from constants import status_constants, type_constants
+
+
+FORM_VALUES = [
+    'form_id',
+    'type_id',
+    'description',
+    'header',
+    'save_button_label',
+    'save_button_action',
+]
+FORM_FIELD_VALUES = [
+    'form_field_id',
+    'type_id',
+    'control_type',
+    'type__type_id',
+    'type__description',
+    'type__group1',
+    'name',
+    'mapping_name',
+    'label',
+    'default_value',
+    'required_flag',
+    'disabled_create',
+    'disabled_update',
+    'custom_flag',
+]
+
+
+class FormAPIView(CoreAPIView):
     process_id = None
+    form_id = None
 
     PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('recordId', 'action')
     PARAM_OVERRIDES = {
@@ -29,73 +61,82 @@ class FormAPIView(TableAPIView):
 
     }
 
-    form_id = None
-    base_app = None
-    base_model = None
-
     def __init__(self):
         super().__init__()
+
+        self.base_model: Optional[Model] = None
+        self.record_id = None
         self.record = {}
-        self.app_name = 'static'
-        self.model_name = 'Form'
+        self.action = None
         self.type_id = 'ALL'
         self.external_id_required = False
         self.form = None
+        self.form_dict = {}
         self.form_fields = []
         self.form_extras = []
-        # self.user = None
-        self.record = None
 
-    def load_request(self, request):
-        print(self.record_id)
-        super().load_request(request)
-        # self.form_id = self.get_param('form_id', self.form_id, required=False)
-        #
-        # if not self.form_id:
-        #     self.add_message(f'form_id is not defined.', http_status_id=status_constants.HTTP_OK)
-        # if not self.base_model:
-        #     self.add_message(f'base_model is not defined.', http_status_id=status_constants.HTTP_OK)
+    def load_request(self, request, *args, **kwargs):
+        if not self.form_id:
+            self.add_message(f'form_id is not defined.', http_status_id=status_constants.HTTP_OK)
+        else:
+            super().load_request(request, *args, **kwargs)
 
     def load_models(self, request):
         super().load_models(request)
-        form = Form.objects.filter(form_id=self.form_id).first()
-        self.base_app = form.data_source_application
-        base_app_str = self.base_app
-        base_model_str =form.data_source_model_name
-        self.base_model = apps.get_model(base_app_str, base_model_str)
 
-        self.load_form_fields()
-        self.load_form_extras()
-        self.load_form()
-    # def load_models_get(self, request):
-    #     super().load_models_get(request)
-    #     form = Form.objects.filter(form_id=self.form_id).first()
-    #     self.base_app = form.data_source_application
-    #     base_app_str = self.base_app
-    #     base_model_str =form.data_source_model_name
-    #     self.base_model = apps.get_model(base_app_str, base_model_str)
-    #
-    #     self.load_form_fields()
-    #     self.load_form_extras()
-    #     self.load_form()
-    #
-    # def load_models_post(self, request):
-    #     super().load_models_post(request)
+        if self.success:
+            try:
+                self.form = Form.objects.get(pk=self.form_id)
+                self.load_form_fields()
+                self.load_form_extras()
+                app_name = self.form.data_source_application
+                model_name = self.form.data_source_model_name
+                self.base_model = apps.get_model(app_name, model_name)
+                if self.is_get():
+                    self.load_record()
+            except Exception as e:
+                message = f'error loading form: {str(e)}.'
+                self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
-    def load_form(self):
-        value_fields = []
-        for form_field in self.form_fields:
-            if form_field.get('custom_flag') == 'Y':
-                pass
-                # self.custom[fc.name] = None
-            else:
-                value_fields.append(form_field['name'])
 
-        value_fields.append('pk')
-        value_fields.append('static_flag')
+    def load_form_fields(self):
+        form_fields = FormField.objects.filter(
+            form_id=self.form_id,
+            status_id=status_constants.ACTIVE
+        ).values(
+            *FORM_FIELD_VALUES
+        ).order_by(
+            'order_by'
+        )
 
-        # if self.django_utility.model_has_field(self.model, 'status_id'):
-        #     self.value_fields.append('status_id')
+        action_key = f'disabled_{self.action}'
+        self.form_fields = []
+
+        for field in form_fields:
+            disabled_flag = field.get(action_key, False)
+            field['readonly'] = disabled_flag
+            self.form_fields.append(field)
+
+        # self.form_fields = list(form_fields)
+
+    def load_form_extras(self):
+        form_extras = FormExtra.objects.filter(
+            form_id=self.form_id,
+            status_id=status_constants.ACTIVE
+        ).values(
+            'form_extra_id',
+            'type__type_id',
+            'type__description',
+            'description',
+            'label',
+            'target_form_id',
+        ).order_by(
+            'order_by'
+        )
+        self.form_extras = list(form_extras)
+
+    def load_record(self):
+        value_fields = self.get_record_values_list()
 
         if self.action == 'create':
             self.record = self.new_record()
@@ -129,114 +170,48 @@ class FormAPIView(TableAPIView):
 
         return record
 
-    def get_value_list(self):
-        value_list = [
-            'form_id',
-            'type_id',
-            'description',
-            'header',
-            'save_button_label',
-            'save_button_action',
-        ]
+    def get_record_values_list(self):
+        value_fields = []
+        for form_field in self.form_fields:
+            if form_field.get('custom_flag') == 'Y':
+                pass
+            else:
+                value_fields.append(form_field['name'])
 
-        value_list += super().get_value_list()
-        return value_list
+        if 'pk' not in value_fields:
+            value_fields.append('pk')
+        if 'static_flag' not in value_fields:
+            value_fields.append('static_flag')
 
-    def get_query_filter(self):
-        filters = super().get_query_filter()
-        filters['status_id'] = status_constants.ACTIVE
-
-        if self.form_id:
-            filters['form_id'] = self.form_id
-
-        return filters
+        return value_fields
 
     def _get(self, request):
-        super()._get(request)
+        form_dict = model_to_field_dict(self.form, FORM_VALUES)
+        # form_dict['readonly'] = self.record.get('static_flag') == 'Y'
+        # form_readonly = form_dict.get('readonly')
+        #
+        # for field in self.form_fields:
+        #     field['readonly'] = field.get('readonly') or form_readonly
 
-        # if self.success:
-        #     self.load_form_fields()
-        #     self.load_form_extras()
+        enriched_fields = [self.enrich_form_field(f) for f in self.form_fields]
 
-    def load_form_fields(self):
-        form_fields = FormField.objects.filter(
-            form_id = self.form_id,
-            status_id = status_constants.ACTIVE
-        ).values(
-            'form_field_id',
-            'type_id',
-            'control_type',
-            'type__type_id',
-            'type__description',
-            'type__group1',
-            'name',
-            'mapping_name',
-            'label',
-            'default_value',
-            'required_flag',
-            'disabled_create',
-            'disabled_update',
-            'custom_flag',
-        ).order_by(
-            'order_by'
-        )
+        form_dict['form_fields'] = transform_records(enriched_fields, self.result_shape)
+        form_dict['form_extras'] = transform_records(self.form_extras, self.result_shape)
 
-        action_key = f'disabled_{self.action}'
-        self.form_fields = []
-
-        for field in form_fields:
-            disabled_flag = field.get(action_key, False)
-            field['readonly'] = disabled_flag
-            self.form_fields.append(field)
-
-        # self.form_fields = list(form_fields)
-
-    def load_form_extras(self):
-        form_extras = FormExtra.objects.filter(
-            form_id = self.form_id,
-            status_id = status_constants.ACTIVE
-        ).values(
-            'form_extra_id',
-            'type__type_id',
-            'type__description',
-            'description',
-            'label',
-            'target_form_id',
-        ).order_by(
-            'order_by'
-        )
-        self.form_extras = list(form_extras)
-
-    def post_get(self, request):
-        mask_fields = []
-        if self.form_id and len(self.records) == 0:
-            message = f'form_id={self.form_id} not defined.'
-            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-        else:
-            form = self.records[0].copy()
-            form['readonly'] = self.record.get('static_flag') == 'Y'
-
-            # loop through again to update any settings based on action
-            form_readonly = form.get('readonly')
-            for field in self.form_fields:
-                field['readonly'] = field.get('readonly') or form_readonly
-
-            enriched_fields = [self.enrich_form_field(f) for f in self.form_fields]
-
-            form['form_fields'] = transform_records(enriched_fields, self.result_shape)
-            form['form_extras'] = transform_records(self.form_extras, self.result_shape)
-
-            self.data['form'] = form
-
-        super().post_get(request)
+        self.form_dict = form_dict
 
     def enrich_form_field(self, field):
-        return {
+        value = self.get_field_value(field)
+
+        enriched_field = {
             **field,
-            'value': self.get_field_value(field)
+            'value': value,
+            'readonly': self.is_readonly(field, value),
             # 'editable': field['control_type'] == 'TEXTBOX',
             # 'required': field['type_id'] in [602, 603],
         }
+
+        return enriched_field
 
     def get_field_value(self, field):
         value = ''
@@ -249,26 +224,53 @@ class FormAPIView(TableAPIView):
         elif record and name in record:
             value = record[name]
         else:
-            return field.get('default_value') or ''
+            value = field.get('default_value') or ''
 
         return value
 
+    def is_readonly(self, field, value):
+        if field.get('readonly'):
+            readonly = True
+        elif self.record.get('static_flag') == 'Y':
+            readonly = True
+        else:
+            readonly = False
+
+        return readonly
+
     def pre_post(self, request):
-        self.record = request.data
+        # self.record = request.data
+        self.record = self.request_data
 
     def _post(self, request):
-        self.save_record(self.base_model)
-    #
+        model = self.base_model
+        self.save_record(model)
 
-    def save_record(self, model: models.Model):
-        record_id = self.record['recordId']
+    def split_record(self, record):
+        record_dict = {}
 
-        record = get_active_dict(model, self.record)
+        for key, value in record.items():
+            if '.' not in key:
+                continue
 
-        if 'last_updated' not in self.record:
+            prefix, field = key.split('.', 1)
+
+            if prefix not in record_dict:
+                record_dict[prefix] = {}
+
+            record_dict[prefix][field] = value
+
+        return record_dict
+
+    def save_record(self, model: type[models.Model], record=None, set_pk=True):
+        record = record or self.record
+        record_id = record['recordId']
+        record = get_active_dict(model, record)
+
+        if 'last_updated' not in record:
             record['last_updated'] = timezone.now()
 
-        if 'client_ip' not in self.record:
+        if 'client_ip' not in record:
             record['client_ip'] = self.client_ip
 
         record['updated_by_user_id'] = self.access_user_id
@@ -280,8 +282,9 @@ class FormAPIView(TableAPIView):
 
             record, created = model.objects.update_or_create(**{pk_name: record_id}, defaults=record)
 
-            self.record_id = record.pk
-            self.data['record_id'] = self.record_id
+            if set_pk:
+                self.record_id = record.pk
+                self.data['record_id'] = self.record_id
         except Exception as e:
             self.add_message(f'error saving record: {str(e)}.', http_status_id='BAD_REQUEST')
 
@@ -289,7 +292,7 @@ class FormAPIView(TableAPIView):
         response = super().build_response()
 
         if self.form:
-            response['form'] = self.form
+            response['data']['form'] = self.form_dict
 
         return response
 
@@ -297,9 +300,9 @@ class FormAPIView(TableAPIView):
 class PublicFormAPIView(PublicAPIView, FormAPIView):
     pass
 
+
 class AuthorizedFormAPIView(AuthorizedAPIView, FormAPIView):
     pass
-
 
 
 class FormParameterAPIView(PublicFormAPIView):
@@ -332,5 +335,3 @@ class FormParameterAPIView(PublicFormAPIView):
                 record[name] = '#' * len(value)
 
         self.record = record
-
-

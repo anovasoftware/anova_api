@@ -3,7 +3,8 @@
 NOT_APPLICABLE = '000'                                           # not applicableTO_BE_ANNOUNCED = '999'                                          # to be announced#  base_category
 BASE_CATEGORY_POS_MENU1 = '00D'                                  # pos menu category 1BASE_CATEGORY_POS_MENU2 = '00F'                                  # pos menu category 2BASE_CATEGORY_ROOM_CABIN = '020'                                 # room/cabin category#  base_chart_field
 BASE_CHART_FIELD_REVENUE = '00G'                                 # revenue account#  base_company
-COMPANY_TRAVEL_AGENCY = '023'                                    # travel agency#  base_hotel_type
+COMPANY_TRAVEL_AGENCY = '023'                                    # travel agency#  base_email_queue
+EMAIL_QUEUE__CONTACT_US = '01F'                                  # contact us#  base_hotel_type
 BASE_HOTEL_TYPE_INTERNET = '00M'                                 # internet#  base_item
 BASE_ITEM_INVENTORY = '00J'                                      # inventory itemBASE_ITEM_POINT_OF_SALE = '00H'                                  # point of sale item#  base_job
 BASE_JOB_VMS_ETL = '015'                                         # vms - etl#  base_parameter

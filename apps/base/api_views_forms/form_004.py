@@ -13,8 +13,8 @@ class AuthorizedForm004APIView(AuthorizedFormAPIView):
         super().__init__()
         self.working_user_id = None
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
         # print(request.data)
         # params = self.get_param('params', {})
         # self.working_user_id = params.get('workingUserId', None)
@@ -40,6 +40,12 @@ class AuthorizedForm004APIView(AuthorizedFormAPIView):
 
     def validate_post(self, request):
         super().validate_post(request)
+
+    def pre_post(self, request):
+        super().pre_post(request)
+
+        if self.success:
+            self.record['email'] =self.user.username
 
     def post_post(self, request):
         super().post_post(request)

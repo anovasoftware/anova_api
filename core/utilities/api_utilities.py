@@ -121,3 +121,12 @@ def required_flag_for_method(request_method: str) -> str | None:
         flag = 'can_delete'
 
     return flag
+
+def model_to_field_dict(obj, fields):
+    result = {}
+    for field in fields:
+        value = obj
+        for part in field.split('__'):
+            value = getattr(value, part)
+        result[field] = value
+    return result

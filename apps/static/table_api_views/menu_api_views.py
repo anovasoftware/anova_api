@@ -31,8 +31,8 @@ class PublicMenuAPIView(PublicTableAPIView):
 
         self.user = None
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
 
         # if self.menu_id:
         #     try:

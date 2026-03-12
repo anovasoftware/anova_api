@@ -39,7 +39,8 @@ def integer_to_char31(int_value, length):
     return ''.join(char_list).zfill(length)  # Ensure correct length
 
 
-def get_active_dict(model: models.Model, record0: dict(), base_fields=False):
+# def get_active_dict(model: models.Model, record0: dict, base_fields=False):
+def get_active_dict(model: type[models.Model], record0: dict, base_fields: bool = False):
     record = dict()
 
     for key in record0:

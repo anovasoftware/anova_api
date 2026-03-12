@@ -13,23 +13,23 @@ class Form002APIView(FormParameterAPIView):
     def __init__(self):
         super().__init__()
 
-    def get_field_value(self, field):
-        value = ''
-        if False:
-            pass
-        # elif field.get('name') == 'string01':
-        #     value = 'jwburke@gmail.com'
-        # elif field.get('name') == 'string02':
-        #     value = 'Mr.'
-        # elif field.get('name') == 'string03':
-        #     value = 'John'
-        # elif field.get('name') == 'string04':
-        #     value = 'W.'
-        # elif field.get('name') == 'string05':
-        #     value = 'Burke'
-        else:
-            value = super().get_field_value(field)
-        return value
+    # def get_field_value(self, field):
+    #     value = ''
+    #     if False:
+    #         pass
+    #     # elif field.get('name') == 'string01':
+    #     #     value = 'jwburke@gmail.com'
+    #     # elif field.get('name') == 'string02':
+    #     #     value = 'Mr.'
+    #     # elif field.get('name') == 'string03':
+    #     #     value = 'John'
+    #     # elif field.get('name') == 'string04':
+    #     #     value = 'W.'
+    #     # elif field.get('name') == 'string05':
+    #     #     value = 'Burke'
+    #     else:
+    #         value = super().get_field_value(field)
+    #     return value
 
     def validate_post(self, request):
         super().validate_post(request)

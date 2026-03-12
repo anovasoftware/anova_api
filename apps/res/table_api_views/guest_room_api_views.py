@@ -120,8 +120,13 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         #     type_constants.NOT_APPLICABLE,
         # ]
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
+        self.room = self.get_param(
+            'roomCode',
+            None,
+            False,
+        )
         for option in self.search_options.keys():
             self.search_options[option] = self.get_param(option, None, False)
 
