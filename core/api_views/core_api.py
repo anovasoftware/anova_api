@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 
 from apps.static.models import Process
-from constants import constants, status_constants, role_constants, type_constants
+from constants import constants, status_constants, role_constants, type_constants, currency_constants
 from apps.base.models import User, UserRole, RoleProcess
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
@@ -48,6 +48,10 @@ class CoreAPIView(GenericAPIView):
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
     patch_fields_whitelist = []
+    home_currency = {
+        'currency_id': currency_constants.USD,
+        'code': 'USD',
+    }
 
     def initial(self, request, *args, **kwargs):
         # safe default
@@ -172,11 +176,13 @@ class CoreAPIView(GenericAPIView):
 
     def get_param(self, key, default_value, required=False, parameter_type=None):
         ret_value = default_value
-
+        param_exists = True
         if hasattr(self, 'kwargs') and key in self.kwargs:
             ret_value = self.kwargs.get(key)
         elif key in self.request.GET:
             ret_value = self.request.GET[key]
+        else:
+            param_exists = False
 
         if required and not ret_value:
             message = f'missing parameter: {key}'
@@ -193,7 +199,8 @@ class CoreAPIView(GenericAPIView):
                     message = f'{key} format error. expecting {parameter_type}:  {str(e)}'
                     self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
-        if ret_value or required:
+        # if ret_value or required:
+        if required or param_exists:
             self.params[key] = ret_value
 
         print(f'{key} = {ret_value}')
@@ -204,7 +211,8 @@ class CoreAPIView(GenericAPIView):
 
         try:
             param_overrides = self.get_param_overrides()
-            for key in self.PARAM_SPECS:
+            # for key in self.PARAM_SPECS:
+            for key in dict.fromkeys(self.PARAM_SPECS):  # doing this to eliminate duplicates
                 spec = self.get_param_spec(key, param_overrides)
                 self.get_param_from_spec(spec)
         except Exception as e:
@@ -720,3 +728,26 @@ def health_check(request):
 #     _, declared_success, http_status = entry
 #     # 2xx responses are always successful, even if declared_success was mis-set
 #     return 200 <= http_status < 300
+
+
+
+class RecordAPIView(CoreAPIView):
+    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('recordId', )
+    PARAM_OVERRIDES = {
+        **getattr(CoreAPIView, 'PARAM_OVERRIDES', {}),
+        'recordId': dict(
+            required_get=True,
+            required_post=True,
+        )
+    }
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.record_id = None
+
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request)
+
+
+class AuthorizedRecordAPIView(AuthorizedAPIView, RecordAPIView):
+    pass

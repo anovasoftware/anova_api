@@ -122,6 +122,33 @@ class EmailQueue(BaseModel):
 # AUTOGEN_END_EmailQueue#
 
 
+# AUTOGEN_BEGIN_ExchangeRate#
+class ExchangeRate(BaseModel):
+    exchange_rate_id    = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE)
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    event               = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    period              = models.ForeignKey("base.Period", on_delete=models.CASCADE, related_name='+', default='A00000')
+    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    rate                = models.DecimalField(max_digits= 12, decimal_places=  6, blank=False, unique=False, primary_key=False, default=0.0000)
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_exchange_rate'
+        verbose_name_plural = 'exhange rates (base_exchange_rate)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'exchange_rate'
+# AUTOGEN_END_ExchangeRate#
+
+
 # AUTOGEN_BEGIN_ExternalMapping#
 class ExternalMapping(BaseModel):
     external_mapping_id = models.CharField(max_length=  9, blank=False, unique=True , primary_key=True )
@@ -219,19 +246,20 @@ class Item(BaseModel):
 
 # AUTOGEN_BEGIN_Job#
 class Job(BaseModel):
-    job_id           = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
-    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
-    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    order_by         = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='99')
-    code             = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
-    frequency        = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='#', help_text="#=On Demand D=daily H=hourly")
-    description      = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
-    grouping         = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
-    job_key          = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
-    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
-    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
-    created_date     = models.DateTimeField(auto_now_add=True)
-    last_updated     = models.DateTimeField(auto_now=True)
+    job_id            = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
+    type              = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status            = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    frequency_type    = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    order_by          = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='99')
+    code              = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    frequency         = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='#', help_text="#=On Demand D=daily H=hourly")
+    description       = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    grouping          = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
+    job_key           = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    static_flag       = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment  = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date      = models.DateTimeField(auto_now_add=True)
+    last_updated      = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table            = 'base_job'
@@ -241,6 +269,26 @@ class Job(BaseModel):
     def __str__(self):
         return 'job'
 # AUTOGEN_END_Job#
+
+
+# AUTOGEN_BEGIN_JobExtension#
+class JobExtension(BaseModel):
+    job_extension_id = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
+    job              = models.ForeignKey("base.Job", on_delete=models.CASCADE, related_name='+', default='A00')
+    last_run_time    = models.DateTimeField(default=beginning_of_time)
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_job_extension'
+        verbose_name_plural = 'job definitions extension (base_job_extension)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'job_extension'
+# AUTOGEN_END_JobExtension#
 
 
 # AUTOGEN_BEGIN_JobRun#
@@ -303,6 +351,32 @@ class Parameter(BaseModel):
     def __str__(self):
         return 'parameter'
 # AUTOGEN_END_Parameter#
+
+
+# AUTOGEN_BEGIN_Period#
+class Period(BaseModel):
+    period_id           = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    code                = models.CharField(max_length= 15, blank=False, unique=False, primary_key=False, default='')
+    start_date          = models.DateTimeField(default=timezone.now)
+    end_date            = models.DateTimeField(default=timezone.now)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    grouping            = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
+    period_key          = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False)
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_period'
+        verbose_name_plural = 'periods months, days (base_period)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'period'
+# AUTOGEN_END_Period#
 
 
 # AUTOGEN_BEGIN_Person#
@@ -469,6 +543,32 @@ class RoleProcess(BaseModel):
 # AUTOGEN_END_RoleProcess#
 
 
+# AUTOGEN_BEGIN_ServiceRequest#
+class ServiceRequest(BaseModel):
+    service_request_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    person             = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name="+", default='A99999')
+    industry_type      = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    industry_other     = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
+    subject            = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False, default='000')
+    body               = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    company_name       = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    static_flag        = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment   = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date       = models.DateTimeField(auto_now_add=True)
+    last_updated       = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_service_request'
+        verbose_name_plural = 'service requests (base_service_request)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'service_request'
+# AUTOGEN_END_ServiceRequest#
+
+
 # AUTOGEN_BEGIN_User#
 class User(AbstractUser, BaseModel):
     user_id                = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
@@ -559,16 +659,16 @@ class UserRole(BaseModel):
 
 # AUTOGEN_BEGIN_UserVerification#
 class UserVerification(BaseModel):
-    user_verfication_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+')
-    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
-    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    email_sent_date     = models.DateTimeField(default=end_of_time)
-    verification_date   = models.DateTimeField(default=end_of_time)
-    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
-    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
-    created_date        = models.DateTimeField(auto_now_add=True)
-    last_updated        = models.DateTimeField(auto_now=True)
+    user_verification_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    user                 = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+')
+    type                 = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status               = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    email_sent_date      = models.DateTimeField(default=end_of_time)
+    verification_date    = models.DateTimeField(default=end_of_time)
+    static_flag          = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment     = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date         = models.DateTimeField(auto_now_add=True)
+    last_updated         = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table            = 'base_user_verification'

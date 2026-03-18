@@ -16,7 +16,7 @@ class AuthorizedJobAPIView(AuthorizedTableAPIView):
         )
     }
 
-    process_id = process_constants.BASE_JOB
+    process_id = process_constants.BASE_TABLE_JOB
 
     def __init__(self):
         super().__init__()

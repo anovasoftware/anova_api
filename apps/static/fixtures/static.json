@@ -1002,6 +1002,132 @@
     }
   }
 ,  {
+    "model": "static.Status",
+    "pk": "01F",
+    "fields": {
+      "grouping": "service_request",
+      "code": "New",
+      "description": "New",
+      "status_key": "SERVICE_REQUEST_NEW",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01G",
+    "fields": {
+      "grouping": "service_request",
+      "code": "Open",
+      "description": "Open",
+      "status_key": "SERVICE_REQUEST_OPEN",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01H",
+    "fields": {
+      "grouping": "service_request",
+      "code": "In Progress",
+      "description": "In Progress",
+      "status_key": "SERVICE_REQUEST_IN_PROGRESS",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01J",
+    "fields": {
+      "grouping": "service_request",
+      "code": "Waiting",
+      "description": "Waiting",
+      "status_key": "SERVICE_REQUEST_WAITING",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01K",
+    "fields": {
+      "grouping": "service_request",
+      "code": "Resolved",
+      "description": "Resolved",
+      "status_key": "SERVICE_REQUEST_RESOLVED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01L",
+    "fields": {
+      "grouping": "service_request",
+      "code": "Closed",
+      "description": "Closed",
+      "status_key": "SERVICE_REQUEST_CLOSED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01M",
+    "fields": {
+      "grouping": "service_request",
+      "code": "Spam",
+      "description": "Spam",
+      "status_key": "SERVICE_REQUEST_SPAM",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "01",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Type",
     "pk": "000",
     "fields": {
@@ -2379,7 +2505,7 @@
       "description_short": "Contact Us",
       "description_long": "",
       "description2": "",
-      "type_key": "EMAIL_QUEUE__CONTACT_US",
+      "type_key": "EMAIL_QUEUE_CONTACT_US",
       "group1": "",
       "flag1": "",
       "flag2": "",
@@ -2390,6 +2516,534 @@
       "internal_comment": "",
       "created_date": "2026-03-12 00:00+0000",
       "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01G",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_service_request",
+      "code": "ContactUs",
+      "description": "Contact Us",
+      "description_short": "Contact Us",
+      "description_long": "",
+      "description2": "",
+      "type_key": "SERVICE_REQUEST_CONTACT_US",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01H",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_service_request",
+      "code": "TechSupport",
+      "description": "Technical Support",
+      "description_short": "Technical Support",
+      "description_long": "",
+      "description2": "",
+      "type_key": "SERVICE_REQUEST_TECH_SUPPORT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01J",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Cruise",
+      "description": "Cruise",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_CRUISE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01K",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "BoutiqueHotel",
+      "description": "Boutique Hotel",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_BOUTIQUE_HOTEL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01L",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Resort",
+      "description": "Resort",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_RESORT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01M",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Marina",
+      "description": "Marina/Yacht Club",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_MARINA",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01N",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Charter",
+      "description": "Charter Operation",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_CHARTER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01P",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Travel Company",
+      "description": "Travel Comapny/Tour Operator",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_TRAVEL_COMPANY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01Q",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Technology",
+      "description": "Hospitality Technolgy",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_TECHNOLOGY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01R",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Consultant",
+      "description": "Consultant",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_CONSULTANT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01S",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Investor",
+      "description": "Investor",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_INVESTOR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01T",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Media",
+      "description": "Media/Pres",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_MEDIA",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01V",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "Other",
+      "description": "Other",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_OTHER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-13 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01W",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_period",
+      "code": "4 hour",
+      "description": "4 Hour",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_PERIOD_HOUR_4",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-14 00:00+0000",
+      "last_updated": "2026-03-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01X",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_period",
+      "code": "Daily",
+      "description": "Daily",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_PERIOD_DAILY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-14 00:00+0000",
+      "last_updated": "2026-03-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01Y",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_period",
+      "code": "Monthly",
+      "description": "Monthly",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_PERIOD_MONTHLY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-14 00:00+0000",
+      "last_updated": "2026-03-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "024",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_job",
+      "code": "Scheduled",
+      "description": "Scheduled Job",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "BASE_JOB_SCHEDULED",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-16 00:00+0000",
+      "last_updated": "2026-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "01Z",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_job.frequency",
+      "code": "Hourly",
+      "description": "Hourly",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FREQUENCY_HOURLY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-16 00:00+0000",
+      "last_updated": "2026-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "022",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_job.frequency",
+      "code": "Daily",
+      "description": "Daily",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FREQUENCY_DAILY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-16 00:00+0000",
+      "last_updated": "2026-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "025",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_job.frequency",
+      "code": "Weekly",
+      "description": "Weekly",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FREQUENCY_WEEKLY",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-17 00:00+0000",
+      "last_updated": "2026-03-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "026",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_exchange_rate",
+      "code": "Latest",
+      "description": "Latest",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EXCHANGE_RATE_LATEST",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-17 00:00+0000",
+      "last_updated": "2026-03-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "027",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_currency",
+      "code": "real",
+      "description": "Real",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CURRENCY_REAL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-17 00:00+0000",
+      "last_updated": "2026-03-17 00:00+0000"  
     }
   }
 ,  {
@@ -2685,6 +3339,8 @@
       "symbol": "",
       "description": "Not Applicable",
       "order_by": "99",
+      "currency_key": "NA",
+      "grouping": "ALL",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
@@ -2695,12 +3351,14 @@
     "model": "static.Currency",
     "pk": "01",
     "fields": {
-      "type_id": "000",
+      "type_id": "027",
       "status_id": "001",
       "code": "USD",
       "symbol": "$",
       "description": "US Dollar",
       "order_by": "99",
+      "currency_key": "USD",
+      "grouping": "real currency",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
@@ -2711,12 +3369,14 @@
     "model": "static.Currency",
     "pk": "02",
     "fields": {
-      "type_id": "000",
+      "type_id": "027",
       "status_id": "001",
       "code": "GBP",
       "symbol": "£",
       "description": "British Pound",
       "order_by": "99",
+      "currency_key": "GBP",
+      "grouping": "real currency",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
@@ -2727,12 +3387,14 @@
     "model": "static.Currency",
     "pk": "03",
     "fields": {
-      "type_id": "000",
+      "type_id": "027",
       "status_id": "001",
       "code": "EUR",
       "symbol": "€",
       "description": "Euro",
       "order_by": "99",
+      "currency_key": "EUR",
+      "grouping": "real currency",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
@@ -2749,6 +3411,8 @@
       "symbol": "",
       "description": "To Be Announced",
       "order_by": "99",
+      "currency_key": "TBA",
+      "grouping": "ALL",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
@@ -3294,9 +3958,9 @@
       "description": "Job",
       "route": "table/base/job/",
       "view": "AuthorizedJobAPIView",
-      "module_path": "apps.base.table_api_views.job_api_views",
-      "grouping": "table",
-      "process_key": "BASE_JOB",
+      "module_path": "apps.base.table_api_views.table_job_api_views",
+      "grouping": "table views",
+      "process_key": "BASE_TABLE_JOB",
       "supports_create": true,
       "supports_read": false,
       "supports_update": true,
@@ -3304,7 +3968,7 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-12-26 00:00+0000",
-      "last_updated": "2025-12-26 00:00+0000"  
+      "last_updated": "2026-03-16 00:00+0000"  
     }
   }
 ,  {
@@ -3535,6 +4199,52 @@
       "internal_comment": "",
       "created_date": "2026-03-12 00:00+0000",
       "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "011",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "ExchageRate",
+      "description": "Exchange rates",
+      "route": "table/base/exchange_rate/",
+      "view": "ExchangeRateAPIView",
+      "module_path": "apps.base.table_api_views.exchange_rate_api_views",
+      "grouping": "table",
+      "process_key": "BASE_EXCHANGE_RATE",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-14 00:00+0000",
+      "last_updated": "2026-03-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "012",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Job2",
+      "description": "Process Scheduled Jobs",
+      "route": "base/job/<str:recordId>/",
+      "view": "AuthorizedJobSchedulerAPIView",
+      "module_path": "apps.base.api_views.job_api_views",
+      "grouping": "views",
+      "process_key": "BASE_JOB_SCHEDULER",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-16 00:00+0000",
+      "last_updated": "2026-03-16 00:00+0000"  
     }
   }
 ,  {
@@ -4268,13 +4978,49 @@
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
-      "label": "Subject",
-      "name": "email_queue.subject",
+      "label": "Company Name",
+      "name": "service_request.company_name",
       "mapping_name": "",
       "default_value": "",
       "rows": 0,
       "min_length": 0,
       "max_length": 0,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-12 00:00+0000",
+      "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00507",
+    "fields": {
+      "form_id": "005",
+      "type_id": "01B",
+      "status_id": "001",
+      "order_by": "07",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Message",
+      "name": "service_request.body",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 7,
+      "min_length": 0,
+      "max_length": 254,
       "data_source_application": "",
       "data_source_model_name": "",
       "data_source_filter": "",
@@ -4298,19 +5044,19 @@
     "pk": "00506",
     "fields": {
       "form_id": "005",
-      "type_id": "01B",
+      "type_id": "00Y",
       "status_id": "001",
       "order_by": "06",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
-      "label": "Body",
-      "name": "email_queue.body",
+      "label": "Subject",
+      "name": "service_request.subject",
       "mapping_name": "",
       "default_value": "",
-      "rows": 7,
+      "rows": 0,
       "min_length": 0,
-      "max_length": 254,
+      "max_length": 0,
       "data_source_application": "",
       "data_source_model_name": "",
       "data_source_filter": "",

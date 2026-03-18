@@ -42,6 +42,8 @@ class Currency(BaseModel):
     symbol           = models.CharField(max_length=  3, blank=False, unique=False, primary_key=False, default='')
     description      = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     order_by         = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='')
+    currency_key     = models.CharField(max_length=  3, blank=True , unique=False, primary_key=False, default='')
+    grouping         = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
     created_date     = models.DateTimeField(auto_now_add=True)

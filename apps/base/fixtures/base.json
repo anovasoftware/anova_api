@@ -706,6 +706,99 @@
     }
   }
 ,  {
+    "model": "base.Period",
+    "pk": "A00000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "N/A",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "period_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-14 00:00+0000",
+      "last_updated": "2026-03-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Period",
+    "pk": "A99999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "TBA",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "period_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-14 00:00+0000",
+      "last_updated": "2026-03-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Job",
+    "pk": "A00",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "frequency_type_id": "000",
+      "order_by": "99",
+      "code": "Not Applicable",
+      "frequency": "#",
+      "description": "Not Applicable",
+      "grouping": "ALL",
+      "job_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-16 00:00+0000",
+      "last_updated": "2026-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Job",
+    "pk": "A01",
+    "fields": {
+      "type_id": "024",
+      "status_id": "001",
+      "frequency_type_id": "025",
+      "order_by": "99",
+      "code": "PeriodMaintenance",
+      "frequency": "#",
+      "description": "base_period maintenance",
+      "grouping": "SCHEDULED",
+      "job_key": "PERIOD_SERVICE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-16 00:00+0000",
+      "last_updated": "2026-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Job",
+    "pk": "A02",
+    "fields": {
+      "type_id": "024",
+      "status_id": "001",
+      "frequency_type_id": "01Z",
+      "order_by": "99",
+      "code": "ExchangeRateMaintenance",
+      "frequency": "#",
+      "description": "base_exchange_rate maintenance",
+      "grouping": "SCHEDULED",
+      "job_key": "EXCHANGE_RATE_SERVICE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-17 00:00+0000",
+      "last_updated": "2026-03-17 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Category",
     "pk": "A0000",
     "fields": {

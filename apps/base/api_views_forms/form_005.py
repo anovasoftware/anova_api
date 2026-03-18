@@ -1,4 +1,4 @@
-from apps.base.models import Person, EmailQueue
+from apps.base.models import Person, ServiceRequest
 from apps.static.table_api_views.form_api_views import PublicFormAPIView
 from constants import form_constants, page_constants, status_constants, person_constants
 from django.contrib.auth import authenticate
@@ -61,11 +61,11 @@ class Form005APIView(PublicFormAPIView):
         if self.success:
             person = Person.objects.filter(email=email).first()
 
-            if person and 'email_queue' in record_dict:
-                email_queue_record = record_dict['email_queue']
-                email_queue_record['recordId'] = 'new'
-                email_queue_record['person_id'] = person.person_id
-                email_queue_record['from_email'] = person.email
-                email_queue_record['reply_to_email'] = person.email
-                self.save_record(EmailQueue, email_queue_record)
+            if person and 'service_request' in record_dict:
+                service_request_record = record_dict['service_request']
+                service_request_record['recordId'] = 'new'
+                service_request_record['person_id'] = person.person_id
+                # email_queue_record['from_email'] = person.email
+                # email_queue_record['reply_to_email'] = person.email
+                self.save_record(ServiceRequest, service_request_record)
 
