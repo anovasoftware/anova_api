@@ -4020,7 +4020,7 @@
       "module_path": "apps.base.table_api_views.job_run_api_views",
       "grouping": "table",
       "process_key": "BASE_JOB_RUN",
-      "supports_create": false,
+      "supports_create": true,
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,

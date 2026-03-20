@@ -1,4 +1,7 @@
 from django.db.models import Model
+from django.utils import timezone
+from django.utils.dateparse import parse_datetime
+from datetime import datetime
 
 from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, parameters, post_only_parameters
 from core.utilities.api_utilities import transform_records
@@ -269,6 +272,25 @@ class TableAPIView(CoreAPIView):
         if self.request_data:
             self._post_from_request_data(request)
 
+    def _make_datetime_fields_aware(self, record):
+        for field in self.model._meta.concrete_fields:
+            if field.get_internal_type() == 'DateTimeField':
+                value = record.get(field.name)
+
+                if value is not None:
+                    if isinstance(value, str):
+                        parsed = parse_datetime(value)
+                        if parsed is None:
+                            parsed = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+                        value = parsed
+
+                    if value is not None and timezone.is_naive(value):
+                        value = timezone.make_aware(value)
+
+                    record[field.name] = value
+
+        return record
+
     def _post_from_request_data(self, request):
         records_created = 0
         records_updated = 0
@@ -279,6 +301,12 @@ class TableAPIView(CoreAPIView):
             external_id = record['external_id']
 
             record = get_active_dict(self.model, record)
+            try:
+                record = self._make_datetime_fields_aware(record)
+            except Exception as e:
+                message = f'error making datetime fields aware: {str(e)}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
             model_obj, created = self.model.objects.update_or_create(
                 pk=pk,
                 defaults=record
