@@ -66,6 +66,7 @@ class TableAPIView(CoreAPIView):
         self.record_id = None
         # self.posting_type = 'batch'
         self.currency_id = None
+        self.order_by = None
 
     def load_request(self, request, *args, **kwargs):
         if not self.app_name:
@@ -113,7 +114,6 @@ class TableAPIView(CoreAPIView):
             model_fields.update(foreign_key_map.keys())
 
             record = self.request_data[0]
-            print(record)
             missing_fields = set(record.keys()) - model_fields
             # if 'recordId' not in record.keys() and 'pk' not in record.keys():
             #     message = 'must supply a field named recordId or pk'
@@ -196,6 +196,11 @@ class TableAPIView(CoreAPIView):
                 fields = self.get_value_list()
                 query_filter = self.get_query_filter()
                 queryset = model.objects.filter(**query_filter).values(*fields)
+                if self.order_by:
+                    order_by = self.order_by
+                    queryset = queryset.order_by(*order_by)
+                    # queryset = queryset.order_by(self.order_by)
+
                 self.records = list(queryset)
                 if len(self.records) == 1:
                     self.record = self.records[0]

@@ -13,23 +13,26 @@ class SchedulerService:
         self.job: Optional[Job] = None
         self.job_extension: Optional[JobExtension] = None
         self.job_results = []
+        self.force_run = False
 
-    def process(self):
+    def process(self, job_id, action=None):
         jobs = Job.objects.filter(
             status_id=status_constants.ACTIVE,
             type_id=type_constants.BASE_JOB_SCHEDULED
         ).order_by(
             'order_by'
         )
+        if job_id != 'ALL':
+            jobs = jobs.filter(job_id=job_id)
 
+        self.force_run = (action == 'force')
         for job in jobs:
             self.job = job
             self.job_extension, created = JobExtension.objects.get_or_create(job_id=job.pk)
             self.run_job()
 
     def run_job(self):
-        job = self.job
-        if self.is_due():
+        if self.force_run or self.is_due():
             try:
                 self.execute_job()
             except Exception as exc:

@@ -1,11 +1,13 @@
 import requests
 from django.utils import timezone
+from django.core.cache import cache
 from datetime import datetime, time, timedelta
 
 from core.services.job_service import JobService
 from apps.static.models import Currency
 from apps.base.models import ExchangeRate
-from constants import type_constants, status_constants
+from constants import type_constants, status_constants, process_constants
+from apps.base.table_api_views.table_exchange_rate_api_views import ExchangeRateAPIView
 
 
 class ExchangeRateService(JobService):
@@ -50,3 +52,7 @@ class ExchangeRateService(JobService):
                     else:
                         self.records_updated += 1
 
+
+            cache_key = f'{ExchangeRateAPIView.get_cache_key_pattern()}.{type_constants.EXCHANGE_RATE_LATEST}'
+            print(cache_key)
+            cache.delete(cache_key)

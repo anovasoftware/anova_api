@@ -3420,6 +3420,42 @@
     }
   }
 ,  {
+    "model": "static.Currency",
+    "pk": "04",
+    "fields": {
+      "type_id": "027",
+      "status_id": "001",
+      "code": "CAD",
+      "symbol": "$",
+      "description": "Canadian",
+      "order_by": "99",
+      "currency_key": "CAD",
+      "grouping": "real currency",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-20 00:00+0000",
+      "last_updated": "2026-03-20 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "05",
+    "fields": {
+      "type_id": "027",
+      "status_id": "001",
+      "code": "CLP",
+      "symbol": "$",
+      "description": "Canadian",
+      "order_by": "99",
+      "currency_key": "CLP",
+      "grouping": "real currency",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-20 00:00+0000",
+      "last_updated": "2026-03-20 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Text",
     "pk": "A0001",
     "fields": {
@@ -4211,7 +4247,7 @@
       "description": "Exchange rates",
       "route": "table/base/exchange_rate/",
       "view": "ExchangeRateAPIView",
-      "module_path": "apps.base.table_api_views.exchange_rate_api_views",
+      "module_path": "apps.base.table_api_views.table_exchange_rate_api_views",
       "grouping": "table",
       "process_key": "BASE_EXCHANGE_RATE",
       "supports_create": false,
