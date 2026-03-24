@@ -3047,6 +3047,78 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "028",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_control",
+      "code": "select1",
+      "description": "select1",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_SELECT1",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-21 00:00+0000",
+      "last_updated": "2025-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "029",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "industry",
+      "code": "General",
+      "description": "General Inquiry",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "INDUSTRY_GENERAL",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-21 00:00+0000",
+      "last_updated": "2026-03-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02B",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_menu",
+      "code": "navigation",
+      "description": "Navigation",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "MENU_NAVIGATION",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-23 00:00+0000",
+      "last_updated": "2025-06-29 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -3145,8 +3217,8 @@
       "route": "",
       "params": "",
       "icon": "",
-      "grouping": "",
-      "menu_key": "",
+      "grouping": "ALL",
+      "menu_key": "NOT_APPLICABLE",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-06-24 00:00+0000",
@@ -3182,7 +3254,7 @@
     "pk": "002",
     "fields": {
       "type_id": "002",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "000",
       "page_id": "002",
       "order_by": "02",
@@ -3247,6 +3319,78 @@
       "internal_comment": "",
       "created_date": "2025-06-28 00:00+0000",
       "last_updated": "2025-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "005",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "page_id": "000",
+      "order_by": "01",
+      "description": "Administration",
+      "title": "Administration",
+      "sub_title": "Security settings and configuration",
+      "breadcrumb_name": "Administration",
+      "route": "/navigator/005",
+      "params": "",
+      "icon": "settings",
+      "grouping": "Navigation",
+      "menu_key": "ADMINISTRATION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-23 00:00+0000",
+      "last_updated": "2026-03-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "006",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "page_id": "000",
+      "order_by": "02",
+      "description": "Guest Management",
+      "title": "Guest Management",
+      "sub_title": "Guest settings",
+      "breadcrumb_name": "Guest",
+      "route": "/navigator/006",
+      "params": "",
+      "icon": "people",
+      "grouping": "Navigation",
+      "menu_key": "GUEST",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-24 00:00+0000",
+      "last_updated": "2026-03-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "007",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "005",
+      "page_id": "000",
+      "order_by": "01",
+      "description": "Users",
+      "title": "Users",
+      "sub_title": "User security settings",
+      "breadcrumb_name": "User",
+      "route": "",
+      "params": "",
+      "icon": "security",
+      "grouping": "Navigation",
+      "menu_key": "USER",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-24 00:00+0000",
+      "last_updated": "2026-03-23 00:00+0000"  
     }
   }
 ,  {
@@ -4969,28 +5113,28 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00504",
+    "pk": "00505",
     "fields": {
       "form_id": "005",
-      "type_id": "00Z",
-      "status_id": "002",
-      "order_by": "04",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "05",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
-      "label": "#AVAILABLE",
-      "name": "type_id",
+      "label": "Industry",
+      "name": "industry_type_id",
       "mapping_name": "",
-      "default_value": "00X",
+      "default_value": "029",
       "rows": 0,
       "min_length": 0,
       "max_length": 0,
-      "data_source_application": "",
-      "data_source_model_name": "",
-      "data_source_filter": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Type",
+      "data_source_filter": "{ \"grouping\": \"industry\" }",
       "data_source_filter_effective_status": "",
       "data_source_order": "",
-      "display_value": "",
+      "display_value": "description",
       "data_source_fields": "",
       "data_source_fstring": "",
       "data_source_key_field": "",
@@ -4999,18 +5143,18 @@
       "required_flag": "Y",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2025-07-07 00:00+0000",
-      "last_updated": "2025-07-07 00:00+0000"  
+      "created_date": "2026-03-21 00:00+0000",
+      "last_updated": "2026-03-21 00:00+0000"  
     }
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00505",
+    "pk": "00504",
     "fields": {
       "form_id": "005",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "05",
+      "order_by": "04",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",

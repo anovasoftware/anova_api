@@ -1,4 +1,5 @@
-from typing import Optional
+import json
+from typing import Optional, Type as TypingType, cast
 from django.db.models import Model
 
 from core.api_views.table_api_views import PublicTableAPIView
@@ -16,7 +17,9 @@ from core.utilities.api_utilities import transform_records
 from core.utilities.database_utilties import get_active_dict
 
 from constants import status_constants, type_constants
-
+from django.db.models import Q
+from django.db.models import F, Value as V, BooleanField, CharField
+from datetime import date
 
 FORM_VALUES = [
     'form_id',
@@ -74,8 +77,9 @@ class FormAPIView(CoreAPIView):
         self.type_id = 'ALL'
         self.external_id_required = False
         self.form = None
+        self.form_fields = None
         self.form_dict = {}
-        self.form_fields = []
+        self.form_fields_dict = []
         self.form_extras = []
 
     def load_request(self, request, *args, **kwargs):
@@ -90,6 +94,12 @@ class FormAPIView(CoreAPIView):
         if self.success:
             try:
                 self.form = Form.objects.get(pk=self.form_id)
+                self.form_fields = FormField.objects.filter(
+                    form_id=self.form_id,
+                    status_id=status_constants.ACTIVE
+                ).order_by(
+                    'order_by'
+                )
                 self.load_form_fields()
                 self.load_form_extras()
                 app_name = self.form.data_source_application
@@ -101,7 +111,6 @@ class FormAPIView(CoreAPIView):
                 message = f'error loading form: {str(e)}.'
                 self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
-
     def load_form_fields(self):
         form_fields = FormField.objects.filter(
             form_id=self.form_id,
@@ -112,13 +121,13 @@ class FormAPIView(CoreAPIView):
             'order_by'
         )
 
-        action_key = f'disabled_{self.action}'
-        self.form_fields = []
-
-        for field in form_fields:
-            disabled_flag = field.get(action_key, False)
-            field['readonly'] = disabled_flag
-            self.form_fields.append(field)
+        # action_key = f'disabled_{self.action}'
+        # self.form_fields_dict = []
+        #
+        # for field in form_fields:
+        #     disabled_flag = getattr(field, action_key)
+        #     field['readonly'] = disabled_flag
+        #     self.form_fields_dict.append(field)
 
         # self.form_fields = list(form_fields)
 
@@ -154,10 +163,10 @@ class FormAPIView(CoreAPIView):
         record = {}
         for form_field in self.form_fields:
             value = None
-            name = form_field['name']
-            dv = form_field['default_value']
+            name = form_field.name
+            dv = form_field.default_value
 
-            if form_field['type__group1'] == 'char':
+            if form_field.type.group1 == 'char':
                 value = dv
             # if fc.type.group1 == 'date':
             #     value = self.date_utility.get_date(flag=dv)
@@ -176,10 +185,10 @@ class FormAPIView(CoreAPIView):
     def get_record_values_list(self):
         value_fields = []
         for form_field in self.form_fields:
-            if form_field.get('custom_flag') == 'Y':
+            if form_field.custom_flag == 'Y':
                 pass
             else:
-                value_fields.append(form_field['name'])
+                value_fields.append(form_field.name)
 
         if 'pk' not in value_fields:
             value_fields.append('pk')
@@ -195,8 +204,12 @@ class FormAPIView(CoreAPIView):
         #
         # for field in self.form_fields:
         #     field['readonly'] = field.get('readonly') or form_readonly
+        enriched_fields = []
+        for field in self.form_fields:
+            field_dict = self.enrich_form_field(field)
+            enriched_fields.append(field_dict)
 
-        enriched_fields = [self.enrich_form_field(f) for f in self.form_fields]
+        # enriched_fields = [self.enrich_form_field(f) for f in self.form_fields]
 
         form_dict['form_fields'] = transform_records(enriched_fields, self.result_shape)
         form_dict['form_extras'] = transform_records(self.form_extras, self.result_shape)
@@ -204,12 +217,16 @@ class FormAPIView(CoreAPIView):
         self.form_dict = form_dict
 
     def enrich_form_field(self, field):
+        field_dict = model_to_field_dict(field, FORM_FIELD_VALUES)
+
         value = self.get_field_value(field)
+        data_options = self.get_data_options(field)
 
         enriched_field = {
-            **field,
+            **field_dict,
             'value': value,
             'readonly': self.is_readonly(field, value),
+            'data_options': data_options,
             # 'editable': field['control_type'] == 'TEXTBOX',
             # 'required': field['type_id'] in [602, 603],
         }
@@ -218,7 +235,7 @@ class FormAPIView(CoreAPIView):
 
     def get_field_value(self, field):
         value = ''
-        name = field.get('name')
+        name = field.name
         record = self.record
         if False:
             pass
@@ -227,19 +244,45 @@ class FormAPIView(CoreAPIView):
         elif record and name in record:
             value = record[name]
         else:
-            value = field.get('default_value') or ''
+            value = field.default_value or ''
 
         return value
 
     def is_readonly(self, field, value):
-        if field.get('readonly'):
+        action_key = f'disabled_{self.action}'
+        disabled_flag = getattr(field, action_key)
+
+        if self.record.get('static_flag') == 'Y':
             readonly = True
-        elif self.record.get('static_flag') == 'Y':
+        elif disabled_flag:
             readonly = True
         else:
             readonly = False
 
         return readonly
+
+    def get_data_options(self, field):
+        app_name = field.data_source_application
+        model_name = field.data_source_model_name
+        data_options = []
+        if app_name and model_name:
+            model = cast(TypingType[models.Model], apps.get_model(app_name, model_name))
+            display_value = field.display_value
+            order_by = field.data_source_order or display_value
+            fields = field.data_source_fields.replace(' ', '').split(',')
+
+            data_source_key_field = field.data_source_key_field if field.data_source_key_field else model._meta.pk.name
+            data_source_filter = get_data_source_filter(field, form_instance=self)
+            data_options = model.objects.filter(data_source_filter).values(
+                # *fields,
+                id=F(data_source_key_field),
+                display_value=F(field.display_value)
+            ).order_by(
+                order_by
+            )
+            data_options = list(data_options)
+
+        return data_options
 
     def pre_post(self, request):
         # self.record = request.data
@@ -330,11 +373,73 @@ class FormParameterAPIView(PublicFormAPIView):
         record = request.data
 
         for field in self.form_fields:
-            name = field['name']
-            mapping_name = field['mapping_name']
+            name = field.name
+            mapping_name = field.mapping_name
             value = record[name]
             self.parameters[mapping_name] = record[name]
-            if field['control_type'] == 'password':
+            if field.control_type == 'password':
                 record[name] = '#' * len(value)
 
         self.record = record
+
+
+def get_data_source_filter(field: FormField, form_instance=None):
+    raw = field.data_source_filter or '{}'
+    data = json.loads(raw)
+
+    resolved = {}
+    negations = []
+
+    for key, value in data.items():
+        if isinstance(value, str) and value.startswith('form_instance.'):
+            _, suffix = value.split('.', 1)
+            value = get_nested_attr(form_instance, suffix)
+
+        # handle "__ne" keys
+        if key.endswith("__ne"):
+            field = key[:-4]
+            negations.append(~Q(**{field: value}))
+        else:
+            resolved[key] = value
+
+    q_object = parse_filter_string(json.dumps(resolved)) if resolved else Q()
+
+    # add all the negations
+    for nq in negations:
+        q_object &= nq
+
+    return q_object
+
+
+def get_nested_attr(obj, attr_path):
+    attrs = attr_path.split('.')
+
+    for attr in attrs:
+        if isinstance(obj, dict):
+            obj = obj[attr]
+        else:
+            obj = getattr(obj, attr, None)
+        if obj is None:
+            break
+
+    if isinstance(obj, date):
+        obj = obj.strftime("%Y-%m-%d")
+    return obj
+
+
+def parse_filter_string(filter_str):
+    if not filter_str:
+        filter_str = '{}'
+    filter_json = json.loads(filter_str)
+
+    q_objects = Q()
+
+    # Process each key-value pair and update the Q object
+    for key, value in filter_json.items():
+        if key.startswith('OR:'):
+            key = key[len('OR:'):].strip()
+            q_objects |= Q(**{key: value})
+        else:
+            q_objects &= Q(**{key: value})
+
+    return q_objects

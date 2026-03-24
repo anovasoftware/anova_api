@@ -24,6 +24,7 @@ class PublicMenuAPIView(PublicTableAPIView):
         self.type_id = 'ALL'
         self.menu_id = None
         self.menu = None
+        self.order_by = ('order_by', )
         # self.accepted_type_ids = [
         #     'ALL'
         #     # type_constants.MENU_HEADER_BAR
@@ -43,6 +44,7 @@ class PublicMenuAPIView(PublicTableAPIView):
     def get_value_list(self):
         value_list = [
             'menu_id',
+            'parent_menu_id',
             'type_id',
             'description',
             'title',
@@ -51,6 +53,7 @@ class PublicMenuAPIView(PublicTableAPIView):
             'route',
             'page__page_id',
             'page__description',
+            'icon'
         ]
 
         value_list += super().get_value_list()

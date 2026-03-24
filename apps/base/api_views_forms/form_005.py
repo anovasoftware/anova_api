@@ -18,7 +18,7 @@ class Form005APIView(PublicFormAPIView):
     def get_field_value(self, field):
         lookup_value = None
         value = ''
-        name = field.get('name')
+        name = field.name
 
         if self.user and self.user.person.person_id != person_constants.TO_BE_ANNOUNCED:
             person: Person = self.user.person
@@ -34,7 +34,7 @@ class Form005APIView(PublicFormAPIView):
         return value
 
     def is_readonly(self, field, value=None):
-        name = field.get('name')
+        name = field.name
         readonly_fields_if_populated = ('email', 'first_name', 'last_name')
 
         readonly = super().is_readonly(field, value)
