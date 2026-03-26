@@ -2,8 +2,6 @@ from apps.static.table_api_views.form_api_views import FormParameterAPIView
 from constants import form_constants, page_constants, status_constants
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import status
-from apps.base.serializers.user import UserSerializer
 from apps.base.utilities.user_utilities import get_user_profile
 
 # login form

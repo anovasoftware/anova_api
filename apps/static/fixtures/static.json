@@ -3327,14 +3327,14 @@
     "fields": {
       "type_id": "02B",
       "status_id": "001",
-      "parent_menu_id": "000",
+      "parent_menu_id": "001",
       "page_id": "000",
       "order_by": "01",
-      "description": "Administration",
-      "title": "Administration",
-      "sub_title": "Security settings and configuration",
-      "breadcrumb_name": "Administration",
-      "route": "/navigator/005",
+      "description": "Anova Administration",
+      "title": "Anova Administration",
+      "sub_title": "Anova Security settings and configuration",
+      "breadcrumb_name": "Anova Administration",
+      "route": "",
       "params": "",
       "icon": "settings",
       "grouping": "Navigation",
@@ -3351,7 +3351,7 @@
     "fields": {
       "type_id": "02B",
       "status_id": "001",
-      "parent_menu_id": "000",
+      "parent_menu_id": "001",
       "page_id": "000",
       "order_by": "02",
       "description": "Guest Management",
@@ -3377,7 +3377,7 @@
       "status_id": "001",
       "parent_menu_id": "005",
       "page_id": "000",
-      "order_by": "01",
+      "order_by": "01.01",
       "description": "Users",
       "title": "Users",
       "sub_title": "User security settings",
@@ -3387,6 +3387,30 @@
       "icon": "security",
       "grouping": "Navigation",
       "menu_key": "USER",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-24 00:00+0000",
+      "last_updated": "2026-03-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "008",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "001",
+      "page_id": "005",
+      "order_by": "03",
+      "description": "Gangway",
+      "title": "Gangway",
+      "sub_title": "Gangway",
+      "breadcrumb_name": "Gangway",
+      "route": "/navigator/008",
+      "params": "",
+      "icon": "exit_to_app",
+      "grouping": "Navigation",
+      "menu_key": "GANGWAY",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-24 00:00+0000",
@@ -3470,6 +3494,22 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-06-29 00:00+0000",
+      "last_updated": "2025-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "005",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Gangway",
+      "description": "Gangway",
+      "grouping": "Private",
+      "page_key": "Gangway",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-23 00:00+0000",
       "last_updated": "2025-06-29 00:00+0000"  
     }
   }
@@ -3571,7 +3611,7 @@
       "status_id": "001",
       "code": "CAD",
       "symbol": "$",
-      "description": "Canadian",
+      "description": "Canadian Dollary",
       "order_by": "99",
       "currency_key": "CAD",
       "grouping": "real currency",
@@ -3588,8 +3628,8 @@
       "type_id": "027",
       "status_id": "001",
       "code": "CLP",
-      "symbol": "$",
-      "description": "Canadian",
+      "symbol": "",
+      "description": "Chilian Peso",
       "order_by": "99",
       "currency_key": "CLP",
       "grouping": "real currency",
@@ -3597,6 +3637,24 @@
       "internal_comment": "",
       "created_date": "2026-03-20 00:00+0000",
       "last_updated": "2026-03-20 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "06",
+    "fields": {
+      "type_id": "027",
+      "status_id": "001",
+      "code": "TRY",
+      "symbol": "TL",
+      "description": "Turkish Lira",
+      "order_by": "99",
+      "currency_key": "TRY",
+      "grouping": "real currency",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-26 00:00+0000",
+      "last_updated": "2026-03-26 00:00+0000"  
     }
   }
 ,  {

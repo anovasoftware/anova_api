@@ -517,6 +517,31 @@ class Role(BaseModel):
 # AUTOGEN_END_Role#
 
 
+# AUTOGEN_BEGIN_RoleMenu#
+class RoleMenu(BaseModel):
+    role_menu_id        = models.CharField(max_length=  6, blank=False, unique=False, primary_key=True )
+    role                = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name="+", default='A999')
+    menu                = models.ForeignKey("static.Menu", on_delete=models.CASCADE, related_name="+", default='000')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    start_date          = models.DateTimeField(default=timezone.now)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_role_menu'
+        verbose_name_plural = 'Role/Menu junction (base_role_menu)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'role_menu'
+# AUTOGEN_END_RoleMenu#
+
+
 # AUTOGEN_BEGIN_RoleProcess#
 class RoleProcess(BaseModel):
     role_process_id  = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )

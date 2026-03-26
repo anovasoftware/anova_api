@@ -1071,6 +1071,40 @@
     }
   }
 ,  {
+    "model": "base.RoleMenu",
+    "pk": "A00000",
+    "fields": {
+      "role_id": "A000",
+      "menu_id": "000",
+      "type_id": "000",
+      "status_id": "001",
+      "start_date": "2026-03-26 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-26 00:00+0000",
+      "last_updated": "2026-03-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleMenu",
+    "pk": "A00001",
+    "fields": {
+      "role_id": "A001",
+      "menu_id": "005",
+      "type_id": "000",
+      "status_id": "001",
+      "start_date": "2026-03-26 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-26 00:00+0000",
+      "last_updated": "2026-03-26 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Position",
     "pk": "A0000",
     "fields": {
