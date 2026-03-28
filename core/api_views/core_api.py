@@ -102,7 +102,9 @@ class CoreAPIView(GenericAPIView):
         return self.request_method == 'POST'
 
     def is_patch(self):
-        return self.request_method == 'PATCH'
+        is_patch = self.request_method == 'PATCH'
+
+        return is_patch
 
     def get_param_overrides(self):
         merged = {}
@@ -235,8 +237,11 @@ class CoreAPIView(GenericAPIView):
         try:
             data = request.data
             # data = json.loads(request.body.decode('utf-8'))
-            # if data and not isinstance(data, list):
-            #     data = [data]
+            if data and not isinstance(data, list):
+                data = [data, ]
+
+            # if isinstance(data, dict):
+            #     data = [data,]
             self.request_data = data
         except json.JSONDecodeError as e:
             if self.request_data_required:

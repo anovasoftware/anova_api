@@ -200,6 +200,7 @@ class Menu(BaseModel):
     route            = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False)
     params           = models.TextField(blank=False, unique=False, primary_key=False, default='')
     icon             = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False)
+    hotel_required   = models.BooleanField(default=True)
     grouping         = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False)
     menu_key         = models.CharField(max_length= 60, blank=False, unique=False, primary_key=False, default='')
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')

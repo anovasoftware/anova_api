@@ -10,5 +10,6 @@ class UserSerializer(serializers.ModelSerializer):
             'user_id',
             'username',
             'person',
-            'last_hotel_id'
+            'last_hotel_id',
+            'is_superuser'
         )

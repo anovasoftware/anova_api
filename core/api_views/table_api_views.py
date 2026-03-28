@@ -49,7 +49,7 @@ class TableAPIView(CoreAPIView):
     #         required_post=False,
     #     )
     # }
-
+    patchable_fields = set()
 
     def __init__(self):
         super().__init__()
@@ -70,6 +70,14 @@ class TableAPIView(CoreAPIView):
         # self.posting_type = 'batch'
         self.currency_id = None
         self.order_by = None
+
+    def is_patch(self):
+        is_patch = super().is_patch()
+
+        if is_patch:
+            self.external_id_required = False
+
+        return is_patch
 
     def load_request(self, request, *args, **kwargs):
         if not self.app_name:
@@ -135,7 +143,9 @@ class TableAPIView(CoreAPIView):
         super().validate(request)
 
     def validate_patch(self, request):
-        allowed_fields = {'pk', 'last_hotel_id'}
+        allowed_fields = self.patchable_fields.union({'pk'})
+
+        #{'pk', 'last_hotel_id'} # self.patchable_fields
         required_fields = {'pk'}
         data_to_load = self.request_data
 
@@ -371,8 +381,9 @@ class TableAPIView(CoreAPIView):
         return True
 
     def pre_patch(self, request):
-        if not self.load_json(request):
-            pass
+        pass
+        # if not self.load_json(request):
+        #     pass
 
     def build_response(self):
         response = super().build_response()
