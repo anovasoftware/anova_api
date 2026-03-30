@@ -390,7 +390,7 @@ class CoreAPIView(GenericAPIView):
         pass
 
     def _get(self, request):
-        self.set_message('get() not defined', http_status_id=status_constants.HTTP_NOT_FOUND)
+        self.set_message('_get() not defined', http_status_id=status_constants.HTTP_NOT_FOUND)
 
     def post_get(self, request):
         pass

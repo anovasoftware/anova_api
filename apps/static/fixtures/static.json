@@ -3363,8 +3363,8 @@
       "description": "Guest Management",
       "title": "Guest Management",
       "sub_title": "Guest settings",
-      "breadcrumb_name": "Guest",
-      "route": "/navigator/006",
+      "breadcrumb_name": "GuestX",
+      "route": "",
       "params": "",
       "icon": "people",
       "hotel_required": true,
@@ -3383,13 +3383,13 @@
       "type_id": "02B",
       "status_id": "001",
       "parent_menu_id": "005",
-      "page_id": "000",
+      "page_id": "006",
       "order_by": "01.01",
       "description": "Users",
       "title": "Users",
       "sub_title": "User security settings",
       "breadcrumb_name": "User",
-      "route": "",
+      "route": "page",
       "params": "",
       "icon": "security",
       "hotel_required": false,
@@ -3414,7 +3414,7 @@
       "title": "Gangway",
       "sub_title": "Gangway",
       "breadcrumb_name": "Gangway",
-      "route": "/navigator/008",
+      "route": "page",
       "params": "",
       "icon": "exit_to_app",
       "hotel_required": true,
@@ -3496,7 +3496,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "code": "Logn",
+      "code": "Login",
       "description": "Welcome! Log into your account",
       "grouping": "Public",
       "page_key": "LOGIN",
@@ -3515,11 +3515,27 @@
       "code": "Gangway",
       "description": "Gangway",
       "grouping": "Private",
-      "page_key": "Gangway",
+      "page_key": "GANGWAY",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-23 00:00+0000",
       "last_updated": "2025-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "006",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "AnovaUser",
+      "description": "Anova User Management",
+      "grouping": "Private",
+      "page_key": "ANOVA_USER",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-28 00:00+0000",
+      "last_updated": "2026-03-28 00:00+0000"  
     }
   }
 ,  {
@@ -3779,6 +3795,63 @@
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
       "last_updated": "2026-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Not Applicable",
+      "can_create": false,
+      "can_read": false,
+      "can_update": false,
+      "can_delete": false,
+      "grouping": "ALL",
+      "grid_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "001",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Anova User grid",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "grouping": "Anova",
+      "grid_key": "USER_ANOVA",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "To Be Announced",
+      "can_create": false,
+      "can_read": false,
+      "can_update": false,
+      "can_delete": false,
+      "grouping": "ALL",
+      "grid_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
     }
   }
 ,  {
@@ -4492,6 +4565,29 @@
       "internal_comment": "",
       "created_date": "2026-03-16 00:00+0000",
       "last_updated": "2026-03-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "013",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Anova User",
+      "description": "Anova Users",
+      "route": "grid/grid001",
+      "view": "Grid001APIView",
+      "module_path": "apps.base.api_views_grids.grid001",
+      "grouping": "grids",
+      "process_key": "GRID_USER_ANOVA",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-29 00:00+0000",
+      "last_updated": "2026-03-29 00:00+0000"  
     }
   }
 ,  {

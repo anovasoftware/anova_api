@@ -158,6 +158,33 @@ class FormField(BaseModel):
 # AUTOGEN_END_FormField#
 
 
+# AUTOGEN_BEGIN_Grid#
+class Grid(BaseModel):
+    grid_id          = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    description      = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
+    can_create       = models.BooleanField(default=False)
+    can_read         = models.BooleanField(default=False)
+    can_update       = models.BooleanField(default=False)
+    can_delete       = models.BooleanField(default=False)
+    grouping         = models.CharField(max_length= 30, blank=True , unique=False, primary_key=False, default='')
+    grid_key         = models.CharField(max_length= 50, blank=False, unique=False, primary_key=False, default='')
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_grid'
+        verbose_name_plural = 'grids (static_grid)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'grid'
+# AUTOGEN_END_Grid#
+
+
 # AUTOGEN_BEGIN_Hotel#
 class Hotel(BaseModel):
     hotel_id         = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
