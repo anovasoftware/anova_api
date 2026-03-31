@@ -8,6 +8,10 @@ class GridAPIView(CoreAPIView):
     grid_id = None
     grid_utility_class = GridUtility
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.grid_utility = self.grid_utility_class(grid_id=self.grid_id)
+
     def initial(self, request, *args, **kwargs):
         super().initial(request, *args, **kwargs)
 
@@ -17,8 +21,21 @@ class GridAPIView(CoreAPIView):
 
     def _get(self, request):
         if self.success:
+            utility = self.grid_utility
             try:
-                self.grid = self.grid_utility_class(self.grid_id).get_grid()
+                self.grid = utility.grid
+                if not utility.success:
+                    self.add_message(utility.message, status_constants.HTTP_BAD_REQUEST)
+                # grid = self.grid_utility_class(self.grid_id).get_grid()
+                # columns = self.grid_utility_class(self.grid_id).get_grid_columns()
+                # rows = self.grid_utility_class(self.grid_id).get_grid_rows()
+                # displayed_columns = self.grid_utility_class(self.grid_id).get_displayed_columns()
+                # grid['columns'] = columns
+                # grid['rows'] = rows
+                # grid['displayed_columns'] = displayed_columns
+                #
+                # self.grid = grid
+
                 self.data['grid'] = self.grid
             except Exception as e:
                 message = 'not defined'

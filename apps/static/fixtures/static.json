@@ -3804,6 +3804,7 @@
       "type_id": "000",
       "status_id": "001",
       "description": "Not Applicable",
+      "title": "",
       "can_create": false,
       "can_read": false,
       "can_update": false,
@@ -3822,7 +3823,8 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "description": "Anova User grid",
+      "description": "Anova User",
+      "title": "Anova Users",
       "can_create": true,
       "can_read": true,
       "can_update": true,
@@ -3842,12 +3844,53 @@
       "type_id": "000",
       "status_id": "001",
       "description": "To Be Announced",
+      "title": "",
       "can_create": false,
       "can_read": false,
       "can_update": false,
       "can_delete": false,
       "grouping": "ALL",
       "grid_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00101",
+    "fields": {
+      "grid_id": "001",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "user name",
+      "description_short": "",
+      "field": "username",
+      "label": "Username",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00102",
+    "fields": {
+      "grid_id": "001",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "first name",
+      "description_short": "",
+      "field": "person__first_name",
+      "label": "First Name",
+      "format": "text",
+      "style_class": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-30 00:00+0000",

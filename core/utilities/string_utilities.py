@@ -21,4 +21,12 @@ def mask_string(s):
 
 def snake_to_camel(s):
     parts = s.split('_')
-    return parts[0] + ''.join(word.capitalize() for word in parts[1:])
+    snaked = parts[0] + ''.join(word.capitalize() for word in parts[1:])
+    return snaked
+    # return parts[0] + ''.join(word.capitalize() for word in parts[1:])
+
+
+def field_to_data_path(field_name: str) -> str:
+    parts = field_name.split('__')
+    camel_parts = [parts[0]] + [snake_to_camel(p) for p in parts[1:]]
+    return '.'.join(camel_parts)

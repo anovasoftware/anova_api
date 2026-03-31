@@ -164,6 +164,7 @@ class Grid(BaseModel):
     type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
     status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
     description      = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
+    title            = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False, default='')
     can_create       = models.BooleanField(default=False)
     can_read         = models.BooleanField(default=False)
     can_update       = models.BooleanField(default=False)
@@ -183,6 +184,34 @@ class Grid(BaseModel):
     def __str__(self):
         return 'grid'
 # AUTOGEN_END_Grid#
+
+
+# AUTOGEN_BEGIN_GridColumn#
+class GridColumn(BaseModel):
+    grid_column_id    = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )
+    grid              = models.ForeignKey("Grid", on_delete=models.CASCADE, default='000')
+    type              = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status            = models.ForeignKey("static.Status", on_delete=models.CASCADE, default='001')
+    order_by          = models.CharField(max_length=  2, blank=True , unique=False, primary_key=False)
+    description       = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
+    description_short = models.CharField(max_length= 20, blank=True , unique=False, primary_key=False)
+    field             = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
+    label             = models.CharField(max_length= 25, blank=False, unique=False, primary_key=False, default='')
+    format            = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+    style_class       = models.CharField(max_length= 70, blank=False, unique=False, primary_key=False, default='')
+    static_flag       = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment  = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date      = models.DateTimeField(auto_now_add=True)
+    last_updated      = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'static_grid_column'
+        verbose_name_plural = 'grid columns (static_grid_column)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'grid_column'
+# AUTOGEN_END_GridColumn#
 
 
 # AUTOGEN_BEGIN_Hotel#
