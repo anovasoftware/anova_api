@@ -3885,6 +3885,26 @@
       "type_id": "000",
       "status_id": "001",
       "order_by": "02",
+      "description": "last name",
+      "description_short": "",
+      "field": "person__last_name",
+      "label": "Last Name",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-01 00:00+0000",
+      "last_updated": "2026-04-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00103",
+    "fields": {
+      "grid_id": "001",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
       "description": "first name",
       "description_short": "",
       "field": "person__first_name",
@@ -3895,6 +3915,26 @@
       "internal_comment": "",
       "created_date": "2026-03-30 00:00+0000",
       "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00104",
+    "fields": {
+      "grid_id": "001",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "user status",
+      "description_short": "",
+      "field": "status__description",
+      "label": "Status",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-01 00:00+0000",
+      "last_updated": "2026-04-01 00:00+0000"  
     }
   }
 ,  {

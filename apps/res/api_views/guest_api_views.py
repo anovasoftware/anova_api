@@ -1,11 +1,10 @@
 from django.utils import timezone
-from django.db.models import Min, Max
 from apps.res.api_views.res_api_views import AuthorizedResAPIView
-from rest_framework.response import Response
 from apps.static.models import Status
 from apps.res.models import Guest, GuestRoom
 from constants import process_constants, status_constants, constants
 from apps.res.utilities.guest_utilities import get_guest_adjusted, get_guest_state, get_next_status_id
+from core.utilities.rfid_utilities import normalize_rfid
 
 record_dict = {
     'guest_id': {'description': 'Guest Identifier', 'example': '311302'},
@@ -21,9 +20,10 @@ record_dict = {
 
 }
 
+
 class AuthorizedGuestDetailAPIView(AuthorizedResAPIView):
     process_id = process_constants.RES_GUEST_DETAIL
-    PARAM_SPECS = AuthorizedResAPIView.PARAM_SPECS + ('recordId', )
+    PARAM_SPECS = AuthorizedResAPIView.PARAM_SPECS + ('recordId',)
     PARAM_OVERRIDES = {
         **getattr(AuthorizedResAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(
@@ -53,7 +53,17 @@ class AuthorizedGuestDetailAPIView(AuthorizedResAPIView):
         super().load_models(request)
 
         try:
-            self.guest = Guest.objects.get(pk=self.guest_id)
+            # self.guest = Guest.objects.get(pk=self.guest_id)
+
+            try:
+                self.guest = Guest.objects.get(pk=self.guest_id)
+            except Guest.DoesNotExist:
+                rfid_uid = self.guest_id
+                rfid_uid = normalize_rfid(rfid_uid)
+                self.guest = Guest.objects.get(rfid_uid=rfid_uid)
+
+            self.guest_id = self.guest.guest_id
+
             person = self.guest.person
             # self.context['guest_id'] = self.guest.guest_id
             # self.context['guest_name'] = f'{person.last_name}/{person.first_name}'
@@ -85,15 +95,15 @@ class AuthorizedGuestDetailAPIView(AuthorizedResAPIView):
         return value_list
 
     def get_query_filter(self):
-        filters = {'guest_id': self.guest_id,}
+        filters = {'guest_id': self.guest_id, }
         return filters
 
     def post_get(self, request):
         super().post_get(request)
 
         if self.success:
-            self.record['guest_room__arrival_date'] =  self.guest_room.arrival_date.strftime(constants.DATE_FORMAT)
-            self.record['guest_room__departure_date'] =  self.guest_room.departure_date.strftime(constants.DATE_FORMAT)
+            self.record['guest_room__arrival_date'] = self.guest_room.arrival_date.strftime(constants.DATE_FORMAT)
+            self.record['guest_room__departure_date'] = self.guest_room.departure_date.strftime(constants.DATE_FORMAT)
 
     def get_current_guest_room(self):
         rooms = self.guest_rooms
@@ -117,8 +127,8 @@ class AuthorizedGuestDetailAPIView(AuthorizedResAPIView):
                 current_guest_room = next(
                     (
                         r for r in reversed(rooms) if r.arrival_date <= today < r.departure_date),
-                        None
-                    )
+                    None
+                )
 
         return current_guest_room
 
@@ -134,18 +144,20 @@ class AuthorizedGuestDetailToggleStatusAPIView(AuthorizedGuestDetailAPIView):
         # )
     }
 
-
     def _post(self, request):
         super()._post(request)
 
         if self.success:
             status_id_old = self.guest.status_id
-            status_old:Status = self.guest.status
+            status_old: Status = self.guest.status
             state = get_guest_state(self.arrival_date, self.departure_date)
             status_id_new = get_next_status_id(self.guest.status_id, state)
             status_new = Status.objects.get(pk=status_id_new)
 
             self.data = {
+                'guest_id': self.guest.guest_id,
+                # 'name': f'{self.guest.person.last_name}/{self.guest.person.first_name}',
+                'name': 'Doe/John',
                 'changed': status_old.status_id != status_new.status_id,
                 'status_id_old': status_old.status_id,
                 'status_code_old': status_old.code,
@@ -158,5 +170,3 @@ class AuthorizedGuestDetailToggleStatusAPIView(AuthorizedGuestDetailAPIView):
                 self.guest.status_id = status_id_new
                 self.guest.save()
                 self.add_message(f'Guest status changed from {status_old.code} to {status_new.code}')
-
-

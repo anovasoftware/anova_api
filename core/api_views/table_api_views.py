@@ -63,7 +63,7 @@ class TableAPIView(CoreAPIView):
         self.type = None
         self.external_id_required = True
         self.external_id_prefix = None
-        self.action = None
+        self.action = ''
         self.records = []
         self.record = None
         self.record_id = None

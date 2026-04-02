@@ -73,7 +73,7 @@ class FormAPIView(CoreAPIView):
         self.base_model: Optional[Model] = None
         self.record_id = None
         self.record = {}
-        self.action = None
+        self.action = ''
         self.type_id = 'ALL'
         self.external_id_required = False
         self.form = None
