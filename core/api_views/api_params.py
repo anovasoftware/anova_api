@@ -75,6 +75,20 @@ COMMON_PARAMS = {
         cast=_to_str,
         description='RFID UID)',
     ),
+    'roomCode': ParamSpec(
+        name='roomCode',
+        dest='room_code',
+        kind='query',
+        cast=_to_str,
+        description='Room/cabin code (e.g., 101).',
+    ),
+    'searchString': ParamSpec(
+        name='searchString',
+        dest='search_string',
+        kind='query',
+        cast=_to_str,
+        description='Search string (e.g., Johnson).',
+    ),
     'shape': ParamSpec(
         name='shape',
         dest='result_shape',

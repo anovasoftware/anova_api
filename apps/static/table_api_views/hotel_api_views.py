@@ -1,5 +1,4 @@
-from core.api_views.table_api_views import AuthorizedTableAPIView, parameters, context
-from core.api_views.table_api_views import get_only_parameters, post_only_parameters
+from core.api_views.table_api_views import AuthorizedTableAPIView
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from django.core.exceptions import ObjectDoesNotExist
@@ -8,34 +7,36 @@ from apps.res.models import Guest, GuestRoom, Event, HotelExtension
 
 from constants import status_constants
 
-context['hotel_id'] = 'A332'
-context['hotel_description'] = 'MS Diamond'
-
-parameters = parameters + [
-    OpenApiParameter(
-        name='hotelId',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=True,
-        description='Hotel/ship code (contact Anova for details).'
-    ),
-    OpenApiParameter(
-        name='guestId',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=False,
-        description='Guest/passenger id (folio)'
-    ),
-]
-get_only_parameters = get_only_parameters + []
-post_only_parameters = post_only_parameters + []
-
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
-    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS + ('hotelId', 'hotelPublicKey')
+    DOC_CONTEXT = {
+        'hotel_id': 'A332',
+        'hotel_description': 'MS Diamond'
+    }
+    DOC_PARAMETERS = [
+        OpenApiParameter(
+            name='hotelId',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=True,
+            description='Hotel/ship code (contact Anova for details).'
+        ),
+        OpenApiParameter(
+            name='guestId',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=False,
+            description='Guest/passenger id (folio)'
+        ),
+    ]
+    DOC_GET_ONLY_PARAMETERS = []
+    DOC_POST_ONLY_PARAMETERS = []
+
+    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS + ('hotelId', 'hotelPublicKey', 'roomCode')
     PARAM_OVERRIDES = {
         'hotelId': dict(required_get=False, required_post=False, ),
-        'hotelPublicKey': dict(required_get=False, required_post=False, )
+        'hotelPublicKey': dict(required_get=False, required_post=False, ),
+        'roomCode': dict(required_get=False, required_post=False, )
     }
 
 
@@ -46,6 +47,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         self.hotel_id = None
         self.hotel_id_field = 'hotel_id'
         self.hotel_public_key = None
+        self.hotel_key = None
         self.hotel_extension = None
         self.guest_id = None
         self.guest = None
@@ -60,6 +62,8 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
             if bool(self.hotel_id) == bool(self.hotel_public_key):
                 message = 'Exactly one of hotelId or hotelPublicKey must be provided.'
                 self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            else:
+                self.hotel_key = self.hotel_id if self.hotel_id else self.hotel_public_key
 
             # if self.hotel_id and self.hotel_public_key:
             #     message = 'Only one of hotelId or hotelPublicKey is required.'
@@ -150,7 +154,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
         if self.hotel:
             hotel = self.hotel
-            response['context']['hotel_id'] = hotel.hotel_id
+            response['context']['hotel_key'] = self.hotel_key
             response['context']['hotel_description'] = hotel.description
         if self.guest:
             guest = self.guest

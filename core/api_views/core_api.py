@@ -10,48 +10,106 @@ from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
 from django.http import JsonResponse
 from core.services.core_service import CoreService
+
 from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import OpenApiParameter
+from drf_spectacular.utils import OpenApiParameter, extend_schema_view
+
 from core.api_views.api_params import ParamSpec, _to_str, COMMON_PARAMS
 from dataclasses import replace
 from django.utils import timezone
 from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
 from core.utilities.api_utilities import get_client_ip
 from core.utilities.api_utilities import flat_record
+from core.utilities.api_docs_utilties import override_parameters, params_for
 
-context = {
-    'user_id': '002149',
-    'username': 'Acme API Consumer, Inc.',
-}
-
-parameters = [
-    OpenApiParameter(
-        name='shape',
-        type=OpenApiTypes.STR,
-        default='nested',
-        location='query',
-        required=False,
-        description='Result shape. (nested or flat)'
-    ),
-]
-
-post_only_parameters = []
-get_only_parameters = []
 
 
 class CoreAPIView(GenericAPIView):
-    process_id = None
-    request_method = None
+    # 1. Static docs / schema config
+    DOC_CONTEXT = {
+        'user_id': '002149',
+        'username': 'Acme API Consumer, Inc.',
+    }
+    DOC_PARAMETERS = [
+        OpenApiParameter(
+            name='shape',
+            type=OpenApiTypes.STR,
+            default='nested',
+            location='query',
+            required=False,
+            description='Result shape. (nested or flat)'
+        ),
+    ]
+    DOC_PARAMETER_OVERRIDES = {}
+    DOC_GET_ONLY_PARAMETERS = []
+    DOC_POST_ONLY_PARAMETERS = []
+    RECORD_DICT = []
+
+    # 2. Static runtime/config
     COMMON_PARAMS = COMMON_PARAMS
-    PARAM_SPECS = ('shape', 'debugFlag')
+    PARAM_SPECS = ('shape', 'debugFlag', 'searchString')
     PARAM_OVERRIDES = {
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
+
+    process_id = None
+    request_method = None
+    patchable_fields = set()
     patch_fields_whitelist = []
     home_currency = {
         'currency_id': currency_constants.USD,
         'code': 'USD',
     }
+
+    # 3.Class methods / static methods
+    @classmethod
+    def get_doc_context(cls):
+        context = {}
+
+        for base in reversed(cls.__mro__):
+            if hasattr(base, 'DOC_CONTEXT'):
+                context.update(getattr(base, 'DOC_CONTEXT', {}))
+
+        return context
+
+    @classmethod
+    def get_doc_parameters(cls):
+        parameters = []
+
+        for base in reversed(cls.__mro__):
+            if hasattr(base, 'DOC_PARAMETERS'):
+                parameters.extend(getattr(base, 'DOC_PARAMETERS', []))
+
+        for base in reversed(cls.__mro__):
+            overrides = getattr(base, 'DOC_PARAMETER_OVERRIDES', {})
+            for name, override_dict in overrides.items():
+                parameters = override_parameters(parameters, name, **override_dict)
+
+        return list(parameters)
+
+    @classmethod
+    def get_doc_post_only_parameters(cls):
+        post_only_parameters = []
+
+        for base in reversed(cls.__mro__):
+            if hasattr(base, 'DOC_POST_ONLY_PARAMETERS'):
+                post_only_parameters.extend(getattr(base, 'DOC_POST_ONLY_PARAMETERS', []))
+
+        return list(post_only_parameters)
+
+    @classmethod
+    def get_doc_get_only_parameters(cls):
+        get_only_parameters = []
+
+        for base in reversed(cls.__mro__):
+            if hasattr(base, 'DOC_GET_ONLY_PARAMETERS'):
+                get_only_parameters.extend(getattr(base, 'DOC_GET_ONLY_PARAMETERS', []))
+
+        return list(get_only_parameters)
+
+    @classmethod
+    def get_schema(cls):
+        return extend_schema_view()
 
     def initial(self, request, *args, **kwargs):
         # safe default
@@ -395,7 +453,7 @@ class CoreAPIView(GenericAPIView):
     def post_get(self, request):
         pass
 
-    def post(self, request,*args, **kwargs):
+    def post(self, request, *args, **kwargs):
         try:
             self.load_request(request, *args, **kwargs)
 
@@ -419,7 +477,6 @@ class CoreAPIView(GenericAPIView):
 
     def pre_post(self, request):
         pass
-
 
     def _post(self, request):
         self.set_message('post() not defined')
@@ -725,6 +782,7 @@ class ThirdPartyAuthorizedAPIView(AuthorizedAPIView):
 def health_check(request):
     return JsonResponse({'status': 'ok'})
 
+
 # def is_http_success(code_key: str) -> bool:
 #     entry = API_CODES.get(code_key)
 #     if not entry:
@@ -735,9 +793,8 @@ def health_check(request):
 #     return 200 <= http_status < 300
 
 
-
 class RecordAPIView(CoreAPIView):
-    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('recordId', )
+    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('recordId',)
     PARAM_OVERRIDES = {
         **getattr(CoreAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(

@@ -170,3 +170,5 @@ class AuthorizedGuestDetailToggleStatusAPIView(AuthorizedGuestDetailAPIView):
                 self.guest.status_id = status_id_new
                 self.guest.save()
                 self.add_message(f'Guest status changed from {status_old.code} to {status_new.code}')
+
+

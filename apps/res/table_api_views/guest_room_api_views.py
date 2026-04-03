@@ -1,94 +1,86 @@
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, parameters, context
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 from django.utils import timezone
 from constants import type_constants, process_constants
 from core.utilities.string_utilities import mask_string
 from drf_spectacular.utils import extend_schema, extend_schema_view
-from apps.static.table_api_views.hotel_api_views import post_only_parameters, get_only_parameters
-from core.utilities.api_docs_utilties import override_parameters, params_for
+from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
 
-context = context or {}
-
-record_dict = {
-    'room__code': {'description': 'Room/Cabin.', 'example': '302'},
-    'guest__type__code': {'description': 'Guest type.', 'example': 'Guest'},
-    'guest__person__last_name': {'description': 'Guest last name.', 'example': '####'},
-    'guest__person__first_name': {'description': 'Guest first name.', 'example': '##'},
-    'guest__person__salutation': {'description': 'Guest salutation.', 'example': 'MR'},
-    'guest__person__birth_date': {'description': 'Birth date (e.g., 1990-01-01).', 'example': '1955-08-20T00:00:00Z'},
-    'guest__person__email': {'description': 'Guest email address.', 'example': ''},
-    'arrival_date': {'description': 'Guest arrival date.', 'example': '2025-10-29T00:00:00Z'},
-    'departure_date': {'description': 'Guest departure date.', 'example': '2025-11-17T00:00:00Z'},
-    'guest__authorized_to_charge_flag': {'description': 'Authorized to charge (Y or N).', 'example': 'Y'},
-    'guest__reservation_id': {'description': 'Reservation ID. Booking reference.', 'example': '0000F8'},
-    'guest__guest_id': {'description': 'Guest Identifier (folio number)', 'example': '0000DY'},
-    'guest__person_id': {'description': 'Internal person identifier', 'example': '0000DZ'},
-    'room_id': {'description': 'Internal room/cabin identifier', 'example': '006H'},
-}
-
-parameters = parameters + [
-    OpenApiParameter(
-        name='roomCode',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=False,
-        description='Room code (e.g., 101).'
-    ),
-    OpenApiParameter(
-        name='lastName',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=False,
-        description='Last name of guest (e.g., Johnson).'
-    ),
-]
-get_only_parameters = get_only_parameters + []
-post_only_parameters = post_only_parameters + ['amount', 'currencyCode', ]
-
-record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
-    record_dict=record_dict,
-    context=context,
-    parameters=parameters,
-)
-
-# record_dict = expand_record_dict(record_dict)
-# record_fields = get_record_fields(record_dict)
-# record_serializer = inline_serializer(name='Record', fields=record_fields)
-# response_envelope = get_docs_envelope(record_serializer)
-#
-# docs_example = get_docs_envelope_example(
+# record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
+#     record_dict=record_dict,
 #     context=context,
-#     records=[get_docs_record_example(record_dict), ],
-#     parameters=get_parameters_from_open_api_parameters(parameters),
+#     parameters=parameters,
 # )
+#
 
-
-@extend_schema_view(
-    get=extend_schema(
-        summary='Retrieve guest information with room/cabin assignment',
-        description='Returns guest room/cabin info for a given room code or guest ID.',
-        tags=['Guest Room'],
-        parameters=params_for(
-            method='GET',
-            parameters=parameters,
-            post_only=post_only_parameters,
-            get_only=get_only_parameters
-        ),
-
-        responses={200: response_envelope},
-        examples=[
-            OpenApiExample(
-                'GuestRoomSuccess',
-                value=docs_example,  # <-- YOUR full envelope example here
-            )
-        ]
-    ),
-    post=extend_schema(exclude=True),
-)
+# @extend_schema_view(
+#     get=extend_schema(
+#         summary='Retrieve guest information with room/cabin assignment',
+#         description='Returns guest room/cabin info for a given room code or guest ID.',
+#         tags=['Guest Room'],
+#         parameters=params_for(
+#             method='GET',
+#             parameters=parameters,
+#             post_only=post_only_parameters,
+#             get_only=get_only_parameters
+#         ),
+#
+#         responses={200: response_envelope},
+#         examples=[
+#             OpenApiExample(
+#                 'GuestRoomSuccess',
+#                 value=docs_example,  # <-- YOUR full envelope example here
+#             )
+#         ]
+#     ),
+#     post=extend_schema(exclude=True),
+# )
 ##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
+    DOC_CONTEXT = {}
+    RECORD_DICT = {
+        'room__code': {'description': 'Room/Cabin.', 'example': '302'},
+        'guest__type__code': {'description': 'Guest type.', 'example': 'Guest'},
+        'guest__person__last_name': {'description': 'Guest last name.', 'example': '####'},
+        'guest__person__first_name': {'description': 'Guest first name.', 'example': '##'},
+        'guest__person__salutation': {'description': 'Guest salutation.', 'example': 'MR'},
+        'guest__person__birth_date': {'description': 'Birth date (e.g., 1990-01-01).',
+                                      'example': '1955-08-20T00:00:00Z'},
+        'guest__person__email': {'description': 'Guest email address.', 'example': ''},
+        'arrival_date': {'description': 'Guest arrival date.', 'example': '2025-10-29T00:00:00Z'},
+        'departure_date': {'description': 'Guest departure date.', 'example': '2025-11-17T00:00:00Z'},
+        'guest__authorized_to_charge_flag': {'description': 'Authorized to charge (Y or N).', 'example': 'Y'},
+        'guest__reservation_id': {'description': 'Reservation ID. Booking reference.', 'example': '0000F8'},
+        'guest__guest_id': {'description': 'Guest Identifier (folio number)', 'example': '0000DY'},
+        'guest__person_id': {'description': 'Internal person identifier', 'example': '0000DZ'},
+        'room_id': {'description': 'Internal room/cabin identifier', 'example': '006H'},
+    }
+    DOC_PARAMETERS = [
+        OpenApiParameter(
+            name='roomCode',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=False,
+            description='Room code (e.g., 101).'
+        ),
+        OpenApiParameter(
+            name='lastName',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=False,
+            description='Last name of guest (e.g., Johnson).'
+        ),
+    ]
+    DOC_GET_ONLY_PARAMETERS = []
+    DOC_POST_ONLY_PARAMETERS = ['amount', 'currencyCode', ]
+    DOC_GET_SUMMARY = 'Retrieve guest information with room/cabin assignment'
+    DOC_GET_DESCRIPTION = 'Returns guest room/cabin info for a given room code or guest ID.'
+    DOC_TAGS = ['Guest Room']
+    DOC_EXAMPLE_NAME = 'GuestRoomSuccess'
+
+    http_method_names = ['get', 'options', 'head']
     process_id = process_constants.RES_GUEST_ROOM
 
     PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
@@ -102,6 +94,40 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
         )
     }
 
+    @classmethod
+    def get_schema(cls):
+        parameters = cls.get_doc_parameters()
+        get_only_parameters = cls.get_doc_get_only_parameters()
+        post_only_parameters = cls.get_doc_post_only_parameters()
+        context = cls.get_doc_context()
+
+        _, _, response_envelope, docs_example = build_docs_response(
+            record_dict=cls.RECORD_DICT,
+            context=context,
+            parameters=parameters,
+        )
+
+        return extend_schema_view(
+            get=extend_schema(
+                summary=cls.DOC_GET_SUMMARY,
+                description=cls.DOC_GET_DESCRIPTION,
+                tags=cls.DOC_TAGS,
+                parameters=params_for(
+                    method='GET',
+                    parameters=parameters,
+                    post_only=post_only_parameters,
+                    get_only=get_only_parameters
+                ),
+                responses={200: response_envelope},
+                examples=[
+                    OpenApiExample(
+                        cls.DOC_EXAMPLE_NAME,
+                        value=docs_example,
+                    )
+                ]
+            ),
+            post=extend_schema(exclude=True),
+        )
 
     def __init__(self):
         super().__init__()
@@ -131,7 +157,7 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
             self.search_options[option] = self.get_param(option, None, False)
 
     def get_value_list(self):
-        value_list = list(record_dict.keys())
+        value_list = list(self.RECORD_DICT.keys())
         if self.room:
             pass
 
@@ -180,4 +206,4 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
 
         return response
 
-# core/utilities/api_examples.py
+IntegrationGuestAPIView = AuthorizedGuestRoomAPIView.get_schema()(AuthorizedGuestRoomAPIView)

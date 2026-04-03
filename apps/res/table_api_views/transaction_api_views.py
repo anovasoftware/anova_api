@@ -1,6 +1,5 @@
 from decimal import Decimal
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView, context, parameters
-from apps.static.table_api_views.hotel_api_views import post_only_parameters, get_only_parameters
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from constants import type_constants, event_constants, status_constants, guest_constants, process_constants
 
 from apps.res.models import Transaction, TransactionItem
@@ -9,7 +8,7 @@ from apps.static.models import Currency
 
 from django.core.exceptions import ObjectDoesNotExist
 
-from core.utilities.api_docs_utilties import override_parameters, params_for
+from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
 
 from drf_spectacular.types import OpenApiTypes
@@ -17,94 +16,97 @@ from drf_spectacular.utils import extend_schema, extend_schema_view
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 from drf_spectacular.openapi import AutoSchema
 
-
-context = context or {}
-
-record_dict = {
-    'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
-    'description': {'description': 'Description of transaction.', 'example': '1GB INTERNET VOUCHER'},
-    'guest_id': {'description': 'Guest id.', 'example': '002149'},
-    'event_id': {'description': 'Event id.', 'example': '009112'},
-    'currency_id': {'description': 'Currency', 'example': '002'},
-    # 'item_id': {'description': 'POS Item Id', 'example': '0100091'}
-}
-parameters = override_parameters(parameters, 'guestId', required=True)
-
-parameters = parameters + [
-    OpenApiParameter(
-        name='amount',
-        type=OpenApiTypes.NUMBER,
-        location='query',
-        required=True,
-        description='Transaction amount (e.g., 7.29).'
-    ),
-    OpenApiParameter(
-        name='currencyCode',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=True,
-        description='ISO currency code (e.g., USD).'
-    ),
-    OpenApiParameter(
-        name='externalReference',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=True,
-        description='External reference identifier (e.g., R00088).'
-    ),
-    OpenApiParameter(
-        name='externalAuthorizationCode',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=False,
-        description='External authorization or approval code.'
-    ),
-    OpenApiParameter(
-        name='itemDescription',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=True,
-        description='Description of item or service (e.g., 1GB INTERNET VOUCHER).'
-    ),
-]
-get_only_parameters = get_only_parameters + []
-post_only_parameters = post_only_parameters + ['amount', 'currencyCode', ]
-
-record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
-    record_dict=record_dict,
-    context=context,
-    parameters=parameters,
-)
-
-@extend_schema_view(
-    get=extend_schema(exclude=True),
-    post=extend_schema(
-        summary='Post a charge or refund to a guest.',
-        description='Post a charge or refund to a guest.',
-        tags=['Transaction'],
-        parameters=params_for(
-            method='POST',
-            parameters=parameters,
-            post_only=post_only_parameters,
-            get_only=get_only_parameters
-        ),
-        responses={200: response_envelope},
-        examples=[
-            OpenApiExample(
-                'TransactionSuccess',
-                value=docs_example,  # <-- YOUR full envelope example here
-            )
-        ]
-    ),
-)
+# record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
+#     record_dict=record_dict,
+#     context=context,
+#     parameters=parameters,
+# )
+#
+# @extend_schema_view(
+#     get=extend_schema(exclude=True),
+#     post=extend_schema(
+#         summary='Post a charge or refund to a guest.',
+#         description='Post a charge or refund to a guest.',
+#         tags=['Transaction'],
+#         parameters=params_for(
+#             method='POST',
+#             parameters=parameters,
+#             post_only=post_only_parameters,
+#             get_only=get_only_parameters
+#         ),
+#         responses={200: response_envelope},
+#         examples=[
+#             OpenApiExample(
+#                 'TransactionSuccess',
+#                 value=docs_example,  # <-- YOUR full envelope example here
+#             )
+#         ]
+#     ),
+# )
 ##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
-    process_id = process_constants.RES_TRANSACTION
+    http_method_names = ['post', 'options', 'head']
+    DOC_CONTEXT = {}
+    RECORD_DICT = {
+        'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
+        'description': {'description': 'Description of transaction.', 'example': '1GB INTERNET VOUCHER'},
+        'guest_id': {'description': 'Guest id.', 'example': '002149'},
+        'event_id': {'description': 'Event id.', 'example': '009112'},
+        'currency_id': {'description': 'Currency', 'example': '002'},
+        # 'item_id': {'description': 'POS Item Id', 'example': '0100091'}
+    }
+    DOC_PARAMETER_OVERRIDES = {
+        'guestId': {'required': True}
+    }
+    DOC_PARAMETERS = [
+        OpenApiParameter(
+            name='amount',
+            type=OpenApiTypes.NUMBER,
+            location='query',
+            required=True,
+            description='Transaction amount (e.g., 7.29).'
+        ),
+        OpenApiParameter(
+            name='currencyCode',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=True,
+            description='ISO currency code (e.g., USD).'
+        ),
+        OpenApiParameter(
+            name='externalReference',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=True,
+            description='External reference identifier (e.g., R00088).'
+        ),
+        OpenApiParameter(
+            name='externalAuthorizationCode',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=False,
+            description='External authorization or approval code.'
+        ),
+        OpenApiParameter(
+            name='itemDescription',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=True,
+            description='Description of item or service (e.g., 1GB INTERNET VOUCHER).'
+        ),
+    ]
+    DOC_GET_ONLY_PARAMETERS = []
+    DOC_POST_ONLY_PARAMETERS = ['amount', 'currencyCode', ]
+    DOC_POST_SUMMARY = 'Post a charge or refund to a guest.'
+    DOC_POST_DESCRIPTION = 'Post a charge or refund to a guest.'
+    DOC_TAGS = ['Transaction']
+    DOC_EXAMPLE_NAME = 'TransactionSuccess'
+
     PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('statusId', 'guestId', 'typeId')
     PARAM_OVERRIDES = {
         'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
         'guestId': dict(required_post=True, ),
-        'type_id': dict(
+        'typeId': dict(
             # required_patch=False,
             allowed=(
                 type_constants.RES_TRANSACTION_STAGED_SALE,
@@ -113,8 +115,43 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             )
         )
     }
+    process_id = process_constants.RES_TRANSACTION
+    # schema = AutoSchema()
 
-    schema = AutoSchema()
+    @classmethod
+    def get_schema(cls):
+        parameters = cls.get_doc_parameters()
+        get_only_parameters = cls.get_doc_get_only_parameters()
+        post_only_parameters = cls.get_doc_post_only_parameters()
+        context = cls.get_doc_context()
+
+        _, _, response_envelope, docs_example = build_docs_response(
+            record_dict=cls.RECORD_DICT,
+            context=context,
+            parameters=parameters,
+        )
+
+        return extend_schema_view(
+            get=extend_schema(exclude=True),
+            post=extend_schema(
+                summary=cls.DOC_POST_SUMMARY,
+                description=cls.DOC_POST_DESCRIPTION,
+                tags=cls.DOC_TAGS,
+                parameters=params_for(
+                    method='POST',
+                    parameters=parameters,
+                    post_only=post_only_parameters,
+                    get_only=get_only_parameters
+                ),
+                responses={200: response_envelope},
+                examples=[
+                    OpenApiExample(
+                        cls.DOC_EXAMPLE_NAME,
+                        value=docs_example,
+                    )
+                ]
+            ),
+        )
 
     def __init__(self):
         super().__init__()
@@ -308,7 +345,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
                 self.item_id = items[0].pk
 
     def get_value_list(self):
-        value_list = list(record_dict.keys())
+        value_list = list(self.RECORD_DICT.keys())
         return value_list
 
     def get_query_filter(self):
@@ -400,7 +437,6 @@ class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
         'typeId': dict(required_patch=False),
     }
 
-    schema = AutoSchema()
     process_id = process_constants.RES_TRANSACTION_STATUS
 
     def __init__(self):
@@ -408,8 +444,8 @@ class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
         self.app_name = 'res'
         self.model_name = 'Transaction'
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
 
     def load_models(self, request):
         super().load_models(request)
@@ -434,3 +470,5 @@ class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
         if self.success:
             self.record.status_id = self.status_id
             self.record.save()
+
+AuthorizedTransactionAPIView = AuthorizedTransactionAPIView.get_schema()(AuthorizedTransactionAPIView)

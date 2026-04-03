@@ -4177,7 +4177,7 @@
       "description": "Guest",
       "route": "table/res/guest/",
       "view": "AuthorizedGuestAPIView",
-      "module_path": "apps.res.table_api_views.guest_api_views",
+      "module_path": "apps.res.table_api_views.table_guest_api_views",
       "grouping": "table",
       "process_key": "RES_GUEST",
       "supports_create": true,
@@ -4671,6 +4671,29 @@
       "internal_comment": "",
       "created_date": "2026-03-29 00:00+0000",
       "last_updated": "2026-03-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "014",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Guest Integration",
+      "description": "Guest Integration",
+      "route": "integration/guest/",
+      "view": "IntegrationGuestAPIView",
+      "module_path": "apps.res.table_api_views.table_guest_api_views",
+      "grouping": "integration",
+      "process_key": "INTEGRATION_GUEST",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-02 00:00+0000",
+      "last_updated": "2026-04-02 00:00+0000"  
     }
   }
 ,  {

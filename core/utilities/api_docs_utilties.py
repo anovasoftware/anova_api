@@ -8,6 +8,7 @@ from rest_framework import serializers as s
 from core.utilities.api_utilities import MetaSerializer
 from core.utilities.string_utilities import snake_to_camel
 from drf_spectacular.utils import inline_serializer
+from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
 
 
 def get_docs_envelope(record_serializer: s.Serializer,  name: str = 'StandardEnvelope') -> s.Serializer:
@@ -181,6 +182,7 @@ def build_docs_response(
     parameters = parameters or []
 
     record_dict = expand_record_dict(record_dict)
+    record_dict = format_response(record_dict)
     record_fields = get_record_fields(record_dict)
     record_serializer = inline_serializer(name='Record', fields=record_fields)
     response_envelope = get_docs_envelope(record_serializer)

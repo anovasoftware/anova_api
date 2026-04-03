@@ -3,12 +3,9 @@ from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 from datetime import datetime
 
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, parameters, post_only_parameters
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView
 from core.utilities.api_utilities import transform_records
-from core.api_views.core_api import post_only_parameters,get_only_parameters
-from core.api_views.core_api import context
 from django.apps import apps
-import json
 from django.db import models
 from core.utilities.database_utilties import get_active_dict
 from apps.static.models import Type
@@ -17,38 +14,37 @@ from constants import status_constants
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 
-# type_id_helper = 'typeId helper'
 
-context = context
-parameters = parameters + [
-    OpenApiParameter(
-        name='typeId',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=True,
-        description=f'Type Id (contact Anova for details)',
-    ),
-    OpenApiParameter(
-        name='postingType',
-        type=OpenApiTypes.STR,
-        location='query',
-        required=False,
-        default='batch',
-        description=f'Posting type (batch or simple).',
-    ),
-]
-post_only_parameters = post_only_parameters + ['postingType']
-get_only_parameters = get_only_parameters + []
+# type_id_helper = 'typeId helper'
 
 
 class TableAPIView(CoreAPIView):
-    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('typeId', )
-    # PARAM_OVERRIDES = {
-    #     'postingType': dict(
-    #         required_get=False,
-    #         required_post=False,
-    #     )
-    # }
+    DOC_CONTEXT = {}
+    DOC_PARAMETERS = [
+        OpenApiParameter(
+            name='typeId',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=True,
+            description=f'Type Id (contact Anova for details)',
+        ),
+        # OpenApiParameter(
+        #     name='postingType',
+        #     type=OpenApiTypes.STR,
+        #     location='query',
+        #     required=False,
+        #     default='batch',
+        #     description=f'Posting type (batch or simple).',
+        # ),
+    ]
+    DOC_GET_ONLY_PARAMETERS = []
+    DOC_POST_ONLY_PARAMETERS = ['postingType']
+    RECORD_DICT = []
+
+    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('typeId',)
+    PARAM_OVERRIDES = {}
+    process_id = None
+    request_method = None
     patchable_fields = set()
 
     def __init__(self):
@@ -70,6 +66,8 @@ class TableAPIView(CoreAPIView):
         # self.posting_type = 'batch'
         self.currency_id = None
         self.order_by = None
+        self.search_string = None
+        self.data_to_load = []
 
     def is_patch(self):
         is_patch = super().is_patch()
@@ -91,7 +89,7 @@ class TableAPIView(CoreAPIView):
             self.model = apps.get_model(self.app_name, self.model_name)
             try:
                 self.type = Type.objects.get(type_id=self.type_id)
-                context['type__description'] = self.type.description
+                DOC_CONTEXT['type__description'] = self.type.description
             except Exception as e:
                 pass
 
@@ -145,7 +143,7 @@ class TableAPIView(CoreAPIView):
     def validate_patch(self, request):
         allowed_fields = self.patchable_fields.union({'pk'})
 
-        #{'pk', 'last_hotel_id'} # self.patchable_fields
+        # {'pk', 'last_hotel_id'} # self.patchable_fields
         required_fields = {'pk'}
         data_to_load = self.request_data
 
