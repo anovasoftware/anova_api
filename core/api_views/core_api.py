@@ -376,7 +376,7 @@ class CoreAPIView(GenericAPIView):
             self.message = 'Request completed successfully' if self.success else 'Request failed'
 
         base_context = {
-            'user_id': self.user_id,
+            # 'user_id': self.user_id,
             'username': username,
         }
         if self.context:
@@ -394,7 +394,7 @@ class CoreAPIView(GenericAPIView):
             'meta': {
                 'version': constants.VERSION,
                 # '3flag': self.third_party_flag,
-                'database_key': os.getenv('DATABASE_KEY'),
+                # 'database_key': os.getenv('DATABASE_KEY'),
                 # 'database-id':  os.getenv('DATABASE_ID'),
                 # 'request-id': self.request_id,
                 'parameters': self.params,
