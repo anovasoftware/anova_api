@@ -4697,6 +4697,29 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "015",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Transaction",
+      "description": "Transaction",
+      "route": "integration/transaction/",
+      "view": "IntegrationTransactionAPIView",
+      "module_path": "apps.res.table_api_views.transaction_api_views",
+      "grouping": "integration",
+      "process_key": "INTEGRATION_TRANSACTION",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-05 00:00+0000",
+      "last_updated": "2026-04-05 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {

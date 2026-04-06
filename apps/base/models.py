@@ -393,7 +393,7 @@ class Person(BaseModel):
     first_name       = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
     middle_name      = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
     last_name        = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False)
-    birth_date       = models.DateTimeField(default=beginning_of_time)
+    birth_date       = models.DateField(default=beginning_of_time)
     email            = models.CharField(max_length=254, blank=True , unique=False, primary_key=False, default='')
     person_key       = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False, default='')
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')

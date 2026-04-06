@@ -14,37 +14,14 @@ from core.utilities.api_docs_utilties import build_docs_response
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
-from drf_spectacular.openapi import AutoSchema
 
-# record_dict, record_serializer, response_envelope, docs_example = build_docs_response(
-#     record_dict=record_dict,
-#     context=context,
-#     parameters=parameters,
-# )
-#
-# @extend_schema_view(
-#     get=extend_schema(exclude=True),
-#     post=extend_schema(
-#         summary='Post a charge or refund to a guest.',
-#         description='Post a charge or refund to a guest.',
-#         tags=['Transaction'],
-#         parameters=params_for(
-#             method='POST',
-#             parameters=parameters,
-#             post_only=post_only_parameters,
-#             get_only=get_only_parameters
-#         ),
-#         responses={200: response_envelope},
-#         examples=[
-#             OpenApiExample(
-#                 'TransactionSuccess',
-#                 value=docs_example,  # <-- YOUR full envelope example here
-#             )
-#         ]
-#     ),
-# )
-##### CREATE ENTRY IN urls_docs.py ####
+
+##### I need to "graduate" the IntegrationTransactionAPIView" to AuthorizedTransactionAPIView"
 class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
+    pass
+
+##### CREATE ENTRY IN urls_docs.py ####
+class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
     http_method_names = ['post', 'options', 'head']
     DOC_CONTEXT = {}
     RECORD_DICT = {
@@ -115,7 +92,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             )
         )
     }
-    process_id = process_constants.RES_TRANSACTION
+    process_id = process_constants.INTEGRATION_TRANSACTION
     # schema = AutoSchema()
 
     @classmethod
@@ -188,8 +165,8 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
     #
     #     return spec
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
 
         # if self.is_get():
         #     self.load_status(required=True)
@@ -199,12 +176,11 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
             self.external_reference = self.get_param('externalReference', None, True)
             self.external_authorization_code = self.get_param('externalAuthorizationCode', '')
 
-            if self.posting_type and self.posting_type in ['simple', ]:
-                self.json_required = False
+            # self.json_required = False
 
-                self.amount = self.get_param('amount', None, True, parameter_type='decimal')
-                self.set_currency_id()
-                self.set_item_id()
+            self.amount = self.get_param('amount', None, True, parameter_type='decimal')
+            self.set_currency_id()
+            self.set_item_id()
 
     def load_models(self, request):
         super().load_models(request)
@@ -428,6 +404,7 @@ class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
         #     response['data']['transactionId'] = self.transaction.transaction_id
         return response
 
+IntegrationTransactionAPIView = IntegrationTransactionAPIView.get_schema()(IntegrationTransactionAPIView)
 
 class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
     PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('recordId', 'statusId')
@@ -471,4 +448,4 @@ class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
             self.record.status_id = self.status_id
             self.record.save()
 
-AuthorizedTransactionAPIView = AuthorizedTransactionAPIView.get_schema()(AuthorizedTransactionAPIView)
+
