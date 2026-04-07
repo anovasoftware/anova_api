@@ -14,7 +14,7 @@ from core.services.core_service import CoreService
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, extend_schema_view
 
-from core.api_views.api_params import ParamSpec, _to_str, COMMON_PARAMS
+from core.api_views.api_params import ParamSpec, _to_str, PARAM_DEFINITIONS
 from dataclasses import replace
 from django.utils import timezone
 from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
@@ -46,7 +46,7 @@ class CoreAPIView(GenericAPIView):
     RECORD_DICT = []
 
     # 2. Static runtime/config
-    COMMON_PARAMS = COMMON_PARAMS
+    PARAM_DEFINITIONS = PARAM_DEFINITIONS
     PARAM_SPECS = ('shape', 'debugFlag', 'searchString')
     PARAM_OVERRIDES = {
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
@@ -176,26 +176,13 @@ class CoreAPIView(GenericAPIView):
         return merged
 
     def get_param_spec(self, key, param_overrides=None):
-        spec = self.COMMON_PARAMS[key]
+        param_overrides = param_overrides or {}
+        spec = self.PARAM_DEFINITIONS[key]
 
         if key in param_overrides:
             overrides = param_overrides[key]
-            spec = replace(self.COMMON_PARAMS[key], **overrides)
-        # if param_overrides:
-        #     spec = self.COMMON_PARAMS[key]
-        #     spec = replace(spec, **param_overrides)
-        #
-        #
-        # # Apply overrides from base classes first, then subclasses override later
-        # for cls in reversed(self.__class__.mro()):
-        #     overrides_map = getattr(cls, 'PARAM_OVERRIDES', None)
-        #     if not overrides_map:
-        #         continue
-        #
-        #     overrides = overrides_map.get(key)
-        #     if overrides:
-        #         spec = replace(spec, **overrides)
-        #
+            spec = replace(self.PARAM_DEFINITIONS[key], **overrides)
+
         return spec
 
     def get_param_from_spec(self, spec):

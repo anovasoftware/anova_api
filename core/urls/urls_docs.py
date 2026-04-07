@@ -1,7 +1,6 @@
 from django.urls import path
 
-from apps.res.table_api_views.guest_room_api_views import AuthorizedGuestRoomAPIView
-from apps.res.table_api_views.table_transaction_api_views import IntegrationTransactionAPIView
+from apps.res.api.transaction.integration import IntegrationTransactionAPIView
 from apps.res.table_api_views.table_guest_api_views import IntegrationGuestAPIView
 
 urlpatterns = [

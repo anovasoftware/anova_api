@@ -68,6 +68,8 @@ class TableAPIView(CoreAPIView):
         self.order_by = None
         self.search_string = None
         self.data_to_load = []
+        self.records_created = 0
+        self.records_updated = 0
 
     def is_patch(self):
         is_patch = super().is_patch()
@@ -273,12 +275,12 @@ class TableAPIView(CoreAPIView):
     #             self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def _post(self, request):
-        self.context['request_data_exists'] = self.request_data is not None
-        self.data['records_created'] = 0
-        self.data['records_updated'] = 0
+        # self.context['request_data_exists'] = self.request_data is not None
 
         if self.request_data:
             self._post_from_request_data(request)
+        else:
+            self._post_simple(request)
 
     def _make_datetime_fields_aware(self, record):
         for field in self.model._meta.concrete_fields:
@@ -300,9 +302,6 @@ class TableAPIView(CoreAPIView):
         return record
 
     def _post_from_request_data(self, request):
-        records_created = 0
-        records_updated = 0
-
         for record in self.request_data:
             mapping = self.get_external_mapping(record)
             pk = mapping.internal_id
@@ -325,13 +324,9 @@ class TableAPIView(CoreAPIView):
                 mapping.save()
 
             if created:
-                records_updated += 1
+                self.records_updated += 1
             else:
-                records_updated += 1
-
-        self.data['records_created'] = records_created
-        self.data['records_updated'] = records_updated
-        # self.set_message('under construction', success=False)
+                self.records_updated += 1
 
     def _get_record(self, request):
         record = {
@@ -396,6 +391,10 @@ class TableAPIView(CoreAPIView):
         if self.type:
             response['context']['type_id'] = self.type.type_id
             response['context']['type_description'] = self.type.description
+
+        if self.is_post():
+            self.data['records_created'] = self.records_created
+            self.data['records_updated'] = self.records_updated
 
         return response
 

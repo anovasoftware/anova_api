@@ -270,7 +270,7 @@
       "grouping": "res_transaction",
       "code": "Posted",
       "description": "Posted",
-      "status_key": "POSTED",
+      "status_key": "TRANSACTION_POSTED",
       "status_code": 0,
       "flag1": "",
       "group1": "",
@@ -288,7 +288,7 @@
       "grouping": "res_transaction",
       "code": "Cancelled",
       "description": "Cancelled",
-      "status_key": "CANCELLED",
+      "status_key": "TRANSACTION_CANCELLED",
       "status_code": 0,
       "flag1": "",
       "group1": "",
@@ -1125,6 +1125,42 @@
       "internal_comment": "",
       "created_date": "2026-03-13 00:00+0000",
       "last_updated": "2026-03-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01N",
+    "fields": {
+      "grouping": "res_transaction",
+      "code": "Queued",
+      "description": "Queued",
+      "status_key": "TRANSACTION_QUEUED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-07 00:00+0000",
+      "last_updated": "2026-04-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01P",
+    "fields": {
+      "grouping": "res_transaction",
+      "code": "Expired",
+      "description": "Expired",
+      "status_key": "TRANSACTION_EXPIRED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-07 00:00+0000",
+      "last_updated": "2026-04-07 00:00+0000"  
     }
   }
 ,  {
@@ -3714,7 +3750,7 @@
       "vms_identifier": "",
       "grouping": "OTHER",
       "hotel_key": "NOT_APPLICABLE",
-      "public_key": "5DV3YEUNJH",
+      "public_key": "5DV3YE",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-11 00:00+0000",
@@ -3733,7 +3769,7 @@
       "vms_identifier": "1401",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "MAGELLAN_EXPLORER",
-      "public_key": "WPKJMGM2XQ",
+      "public_key": "WPKJMG",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-11 00:00+0000",
@@ -3752,7 +3788,7 @@
       "vms_identifier": "1302",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "EXPEDITION2",
-      "public_key": "NC9DXY9HD4",
+      "public_key": "NC9DXY",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-09-13 00:00+0000",
@@ -3771,7 +3807,7 @@
       "vms_identifier": "1401",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "MAGELLAN_DISCOVERER",
-      "public_key": "K8Q9SPF749",
+      "public_key": "K8Q9SP",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
@@ -3790,7 +3826,7 @@
       "vms_identifier": "2002",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "AEGEN_ODYSSEY",
-      "public_key": "4WSBRDHXNX",
+      "public_key": "4WSBRD",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
@@ -4290,11 +4326,11 @@
       "status_id": "001",
       "code": "Transaction",
       "description": "Transaction",
-      "route": "table/res/transaction/",
-      "view": "AuthorizedTransactionAPIView",
-      "module_path": "apps.res.table_api_views.transaction_api_views",
-      "grouping": "table",
-      "process_key": "RES_TRANSACTION",
+      "route": "integration/transaction/queued/",
+      "view": "IntegrationTransactionQueuedAPIView",
+      "module_path": "apps.res.api.transaction.integration",
+      "grouping": "anova integration",
+      "process_key": "INTEGRATION_TRANSACTION_QUEUED",
       "supports_create": false,
       "supports_read": true,
       "supports_update": false,
@@ -4302,7 +4338,7 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
-      "last_updated": "2025-11-22 00:00+0000"  
+      "last_updated": "2026-04-06 00:00+0000"  
     }
   }
 ,  {
@@ -4430,7 +4466,7 @@
       "description": "Transaction Status",
       "route": "table/res/transaction_status/",
       "view": "AuthorizedTransactionStatusAPIView",
-      "module_path": "apps.res.table_api_views.transaction_api_views",
+      "module_path": "apps.res.api.transaction.status",
       "grouping": "table",
       "process_key": "RES_TRANSACTION_STATUS",
       "supports_create": false,
@@ -4706,7 +4742,7 @@
       "description": "Transaction",
       "route": "integration/transaction/",
       "view": "IntegrationTransactionAPIView",
-      "module_path": "apps.res.table_api_views.transaction_api_views",
+      "module_path": "apps.res.api.transaction.integration",
       "grouping": "integration",
       "process_key": "INTEGRATION_TRANSACTION",
       "supports_create": true,
@@ -4715,8 +4751,8 @@
       "supports_delete": false,
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-04-05 00:00+0000",
-      "last_updated": "2026-04-05 00:00+0000"  
+      "created_date": "2026-04-06 00:00+0000",
+      "last_updated": "2026-04-06 00:00+0000"  
     }
   }
 ,  {

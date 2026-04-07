@@ -221,7 +221,7 @@ class Room(BaseModel):
 class Transaction(BaseModel):
     transaction_id              = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
     type                        = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
-    status                      = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    status                      = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='01N')
     hotel                       = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     event                       = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
     guest                       = models.ForeignKey("res.Guest", on_delete=models.CASCADE, related_name='+')

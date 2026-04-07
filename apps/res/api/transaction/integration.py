@@ -1,12 +1,12 @@
 from decimal import Decimal
+
+from apps.res.api.transaction.base import AuthorizedTransactionAPIView
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
-from constants import type_constants, event_constants, status_constants, guest_constants, process_constants
+from constants import type_constants, status_constants, guest_constants, process_constants
 
 from apps.res.models import Transaction, TransactionItem
-from apps.base.models import Item, ExternalMapping
+from apps.base.models import Item
 from apps.static.models import Currency
-
-from django.core.exceptions import ObjectDoesNotExist
 
 from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
@@ -16,13 +16,63 @@ from drf_spectacular.utils import extend_schema, extend_schema_view
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 
 
-##### I need to "graduate" the IntegrationTransactionAPIView" to AuthorizedTransactionAPIView"
-class AuthorizedTransactionAPIView(AuthorizedHotelAPIView):
-    pass
+# http://localhost:8000/api/v1/integration/transaction/queued/?hotelId=A002
+class IntegrationTransactionQueuedAPIView(AuthorizedTransactionAPIView):
+    http_method_names = ['get', 'options', 'head']
+    process_id = process_constants.INTEGRATION_TRANSACTION_QUEUED
+
+    RECORD_DICT = {
+        'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
+        'description': {'description': 'Description of transaction.', 'example': '1GB INTERNET VOUCHER'},
+        'guest_id': {'description': 'Guest id.', 'example': '002149'},
+        # 'event_id': {'description': 'Event id.', 'example': '009112'},
+        # 'currency_id': {'description': 'Currency', 'example': '002'},
+        # 'item_id': {'description': 'POS Item Id', 'example': '0100091'}
+    }
+
+    def __init__(self):
+        super().__init__()
+        self.status_id = status_constants.TRANSACTION_QUEUED
+
+    def get_value_list(self):
+        value_list = list(self.RECORD_DICT.keys())
+        return value_list
+
+    def get_query_filter(self):
+        filters = super().get_query_filter()
+        filters['status_id'] = self.status_id
+        # filters['event_id'] = self.hotel_extension.current_event_id
+        return filters
+
 
 ##### CREATE ENTRY IN urls_docs.py ####
+# http://localhost:8000/api/v1/integration/transaction/?hotelPublicKey=NC9DXY&typeId=00N&guestId=0004HT&amount=30.00&shape=flat&currencyCode=usd&itemDescription=1GB INTERNET VOUCHER&externalReference=REF00017&externalAuthorizationCode=
 class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
     http_method_names = ['post', 'options', 'head']
+    process_id = process_constants.INTEGRATION_TRANSACTION
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + (
+        'statusId',
+        'guestId',
+        'typeId',
+        'externalReference',
+        'externalAuthorizationCode',
+        'amount'
+    )
+    PARAM_OVERRIDES = {
+        'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
+        'guestId': dict(required_post=True, ),
+        'amount': dict(required_post=True, ),
+        'typeId': dict(
+            # required_patch=False,
+            allowed=(
+                type_constants.RES_TRANSACTION_STAGED_SALE,
+                type_constants.RES_TRANSACTION_STAGED_REFUND,
+                type_constants.RES_TRANSACTION_STAGED
+            )
+        ),
+        'externalReference': dict(required_post=True, ),
+    }
+
     DOC_CONTEXT = {}
     RECORD_DICT = {
         'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
@@ -79,22 +129,6 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
     DOC_TAGS = ['Transaction']
     DOC_EXAMPLE_NAME = 'TransactionSuccess'
 
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('statusId', 'guestId', 'typeId')
-    PARAM_OVERRIDES = {
-        'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
-        'guestId': dict(required_post=True, ),
-        'typeId': dict(
-            # required_patch=False,
-            allowed=(
-                type_constants.RES_TRANSACTION_STAGED_SALE,
-                type_constants.RES_TRANSACTION_STAGED_REFUND,
-                type_constants.RES_TRANSACTION_STAGED
-            )
-        )
-    }
-    process_id = process_constants.INTEGRATION_TRANSACTION
-    # schema = AutoSchema()
-
     @classmethod
     def get_schema(cls):
         parameters = cls.get_doc_parameters()
@@ -132,18 +166,6 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
 
     def __init__(self):
         super().__init__()
-        self.app_name = 'res'
-        self.model_name = 'Transaction'
-        # self.accepted_type_ids = [
-        #     type_constants.RES_TRANSACTION_STAGED_SALE,
-        #     type_constants.RES_TRANSACTION_STAGED_REFUND,
-        #     type_constants.RES_TRANSACTION_STAGED
-        #     # type_constants.RES_TRANSACTION_SALE,
-        #     # type_constants.RES_TRANSACTION_PAYMENT
-        # ]
-        # self.accepted_status_ids = [
-        #     status_constants.QUEUED,
-        # ]
         self.item_id = None
         self.item_description = None
         self.amount = 0.00
@@ -153,18 +175,6 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         self.external_authorization_code = None
         self.transaction = None
 
-    # def get_param_spec(self, key):
-    #     spec = super().get_param_spec(key)
-    #
-    #     if spec.name == 'statusId':
-    #         spec = replace(
-    #             spec,
-    #             required_get=True,
-    #             allowed=(status_constants.QUEUED,)
-    #         )
-    #
-    #     return spec
-
     def load_request(self, request, *args, **kwargs):
         super().load_request(request, *args, **kwargs)
 
@@ -172,13 +182,7 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         #     self.load_status(required=True)
 
         if self.is_post():
-            # self.guest_id = self.get_param('guestId', None, True)
-            self.external_reference = self.get_param('externalReference', None, True)
-            self.external_authorization_code = self.get_param('externalAuthorizationCode', '')
-
-            # self.json_required = False
-
-            self.amount = self.get_param('amount', None, True, parameter_type='decimal')
+            # self.amount = self.get_param('amount', None, True, parameter_type='decimal')
             self.set_currency_id()
             self.set_item_id()
 
@@ -211,9 +215,9 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
             )
 
             external_mappings = {
-                'guest_id': { 'app_name': 'res', 'model_name': 'Guest'},
-                'event_id': { 'app_name': 'res', 'model_name': 'Event'},
-                'currency_id': { 'app_name': 'static', 'model_name': 'Currency'},
+                'guest_id': {'app_name': 'res', 'model_name': 'Guest'},
+                'event_id': {'app_name': 'res', 'model_name': 'Event'},
+                'currency_id': {'app_name': 'static', 'model_name': 'Currency'},
             }
 
             for key, value in external_mappings.items():
@@ -250,7 +254,6 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
                     model_name='Item',
                     records=record['transaction_items']
                 )
-
 
     def validate_post(self, request):
         if not self.guest.authorized_to_charge_flag == 'Y':
@@ -330,21 +333,6 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         filters['event_id'] = self.hotel_extension.current_event_id
         return filters
 
-    # def _post_simple(self, request):
-    #     hotel_type = self.hotel_type
-    #     hotel_items = HotelItem.objects.filter(
-    #         hotel_id=self.hotel_id,
-    #         special_item_type_id=hotel_type.type_id
-    #     )
-    #     if hotel_items.count() == 1:
-    #         hotel_item = hotel_items[0]
-    #         self.item = Item.objects.get(pk=hotel_item.item_id)
-    #         self._post_simple_save(request)
-    #     else:
-    #         self.set_message(f'unable to find item associated with itemKey: {self.item_key}')
-    #
-    #     self.set_message('under construction', http_status_id=status_constants.HTTP_BAD_REQUEST)
-
     def validate_request(self, request):
         pass
 
@@ -352,7 +340,7 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         record = super()._get_record(request)
         record = record | {
             'type_id': self.type_id,
-            'status_id': status_constants.QUEUED,
+            'status_id': status_constants.TRANSACTION_QUEUED,
             'event_id': self.hotel_extension.current_event_id,
             'guest_id': self.guest_id,
             'server_guest_id': guest_constants.NOT_APPLICABLE,
@@ -382,16 +370,19 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         fields = self.get_value_list()
         self.records = list(Transaction.objects.filter(pk=transaction.transaction_id).values(*fields))
 
+        self.records_created += 1
+        self.data['transaction_id'] = transaction.transaction_id
+
     def build_response(self):
         response = super().build_response()
 
-        if self.currency_id:
-            response['context']['currencyId'] = self.currency_id
-            response['context']['currencyCode'] = self.currency_code
-
-        if self.item_id:
-            response['context']['itemId'] = self.item_id
-            response['context']['itemDescription'] = self.item_description
+        # if self.currency_id:
+        #     response['context']['currencyId'] = self.currency_id
+        #     response['context']['currencyCode'] = self.currency_code
+        #
+        # if self.item_id:
+        #     response['context']['itemId'] = self.item_id
+        #     response['context']['itemDescription'] = self.item_description
 
         # if self.item:
         #     item = self.item
@@ -404,48 +395,5 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         #     response['data']['transactionId'] = self.transaction.transaction_id
         return response
 
+
 IntegrationTransactionAPIView = IntegrationTransactionAPIView.get_schema()(IntegrationTransactionAPIView)
-
-class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('recordId', 'statusId')
-    PARAM_OVERRIDES = {
-        'recordId': dict(required_patch=True),
-        'statusId': dict(required_patch=True, allowed=(status_constants.POSTED,)),
-        'typeId': dict(required_patch=False),
-    }
-
-    process_id = process_constants.RES_TRANSACTION_STATUS
-
-    def __init__(self):
-        super().__init__()
-        self.app_name = 'res'
-        self.model_name = 'Transaction'
-
-    def load_request(self, request, *args, **kwargs):
-        super().load_request(request, *args, **kwargs)
-
-    def load_models(self, request):
-        super().load_models(request)
-
-        try:
-            self.record = Transaction.objects.get(pk=self.record_id)
-        except ObjectDoesNotExist as e:
-            message = f'record_id  not found: {self.record_id}'
-            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-
-    def validate(self, request):
-        super().validate(request)
-
-        if self.record.status_id != status_constants.QUEUED:
-            message = f'id={self.record_id} is not in queued status.'
-            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-
-
-    def _patch(self, request):
-        # message = f'change status of id={self.record_id} from {self.record.status_id} to {self.status_id}.'
-        # self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-        if self.success:
-            self.record.status_id = self.status_id
-            self.record.save()
-
-

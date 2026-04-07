@@ -98,7 +98,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
             if self.hotel_id:
                 message = f'hotelId not found: {self.hotel_id}'
             else:
-                message = f'hotelPublicKey not found: {self.hotel_id}'
+                message = f'hotelPublicKey not found: {self.hotel_public_key}'
             self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if self.success and self.guest_id:
@@ -112,8 +112,8 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
                 self.guest_room = GuestRoom.objects.filter(
                     room__hotel_id=self.hotel_id,
                     guest_id=self.guest_id,
-                    arrival_date__date__lte=self.today,
-                    departure_date__date__gt=self.today
+                    arrival_date__lte=self.today,
+                    departure_date__gt=self.today
                 ).first()
                 if not self.guest_room:
                     message = f'guest {self.guest.guest_id} is not onboard currently.'
