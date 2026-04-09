@@ -48,6 +48,7 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
     ]
     DOC_PARAMETER_OVERRIDES = {
         'guestId': {'exclude': True},
+        'typeId': {'exclude': True},
     }
     DOC_GET_ONLY_PARAMETERS = []
     DOC_POST_ONLY_PARAMETERS = []
