@@ -373,6 +373,26 @@ class TableAPIView(CoreAPIView):
 
         return True
 
+    def expand_record_with_external_ids(self, app_name, model_name, field_to_expand):
+        for record in self.records:
+            if field_to_expand in record:
+                expanded_field = f'{field_to_expand}_external_id'
+                external_id = 'N/A'
+                internal_id = record[field_to_expand]
+
+                external_mappings = ExternalMapping.objects.filter(
+                    app_name=app_name,
+                    model_name=model_name,
+                    internal_id=internal_id
+                ).first()
+
+                if external_mappings:
+                    external_id = external_mappings.external_id
+
+                record[expanded_field] = external_id
+
+        return
+
     def pre_patch(self, request):
         pass
         # if not self.load_json(request):

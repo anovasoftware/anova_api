@@ -1,4 +1,6 @@
 from django.db.models import QuerySet
+
+from apps.res.api.guest.base import AuthorizedGuestAPIView
 from apps.res.models import Guest
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from drf_spectacular.types import OpenApiTypes
@@ -10,60 +12,11 @@ from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
 
 
-class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', 'roomCode')
-    PARAM_OVERRIDES = {
-        **getattr(AuthorizedHotelAPIView, 'PARAM_OVERRIDES', {}),
-        'typeId': dict(
-            required_get=False,
-            required_post=True,
-            allowed=(
-                type_constants.NOT_APPLICABLE,
-                type_constants.RES_GUEST_GUEST,
-                type_constants.RES_GUEST_CREW,
-                type_constants.RES_GUEST_STAFF
-            )
-        )
-    }
-
-    process_id = process_constants.RES_GUEST
-
-    def __init__(self):
-        super().__init__()
-        self.app_name = 'res'
-        self.model_name = 'Guest'
-        self.hotel_id_field = 'reservation__hotel_id'
-        # self.accepted_type_ids = [
-        #     type_constants.NOT_APPLICABLE,
-        #     type_constants.RES_GUEST_GUEST,
-        #     type_constants.RES_GUEST_CREW,
-        #     type_constants.RES_GUEST_STAFF
-        # ]
-
-    def get_value_list(self):
-        value_list = [
-                         'guest_id',
-                         'authorized_to_charge_flag',
-                         'type__type_id',
-                         'type__code',
-                         'type__description',
-                         'person__first_name',
-                         'person__last_name'
-                     ] + super().get_value_list()
-
-        return value_list
-
-    def get_query_filter(self):
-        filters = super().get_query_filter()
-
-        if self.type_id:
-            filters['type_id'] = self.type_id
-
-        return filters
-
 ##### CREATE ENTRY IN urls_docs.py ####
 class IntegrationGuestAPIView(AuthorizedGuestAPIView):
+    process_id = process_constants.INTEGRATION_GUEST
     http_method_names = ['get', 'options', 'head']
+
     DOC_CONTEXT = {}
     RECORD_DICT = {
         'authorized_to_charge_flag': {'description': 'Authorized to charge (Y or N).', 'example': 'Y'},
@@ -93,6 +46,9 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
             description='Guest ID, room code, or guest last name.'
         ),
     ]
+    DOC_PARAMETER_OVERRIDES = {
+        'guestId': {'exclude': True},
+    }
     DOC_GET_ONLY_PARAMETERS = []
     DOC_POST_ONLY_PARAMETERS = []
     DOC_GET_SUMMARY = 'Retrieve guest information with room/cabin/name assignment'
@@ -104,7 +60,6 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
         **getattr(AuthorizedGuestAPIView, 'PARAM_OVERRIDES', {}),
         'searchString': dict(required_get=True)
     }
-    process_id = process_constants.INTEGRATION_GUEST
 
     @classmethod
     def get_schema(cls):
@@ -122,7 +77,7 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
         return extend_schema_view(
             get=extend_schema(
                 summary=cls.DOC_GET_SUMMARY,
-                description=cls.DOC_GET_DESCRIPTION,
+                description=f'{cls.DOC_GET_DESCRIPTION}',
                 tags=cls.DOC_TAGS,
                 parameters=params_for(
                     method='GET',

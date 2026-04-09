@@ -1,0 +1,48 @@
+from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
+from constants import type_constants, process_constants
+
+
+class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.RES_GUEST
+
+    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', 'roomCode')
+    PARAM_OVERRIDES = {
+        **getattr(AuthorizedHotelAPIView, 'PARAM_OVERRIDES', {}),
+        'typeId': dict(
+            required_get=False,
+            required_post=True,
+            allowed=(
+                type_constants.NOT_APPLICABLE,
+                type_constants.RES_GUEST_GUEST,
+                type_constants.RES_GUEST_CREW,
+                type_constants.RES_GUEST_STAFF
+            )
+        )
+    }
+
+    def __init__(self):
+        super().__init__()
+        self.app_name = 'res'
+        self.model_name = 'Guest'
+        self.hotel_id_field = 'reservation__hotel_id'
+
+    def get_value_list(self):
+        value_list = [
+                         'guest_id',
+                         'authorized_to_charge_flag',
+                         'type__type_id',
+                         'type__code',
+                         'type__description',
+                         'person__first_name',
+                         'person__last_name'
+                     ] + super().get_value_list()
+
+        return value_list
+
+    def get_query_filter(self):
+        filters = super().get_query_filter()
+
+        if self.type_id:
+            filters['type_id'] = self.type_id
+
+        return filters

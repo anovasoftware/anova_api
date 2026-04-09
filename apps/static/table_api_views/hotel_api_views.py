@@ -10,7 +10,7 @@ from constants import status_constants
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     DOC_CONTEXT = {
-        'hotel_id': 'A332',
+        # 'hotel_id': 'A332',
         'hotel_description': 'MS Diamond'
     }
     DOC_PARAMETERS = [
@@ -18,8 +18,15 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
             name='hotelId',
             type=OpenApiTypes.STR,
             location='query',
-            required=True,
-            description='Hotel/ship code (contact Anova for details).'
+            required=False,
+            description='Hotel/ship id. Required if hotelPublicKey is not supplied (contact Anova for details).'
+        ),
+        OpenApiParameter(
+            name='hotelPublicKey',
+            type=OpenApiTypes.STR,
+            location='query',
+            required=False,
+            description='Hotel/ship public key. Required if hotelId is not supplied (contact Anova for details).'
         ),
         OpenApiParameter(
             name='guestId',

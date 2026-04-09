@@ -6,11 +6,11 @@ MetaSerializer = inline_serializer(
     name='Meta',
     fields={
         'version': s.CharField(help_text='API version (e.g., 03.01.08)'),
-        'databaseKey': s.CharField(help_text='Database key (e.g., production)'),
+        # 'databaseKey': s.CharField(help_text='Database key (e.g., production)'),
         'parameters': s.DictField(
             help_text='Original request parameters.'
         ),
-        'recordCount': s.IntegerField(help_text='Number of records returned'),
+        # 'recordCount': s.IntegerField(help_text='Number of records returned'),
     },
 )
 

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from apps.res.api.transaction.integration import IntegrationTransactionAPIView
-from apps.res.table_api_views.table_guest_api_views import IntegrationGuestAPIView
+from apps.res.api.guest.integration import IntegrationGuestAPIView
 
 urlpatterns = [
     path('/api/v1/integration/guest', IntegrationGuestAPIView.as_view()),

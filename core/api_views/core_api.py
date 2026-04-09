@@ -27,7 +27,7 @@ from core.utilities.api_docs_utilties import override_parameters, params_for
 class CoreAPIView(GenericAPIView):
     # 1. Static docs / schema config
     DOC_CONTEXT = {
-        'user_id': '002149',
+        # 'user_id': '002149',
         'username': 'Acme API Consumer, Inc.',
     }
     DOC_PARAMETERS = [
@@ -72,6 +72,22 @@ class CoreAPIView(GenericAPIView):
 
         return context
 
+    # @classmethod
+    # def get_doc_parameters(cls):
+    #     parameters = []
+    #
+    #     for base in reversed(cls.__mro__):
+    #         if hasattr(base, 'DOC_PARAMETERS'):
+    #             parameters.extend(getattr(base, 'DOC_PARAMETERS', []))
+    #
+    #     for base in reversed(cls.__mro__):
+    #         overrides = getattr(base, 'DOC_PARAMETER_OVERRIDES', {})
+    #         for name, override_dict in overrides.items():
+    #             print(f'override_dict: {override_dict}')
+    #             parameters = override_parameters(parameters, name, **override_dict)
+    #
+    #     return list(parameters)
+
     @classmethod
     def get_doc_parameters(cls):
         parameters = []
@@ -80,10 +96,17 @@ class CoreAPIView(GenericAPIView):
             if hasattr(base, 'DOC_PARAMETERS'):
                 parameters.extend(getattr(base, 'DOC_PARAMETERS', []))
 
+        excluded_names = set()
+
         for base in reversed(cls.__mro__):
             overrides = getattr(base, 'DOC_PARAMETER_OVERRIDES', {})
             for name, override_dict in overrides.items():
-                parameters = override_parameters(parameters, name, **override_dict)
+                if override_dict.get('exclude'):
+                    excluded_names.add(name)
+                else:
+                    parameters = override_parameters(parameters, name, **override_dict)
+
+        parameters = [p for p in parameters if p.name not in excluded_names]
 
         return list(parameters)
 

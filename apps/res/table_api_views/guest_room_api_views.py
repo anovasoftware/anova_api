@@ -39,6 +39,9 @@ from core.utilities.api_docs_utilties import build_docs_response
 # )
 ##### CREATE ENTRY IN urls_docs.py ####
 class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
+    http_method_names = ['get', 'post', 'options', 'head']
+    process_id = process_constants.RES_GUEST_ROOM
+
     DOC_CONTEXT = {}
     RECORD_DICT = {
         'room__code': {'description': 'Room/Cabin.', 'example': '302'},
@@ -79,9 +82,6 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     DOC_GET_DESCRIPTION = 'Returns guest room/cabin info for a given room code or guest ID.'
     DOC_TAGS = ['Guest Room']
     DOC_EXAMPLE_NAME = 'GuestRoomSuccess'
-
-    http_method_names = ['get', 'options', 'head']
-    process_id = process_constants.RES_GUEST_ROOM
 
     PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
     PARAM_OVERRIDES = {

@@ -44,6 +44,11 @@ class IntegrationTransactionQueuedAPIView(AuthorizedTransactionAPIView):
         # filters['event_id'] = self.hotel_extension.current_event_id
         return filters
 
+    def _get(self, request):
+        super()._get(request)
+        self.expand_record_with_external_ids('res','Guest', 'guest_id')
+        print('x')
+
 
 ##### CREATE ENTRY IN urls_docs.py ####
 # http://localhost:8000/api/v1/integration/transaction/?hotelPublicKey=NC9DXY&typeId=00N&guestId=0004HT&amount=30.00&shape=flat&currencyCode=usd&itemDescription=1GB INTERNET VOUCHER&externalReference=REF00017&externalAuthorizationCode=
