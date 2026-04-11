@@ -23,7 +23,7 @@ record_dict = {
 
 class AuthorizedGuestDetailAPIView(AuthorizedResAPIView):
     process_id = process_constants.RES_GUEST_DETAIL
-    PARAM_SPECS = AuthorizedResAPIView.PARAM_SPECS + ('recordId',)
+    PARAM_NAMES = AuthorizedResAPIView.PARAM_NAMES + ('recordId',)
     PARAM_OVERRIDES = {
         **getattr(AuthorizedResAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(

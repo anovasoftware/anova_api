@@ -11,7 +11,7 @@ class AuthorizedGuestActivityAPIView(AuthorizedHotelAPIView):
 class AuthorizedGuestActivityGangwayAPIView(AuthorizedGuestActivityAPIView):
     process_id = process_constants.RES_GUEST_ACTIVITY_GANGWAY
 
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('rfidUid', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('rfidUid',)
     PARAM_OVERRIDES = {
         'typeId': dict(required_get=True, required_post=False, allowed=(type_constants.NOT_APPLICABLE,)),
         'hotelPublicKey': dict(required_get=False, required_post=True,),

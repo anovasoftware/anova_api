@@ -2,7 +2,7 @@ from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from constants import type_constants, process_constants
 
 class AuthorizedHotelTypeAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

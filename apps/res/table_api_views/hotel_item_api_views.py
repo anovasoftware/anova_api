@@ -4,7 +4,7 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedHotelItemAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(required_get=True, required_post=True, allowed=(type_constants.RES_HOTEL_ITEM_SPECIAL_ITEM,))
     }

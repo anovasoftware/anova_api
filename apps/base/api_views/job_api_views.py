@@ -5,7 +5,7 @@ from core.services.scheduler_service import SchedulerService
 class AuthorizedJobSchedulerAPIView(AuthorizedRecordAPIView):
     process_id = process_constants.BASE_JOB_SCHEDULER
 
-    PARAM_SPECS = AuthorizedRecordAPIView.PARAM_SPECS + ('recordId', 'action')
+    PARAM_NAMES = AuthorizedRecordAPIView.PARAM_NAMES + ('recordId', 'action')
     PARAM_OVERRIDES = {
         **getattr(AuthorizedRecordAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(

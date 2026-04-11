@@ -41,7 +41,7 @@ class TableAPIView(CoreAPIView):
     DOC_POST_ONLY_PARAMETERS = ['postingType']
     RECORD_DICT = []
 
-    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('typeId',)
+    PARAM_NAMES = CoreAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {}
     process_id = None
     request_method = None

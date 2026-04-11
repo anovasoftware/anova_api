@@ -11,7 +11,7 @@ from apps.base.models import JobExtension
 class ExchangeRateAPIView(PublicTableAPIView):
     process_id = process_constants.BASE_EXCHANGE_RATE
 
-    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId',)
+    PARAM_NAMES = PublicTableAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

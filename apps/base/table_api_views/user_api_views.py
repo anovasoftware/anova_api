@@ -14,7 +14,7 @@ from constants import type_constants, status_constants, process_constants
 
 
 class PublicUserAPIView(PublicTableAPIView):
-    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = PublicTableAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,
@@ -80,7 +80,7 @@ class PublicUserAPIView(PublicTableAPIView):
 
 class AuthorizedUserAPIView(AuthorizedTableAPIView):
     process_id = process_constants.BASE_USER
-    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS
+    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES
     patchable_fields = {'last_hotel_id'}
 
     def __init__(self):

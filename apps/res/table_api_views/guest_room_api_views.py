@@ -83,7 +83,7 @@ class AuthorizedGuestRoomAPIView(AuthorizedHotelAPIView):
     DOC_TAGS = ['Guest Room']
     DOC_EXAMPLE_NAME = 'GuestRoomSuccess'
 
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

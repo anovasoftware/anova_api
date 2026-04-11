@@ -5,7 +5,7 @@ from constants import type_constants, process_constants
 class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.RES_GUEST
 
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', 'roomCode')
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId', 'roomCode')
     PARAM_OVERRIDES = {
         **getattr(AuthorizedHotelAPIView, 'PARAM_OVERRIDES', {}),
         'typeId': dict(

@@ -3,7 +3,7 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedChartFieldAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,
@@ -25,7 +25,7 @@ class AuthorizedChartFieldAPIView(AuthorizedHotelAPIView):
         #     type_constants.BASE_CHART_FIELD_REVENUE,
         # ]
 
-    def load_request(self, request):
+    def load_request(self, request, *args, **kwargs):
         super().load_request(request)
 
     def get_value_list(self):

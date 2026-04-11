@@ -4,7 +4,7 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedCompanyAPIView(AuthorizedClientAPIView):
-    PARAM_SPECS = AuthorizedClientAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedClientAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

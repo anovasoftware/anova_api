@@ -1,6 +1,8 @@
+from decimal import Decimal, ROUND_HALF_UP
 from dataclasses import dataclass
 from typing import Any, Callable, Iterable, Optional
-from decimal import Decimal, ROUND_HALF_UP
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter
 
 
 def _to_str(v):
@@ -34,12 +36,40 @@ class ParamSpec:
     dest: str  # internal attr: 'type_id'
     kind: str  # 'query' or 'body' or 'either'
     cast: Callable[[Any], Any]  # str -> int, str -> str, etc
+
     required_get: bool = False
     required_post: bool = False
     required_patch: bool = False
+
     description: str = ''
     default: Any = None
-    allowed: Optional[Iterable[Any]] = None  # list/tuple/set or callable later
+    allowed: Optional[Iterable[Any]] = None
+
+    openapi_type: Any = OpenApiTypes.STR
+    openapi_location: str = OpenApiParameter.QUERY
+
+
+def param_spec_to_openapi(param: ParamSpec, method: str) -> OpenApiParameter:
+    method = method.upper()
+
+    required = (
+            (method == 'GET' and param.required_get) or
+            (method == 'POST' and param.required_post) or
+            (method == 'PATCH' and param.required_patch)
+    )
+
+    kwargs = {
+        'name': param.name,
+        'type': param.openapi_type,
+        'location': param.openapi_location,
+        'required': required,
+        'description': param.description,
+    }
+
+    if param.allowed is not None:
+        kwargs['enum'] = list(param.allowed)
+
+    return OpenApiParameter(**kwargs)
 
 
 def with_allowed(spec: ParamSpec, allowed):
@@ -178,6 +208,18 @@ TRANSACTION_PARAMS = {
         kind='either',
         cast=_to_str,
         description='External authorization code.',
+        default='',
+    ),
+    'transactionType': ParamSpec(
+        name='transactionType',
+        dest='transaction_type',
+        kind='either',
+        cast=_to_str,
+        description='Transaction type.',
+        required_post=True,
+        openapi_type=OpenApiTypes.STR,
+        openapi_location='query',
+        allowed=('CHARGE', 'REFUND'),
     ),
 }
 

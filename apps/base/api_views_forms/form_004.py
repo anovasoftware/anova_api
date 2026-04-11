@@ -7,7 +7,6 @@ from apps.base.utilities.user_utilities import get_user_profile
 class AuthorizedForm004APIView(AuthorizedFormAPIView):
     process_id = process_constants.FORM_004
     form_id = form_constants.PROFILE
-    # PARAM_SPECS = AuthorizedFormAPIView.PARAM_SPECS + ('workingUserId', )
 
     def __init__(self):
         super().__init__()

@@ -6,7 +6,7 @@ from constants import type_constants, process_constants
 class AuthorizedPosMenuItemAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.BASE_POS_MENU_ITEM
 
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

@@ -47,7 +47,7 @@ class CoreAPIView(GenericAPIView):
 
     # 2. Static runtime/config
     PARAM_DEFINITIONS = PARAM_DEFINITIONS
-    PARAM_SPECS = ('shape', 'debugFlag', 'searchString')
+    PARAM_NAMES = ('shape', 'debugFlag')
     PARAM_OVERRIDES = {
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
@@ -225,22 +225,31 @@ class CoreAPIView(GenericAPIView):
             required=required,
             parameter_type=getattr(spec, 'parameter_type', None),
         )
+        # print(f'Processing param: {spec.name}, raw value: {value}')
 
-        # get_param() already logged missing required and returned None
-        if value:
-            allowed = spec.allowed
-            if allowed is not None:
-                allowed_values = allowed() if callable(allowed) else allowed
-                if value not in allowed_values:
-                    valid = ', '.join(str(x) for x in allowed_values)
-                    message = f'invalid {spec.name} {value}. valid {spec.name} values: {valid}'
-                    self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-                    return None
+        if self.success:
+            # if value is None:  # or value == '':
+            #     return value
+            #
+            try:
+                value = spec.cast(value)
+            except Exception as e:
+                raise ValueError(f'{spec.name}: {e}')
 
-            # Assign to target attribute (new, spec-driven)
-        dest = getattr(spec, 'dest', None)
-        if dest:
-            setattr(self, dest, value)
+            if value:
+                allowed = spec.allowed
+                if allowed is not None:
+                    allowed_values = allowed() if callable(allowed) else allowed
+                    if value not in allowed_values:
+                        valid = ', '.join(str(x) for x in allowed_values)
+                        message = f'invalid {spec.name} {value}. valid {spec.name} values: {valid}'
+                        self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+                        return None
+
+                # Assign to target attribute (new, spec-driven)
+            dest = getattr(spec, 'dest', None)
+            if dest:
+                setattr(self, dest, value)
 
         return value
 
@@ -281,8 +290,8 @@ class CoreAPIView(GenericAPIView):
 
         try:
             param_overrides = self.get_param_overrides()
-            # for key in self.PARAM_SPECS:
-            for key in dict.fromkeys(self.PARAM_SPECS):  # doing this to eliminate duplicates
+
+            for key in dict.fromkeys(self.PARAM_NAMES):  # doing this to eliminate duplicates
                 spec = self.get_param_spec(key, param_overrides)
                 self.get_param_from_spec(spec)
         except Exception as e:
@@ -804,7 +813,7 @@ def health_check(request):
 
 
 class RecordAPIView(CoreAPIView):
-    PARAM_SPECS = CoreAPIView.PARAM_SPECS + ('recordId',)
+    PARAM_NAMES = CoreAPIView.PARAM_NAMES + ('recordId',)
     PARAM_OVERRIDES = {
         **getattr(CoreAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(

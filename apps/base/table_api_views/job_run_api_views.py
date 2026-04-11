@@ -6,7 +6,7 @@ from constants import type_constants, process_constants
 class AuthorizedJobRunAPIView(AuthorizedHotelAPIView):
     process_id = process_constants.BASE_JOB_RUN
 
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

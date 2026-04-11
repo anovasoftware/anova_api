@@ -6,7 +6,8 @@ from constants import type_constants, status_constants, guest_constants, process
 
 from apps.res.models import Transaction, TransactionItem
 from apps.base.models import Item
-from apps.static.models import Currency
+from apps.static.models import Currency, Type
+from core.api_views.api_params import param_spec_to_openapi, PARAM_DEFINITIONS
 
 from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
@@ -55,13 +56,14 @@ class IntegrationTransactionQueuedAPIView(AuthorizedTransactionAPIView):
 class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
     http_method_names = ['post', 'options', 'head']
     process_id = process_constants.INTEGRATION_TRANSACTION
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + (
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + (
         'statusId',
         'guestId',
         'typeId',
         'externalReference',
         'externalAuthorizationCode',
-        'amount'
+        'amount',
+        'transactionType'
     )
     PARAM_OVERRIDES = {
         'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
@@ -70,7 +72,7 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         'typeId': dict(
             # required_patch=False,
             allowed=(
-                type_constants.RES_TRANSACTION_STAGED_SALE,
+                type_constants.RES_TRANSACTION_STAGED_CHARGE,
                 type_constants.RES_TRANSACTION_STAGED_REFUND,
                 type_constants.RES_TRANSACTION_STAGED
             )
@@ -86,9 +88,6 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         'event_id': {'description': 'Event id.', 'example': '009112'},
         'currency_id': {'description': 'Currency', 'example': '002'},
         # 'item_id': {'description': 'POS Item Id', 'example': '0100091'}
-    }
-    DOC_PARAMETER_OVERRIDES = {
-        'guestId': {'required': True}
     }
     DOC_PARAMETERS = [
         OpenApiParameter(
@@ -126,7 +125,23 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
             required=True,
             description='Description of item or service (e.g., 1GB INTERNET VOUCHER).'
         ),
+        # OpenApiParameter(
+        #     name='transactionType',
+        #     type=OpenApiTypes.STR,
+        #     location='query',
+        #     required=True,
+        #     description='Transaction type (CHARGE, REFUND).'
+        # ),
+        param_spec_to_openapi(
+            PARAM_DEFINITIONS['transactionType'],
+            method='POST',
+        ),
+
     ]
+    DOC_PARAMETER_OVERRIDES = {
+        'guestId': {'required': True},
+        'typeId': {'exclude': True},
+    }
     DOC_GET_ONLY_PARAMETERS = []
     DOC_POST_ONLY_PARAMETERS = ['amount', 'currencyCode', ]
     DOC_POST_SUMMARY = 'Post a charge or refund to a guest.'
@@ -178,16 +193,21 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         self.item = None
         self.external_reference = None
         self.external_authorization_code = None
+        self.transaction_type = None
         self.transaction = None
 
     def load_request(self, request, *args, **kwargs):
         super().load_request(request, *args, **kwargs)
 
-        # if self.is_get():
-        #     self.load_status(required=True)
-
         if self.is_post():
-            # self.amount = self.get_param('amount', None, True, parameter_type='decimal')
+            if self.success:
+                type_key = f'RES_TRANSACTION_STAGED_{self.transaction_type}'
+                type_obj = Type.objects.filter(type_key=type_key).first()
+                if not type_obj:
+                    self.set_message(f'invalid transactionType={self.transaction_type}.', http_status_id=status_constants.HTTP_BAD_REQUEST)
+                else:
+                    self.type_id = type_obj.pk
+
             self.set_currency_id()
             self.set_item_id()
 

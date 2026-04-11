@@ -39,7 +39,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     DOC_GET_ONLY_PARAMETERS = []
     DOC_POST_ONLY_PARAMETERS = []
 
-    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS + ('hotelId', 'hotelPublicKey', 'roomCode')
+    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('hotelId', 'hotelPublicKey', 'roomCode')
     PARAM_OVERRIDES = {
         'hotelId': dict(required_get=False, required_post=False, ),
         'hotelPublicKey': dict(required_get=False, required_post=False, ),

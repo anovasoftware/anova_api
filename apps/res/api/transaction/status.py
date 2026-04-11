@@ -7,7 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
-    PARAM_SPECS = AuthorizedHotelAPIView.PARAM_SPECS + ('recordId', 'statusId')
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('recordId', 'statusId')
     PARAM_OVERRIDES = {
         'recordId': dict(required_patch=True),
         'statusId': dict(required_patch=True, allowed=(status_constants.TRANSACTION_QUEUED,)),

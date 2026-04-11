@@ -4,7 +4,7 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedJobAPIView(AuthorizedTableAPIView):
-    PARAM_SPECS = AuthorizedTableAPIView.PARAM_SPECS + ('typeId', )
+    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('typeId',)
     PARAM_OVERRIDES = {
         'typeId': dict(
             required_get=True,

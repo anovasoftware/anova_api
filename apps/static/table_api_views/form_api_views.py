@@ -54,7 +54,7 @@ class FormAPIView(CoreAPIView):
     process_id = None
     form_id = None
 
-    PARAM_SPECS = PublicTableAPIView.PARAM_SPECS + ('recordId', 'action')
+    PARAM_NAMES = PublicTableAPIView.PARAM_NAMES + ('recordId', 'action')
     PARAM_OVERRIDES = {
         'recordId': dict(
             required_get=True,
@@ -352,7 +352,7 @@ class AuthorizedFormAPIView(AuthorizedAPIView, FormAPIView):
 
 
 class FormParameterAPIView(PublicFormAPIView):
-    PARAM_SPECS = PublicFormAPIView.PARAM_SPECS
+    PARAM_NAMES = PublicFormAPIView.PARAM_NAMES
     base_model = Parameter
 
     def __init__(self):
