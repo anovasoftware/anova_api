@@ -16,6 +16,7 @@ from core.utilities.api_docs_utilties import build_docs_response
 class IntegrationGuestAPIView(AuthorizedGuestAPIView):
     process_id = process_constants.INTEGRATION_GUEST
     http_method_names = ['get', 'options', 'head']
+    PARAM_NAMES = AuthorizedGuestAPIView.PARAM_NAMES + ('searchString',)
 
     DOC_CONTEXT = {}
     RECORD_DICT = {
@@ -47,6 +48,7 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
         ),
     ]
     DOC_PARAMETER_OVERRIDES = {
+        'hotelId': {'exclude': True},
         'guestId': {'exclude': True},
         'typeId': {'exclude': True},
     }
@@ -121,7 +123,7 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
 
             if not guests.exists():
                 guests = Guest.objects.filter(
-                    hotel_id=hotel.hotel_id,
+                    reservation__hotel_id=hotel.hotel_id,
                     person__last_name__icontains=search_string
                 )
 

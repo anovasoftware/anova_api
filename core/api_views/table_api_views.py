@@ -217,9 +217,12 @@ class TableAPIView(CoreAPIView):
                 self.records = list(queryset)
                 if len(self.records) == 1:
                     self.record = self.records[0]
-            except LookupError:
+            except LookupError as e:
                 message = f'Model {self.model_name} in app {self.app_name} not found'
-                self.add_message(message, http_status_id='VALIDATION_ERROR')
+                self.add_message(message, http_status_id=status_constants.HTTP_NOT_FOUND)
+            except Exception as e:
+                message = f'Model {self.model_name} in app {self.app_name} error: {str(e)}'
+                self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
     def get_value_list(self):
         return []
@@ -375,23 +378,47 @@ class TableAPIView(CoreAPIView):
 
     def expand_record_with_external_ids(self, app_name, model_name, field_to_expand):
         for record in self.records:
-            if field_to_expand in record:
-                expanded_field = f'{field_to_expand}_external_id'
-                external_id = 'N/A'
-                internal_id = record[field_to_expand]
-
-                external_mappings = ExternalMapping.objects.filter(
-                    app_name=app_name,
-                    model_name=model_name,
-                    internal_id=internal_id
-                ).first()
-
-                if external_mappings:
-                    external_id = external_mappings.external_id
-
-                record[expanded_field] = external_id
+            record = self.add_external_id(record, app_name, model_name, field_to_expand)
+            # if field_to_expand in record:
+            #     expanded_field = f'external_{field_to_expand}'
+            #     external_id = 'N/A'
+            #     internal_id = record[field_to_expand]
+            #
+            #     external_mappings = ExternalMapping.objects.filter(
+            #         app_name=app_name,
+            #         model_name=model_name,
+            #         internal_id=internal_id
+            #     ).first()
+            #
+            #     if external_mappings:
+            #         external_id = external_mappings.external_id
+            #         external_id = external_id.rsplit('-', 1)[-1]
+            #
+            #     record[expanded_field] = external_id
 
         return
+
+    def add_external_id(self, record=None, app_name=None, model_name=None, field_to_expand=None):
+        record = record or {}
+        if field_to_expand in record:
+            expanded_field = f'external_{field_to_expand}'
+            external_id = 'N/A'
+            internal_id = record[field_to_expand]
+
+            external_mappings = ExternalMapping.objects.filter(
+                app_name=app_name,
+                model_name=model_name,
+                internal_id=internal_id
+            ).first()
+
+            if external_mappings:
+                external_id = external_mappings.external_id
+                external_id = external_id.rsplit('-', 1)[-1]
+
+            record[expanded_field] = external_id
+
+        return record
+
 
     def pre_patch(self, request):
         pass

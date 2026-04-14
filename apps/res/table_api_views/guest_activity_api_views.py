@@ -9,12 +9,12 @@ class AuthorizedGuestActivityAPIView(AuthorizedHotelAPIView):
 
 
 class AuthorizedGuestActivityGangwayAPIView(AuthorizedGuestActivityAPIView):
-    process_id = process_constants.RES_GUEST_ACTIVITY_GANGWAY
+    # process_id = process_constants.RES_GUEST_ACTIVITY_GANGWAY
 
     PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('rfidUid',)
     PARAM_OVERRIDES = {
         'typeId': dict(required_get=True, required_post=False, allowed=(type_constants.NOT_APPLICABLE,)),
-        'hotelPublicKey': dict(required_get=False, required_post=True,),
+        # 'hotelPublicKey': dict(required_get=False, required_post=True,),
         'rfidUid': dict(required_get=True, required_post=True,),
 
     }
@@ -32,8 +32,8 @@ class AuthorizedGuestActivityGangwayAPIView(AuthorizedGuestActivityAPIView):
         #     type_constants.RES_GUEST_STAFF
         # ]
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
 
     def load_models(self, request):
         super().load_models(request)

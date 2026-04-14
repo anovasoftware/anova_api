@@ -21,13 +21,13 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
             required=False,
             description='Hotel/ship id. Required if hotelPublicKey is not supplied (contact Anova for details).'
         ),
-        OpenApiParameter(
-            name='hotelPublicKey',
-            type=OpenApiTypes.STR,
-            location='query',
-            required=False,
-            description='Hotel/ship public key. Required if hotelId is not supplied (contact Anova for details).'
-        ),
+        # OpenApiParameter(
+        #     name='hotelPublicKey',
+        #     type=OpenApiTypes.STR,
+        #     location='query',
+        #     required=False,
+        #     description='Hotel/ship public key. Required if hotelId is not supplied (contact Anova for details).'
+        # ),
         OpenApiParameter(
             name='guestId',
             type=OpenApiTypes.STR,
@@ -39,10 +39,10 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     DOC_GET_ONLY_PARAMETERS = []
     DOC_POST_ONLY_PARAMETERS = []
 
-    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('hotelId', 'hotelPublicKey', 'roomCode')
+    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('hotelId', 'roomCode')
     PARAM_OVERRIDES = {
         'hotelId': dict(required_get=False, required_post=False, ),
-        'hotelPublicKey': dict(required_get=False, required_post=False, ),
+        # 'hotelPublicKey': dict(required_get=False, required_post=False, ),
         'roomCode': dict(required_get=False, required_post=False, )
     }
 
@@ -53,7 +53,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         self.client = None
         self.hotel_id = None
         self.hotel_id_field = 'hotel_id'
-        self.hotel_public_key = None
+        # self.hotel_public_key = None
         self.hotel_key = None
         self.hotel_extension = None
         self.guest_id = None
@@ -66,11 +66,12 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         super().load_request(request, *args, **kwargs)
 
         if self.success:
-            if bool(self.hotel_id) == bool(self.hotel_public_key):
-                message = 'Exactly one of hotelId or hotelPublicKey must be provided.'
-                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-            else:
-                self.hotel_key = self.hotel_id if self.hotel_id else self.hotel_public_key
+            pass
+            # if bool(self.hotel_id) == bool(self.hotel_public_key):
+            #     message = 'Exactly one of hotelId or hotelPublicKey must be provided.'
+            #     self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            # else:
+            #     self.hotel_key = self.hotel_id if self.hotel_id else self.hotel_public_key
 
             # if self.hotel_id and self.hotel_public_key:
             #     message = 'Only one of hotelId or hotelPublicKey is required.'
@@ -83,11 +84,17 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         super().load_models(request)
 
         try:
-            if self.hotel_public_key:
-                self.hotel = Hotel.objects.get(public_key=self.hotel_public_key)
-                self.hotel_id = self.hotel.hotel_id = self.hotel.hotel_id
-            else:
+            try:
                 self.hotel = Hotel.objects.get(pk=self.hotel_id)
+                # self.hotel_id = self.hotel.hotel_id
+            except ObjectDoesNotExist as e:
+                self.hotel = Hotel.objects.get(public_key=self.hotel_id)
+                self.hotel_id = self.hotel.hotel_id
+            # if self.hotel_public_key:
+            #     self.hotel = Hotel.objects.get(public_key=self.hotel_public_key)
+            #     self.hotel_id = self.hotel.hotel_id = self.hotel.hotel_id
+            # else:
+            #     self.hotel = Hotel.objects.get(pk=self.hotel_id)
 
             user_hotels = self.user.userHotels.filter(
                 hotel_id=self.hotel_id,
@@ -104,9 +111,9 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         except ObjectDoesNotExist as e:
             if self.hotel_id:
                 message = f'hotelId not found: {self.hotel_id}'
-            else:
-                message = f'hotelPublicKey not found: {self.hotel_public_key}'
-            self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            # else:
+            #     message = f'hotelPublicKey not found: {self.hotel_public_key}'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if self.success and self.guest_id:
             guests = Guest.objects.filter(pk=self.guest_id)

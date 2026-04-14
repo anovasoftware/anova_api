@@ -503,7 +503,7 @@ class CoreAPIView(GenericAPIView):
     def post_post(self, request):
         pass
 
-    def patch(self, request):
+    def patch(self, request, *args, **kwargs):
         try:
             self.load_request(request)
             if self.success:

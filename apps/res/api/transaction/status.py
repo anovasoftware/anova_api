@@ -6,15 +6,15 @@ from apps.res.models import Transaction
 from django.core.exceptions import ObjectDoesNotExist
 
 
-class AuthorizedTransactionStatusAPIView(AuthorizedHotelAPIView):
-    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('recordId', 'statusId')
+class TransactionStatusAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.RES_TRANSACTION_STATUS
+
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('statusId', )
     PARAM_OVERRIDES = {
-        'recordId': dict(required_patch=True),
+        # 'recordId': dict(required_patch=True),
         'statusId': dict(required_patch=True, allowed=(status_constants.TRANSACTION_QUEUED,)),
         'typeId': dict(required_patch=False),
     }
-
-    process_id = process_constants.RES_TRANSACTION_STATUS
 
     def __init__(self):
         super().__init__()

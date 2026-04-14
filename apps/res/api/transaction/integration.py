@@ -26,8 +26,11 @@ class IntegrationTransactionQueuedAPIView(AuthorizedTransactionAPIView):
         'transaction_id': {'description': 'Transaction id', 'example': '00912211'},
         'description': {'description': 'Description of transaction.', 'example': '1GB INTERNET VOUCHER'},
         'guest_id': {'description': 'Guest id.', 'example': '002149'},
-        # 'event_id': {'description': 'Event id.', 'example': '009112'},
-        # 'currency_id': {'description': 'Currency', 'example': '002'},
+        'event_id': {'description': 'Event id.', 'example': '009112'},
+        'currency_id': {'description': 'Currency', 'example': '002'},
+        'status__status_id': {'description': 'Status id.', 'example': '001'},
+        'status__description': {'description': 'Status description.', 'example': '001'},
+        'transactionItems': {'description': 'Transaction items.', 'example': '[]'},
         # 'item_id': {'description': 'POS Item Id', 'example': '0100091'}
     }
 
@@ -47,8 +50,27 @@ class IntegrationTransactionQueuedAPIView(AuthorizedTransactionAPIView):
 
     def _get(self, request):
         super()._get(request)
-        self.expand_record_with_external_ids('res','Guest', 'guest_id')
-        print('x')
+        self.expand_record_with_external_ids('res', 'Guest', 'guest_id')
+        self.expand_record_with_external_ids('res', 'Event', 'event_id')
+        self.expand_record_with_external_ids('static', 'Currency', 'currency_id')
+
+        for record in self.records:
+            transaction_id = record['transaction_id']
+            transaction_items = TransactionItem.objects.filter(transaction_id=transaction_id).values(
+                'transaction_item_id',
+                'transaction_id',
+                'item_id',
+                'item__item_id',
+                'item__description',
+                'quantity',
+                'price',
+            )
+            transaction_items = list(transaction_items)
+
+            for transaction_item in transaction_items:
+                self.add_external_id(transaction_item, 'base', 'Item', 'item_id')
+
+            record['transaction_items'] = transaction_items
 
 
 ##### CREATE ENTRY IN urls_docs.py ####
@@ -204,7 +226,8 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
                 type_key = f'RES_TRANSACTION_STAGED_{self.transaction_type}'
                 type_obj = Type.objects.filter(type_key=type_key).first()
                 if not type_obj:
-                    self.set_message(f'invalid transactionType={self.transaction_type}.', http_status_id=status_constants.HTTP_BAD_REQUEST)
+                    self.set_message(f'invalid transactionType={self.transaction_type}.',
+                                     http_status_id=status_constants.HTTP_BAD_REQUEST)
                 else:
                     self.type_id = type_obj.pk
 
