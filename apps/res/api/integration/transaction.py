@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from apps.res.api.transaction.base import AuthorizedTransactionAPIView
+from apps.res.api.base.base_transaction import AuthorizedTransactionAPIView
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from constants import type_constants, status_constants, guest_constants, process_constants
 
@@ -18,11 +18,10 @@ from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 
 
 ##### CREATE ENTRY IN urls_docs.py ####
-# http://localhost:8000/api/v1/integration/transaction/?hotelPublicKey=NC9DXY&typeId=00N&guestId=0004HT&amount=30.00&shape=flat&currencyCode=usd&itemDescription=1GB INTERNET VOUCHER&externalReference=REF00017&externalAuthorizationCode=
-class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
+class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
     http_method_names = ['post', 'options', 'head']
-    process_id = process_constants.INTEGRATION_TRANSACTION
-    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + (
+    process_id = process_constants.INTEGRATION_TRANSACTION_CREATE
+    PARAM_NAMES = AuthorizedTransactionAPIView.PARAM_NAMES + (
         'statusId',
         'guestId',
         'typeId',
@@ -163,6 +162,7 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         self.transaction = None
 
     def load_request(self, request, *args, **kwargs):
+        print(self.PARAM_NAMES)
         super().load_request(request, *args, **kwargs)
 
         if self.is_post():
@@ -388,4 +388,4 @@ class IntegrationTransactionAPIView(AuthorizedTransactionAPIView):
         return response
 
 
-IntegrationTransactionAPIView = IntegrationTransactionAPIView.get_schema()(IntegrationTransactionAPIView)
+IntegrationTransactionCreateAPIView = IntegrationTransactionCreateAPIView.get_schema()(IntegrationTransactionCreateAPIView)

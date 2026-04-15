@@ -1,10 +1,10 @@
 from django.urls import path
 
-from apps.res.api.transaction.integration import IntegrationTransactionAPIView
-from apps.res.api.guest.integration import IntegrationGuestAPIView
+from apps.res.api.integration.transaction import IntegrationTransactionCreateAPIView
+from apps.res.api.integration.guest import IntegrationGuestListAPIView
 
 urlpatterns = [
-    path('/api/v1/hotel/<str:hotelId>/integration/guest/', IntegrationGuestAPIView.as_view()),
-    path('api/v1/hotel/<str:hotelId>/integration/transaction/', IntegrationTransactionAPIView.as_view()),
+    path('/api/v1/integration/guests/', IntegrationGuestListAPIView.as_view()),
+    path('api/v1/integration/transactions/', IntegrationTransactionCreateAPIView.as_view()),
     # path('api/v1/table/res/guest_room/', AuthorizedGuestRoomAPIView.as_view()),
 ]

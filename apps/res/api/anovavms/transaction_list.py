@@ -1,7 +1,4 @@
-from decimal import Decimal
-
-from apps.res.api.transaction.base import AuthorizedTransactionAPIView
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
+from apps.res.api.base.base_transaction import AuthorizedTransactionAPIView
 from constants import status_constants, process_constants
 
 from apps.res.models import TransactionItem

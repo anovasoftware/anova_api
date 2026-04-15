@@ -6,7 +6,7 @@ from apps.static.models import Hotel
 from apps.res.models import Guest, GuestRoom, Event, HotelExtension
 
 from constants import status_constants
-
+from core.api_views.api_params import param_spec_to_openapi, PARAM_DEFINITIONS
 
 class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     DOC_CONTEXT = {
@@ -14,20 +14,17 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         'hotel_description': 'MS Diamond'
     }
     DOC_PARAMETERS = [
-        OpenApiParameter(
-            name='hotelId',
-            type=OpenApiTypes.STR,
-            location='query',
-            required=False,
-            description='Hotel/ship id. Required if hotelPublicKey is not supplied (contact Anova for details).'
-        ),
         # OpenApiParameter(
-        #     name='hotelPublicKey',
+        #     name='hotelId',
         #     type=OpenApiTypes.STR,
         #     location='query',
         #     required=False,
-        #     description='Hotel/ship public key. Required if hotelId is not supplied (contact Anova for details).'
+        #     description='Hotel/ship id.(contact Anova for details).'
         # ),
+        param_spec_to_openapi(
+            PARAM_DEFINITIONS['hotelId'],
+            method='GET',
+        ),
         OpenApiParameter(
             name='guestId',
             type=OpenApiTypes.STR,
@@ -41,7 +38,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
     PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('hotelId', 'roomCode')
     PARAM_OVERRIDES = {
-        'hotelId': dict(required_get=True, required_post=False, ),
+        # 'hotelId': dict(required_get=True, required_post=False, ),
         # 'hotelPublicKey': dict(required_get=False, required_post=False, ),
         # 'roomCode': dict(required_get=False, required_post=False, )
     }

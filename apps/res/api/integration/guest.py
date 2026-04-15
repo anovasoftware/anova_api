@@ -1,22 +1,24 @@
 from django.db.models import QuerySet
 
-from apps.res.api.guest.base import AuthorizedGuestAPIView
+from apps.res.api.base.base_guest import AuthorizedGuestAPIView
 from apps.res.models import Guest
-from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, OpenApiExample
 from django.utils import timezone
-from constants import type_constants, process_constants
+from constants import process_constants
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
 
-
 ##### CREATE ENTRY IN urls_docs.py ####
-class IntegrationGuestAPIView(AuthorizedGuestAPIView):
-    process_id = process_constants.INTEGRATION_GUEST
+class IntegrationGuestListAPIView(AuthorizedGuestAPIView):
+    process_id = process_constants.INTEGRATION_GUEST_LIST
     http_method_names = ['get', 'options', 'head']
     PARAM_NAMES = AuthorizedGuestAPIView.PARAM_NAMES + ('searchString',)
+    PARAM_OVERRIDES = {
+        **getattr(AuthorizedGuestAPIView, 'PARAM_OVERRIDES', {}),
+        'searchString': dict(required_get=True)
+    }
 
     DOC_CONTEXT = {}
     RECORD_DICT = {
@@ -48,7 +50,6 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
         ),
     ]
     DOC_PARAMETER_OVERRIDES = {
-        'hotelId': {'exclude': True},
         'guestId': {'exclude': True},
         'typeId': {'exclude': True},
     }
@@ -58,11 +59,6 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
     DOC_GET_DESCRIPTION = 'Returns guest room/cabin info for a given room code or guest ID.'
     DOC_TAGS = ['Guest']
     DOC_EXAMPLE_NAME = 'GuestSuccess'
-
-    PARAM_OVERRIDES = {
-        **getattr(AuthorizedGuestAPIView, 'PARAM_OVERRIDES', {}),
-        'searchString': dict(required_get=True)
-    }
 
     @classmethod
     def get_schema(cls):
@@ -101,7 +97,6 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
 
     def __init__(self):
         super().__init__()
-        from typing import Optional, List
         self.guests: QuerySet[Guest] = Guest.objects.none()
 
     def load_models(self, request, *args, **kwargs):
@@ -147,4 +142,5 @@ class IntegrationGuestAPIView(AuthorizedGuestAPIView):
 
         return filters
 
-IntegrationGuestAPIView = IntegrationGuestAPIView.get_schema()(IntegrationGuestAPIView)
+
+IntegrationGuestListAPIView = IntegrationGuestListAPIView.get_schema()(IntegrationGuestListAPIView)

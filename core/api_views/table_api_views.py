@@ -91,7 +91,7 @@ class TableAPIView(CoreAPIView):
             self.model = apps.get_model(self.app_name, self.model_name)
             try:
                 self.type = Type.objects.get(type_id=self.type_id)
-                DOC_CONTEXT['type__description'] = self.type.description
+                # self.DOC_CONTEXT['type__description'] = self.type.description
             except Exception as e:
                 pass
 

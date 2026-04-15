@@ -3,7 +3,7 @@ from constants import type_constants, process_constants
 
 
 class AuthorizedGuestAPIView(AuthorizedHotelAPIView):
-    process_id = process_constants.RES_GUEST
+    process_id = process_constants.TABLE_RES_GUEST
 
     PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES + ('typeId', 'roomCode')
     PARAM_OVERRIDES = {

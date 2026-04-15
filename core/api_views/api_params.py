@@ -114,6 +114,9 @@ COMMON_PARAMS = {
         kind='either',
         cast=_to_str,
         description='Hotel id for the request.',
+        required_get=True,
+        required_post=True,
+        required_patch=True,
     ),
     # 'hotelPublicKey': ParamSpec(
     #     name='hotelPublicKey',
