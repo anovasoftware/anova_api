@@ -41,9 +41,9 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
     PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('hotelId', 'roomCode')
     PARAM_OVERRIDES = {
-        'hotelId': dict(required_get=False, required_post=False, ),
+        'hotelId': dict(required_get=True, required_post=False, ),
         # 'hotelPublicKey': dict(required_get=False, required_post=False, ),
-        'roomCode': dict(required_get=False, required_post=False, )
+        # 'roomCode': dict(required_get=False, required_post=False, )
     }
 
 
