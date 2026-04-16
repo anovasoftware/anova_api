@@ -3463,6 +3463,56 @@
     }
   }
 ,  {
+    "model": "static.Menu",
+    "pk": "009",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "001",
+      "page_id": "000",
+      "order_by": "04",
+      "description": "<<HOTEL>> Database",
+      "title": "<<HOTEL>> Database",
+      "sub_title": "<<HOTEL>> Database",
+      "breadcrumb_name": "Database",
+      "route": "",
+      "params": "",
+      "icon": "database",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "DATABASE_HOTEL",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-15 00:00+0000",
+      "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00B",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "009",
+      "page_id": "007",
+      "order_by": "01.01",
+      "description": "Room Categories",
+      "title": "Room Categories",
+      "sub_title": "Room Categories",
+      "breadcrumb_name": "Room Categories",
+      "route": "page",
+      "params": "",
+      "icon": "category",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "CATEGORY_ROOM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-15 00:00+0000",
+      "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Page",
     "pk": "001",
     "fields": {
@@ -3572,6 +3622,22 @@
       "internal_comment": "",
       "created_date": "2026-03-28 00:00+0000",
       "last_updated": "2026-03-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "007",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Category",
+      "description": "Cabin/Room Categories",
+      "grouping": "Hotel",
+      "page_key": "HOTEL_CATEGPRIES",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-15 00:00+0000",
+      "last_updated": "2026-04-15 00:00+0000"  
     }
   }
 ,  {
@@ -3894,6 +3960,26 @@
     }
   }
 ,  {
+    "model": "static.Grid",
+    "pk": "002",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Room Categories",
+      "title": "Room Categories",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "grouping": "Hotel Setup",
+      "grid_key": "ROOM_CATEGORY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-15 00:00+0000",
+      "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.GridColumn",
     "pk": "00101",
     "fields": {
@@ -3974,6 +4060,46 @@
     }
   }
 ,  {
+    "model": "static.GridColumn",
+    "pk": "00201",
+    "fields": {
+      "grid_id": "002",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Category",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-15 00:00+0000",
+      "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00202",
+    "fields": {
+      "grid_id": "002",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "hotel",
+      "description_short": "",
+      "field": "hotel__description",
+      "label": "Hotel/Ship",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-16 00:00+0000",
+      "last_updated": "2026-04-16 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Process",
     "pk": "001",
     "fields": {
@@ -3990,6 +4116,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4013,6 +4140,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4036,6 +4164,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4059,6 +4188,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4082,6 +4212,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4105,6 +4236,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4128,6 +4260,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4151,6 +4284,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4174,6 +4308,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4197,6 +4332,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4208,18 +4344,19 @@
     "pk": "00C",
     "fields": {
       "type_id": "000",
-      "status_id": "002",
+      "status_id": "001",
       "code": "Guest",
       "description": "Guest",
       "route": "table/res/guest/",
       "view": "AuthorizedGuestAPIView",
-      "module_path": "apps.res.api.table.guests",
+      "module_path": "apps.res.table_api_views.guest_api_views",
       "grouping": "table",
       "process_key": "TABLE_RES_GUEST",
       "supports_create": true,
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4243,6 +4380,7 @@
       "supports_read": true,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4266,6 +4404,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4289,6 +4428,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4312,6 +4452,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4335,6 +4476,7 @@
       "supports_read": true,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
@@ -4358,6 +4500,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-22 00:00+0000",
@@ -4381,6 +4524,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-11-30 00:00+0000",
@@ -4404,6 +4548,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-12-26 00:00+0000",
@@ -4427,6 +4572,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-12-26 00:00+0000",
@@ -4450,6 +4596,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-01-23 00:00+0000",
@@ -4473,6 +4620,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
@@ -4496,6 +4644,7 @@
       "supports_read": true,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-14 00:00+0000",
@@ -4519,6 +4668,7 @@
       "supports_read": false,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
@@ -4542,6 +4692,7 @@
       "supports_read": true,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-02-26 00:00+0000",
@@ -4565,6 +4716,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-02 00:00+0000",
@@ -4588,6 +4740,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-10 00:00+0000",
@@ -4611,6 +4764,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-11 00:00+0000",
@@ -4634,6 +4788,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-12 00:00+0000",
@@ -4657,6 +4812,7 @@
       "supports_read": true,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-14 00:00+0000",
@@ -4680,6 +4836,7 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-16 00:00+0000",
@@ -4696,13 +4853,14 @@
       "description": "Anova Users",
       "route": "grid/grid001",
       "view": "Grid001APIView",
-      "module_path": "apps.base.api_views_grids.grid001",
+      "module_path": "apps.base.api.grids.grid001",
       "grouping": "grids",
       "process_key": "GRID_USER_ANOVA",
       "supports_create": false,
       "supports_read": true,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-29 00:00+0000",
@@ -4726,6 +4884,7 @@
       "supports_read": true,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": true,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
@@ -4749,10 +4908,35 @@
       "supports_read": false,
       "supports_update": false,
       "supports_delete": false,
+      "generate_doc": true,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-16 00:00+0000",
+      "last_updated": "2026-04-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "016",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Room Categories",
+      "description": "Room Categories",
+      "route": "grid/grid002",
+      "view": "Grid002APIView",
+      "module_path": "apps.base.api.grids.grid002",
+      "grouping": "grids",
+      "process_key": "GRID_ROOM_CATEGORY",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
-      "last_updated": "2026-04-06 00:00+0000"  
+      "last_updated": "2026-04-15 00:00+0000"  
     }
   }
 ,  {

@@ -36,7 +36,8 @@ urlpatterns = [
     # path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 
     # path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-    path("api/schema/", SpectacularAPIView.as_view(urlconf="core.urls.urls_docs"), name="schema"),
+    # path("api/schema/", SpectacularAPIView.as_view(urlconf="core.urls.urls_docs"), name="schema"),
+    path("api/schema/", SpectacularAPIView.as_view(urlconf="anova_api.urls_docs"), name="schema"),
     path("docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
     path("redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]

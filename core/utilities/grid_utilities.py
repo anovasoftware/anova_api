@@ -4,8 +4,9 @@ from core.utilities.string_utilities import field_to_data_path
 
 
 class GridUtility(object):
-    def __init__(self, grid_id):
+    def __init__(self, grid_id, params=None):
         self.grid_id = grid_id
+        self.params = {} or params
         self.grid = None
 
         self.columns = None
@@ -17,7 +18,7 @@ class GridUtility(object):
         self.success = True
         self.message = 'grid loaded'
 
-        self.load_grid()
+        # self.load_grid()
 
     def load_grid(self):
         self.grid = self.get_grid()
@@ -89,3 +90,9 @@ class GridUtility(object):
             'field', flat=True
         )
         return list(columns)
+
+
+class GridHotelUtility(GridUtility):
+    def __init__(self, grid_id, params=None):
+        super().__init__(grid_id, params)
+        self.hotel_id = self.params.get('hotelId', None)

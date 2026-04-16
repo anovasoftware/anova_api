@@ -314,6 +314,7 @@ class Process(BaseModel):
     supports_read    = models.BooleanField(default=False)
     supports_update  = models.BooleanField(default=False)
     supports_delete  = models.BooleanField(default=False)
+    generate_doc     = models.BooleanField(default=False)
     static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
     created_date     = models.DateTimeField(auto_now_add=True)

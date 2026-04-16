@@ -10,7 +10,6 @@ class GridAPIView(CoreAPIView):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.grid_utility = self.grid_utility_class(grid_id=self.grid_id)
 
     def initial(self, request, *args, **kwargs):
         super().initial(request, *args, **kwargs)
@@ -20,9 +19,12 @@ class GridAPIView(CoreAPIView):
             self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def _get(self, request):
+        utility = self.grid_utility_class(grid_id=self.grid_id, params=self.params)
         if self.success:
-            utility = self.grid_utility
+            utility.load_grid()
+        if self.success:
             try:
+
                 self.grid = utility.grid
                 if not utility.success:
                     self.add_message(utility.message, status_constants.HTTP_BAD_REQUEST)
@@ -41,6 +43,8 @@ class GridAPIView(CoreAPIView):
                 message = 'not defined'
                 self.add_message(message, http_status_id='VALIDATION_ERROR')
 
+        self.utility = utility
+
     def build_response(self):
         response = super().build_response()
 
@@ -58,10 +62,14 @@ class GridAPIView(CoreAPIView):
         return response
 
 
-
 class PublicGridAPIView(GridAPIView):
     pass
 
 
 class AuthorizedGridAPIView(GridAPIView, AuthorizedAPIView):
     pass
+
+
+class HotelGridAPIView(AuthorizedGridAPIView):
+    PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('hotelId', )
+

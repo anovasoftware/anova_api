@@ -70,6 +70,11 @@ class PublicMenuAPIView(PublicTableAPIView):
         mask_fields = []
 
         # for record in self.records:
+        #     for key, value in record.items():
+        #         if isinstance(value, str):
+        #             record[key] = value.replace('<<HOTEL>>', self.user.last_hotel.description)
+
+        # for record in self.records:
         #     for mask_field in mask_fields:
         #         if mask_field in record:
         #             record[mask_field] = mask_string(record[mask_field])
