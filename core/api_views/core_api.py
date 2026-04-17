@@ -10,6 +10,7 @@ from rest_framework.permissions import BasePermission
 from decimal import Decimal, InvalidOperation
 from django.http import JsonResponse
 from core.services.core_service import CoreService
+from core.services.log_service import LogService
 
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, extend_schema_view
@@ -144,10 +145,31 @@ class CoreAPIView(GenericAPIView):
         except Exception as e:
             self.add_message(f'{str(e)} [core_api.initial() error]', http_status_id=status_constants.HTTP_UNAUTHORIZED)
 
+    # def dispatch(self, request, *args, **kwargs):
+    #     # Set third_party_flag before the view logic runs
+    #     # self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
+    #     return super().dispatch(request, *args, **kwargs)
     def dispatch(self, request, *args, **kwargs):
-        # Set third_party_flag before the view logic runs
-        self.third_party_flag = kwargs.pop('thirdPartyFlag', 'N')
-        return super().dispatch(request, *args, **kwargs)
+        response = None
+        error = None
+
+        try:
+            response = super().dispatch(request, *args, **kwargs)
+            return response
+
+        except Exception as exc:
+            error = exc
+            raise
+
+        finally:
+            LogService.log(
+                message='Request completed' if not error else str(error),
+                level='ERROR' if error else 'INFO',
+                request=request,
+                response=response,
+                error=error,
+                process_id=self.process_id,
+            )
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

@@ -1,5 +1,6 @@
 # AUTO GENERATED
-#  anovavms
+#  
+NOT_APPLICABLE = '000'                                           # not applicable#  anovavms
 ANOVAVMS_TRANSACTION_LIST = '00K'                                # transactionANOVAVMS_TRANSACTION_STATUS = '00S'                              # transaction status#  forms
 FORM_001 = '00Y'                                                 # form001FORM_002 = '010'                                                 # form002FORM_004 = '00T'                                                 # form004FORM_005 = '00Z'                                                 # form005#  grids
 GRID_USER_ANOVA = '013'                                          # anova usersGRID_ROOM_CATEGORY = '016'                                       # room categories#  integration

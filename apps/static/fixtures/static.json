@@ -2488,7 +2488,7 @@
     "fields": {
       "parent_type_id": "000",
       "grouping": "static_process",
-      "code": "user required only",
+      "code": "user required endpoint",
       "description": "User Required Only",
       "description_short": "User Required Only",
       "description_long": "",
@@ -3151,6 +3151,30 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-23 00:00+0000",
+      "last_updated": "2025-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02C",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_process",
+      "code": "endpoint",
+      "description": "Endpoint",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "PROCESS_ENDPOINT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
       "last_updated": "2025-06-29 00:00+0000"  
     }
   }
@@ -4103,7 +4127,7 @@
     "model": "static.Process",
     "pk": "001",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Category",
       "description": "Category",
@@ -4127,7 +4151,7 @@
     "model": "static.Process",
     "pk": "002",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Chart Field",
       "description": "Chart Field",
@@ -4151,7 +4175,7 @@
     "model": "static.Process",
     "pk": "003",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Company",
       "description": "Company",
@@ -4175,7 +4199,7 @@
     "model": "static.Process",
     "pk": "004",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Email",
       "description": "Email",
@@ -4199,7 +4223,7 @@
     "model": "static.Process",
     "pk": "005",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Hotel_type",
       "description": "Hotel_type",
@@ -4223,7 +4247,7 @@
     "model": "static.Process",
     "pk": "006",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Item",
       "description": "Item",
@@ -4247,7 +4271,7 @@
     "model": "static.Process",
     "pk": "007",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Person",
       "description": "Person",
@@ -4271,7 +4295,7 @@
     "model": "static.Process",
     "pk": "008",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Por Menu",
       "description": "Por Menu",
@@ -4295,7 +4319,7 @@
     "model": "static.Process",
     "pk": "009",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Pos Menu /tem",
       "description": "Pos Menu /tem",
@@ -4319,7 +4343,7 @@
     "model": "static.Process",
     "pk": "00B",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Event",
       "description": "Event",
@@ -4343,7 +4367,7 @@
     "model": "static.Process",
     "pk": "00C",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Guest",
       "description": "Guest",
@@ -4367,7 +4391,7 @@
     "model": "static.Process",
     "pk": "00D",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Guest/Room",
       "description": "Guest/Room",
@@ -4391,7 +4415,7 @@
     "model": "static.Process",
     "pk": "00F",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Hotel/item",
       "description": "Hotel/item",
@@ -4415,7 +4439,7 @@
     "model": "static.Process",
     "pk": "00G",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Reservation",
       "description": "Reservation",
@@ -4439,7 +4463,7 @@
     "model": "static.Process",
     "pk": "00J",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Room",
       "description": "Room",
@@ -4463,7 +4487,7 @@
     "model": "static.Process",
     "pk": "00K",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Transaction",
       "description": "Transaction",
@@ -4487,7 +4511,7 @@
     "model": "static.Process",
     "pk": "00L",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Transaction/item",
       "description": "Transaction/item",
@@ -4511,7 +4535,7 @@
     "model": "static.Process",
     "pk": "00M",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Position",
       "description": "Posittion",
@@ -4535,7 +4559,7 @@
     "model": "static.Process",
     "pk": "00P",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Job",
       "description": "Job",
@@ -4559,7 +4583,7 @@
     "model": "static.Process",
     "pk": "00Q",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Job Run",
       "description": "Job Run",
@@ -4583,7 +4607,7 @@
     "model": "static.Process",
     "pk": "00R",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Hotel Extension",
       "description": "Hotel Extension",
@@ -4607,7 +4631,7 @@
     "model": "static.Process",
     "pk": "00S",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "TransactionStatus",
       "description": "Transaction Status",
@@ -4679,7 +4703,7 @@
     "model": "static.Process",
     "pk": "00W",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Guest Detail",
       "description": "Guest Detail",
@@ -4703,7 +4727,7 @@
     "model": "static.Process",
     "pk": "00X",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Toggle Status",
       "description": "Toggle Guest Status",
@@ -4727,7 +4751,7 @@
     "model": "static.Process",
     "pk": "00Y",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Form001",
       "description": "Form001",
@@ -4751,7 +4775,7 @@
     "model": "static.Process",
     "pk": "00Z",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Form005",
       "description": "Form005",
@@ -4775,7 +4799,7 @@
     "model": "static.Process",
     "pk": "010",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Form002",
       "description": "Form002",
@@ -4799,7 +4823,7 @@
     "model": "static.Process",
     "pk": "011",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "ExchageRate",
       "description": "Exchange rates",
@@ -4823,7 +4847,7 @@
     "model": "static.Process",
     "pk": "012",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Job2",
       "description": "Process Scheduled Jobs",
@@ -4847,7 +4871,7 @@
     "model": "static.Process",
     "pk": "013",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Anova User",
       "description": "Anova Users",
@@ -4871,7 +4895,7 @@
     "model": "static.Process",
     "pk": "014",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "GuestList",
       "description": "Guest Integration",
@@ -4895,7 +4919,7 @@
     "model": "static.Process",
     "pk": "015",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "TransactionCreate",
       "description": "Create Transaction",
@@ -4919,7 +4943,7 @@
     "model": "static.Process",
     "pk": "016",
     "fields": {
-      "type_id": "000",
+      "type_id": "02C",
       "status_id": "001",
       "code": "Room Categories",
       "description": "Room Categories",
@@ -4937,6 +4961,30 @@
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
       "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "route": "",
+      "view": "",
+      "module_path": "",
+      "grouping": "",
+      "process_key": "NOT_APPLICABLE",
+      "supports_create": false,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
     }
   }
 ,  {

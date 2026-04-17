@@ -37,5 +37,5 @@ FORM_DATA_ENTRY = '602'                                          # data entry fo
 CONTROL_HIDDEN = '00Z'                                           # hiddenCONTROL_SELECT1 = '028'                                          # select1CONTROL_TEXTAREA = '01B'                                         # textareaCONTROL_TEXTBOX = '00Y'                                          # textbox#  static_form_extra
 FORM_EXTRA_LINK = '017'                                          # link#  static_menu
 MENU_HEADER_BAR = '002'                                          # header barMENU_NAVIGATION = '02B'                                          # navigationMENU_STAND_ALONE = '003'                                         # standalone (eg, login, home)#  static_process
-PROFILE_USER_REQUIRED_ONLY = '021'                               # user required only#  static_text
+PROCESS_ENDPOINT = '02C'                                         # endpointPROFILE_USER_REQUIRED_ONLY = '021'                               # user required only#  static_text
 TEXT_WEB_CONTENT = '010'                                         # web content
