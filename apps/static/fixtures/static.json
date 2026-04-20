@@ -3269,6 +3269,7 @@
       "status_id": "001",
       "parent_menu_id": "000",
       "page_id": "000",
+      "grid_id": "000",
       "order_by": "00",
       "description": "Not Applicable",
       "title": "",
@@ -3294,6 +3295,7 @@
       "status_id": "001",
       "parent_menu_id": "000",
       "page_id": "001",
+      "grid_id": "000",
       "order_by": "01",
       "description": "HOME",
       "title": "",
@@ -3319,6 +3321,7 @@
       "status_id": "002",
       "parent_menu_id": "000",
       "page_id": "002",
+      "grid_id": "000",
       "order_by": "02",
       "description": "ABOUT",
       "title": "About Us",
@@ -3344,6 +3347,7 @@
       "status_id": "001",
       "parent_menu_id": "000",
       "page_id": "003",
+      "grid_id": "000",
       "order_by": "03",
       "description": "MODULES",
       "title": "Modules",
@@ -3369,6 +3373,7 @@
       "status_id": "001",
       "parent_menu_id": "000",
       "page_id": "004",
+      "grid_id": "000",
       "order_by": "04",
       "description": "LOGIN",
       "title": "Login",
@@ -3394,10 +3399,11 @@
       "status_id": "001",
       "parent_menu_id": "001",
       "page_id": "000",
+      "grid_id": "000",
       "order_by": "01",
       "description": "Anova Administration",
       "title": "Anova Administration",
-      "sub_title": "Anova Security settings and configuration",
+      "sub_title": "Security settings and configuration",
       "breadcrumb_name": "Anova Administration",
       "route": "",
       "params": "",
@@ -3419,11 +3425,12 @@
       "status_id": "001",
       "parent_menu_id": "001",
       "page_id": "000",
-      "order_by": "02",
+      "grid_id": "000",
+      "order_by": "03",
       "description": "Guest Management",
       "title": "Guest Management",
       "sub_title": "Guest settings",
-      "breadcrumb_name": "GuestX",
+      "breadcrumb_name": "Guest",
       "route": "",
       "params": "",
       "icon": "people",
@@ -3444,6 +3451,7 @@
       "status_id": "001",
       "parent_menu_id": "005",
       "page_id": "006",
+      "grid_id": "000",
       "order_by": "01.01",
       "description": "Users",
       "title": "Users",
@@ -3469,7 +3477,8 @@
       "status_id": "001",
       "parent_menu_id": "001",
       "page_id": "005",
-      "order_by": "03",
+      "grid_id": "000",
+      "order_by": "04",
       "description": "Gangway",
       "title": "Gangway",
       "sub_title": "Gangway",
@@ -3494,14 +3503,15 @@
       "status_id": "001",
       "parent_menu_id": "001",
       "page_id": "000",
-      "order_by": "04",
-      "description": "<<HOTEL>> Database",
-      "title": "<<HOTEL>> Database",
-      "sub_title": "<<HOTEL>> Database",
-      "breadcrumb_name": "Database",
+      "grid_id": "000",
+      "order_by": "02",
+      "description": "Hotel Administration",
+      "title": "<<HOTEL>> Administration",
+      "sub_title": "Security settings and configuration",
+      "breadcrumb_name": "Administration",
       "route": "",
       "params": "",
-      "icon": "database",
+      "icon": "settings",
       "hotel_required": true,
       "grouping": "Navigation",
       "menu_key": "DATABASE_HOTEL",
@@ -3518,12 +3528,39 @@
       "type_id": "02B",
       "status_id": "001",
       "parent_menu_id": "009",
+      "page_id": "000",
+      "grid_id": "000",
+      "order_by": "02.01",
+      "description": "Property Setup",
+      "title": "<<PROPERTY>> Setup",
+      "sub_title": "Property Setup",
+      "breadcrumb_name": "Property Setup",
+      "route": "",
+      "params": "",
+      "icon": "business",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "PROPERTY_SETUP",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00C",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00B",
       "page_id": "007",
-      "order_by": "01.01",
+      "grid_id": "002",
+      "order_by": "02.01.01",
       "description": "Room Categories",
-      "title": "Room Categories",
-      "sub_title": "Room Categories",
-      "breadcrumb_name": "Room Categories",
+      "title": "<<ROOM>> Categories",
+      "sub_title": "Category Setup",
+      "breadcrumb_name": "<<ROOM>> Categories",
       "route": "page",
       "params": "",
       "icon": "category",
@@ -3533,7 +3570,59 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
-      "last_updated": "2026-04-15 00:00+0000"  
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00D",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00B",
+      "page_id": "007",
+      "grid_id": "003",
+      "order_by": "02.01.02",
+      "description": "Rooms",
+      "title": "<<ROOM>>s",
+      "sub_title": "<<ROOM>> Setup",
+      "breadcrumb_name": "<<ROOM>>s",
+      "route": "page",
+      "params": "",
+      "icon": "apartment",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "ROOM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00F",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "009",
+      "page_id": "007",
+      "grid_id": "004",
+      "order_by": "02.02",
+      "description": "Cruise Management",
+      "title": "Cruise Management",
+      "sub_title": "Cruise setup , configuration and pricing",
+      "breadcrumb_name": "Cruise Setup",
+      "route": "page",
+      "params": "",
+      "icon": "directions_boat",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "EVENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
     }
   }
 ,  {
@@ -3892,16 +3981,16 @@
       "type_id": "006",
       "status_id": "001",
       "client_id": "001",
-      "code": "MEG",
-      "description": "Magellan Discoverer",
-      "vms_identifier": "1401",
+      "code": "GEM",
+      "description": "Gemini",
+      "vms_identifier": "1202",
       "grouping": "CRUISE SHIPS",
-      "hotel_key": "MAGELLAN_DISCOVERER",
+      "hotel_key": "GEMINI",
       "public_key": "K8Q9SP",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-02-22 00:00+0000",
-      "last_updated": "2026-02-25 00:00+0000"  
+      "created_date": "2026-04-20 00:00+0000",
+      "last_updated": "2026-04-20 00:00+0000"  
     }
   }
 ,  {
@@ -3935,6 +4024,9 @@
       "can_read": false,
       "can_update": false,
       "can_delete": false,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "order_by": "",
       "grouping": "ALL",
       "grid_key": "NOT_APPLICABLE",
       "static_flag": "Y",
@@ -3955,28 +4047,11 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "data_source_application": "base",
+      "data_source_model_name": "User",
+      "order_by": "username",
       "grouping": "Anova",
       "grid_key": "USER_ANOVA",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2026-03-30 00:00+0000",
-      "last_updated": "2026-03-30 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Grid",
-    "pk": "999",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "description": "To Be Announced",
-      "title": "",
-      "can_create": false,
-      "can_read": false,
-      "can_update": false,
-      "can_delete": false,
-      "grouping": "ALL",
-      "grid_key": "TO_BE_ANNOUNCED",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-30 00:00+0000",
@@ -3995,12 +4070,84 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "data_source_application": "base",
+      "data_source_model_name": "Category",
+      "order_by": "description",
       "grouping": "Hotel Setup",
       "grid_key": "ROOM_CATEGORY",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-04-15 00:00+0000",
+      "created_date": "2026-04-19 00:00+0000",
       "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "003",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Rooms",
+      "title": "Rooms",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "data_source_application": "res",
+      "data_source_model_name": "Room",
+      "order_by": "description",
+      "grouping": "Hotel Setup",
+      "grid_key": "ROOM",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "To Be Announced",
+      "title": "",
+      "can_create": false,
+      "can_read": false,
+      "can_update": false,
+      "can_delete": false,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "order_by": "",
+      "grouping": "ALL",
+      "grid_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "004",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Cruise Management",
+      "title": "Cruise Management",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "data_source_application": "res",
+      "data_source_model_name": "Event",
+      "order_by": "-event_start_date",
+      "grouping": "Cruise Setup",
+      "grid_key": "EVENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
     }
   }
 ,  {
@@ -4121,6 +4268,166 @@
       "internal_comment": "",
       "created_date": "2026-04-16 00:00+0000",
       "last_updated": "2026-04-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00301",
+    "fields": {
+      "grid_id": "003",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "code",
+      "description_short": "",
+      "field": "code",
+      "label": "Room/Cabin",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00302",
+    "fields": {
+      "grid_id": "003",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00303",
+    "fields": {
+      "grid_id": "003",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "category/grade",
+      "description_short": "",
+      "field": "category__description",
+      "label": "Category/Grade",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00304",
+    "fields": {
+      "grid_id": "003",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "hotel",
+      "description_short": "",
+      "field": "hotel__description",
+      "label": "Hotel/Ship",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-16 00:00+0000",
+      "last_updated": "2026-04-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00401",
+    "fields": {
+      "grid_id": "004",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "code",
+      "description_short": "",
+      "field": "code",
+      "label": "Cruise Code",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00402",
+    "fields": {
+      "grid_id": "004",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00403",
+    "fields": {
+      "grid_id": "004",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "event start date",
+      "description_short": "",
+      "field": "event_start_date",
+      "label": "Embark",
+      "format": "date",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00404",
+    "fields": {
+      "grid_id": "004",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "event end date",
+      "description_short": "",
+      "field": "event_end_date",
+      "label": "Disembark",
+      "format": "date",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
     }
   }
 ,  {
@@ -4297,8 +4604,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
-      "code": "Por Menu",
-      "description": "Por Menu",
+      "code": "Pos Menu",
+      "description": "Pos Menu",
       "route": "table/base/pos_menu/",
       "view": "AuthorizedPosMenuAPIView",
       "module_path": "apps.base.table_api_views.pos_menu_api_views",
@@ -4685,8 +4992,8 @@
       "description": "User",
       "route": "table/base/user/",
       "view": "AuthorizedUserAPIView",
-      "module_path": "apps.base.table_api_views.user_api_views",
-      "grouping": "table",
+      "module_path": "apps.base.api.tables.user",
+      "grouping": "tablea",
       "process_key": "BASE_USER",
       "supports_create": false,
       "supports_read": false,
@@ -4985,6 +5292,78 @@
       "internal_comment": "",
       "created_date": "2026-04-17 00:00+0000",
       "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "017",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "Cabins/Rooms",
+      "description": "Cabins/Rooms",
+      "route": "grid/grid003",
+      "view": "Grid003APIView",
+      "module_path": "apps.base.api.grids.grid003",
+      "grouping": "grids",
+      "process_key": "GRID_ROOM",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "018",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "GetUserProfile",
+      "description": "Get User Profile",
+      "route": "utilities/base/user/profile",
+      "view": "UserProfileAPIView",
+      "module_path": "apps.base.api.utilities.user_profile",
+      "grouping": "utilities",
+      "process_key": "USER_PROFILE",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-18 00:00+0000",
+      "last_updated": "2026-04-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "019",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "Cruise Manangement",
+      "description": "Cruise Manangement",
+      "route": "grid/grid004",
+      "view": "Grid004APIView",
+      "module_path": "apps.res.api.grids.grid004",
+      "grouping": "grids",
+      "process_key": "GRID_EVENT",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
     }
   }
 ,  {

@@ -6,9 +6,9 @@ from drf_spectacular.utils import inline_serializer, OpenApiParameter
 from rest_framework import serializers as s
 
 from core.utilities.api_utilities import MetaSerializer
-from core.utilities.string_utilities import snake_to_camel
+from core.utilities.data_transformation_utilities import snake_to_camel, format_response
 from drf_spectacular.utils import inline_serializer
-from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
+from core.utilities.api_utilities import process_supports_method, required_flag_for_method
 
 
 def get_docs_envelope(record_serializer: s.Serializer,  name: str = 'StandardEnvelope') -> s.Serializer:
@@ -62,7 +62,7 @@ def expand_record_dict(record_dict=None):
     for key, val in record_dict.items():
         if 'name' not in val:
             name = key.replace('__', '_')
-            name = snake_to_camel(name)
+            name = snake_to_camel(name, '_')
             val['name'] = name
 
         if 'description' not in val:

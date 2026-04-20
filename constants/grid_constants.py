@@ -1,5 +1,6 @@
 # AUTO GENERATED
 #  ALL
 NOT_APPLICABLE = '000'                                           # not applicableTO_BE_ANNOUNCED = '999'                                          # to be announced#  Anova
-USER_ANOVA = '001'                                               # anova user#  Hotel Setup
-ROOM_CATEGORY = '002'                                            # room categories
+USER_ANOVA = '001'                                               # anova user#  Cruise Setup
+EVENT = '004'                                                    # cruise management#  Hotel Setup
+ROOM = '003'                                                     # roomsROOM_CATEGORY = '002'                                            # room categories

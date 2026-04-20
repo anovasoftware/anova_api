@@ -2,8 +2,9 @@ import os, json
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 
-from apps.static.models import Process
+from apps.static.models import Process, Hotel
 from constants import constants, status_constants, role_constants, type_constants, currency_constants
+from constants import hotel_constants
 from apps.base.models import User, UserRole, RoleProcess
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.permissions import BasePermission
@@ -18,10 +19,11 @@ from drf_spectacular.utils import OpenApiParameter, extend_schema_view
 from core.api_views.api_params import ParamSpec, _to_str, PARAM_DEFINITIONS
 from dataclasses import replace
 from django.utils import timezone
-from core.utilities.api_utilities import format_response, process_supports_method, required_flag_for_method
+from core.utilities.api_utilities import process_supports_method, required_flag_for_method
 from core.utilities.api_utilities import get_client_ip
-from core.utilities.api_utilities import flat_record
+from core.utilities.data_transformation_utilities import flat_record, transform_keys, format_response, snake_to_camel
 from core.utilities.api_docs_utilties import override_parameters, params_for
+from typing import Optional, Type as TypingType, cast
 
 
 
@@ -48,8 +50,14 @@ class CoreAPIView(GenericAPIView):
 
     # 2. Static runtime/config
     PARAM_DEFINITIONS = PARAM_DEFINITIONS
-    PARAM_NAMES = ('shape', 'debugFlag')
+    PARAM_NAMES = ('shape', 'debugFlag', 'hotelId')
     PARAM_OVERRIDES = {
+        'hotelId': dict(
+            required_get=False,
+            required_post=False,
+            required_patch=False,
+            default=None
+        ),
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
 
@@ -197,6 +205,8 @@ class CoreAPIView(GenericAPIView):
         self.client_ip = '000.000.000.000'
         self.request_data = None
         self.request_data_required = False
+        self.hotel_id = None
+        self.hotel: Optional[Hotel] = None
 
     def is_get(self):
         return self.request_method == 'GET'
@@ -366,6 +376,11 @@ class CoreAPIView(GenericAPIView):
             self.user = User.objects.get(pk=self.user_id)
         except User.DoesNotExist:
             pass
+        try:
+            if self.hotel_id:
+                self.hotel = Hotel.objects.get(pk=self.hotel_id)
+        except User.DoesNotExist:
+            pass
 
     def load_models_get(self, request):
         pass
@@ -400,7 +415,7 @@ class CoreAPIView(GenericAPIView):
             response['messages'] = ['debug mode is on']
 
         if self.response_format == 'camel_case':
-            # response = convert_to_camel_case(response)
+            # response = transform_keys(response, snake_to_camel)
             response = format_response(response)
 
         status_code = self.http_statuses[self.http_status_id]['status_code']
@@ -424,7 +439,7 @@ class CoreAPIView(GenericAPIView):
             base_context.update(self.context)
 
         if self.result_shape == 'flat':
-            base_context = flat_record(base_context)
+            base_context = flat_record(base_context, join_with='_')
 
         response = {
             'success': http_status['success'],

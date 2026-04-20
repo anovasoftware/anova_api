@@ -1,11 +1,9 @@
-from django.contrib import admin
-from django.urls import path
 from core.api_views.core_api import TestAPI
-from django.urls import path, include
+from django.urls import path
 
 from apps.static.table_api_views.form_api_views import PublicFormAPIView
-from apps.static.table_api_views.menu_api_views import PublicMenuAPIView
-from apps.base.table_api_views.user_api_views import PublicUserAPIView
+from apps.static.api.tables.menu import PublicMenuAPIView
+from apps.base.api.tables.user import PublicUserAPIView
 
 
 urlpatterns = [

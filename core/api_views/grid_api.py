@@ -72,4 +72,14 @@ class AuthorizedGridAPIView(GridAPIView, AuthorizedAPIView):
 
 class HotelGridAPIView(AuthorizedGridAPIView):
     PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('hotelId', )
+    PARAM_OVERRIDES = {
+        'hotelId': dict(
+            required_get=True,
+            required_post=True,
+            required_patch=True,
+            default=None
+        ),
+        # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
+    }
+
 

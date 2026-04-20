@@ -24,7 +24,7 @@ class PublicMenuAPIView(PublicTableAPIView):
         self.type_id = 'ALL'
         self.menu_id = None
         self.menu = None
-        self.order_by = ('order_by', )
+        self.order_by = ('order_by',)
         # self.accepted_type_ids = [
         #     'ALL'
         #     # type_constants.MENU_HEADER_BAR
@@ -46,6 +46,7 @@ class PublicMenuAPIView(PublicTableAPIView):
             'menu_id',
             'parent_menu_id',
             'type_id',
+            'grid_id',
             'description',
             'title',
             'sub_title',
@@ -68,11 +69,20 @@ class PublicMenuAPIView(PublicTableAPIView):
 
     def post_get(self, request):
         mask_fields = []
+        if self.hotel.type_id == type_constants.HOTEL_HOTEL:
+            room_or_cabin = 'Room'
+        else:
+            room_or_cabin = 'Cabin'
 
-        # for record in self.records:
-        #     for key, value in record.items():
-        #         if isinstance(value, str):
-        #             record[key] = value.replace('<<HOTEL>>', self.user.last_hotel.description)
+        for record in self.records:
+            for key, value in record.items():
+                if isinstance(value, str):
+                    record[key] = (
+                        value
+                        .replace('<<HOTEL>>', self.hotel.description)
+                        .replace('<<PROPERTY>>', self.hotel.type.description)
+                        .replace('<<ROOM>>', room_or_cabin)
+                    )
 
         # for record in self.records:
         #     for mask_field in mask_fields:
@@ -85,4 +95,3 @@ class PublicMenuAPIView(PublicTableAPIView):
         response = super().build_response()
         # response['detail']['user'] = 'hello'
         return response
-

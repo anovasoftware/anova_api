@@ -13,7 +13,7 @@ from django.db import models
 from django.apps import apps
 
 from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView
-from core.utilities.api_utilities import transform_records
+from core.utilities.data_transformation_utilities import transform_records
 from core.utilities.database_utilties import get_active_dict
 
 from constants import status_constants, type_constants

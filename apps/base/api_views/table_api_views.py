@@ -10,8 +10,8 @@ class AuthorizedClientAPIView(AuthorizedTableAPIView):
         self.client_id = None
         self.client = None
 
-    def load_request(self, request):
-        super().load_request(request)
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request, *args, **kwargs)
         self.client_id = self.get_param('clientId', None, True)
 
         if self.success:

@@ -1,20 +1,21 @@
 from constants import process_constants, grid_constants
 from core.api_views.grid_api import HotelGridAPIView
 from core.utilities.grid_utilities import GridHotelUtility
-from apps.base.models import Category
+from apps.res.models import Room
 from constants import type_constants
 
 
-class Grid002Utility(GridHotelUtility):
+class Grid003Utility(GridHotelUtility):
     query_filters = {
-        'type_id': type_constants.BASE_CATEGORY_ROOM_CABIN
+        'type_id': type_constants.RES_ROOM_CABIN
     }
+
 
     # def get_rows_qs(self):
     #     values_list = self.displayed_columns + ['pk', ]
     #
-    #     rows = Category.objects.filter(
-    #         type_id=type_constants.BASE_CATEGORY_ROOM_CABIN,
+    #     rows = Room.objects.filter(
+    #         # type_id=type_constants.ROO
     #         hotel_id=self.hotel_id
     #     )
     #
@@ -31,11 +32,7 @@ class Grid002Utility(GridHotelUtility):
     #     return rows
 
 
-
-class Grid002APIView(HotelGridAPIView):
-    process_id = process_constants.GRID_ROOM_CATEGORY
-    grid_id = grid_constants.ROOM_CATEGORY
-    grid_utility_class = Grid002Utility
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+class Grid003APIView(HotelGridAPIView):
+    process_id = process_constants.GRID_ROOM
+    grid_id = grid_constants.ROOM
+    grid_utility_class = Grid003Utility

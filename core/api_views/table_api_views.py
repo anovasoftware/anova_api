@@ -4,7 +4,7 @@ from django.utils.dateparse import parse_datetime
 from datetime import datetime
 
 from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView
-from core.utilities.api_utilities import transform_records
+from core.utilities.data_transformation_utilities import transform_records
 from django.apps import apps
 from django.db import models
 from core.utilities.database_utilties import get_active_dict
