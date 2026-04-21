@@ -24,7 +24,7 @@ from core.utilities.api_utilities import get_client_ip
 from core.utilities.data_transformation_utilities import flat_record, transform_keys, format_response, snake_to_camel
 from core.utilities.api_docs_utilties import override_parameters, params_for
 from typing import Optional, Type as TypingType, cast
-
+from django.db.models import Q
 
 
 class CoreAPIView(GenericAPIView):
@@ -376,11 +376,16 @@ class CoreAPIView(GenericAPIView):
             self.user = User.objects.get(pk=self.user_id)
         except User.DoesNotExist:
             pass
-        try:
-            if self.hotel_id:
-                self.hotel = Hotel.objects.get(pk=self.hotel_id)
-        except User.DoesNotExist:
-            pass
+
+        if self.hotel_id:
+            self.hotel = Hotel.objects.filter(
+                Q(pk=self.hotel_id) | Q(public_key=self.hotel_id)
+            ).first()
+
+            if self.hotel:
+                self.hotel_id = self.hotel.hotel_id
+            else:
+                self.add_message('hotel not found', http_status_id=status_constants.HTTP_NOT_FOUND)
 
     def load_models_get(self, request):
         pass

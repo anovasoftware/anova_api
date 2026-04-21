@@ -80,37 +80,31 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
     def load_models(self, request):
         super().load_models(request)
 
-        try:
+        if self.success:
             try:
-                self.hotel = Hotel.objects.get(pk=self.hotel_id)
-                # self.hotel_id = self.hotel.hotel_id
-            except ObjectDoesNotExist as e:
-                self.hotel = Hotel.objects.get(public_key=self.hotel_id)
-                self.hotel_id = self.hotel.hotel_id
-            # if self.hotel_public_key:
-            #     self.hotel = Hotel.objects.get(public_key=self.hotel_public_key)
-            #     self.hotel_id = self.hotel.hotel_id = self.hotel.hotel_id
-            # else:
-            #     self.hotel = Hotel.objects.get(pk=self.hotel_id)
+                # try:
+                #     self.hotel = Hotel.objects.get(pk=self.hotel_id)
+                #     # self.hotel_id = self.hotel.hotel_id
+                # except ObjectDoesNotExist as e:
+                #     self.hotel = Hotel.objects.get(public_key=self.hotel_id)
+                #     self.hotel_id = self.hotel.hotel_id
 
-            user_hotels = self.user.userHotels.filter(
-                hotel_id=self.hotel_id,
-                effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
-            )
-            if not user_hotels.exists():
-                message = f'access denied to hotel_id: {self.hotel_id}'
-                self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
-            else:
-                self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
-                # if not self.hotel_extension:
-                #     message = f'hotel_extension not found for hotel_id: {self.hotel_id}'
-                #     self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-        except ObjectDoesNotExist as e:
-            if self.hotel_id:
-                message = f'hotelId not found: {self.hotel_id}'
-            # else:
-            #     message = f'hotelPublicKey not found: {self.hotel_public_key}'
-                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+                user_hotels = self.user.userHotels.filter(
+                    hotel_id=self.hotel_id,
+                    effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
+                )
+                if not user_hotels.exists():
+                    message = f'access denied to hotel_id: {self.hotel_id}'
+                    self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
+                else:
+                    self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
+                    # if not self.hotel_extension:
+                    #     message = f'hotel_extension not found for hotel_id: {self.hotel_id}'
+                    #     self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            except ObjectDoesNotExist as e:
+                if self.hotel_id:
+                    message = f'hotelId not found: {self.hotel_id}'
+                    self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if self.success and self.guest_id:
             guests = Guest.objects.filter(pk=self.guest_id)

@@ -3344,7 +3344,7 @@
     "pk": "003",
     "fields": {
       "type_id": "002",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "000",
       "page_id": "003",
       "grid_id": "000",
@@ -3623,6 +3623,32 @@
       "internal_comment": "",
       "created_date": "2026-04-19 00:00+0000",
       "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00G",
+    "fields": {
+      "type_id": "002",
+      "status_id": "001",
+      "parent_menu_id": "000",
+      "page_id": "000",
+      "grid_id": "000",
+      "order_by": "03",
+      "description": "PRODUCTS",
+      "title": "Products",
+      "sub_title": "",
+      "breadcrumb_name": "Products",
+      "route": "",
+      "params": "",
+      "icon": "",
+      "hotel_required": false,
+      "grouping": "Header Bar",
+      "menu_key": "PRODUCTS",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-20 00:00+0000",
+      "last_updated": "2026-04-20 00:00+0000"  
     }
   }
 ,  {
