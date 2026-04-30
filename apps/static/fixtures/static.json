@@ -1164,6 +1164,24 @@
     }
   }
 ,  {
+    "model": "static.Status",
+    "pk": "01Q",
+    "fields": {
+      "grouping": "res_transaction",
+      "code": "Invalid",
+      "description": "Invalid",
+      "status_key": "TRANSACTION_INVALID",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "order_by": "99",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-29 00:00+0000",
+      "last_updated": "2026-04-29 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Type",
     "pk": "000",
     "fields": {
@@ -3179,6 +3197,30 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02D",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_menu",
+      "code": "header submenu",
+      "description": "Header Submenu",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "MENU_HEADER_SUBMENU",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-21 00:00+0000",
+      "last_updated": "2026-04-21 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -3478,7 +3520,7 @@
       "parent_menu_id": "001",
       "page_id": "005",
       "grid_id": "000",
-      "order_by": "04",
+      "order_by": "05",
       "description": "Gangway",
       "title": "Gangway",
       "sub_title": "Gangway",
@@ -3649,6 +3691,110 @@
       "internal_comment": "",
       "created_date": "2026-04-20 00:00+0000",
       "last_updated": "2026-04-20 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00H",
+    "fields": {
+      "type_id": "02D",
+      "status_id": "001",
+      "parent_menu_id": "00G",
+      "page_id": "000",
+      "grid_id": "000",
+      "order_by": "03.01",
+      "description": "Anova Onboard",
+      "title": "Anova Onboard",
+      "sub_title": "",
+      "breadcrumb_name": "Onboard",
+      "route": "",
+      "params": "",
+      "icon": "",
+      "hotel_required": false,
+      "grouping": "Header Bar",
+      "menu_key": "ANOVA_ONBOARD",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-21 00:00+0000",
+      "last_updated": "2026-04-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00J",
+    "fields": {
+      "type_id": "02D",
+      "status_id": "001",
+      "parent_menu_id": "00G",
+      "page_id": "000",
+      "grid_id": "000",
+      "order_by": "03.02",
+      "description": "Anova Connect",
+      "title": "Anova Connect",
+      "sub_title": "",
+      "breadcrumb_name": "Connect",
+      "route": "",
+      "params": "",
+      "icon": "",
+      "hotel_required": false,
+      "grouping": "Header Bar",
+      "menu_key": "ANOVA_CONNECT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-21 00:00+0000",
+      "last_updated": "2026-04-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00K",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "001",
+      "page_id": "000",
+      "grid_id": "000",
+      "order_by": "04",
+      "description": "Crew Management",
+      "title": "Crew Management",
+      "sub_title": "Crew management, configuration and setup",
+      "breadcrumb_name": "Crew",
+      "route": "",
+      "params": "",
+      "icon": "engineering",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "CREW",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-23 00:00+0000",
+      "last_updated": "2026-04-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00L",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00K",
+      "page_id": "007",
+      "grid_id": "005",
+      "order_by": "04.01",
+      "description": "Positions",
+      "title": "Positions",
+      "sub_title": "Crew positions",
+      "breadcrumb_name": "Positions",
+      "route": "",
+      "params": "",
+      "icon": "military_tech",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "POSITION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-23 00:00+0000",
+      "last_updated": "2026-04-23 00:00+0000"  
     }
   }
 ,  {
@@ -4177,6 +4323,29 @@
     }
   }
 ,  {
+    "model": "static.Grid",
+    "pk": "005",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Position Management",
+      "title": "Position Management",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "data_source_application": "base",
+      "data_source_model_name": "Position",
+      "order_by": "code",
+      "grouping": "Crew",
+      "grid_key": "POSITION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-23 00:00+0000",
+      "last_updated": "2026-04-23 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.GridColumn",
     "pk": "00101",
     "fields": {
@@ -4454,6 +4623,46 @@
       "internal_comment": "",
       "created_date": "2026-04-19 00:00+0000",
       "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00501",
+    "fields": {
+      "grid_id": "005",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "code",
+      "description_short": "",
+      "field": "code",
+      "label": "Code",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-23 00:00+0000",
+      "last_updated": "2026-04-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00502",
+    "fields": {
+      "grid_id": "005",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Position",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-23 00:00+0000",
+      "last_updated": "2026-04-23 00:00+0000"  
     }
   }
 ,  {
@@ -5390,6 +5599,102 @@
       "internal_comment": "",
       "created_date": "2026-04-19 00:00+0000",
       "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01B",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "Positions",
+      "description": "Position Management",
+      "route": "grid/grid005",
+      "view": "Grid005APIView",
+      "module_path": "apps.base.api.grids.grid005",
+      "grouping": "grids",
+      "process_key": "GRID_POSITION",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-23 00:00+0000",
+      "last_updated": "2026-04-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01C",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Context",
+      "description": "Application Context",
+      "route": "core/context/",
+      "view": "ContextAPIView",
+      "module_path": "core.api.context",
+      "grouping": "core",
+      "process_key": "CORE_CONTEXT",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-24 00:00+0000",
+      "last_updated": "2026-04-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01D",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "RoleItem",
+      "description": "Role Items",
+      "route": "anovavms/base/roleItem/",
+      "view": "AnovaVMSRoleItemAPIView",
+      "module_path": "apps.base.api.anovavms.role_item",
+      "grouping": "anovavms",
+      "process_key": "ANOVAVMS_ROLE_ITEM",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-28 00:00+0000",
+      "last_updated": "2026-04-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01F",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "ItemList",
+      "description": "Item List by Role",
+      "route": "integration/items/",
+      "view": "IntegrationItemListAPIView",
+      "module_path": "apps.res.api.integration.item",
+      "grouping": "integration",
+      "process_key": "INTEGRATION_ITEM_LIST",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": true,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-29 00:00+0000",
+      "last_updated": "2026-04-29 00:00+0000"  
     }
   }
 ,  {

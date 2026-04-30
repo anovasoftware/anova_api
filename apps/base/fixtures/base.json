@@ -1107,6 +1107,24 @@
     }
   }
 ,  {
+    "model": "base.RoleProcess",
+    "pk": "A00006",
+    "fields": {
+      "role_id": "A002",
+      "process_id": "01F",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": false,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-29 00:00+0000",
+      "last_updated": "2026-04-29 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.RoleMenu",
     "pk": "A00000",
     "fields": {

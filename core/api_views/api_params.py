@@ -213,6 +213,25 @@ TRANSACTION_PARAMS = {
         description='External authorization code.',
         default='',
     ),
+    'itemDescription': ParamSpec(
+        name='itemDescription',
+        dest='item_description',
+        kind='either',
+        cast=_to_str,
+        description='Item description.',
+        default='',
+    ),
+    'specialItemTypeId': ParamSpec(
+        name='specialItemTypeId',
+        dest='special_item_type_id',
+        kind='either',
+        cast=_to_str,
+        description='Special Item Type Id.',
+        required_post=True,
+        openapi_type=OpenApiTypes.STR,
+        openapi_location='query',
+        allowed=('00W', ),
+    ),
     'transactionType': ParamSpec(
         name='transactionType',
         dest='transaction_type',
@@ -225,6 +244,7 @@ TRANSACTION_PARAMS = {
         allowed=('CHARGE', 'REFUND'),
     ),
 }
+
 
 PARAM_DEFINITIONS = {
     **COMMON_PARAMS,

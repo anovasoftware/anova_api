@@ -548,6 +548,29 @@ class Role(BaseModel):
 # AUTOGEN_END_Role#
 
 
+# AUTOGEN_BEGIN_RoleItem#
+class RoleItem(BaseModel):
+    role_item_id     = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type             = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status           = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    role             = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name='+', default='A999')
+    item             = models.ForeignKey("base.Item", on_delete=models.CASCADE, related_name='+', default='A00000')
+    allow_api_charge = models.BooleanField(default=False)
+    static_flag      = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date     = models.DateTimeField(auto_now_add=True)
+    last_updated     = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_role_item'
+        verbose_name_plural = 'role items (base_role_item)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'role_item'
+# AUTOGEN_END_RoleItem#
+
+
 # AUTOGEN_BEGIN_RoleMenu#
 class RoleMenu(BaseModel):
     role_menu_id        = models.CharField(max_length=  6, blank=False, unique=False, primary_key=True )
@@ -690,8 +713,8 @@ class UserHotel(BaseModel):
 # AUTOGEN_BEGIN_UserRole#
 class UserRole(BaseModel):
     user_role_id        = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='+')
-    role                = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name='+')
+    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='userRoles')
+    role                = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name='userRoles')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     access_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='')

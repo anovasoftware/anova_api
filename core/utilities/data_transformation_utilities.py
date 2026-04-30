@@ -20,6 +20,21 @@ def snake_to_camel_list(values: list[str], join_with: str = '_') -> list[str]:
     return result
 
 
+# def nest_record(record: dict) -> dict:
+#     nested = {}
+#
+#     for key, value in record.items():
+#         parts = key.split('__')
+#         current = nested
+#
+#         for part in parts[:-1]:
+#             current = current.setdefault(part, {})
+#
+#         current[parts[-1]] = value
+#
+#     result = nested
+#     return result
+
 def nest_record(record: dict) -> dict:
     nested = {}
 
@@ -30,11 +45,13 @@ def nest_record(record: dict) -> dict:
         for part in parts[:-1]:
             current = current.setdefault(part, {})
 
+        if isinstance(value, dict):
+            value = nest_record(value)
+
         current[parts[-1]] = value
 
     result = nested
     return result
-
 
 def flat_record(record: dict, join_with: str = '_') -> dict:
     flat = {}
@@ -68,27 +85,66 @@ def transform_keys(obj, key_transform_func):
     return result
 
 
-def format_response(obj):
-    """
-    Backward-compatible formatter.
+# def format_response(obj):
+#     if isinstance(obj, dict):
+#         formatted = {}
+#         for key, value in obj.items():
+#             new_key = snake_to_camel(key)
+#             formatted[new_key] = format_response(value)
+#
+#     elif isinstance(obj, list):
+#         formatted = []
+#         for item in obj:
+#             if isinstance(item, dict):
+#                 item = nest_record(item)
+#             formatted.append(format_response(item))
+#
+#     else:
+#         formatted = obj
+#
+#     result = formatted
+#     return result
 
-    Preserves old behavior:
-    - dict keys are converted to camelCase
-    - dicts found inside lists are nested first with nest_record()
-    - formatting is applied recursively at all levels
-    """
+# def format_response(obj):
+#     if isinstance(obj, dict):
+#         obj = nest_record(obj)
+#
+#         formatted = {}
+#         for key, value in obj.items():
+#             new_key = snake_to_camel(key)
+#             formatted[new_key] = format_response(value)
+#
+#     elif isinstance(obj, list):
+#         formatted = [format_response(item) for item in obj]
+#
+#     else:
+#         formatted = obj
+#
+#     result = formatted
+#     return result
+def format_response(obj, shape: str = 'nested', join_with: str = '_'):
     if isinstance(obj, dict):
+        if shape == 'nested':
+            obj = nest_record(obj)
+
         formatted = {}
+
         for key, value in obj.items():
             new_key = snake_to_camel(key)
-            formatted[new_key] = format_response(value)
+
+            if isinstance(value, dict):
+                if shape == 'flat':
+                    formatted[new_key] = flat_record(value, join_with=join_with)
+                else:
+                    formatted[new_key] = format_response(value, shape=shape, join_with=join_with)
+            else:
+                formatted[new_key] = format_response(value, shape=shape, join_with=join_with)
 
     elif isinstance(obj, list):
-        formatted = []
-        for item in obj:
-            if isinstance(item, dict):
-                item = nest_record(item)
-            formatted.append(format_response(item))
+        formatted = [
+            format_response(item, shape=shape, join_with=join_with)
+            for item in obj
+        ]
 
     else:
         formatted = obj
@@ -96,17 +152,34 @@ def format_response(obj):
     result = formatted
     return result
 
-def transform_records(records: list[dict], shape: str = 'nested', join_with: str = '_') -> list[dict]:
+# def transform_records(records: list[dict], shape: str = 'nested', join_with: str = '_') -> list[dict]:
+# def transform_records(records, shape: str = 'nested', join_with: str = '_'):
+#     is_single = isinstance(records, dict)
+#     records = [records] if is_single else records
+#
+#     if shape == 'flat':
+#         transformed = [flat_record(record, join_with=join_with) for record in records]
+#     elif shape == 'nested':
+#         transformed = [nest_record(record) for record in records]
+#     else:
+#         raise ValueError(f'Unsupported shape: {shape}')
+#
+#     result = transformed
+#     return result
+def transform_records(records, shape: str = 'nested', join_with: str = '_'):
+    is_single = isinstance(records, dict)
+    records_list = [records] if is_single else records
+
     if shape == 'flat':
-        transformed = [flat_record(record, join_with=join_with) for record in records]
-    elif shape == 'nested':
-        transformed = [nest_record(record) for record in records]
+        transformed = [flat_record(record, join_with=join_with) for record in records_list]
     else:
-        raise ValueError(f'Unsupported shape: {shape}')
+    # elif shape == 'nested':
+        transformed = [nest_record(record) for record in records_list]
+    # else:
+    #     raise ValueError(f'Unsupported shape: {shape}')
 
-    result = transformed
+    result = transformed[0] if is_single else transformed
     return result
-
 
 # def snake_to_camel(s: str, join_with: str = '__') -> str:
 #     def camel(part: str) -> str:

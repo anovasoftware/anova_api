@@ -207,8 +207,17 @@ class TableAPIView(CoreAPIView):
             try:
                 model: Model = apps.get_model(self.app_name, self.model_name)
                 fields = self.get_value_list()
+                annotations = self.get_annotations()
                 query_filter = self.get_query_filter()
-                queryset = model.objects.filter(**query_filter).values(*fields)
+
+                queryset = model.objects.annotate(
+                    **annotations
+                ).filter(
+                    **query_filter
+                ).values(
+                    *fields
+                )
+
                 if self.order_by:
                     order_by = self.order_by
                     queryset = queryset.order_by(*order_by)
@@ -231,6 +240,10 @@ class TableAPIView(CoreAPIView):
         #     'type__description'
         # ]
 
+    def get_annotations(self):
+        annotations = {}
+        return annotations
+
     def get_query_filter(self):
         filters = {}
         if self.type:
@@ -239,6 +252,8 @@ class TableAPIView(CoreAPIView):
             filters = {
                 'type_id__in': type_ids
             }
+        if hasattr(self.model, 'effective_status_id'):
+            filters['effective_status_id__in'] = [status_constants.EFFECTIVE_STATUS_CURRENT]
         return filters
 
     # def post_get(self, request):

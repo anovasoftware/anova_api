@@ -38,7 +38,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
     PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES + ('hotelId', 'roomCode')
     PARAM_OVERRIDES = {
-        # 'hotelId': dict(required_get=True, required_post=False, ),
+        'hotelId': dict(required_get=True, required_post=False, ),
         # 'hotelPublicKey': dict(required_get=False, required_post=False, ),
         # 'roomCode': dict(required_get=False, required_post=False, )
     }
@@ -56,7 +56,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
         self.guest_id = None
         self.guest = None
         self.guest_room = None
-        self.event = None
+        self.current_event = None
         # self.required_parameters = ['hotelId', ]
 
     def load_request(self, request, *args, **kwargs):
@@ -82,13 +82,6 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
         if self.success:
             try:
-                # try:
-                #     self.hotel = Hotel.objects.get(pk=self.hotel_id)
-                #     # self.hotel_id = self.hotel.hotel_id
-                # except ObjectDoesNotExist as e:
-                #     self.hotel = Hotel.objects.get(public_key=self.hotel_id)
-                #     self.hotel_id = self.hotel.hotel_id
-
                 user_hotels = self.user.userHotels.filter(
                     hotel_id=self.hotel_id,
                     effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
@@ -98,9 +91,6 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
                     self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
                 else:
                     self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
-                    # if not self.hotel_extension:
-                    #     message = f'hotel_extension not found for hotel_id: {self.hotel_id}'
-                    #     self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
             except ObjectDoesNotExist as e:
                 if self.hotel_id:
                     message = f'hotelId not found: {self.hotel_id}'
@@ -114,24 +104,28 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
                     pk=self.guest_id
                 )
 
+                event_start_date = self.hotel_extension.current_event.event_start_date
+                event_end_date = self.hotel_extension.current_event.event_end_date
+
                 self.guest_room = GuestRoom.objects.filter(
                     room__hotel_id=self.hotel_id,
                     guest_id=self.guest_id,
-                    arrival_date__lte=self.today,
-                    departure_date__gt=self.today
+                    arrival_date__lt=event_end_date,
+                    departure_date__gt=event_start_date
                 ).first()
                 if not self.guest_room:
                     message = f'guest {self.guest.guest_id} is not onboard currently.'
                     self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
                 if self.success:
-                    self.event = Event.objects.filter(
-                        hotel_id=self.hotel_id,
-                        start_date__date__lte=self.today,
-                        end_date__date__gt=self.today,
-                    ).first()
-                    if not self.event:
-                        message = f'no event scheduled today.'
-                        self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+                    self.current_event = self.hotel_extension.current_event
+                    # self.event = Event.objects.filter(
+                    #     hotel_id=self.hotel_id,
+                    #     start_date__date__lte=self.today,
+                    #     end_date__date__gt=self.today,
+                    # ).first()
+                    # if not self.event:
+                    #     message = f'no event scheduled today.'
+                    #     self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
             else:
                 message = f'guest_id not found: {self.guest_id}'
                 self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)

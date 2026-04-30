@@ -4,13 +4,14 @@ from apps.res.api.base.base_transaction import AuthorizedTransactionAPIView
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 from constants import type_constants, status_constants, guest_constants, process_constants
 
-from apps.res.models import Transaction, TransactionItem
+from apps.res.models import Transaction, TransactionItem, HotelItem
 from apps.base.models import Item
 from apps.static.models import Currency, Type
 from core.api_views.api_params import param_spec_to_openapi, PARAM_DEFINITIONS
 
 from core.utilities.api_docs_utilties import params_for
 from core.utilities.api_docs_utilties import build_docs_response
+from core.utilities.security_utilities import SecurityUtility
 
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, extend_schema_view
@@ -28,7 +29,9 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
         'externalReference',
         'externalAuthorizationCode',
         'amount',
-        'transactionType'
+        'transactionType',
+        'specialItemTypeId',
+        'itemDescription',
     )
     PARAM_OVERRIDES = {
         'statusId': dict(required_get=True, allowed=(status_constants.QUEUED,)),
@@ -42,7 +45,9 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
                 type_constants.RES_TRANSACTION_STAGED
             )
         ),
+        'specialItemTypeId': dict(required_post=True, ),
         'externalReference': dict(required_post=True, ),
+        'itemDescription': dict(required_post=True, ),
     }
 
     DOC_CONTEXT = {}
@@ -83,20 +88,14 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
             required=False,
             description='External authorization or approval code.'
         ),
-        OpenApiParameter(
-            name='itemDescription',
-            type=OpenApiTypes.STR,
-            location='query',
-            required=True,
-            description='Description of item or service (e.g., 1GB INTERNET VOUCHER).'
+        param_spec_to_openapi(
+            PARAM_DEFINITIONS['itemDescription'],
+            method='POST',
         ),
-        # OpenApiParameter(
-        #     name='transactionType',
-        #     type=OpenApiTypes.STR,
-        #     location='query',
-        #     required=True,
-        #     description='Transaction type (CHARGE, REFUND).'
-        # ),
+        param_spec_to_openapi(
+            PARAM_DEFINITIONS['specialItemTypeId'],
+            method='POST',
+        ),
         param_spec_to_openapi(
             PARAM_DEFINITIONS['transactionType'],
             method='POST',
@@ -153,6 +152,7 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
         super().__init__()
         self.item_id = None
         self.item_description = None
+        self.item_description_extension = ''
         self.amount = 0.00
         self.currency_code = None
         self.item = None
@@ -160,10 +160,13 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
         self.external_authorization_code = None
         self.transaction_type = None
         self.transaction = None
+        self.special_item_type_id = None
 
     def load_request(self, request, *args, **kwargs):
-        print(self.PARAM_NAMES)
         super().load_request(request, *args, **kwargs)
+
+        # self.item_id = self.get_param('itemId', None, False)
+        # self.item_description = self.get_param('itemDescription', None, False)
 
         if self.is_post():
             if self.success:
@@ -175,15 +178,15 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
                 else:
                     self.type_id = type_obj.pk
 
-            self.set_currency_id()
-            self.set_item_id()
-
     def load_models(self, request):
         super().load_models(request)
 
         # self.load_status(self.status_id)
         if self.is_post():
-            self.item = Item.objects.get(pk=self.item_id)
+            # self.item = Item.objects.get(pk=self.item_id)
+            self.set_currency_id()
+            self.set_item_id()
+
 
     # def validate(self, request):
     #     super().validate(request)
@@ -282,38 +285,55 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
                 self.currency_id = currencies[0].pk
 
     def set_item_id(self):
-        self.item_id = self.get_param('itemId', None, False)
-        self.item_description = self.get_param('itemDescription', None, False)
-
         if not self.item_id and not self.item_description:
             message = 'itemId or itemDescription not supplied.'
             self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
         elif self.item_id and self.item_description:
             message = 'itemId and itemDescription supplied. only one is allowed.'
             self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-        elif self.item_id:
-            items = Item.objects.filter(pk=self.item_id)
-            if items.count() == 0:
-                message = f'invalid itemId={self.item_id}.'
+        else:
+            self.item = self.resolve_item()
+            if self.success:
+                if not SecurityUtility.user_can_charge_item(self.user, self.item):
+                    message = f'user: {self.user.username} not authorized to charge item={self.item.description}.'
+                    self.add_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)
+
+    def resolve_item(self):
+        default_hotel_item = HotelItem.objects.filter(
+            hotel_id=self.hotel_id,
+            special_item_type_id=self.special_item_type_id,
+            status_id=status_constants.ACTIVE
+        ).first()
+        items = Item.objects.filter(category__hotel_id=self.hotel_id)
+
+        item = None
+
+        if self.item_id:
+            item = items.filter(pk=self.item_id).first()
+            if not item:
+                message = f'invalid itemId={self.item_id}.',
                 self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-            else:
-                self.item_description = items[0].description
+
         elif self.item_description:
             self.item_description = self.item_description.strip()
-            items = Item.objects.filter(description__iexact=self.item_description)
-            count = items.count()
 
-            if count == 0:
-                message = f'invalid itemDescription={self.item_description}.'
+            matched_items = list(
+                items.filter(description__iexact=self.item_description)[:2]
+            )
+
+            if len(matched_items) > 1:
+                message = f'multiple items found for {self.item_description}. please specify itemId instead.',
                 self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-            elif count > 1:
-                message = (
-                    f'multiple items match itemDescription={self.item_description}. '
-                    'please specify itemId instead.'
-                )
+            elif len(matched_items) == 0 and not default_hotel_item:
+                message = f'invalid itemDescription={self.item_description} and default item does not exists.',
                 self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            elif len(matched_items) == 0 and default_hotel_item:
+                item = default_hotel_item.item
+                self.item_description_extension = self.item_description
             else:
-                self.item_id = items[0].pk
+                item = matched_items[0]
+
+        return item
 
     def get_value_list(self):
         value_list = list(self.RECORD_DICT.keys())
@@ -336,7 +356,8 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
             'event_id': self.hotel_extension.current_event_id,
             'guest_id': self.guest_id,
             'server_guest_id': guest_constants.NOT_APPLICABLE,
-            'description': self.item_description,
+            # 'description': self.item_description,
+            'description': '',
             'external_reference': self.external_reference,
             'external_authorization_code': self.external_authorization_code,
         }
@@ -353,6 +374,7 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
             'type_id': type_constants.RES_TRANSACTION_ITEM_REGULAR,
             'status_id': status_constants.ACTIVE,
             'description': self.item.description,
+            'description_extension': self.item_description_extension,
             'quantity': Decimal(1.00),
             'price': self.amount
         }

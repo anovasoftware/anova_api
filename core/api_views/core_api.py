@@ -25,6 +25,7 @@ from core.utilities.data_transformation_utilities import flat_record, transform_
 from core.utilities.api_docs_utilties import override_parameters, params_for
 from typing import Optional, Type as TypingType, cast
 from django.db.models import Q
+from core.utilities.data_transformation_utilities import transform_records
 
 
 class CoreAPIView(GenericAPIView):
@@ -413,6 +414,20 @@ class CoreAPIView(GenericAPIView):
     def validate_patch(self, request):
         pass
 
+    # def get_response(self):
+    #     response = self.build_response()
+    #
+    #     if self.debug_flag == 'Y':
+    #         response['messages'] = ['debug mode is on']
+    #
+    #     if self.response_format == 'camel_case':
+    #         # response = transform_keys(response, snake_to_camel)
+    #
+    #         response = format_response(response)
+    #
+    #     status_code = self.http_statuses[self.http_status_id]['status_code']
+    #     return Response(response, status=status_code)
+
     def get_response(self):
         response = self.build_response()
 
@@ -420,8 +435,11 @@ class CoreAPIView(GenericAPIView):
             response['messages'] = ['debug mode is on']
 
         if self.response_format == 'camel_case':
-            # response = transform_keys(response, snake_to_camel)
-            response = format_response(response)
+            response = format_response(
+                response,
+                shape=self.result_shape,
+                join_with='_'
+            )
 
         status_code = self.http_statuses[self.http_status_id]['status_code']
         return Response(response, status=status_code)
@@ -446,6 +464,7 @@ class CoreAPIView(GenericAPIView):
         if self.result_shape == 'flat':
             base_context = flat_record(base_context, join_with='_')
 
+        # data_transformed = transform_records(self.data, self.result_shape, join_with='.')
         response = {
             'success': http_status['success'],
             'code': http_status['code'],

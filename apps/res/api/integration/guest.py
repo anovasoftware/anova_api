@@ -135,10 +135,12 @@ class IntegrationGuestListAPIView(AuthorizedGuestAPIView):
         guest_ids = self.guests.values_list('pk', flat=True)
         filters['guest_id__in'] = guest_ids
 
-        now = timezone.now()
+        now = timezone.now().date()
+        event_start_date = self.hotel_extension.current_event.event_start_date
+        event_end_date = self.hotel_extension.current_event.event_end_date
 
-        filters['guestRooms__arrival_date__lte'] = now
-        filters['guestRooms__departure_date__gt'] = now
+        filters['guestRooms__arrival_date__lt'] = event_end_date
+        filters['guestRooms__departure_date__gt'] = event_start_date
 
         return filters
 

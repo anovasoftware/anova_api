@@ -8,10 +8,12 @@ from rest_framework import serializers as s
 from core.utilities.api_utilities import MetaSerializer
 from core.utilities.data_transformation_utilities import snake_to_camel, format_response
 from drf_spectacular.utils import inline_serializer
-from core.utilities.api_utilities import process_supports_method, required_flag_for_method
+from rest_framework import serializers
+from datetime import datetime, date
+from decimal import Decimal
 
 
-def get_docs_envelope(record_serializer: s.Serializer,  name: str = 'StandardEnvelope') -> s.Serializer:
+def get_docs_envelope(record_serializer: s.Serializer, name: str = 'StandardEnvelope') -> s.Serializer:
     data_serializer = inline_serializer(
         name=f'{name}Data',
         fields={
@@ -39,19 +41,58 @@ def get_docs_envelope(record_serializer: s.Serializer,  name: str = 'StandardEnv
     return envelope_serializer
 
 
-def get_record_fields(record_dict):
+# def get_record_fields(record_dict):
+#     fields = {}
+#     for key, spec in record_dict.items():
+#         name = spec.get('name', key.replace('__', '_'))
+#         description = spec.get('description', f'Field for {name}')
+#         field_class  = spec.get('type', s.CharField)
+#         example = spec.get('example', f'Field for {name}')
+#         fields[name] = field_class (
+#             help_text=description,
+#             required=False,
+#             allow_null=False,
+#         )
+#     return fields
+def get_record_fields(record_dict: dict) -> dict:
     fields = {}
-    for key, spec in record_dict.items():
-        name = spec.get('name', key.replace('__', '_'))
-        description = spec.get('description', f'Field for {name}')
-        field_class  = spec.get('type', s.CharField)
-        example = spec.get('example', f'Field for {name}')
-        fields[name] = field_class (
-            help_text=description,
-            required=False,
-            allow_null=False,
+
+    for name, value in record_dict.items():
+        if isinstance(value, dict):
+            fields[name] = serializers.JSONField(required=False)
+        else:
+            field_class = get_field_class(value)
+            fields[name] = field_class(required=False)
+
+    result = fields
+    return result
+
+
+def get_field_class(value):
+    if isinstance(value, bool):
+        return serializers.BooleanField
+    elif isinstance(value, int):
+        return serializers.IntegerField
+    elif isinstance(value, float):
+        return serializers.FloatField
+    elif isinstance(value, Decimal):
+        return lambda **kwargs: serializers.DecimalField(
+            max_digits=12,
+            decimal_places=2,
+            **kwargs
         )
-    return fields
+    elif isinstance(value, datetime):
+        return serializers.DateTimeField
+    elif isinstance(value, date):
+        return serializers.DateField
+    elif isinstance(value, list):
+        return serializers.ListField(child=serializers.JSONField())
+    elif isinstance(value, str):
+        return serializers.CharField
+    elif value is None:
+        return serializers.CharField  # safe fallback
+    else:
+        return serializers.JSONField  # catch-all
 
 
 def expand_record_dict(record_dict=None):
@@ -153,11 +194,11 @@ def override_parameters(params, name, **overrides):
 
 
 def params_for(
-    *,
-    method: str,
-    parameters: Iterable[OpenApiParameter],
-    post_only: List[str] | None = None,
-    get_only: List[str] | None = None,
+        *,
+        method: str,
+        parameters: Iterable[OpenApiParameter],
+        post_only: List[str] | None = None,
+        get_only: List[str] | None = None,
 ):
     method = method.upper()
     post_only = post_only or []
@@ -173,10 +214,10 @@ def params_for(
 
 
 def build_docs_response(
-    *,
-    record_dict: dict,
-    context: dict | None = None,
-    parameters=None,
+        *,
+        record_dict: dict,
+        context: dict | None = None,
+        parameters=None,
 ):
     context = context or {}
     parameters = parameters or []
