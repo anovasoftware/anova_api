@@ -1,23 +1,20 @@
 from django.db.models import QuerySet
-from django.utils import timezone
 
 from apps.base.models import Item, RoleItem, UserRole
-from apps.res.api.base.base_guest import AuthorizedGuestAPIView
 from apps.static.table_api_views.hotel_api_views import AuthorizedHotelAPIView
 
 from constants import process_constants, status_constants
-from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import OpenApiParameter, OpenApiExample
+from drf_spectacular.utils import OpenApiExample
 from drf_spectacular.utils import extend_schema, extend_schema_view
 
 from core.utilities.api_docs_utilties import params_for, build_docs_response
 
 
-class IntegrationItemListAPIView(AuthorizedHotelAPIView):
-    process_id = process_constants.INTEGRATION_ITEM_LIST
+class IntegrationPosMenuItemListAPIView(AuthorizedHotelAPIView):
+    process_id = process_constants.INTEGRATION_POS_MENU_ITEM_LIST
     http_method_names = ['get', 'options', 'head']
 
-    PARAM_NAMES = AuthorizedGuestAPIView.PARAM_NAMES
+    PARAM_NAMES = AuthorizedHotelAPIView.PARAM_NAMES
     DOC_CONTEXT = {}
 
     RECORD_DICT = {
@@ -32,7 +29,10 @@ class IntegrationItemListAPIView(AuthorizedHotelAPIView):
     }
 
     DOC_PARAMETERS = []
-    DOC_PARAMETER_OVERRIDES = {}
+    DOC_PARAMETER_OVERRIDES = {
+        'guestId': {'exclude': True},
+        'typeId': {'exclude': True},
+    }
     DOC_GET_ONLY_PARAMETERS = []
     DOC_POST_ONLY_PARAMETERS = []
 
@@ -115,4 +115,4 @@ class IntegrationItemListAPIView(AuthorizedHotelAPIView):
         return filters
 
 
-IntegrationItemListAPIView = IntegrationItemListAPIView.get_schema()(IntegrationItemListAPIView)
+IntegrationPosMenuItemListAPIView = IntegrationPosMenuItemListAPIView.get_schema()(IntegrationPosMenuItemListAPIView)

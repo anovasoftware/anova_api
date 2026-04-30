@@ -13,3 +13,4 @@ notes.txt
 x.log
 *.iml
 docker*.*
+django.log

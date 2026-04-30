@@ -4259,3 +4259,50 @@ DETAIL:  Key (process_id)=(01D) is not present in table "static_process".
 [2026-04-30 07:24:50,466] INFO django.utils.autoreload: Watching for file changes with StatReloader
 [2026-04-30 07:26:23,262] INFO django.utils.autoreload: Watching for file changes with StatReloader
 [2026-04-30 07:26:42,670] INFO core.services.log_service: Request completed
+[2026-04-30 08:19:27,769] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-04-30 08:21:03,984] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\api\integration\item.py changed, reloading.
+[2026-04-30 08:21:06,939] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-04-30 08:21:12,193] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-04-30 08:21:32,215] INFO core.services.log_service: Request completed
+[2026-04-30 08:21:32,253] ERROR django.request: Internal Server Error: /api/v1/integration/items/
+[2026-04-30 08:24:18,622] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-04-30 08:24:20,955] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-04-30 08:29:35,624] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-04-30 08:30:14,120] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-04-30 08:30:23,389] WARNING django.request: Not Found: /api/v1/integration/items/
+[2026-04-30 08:30:41,985] WARNING django.request: Not Found: /api/v1/integration/items/
+[2026-04-30 08:31:24,689] WARNING django.request: Not Found: /api/v1/integration/items/
+[2026-04-30 08:31:45,966] INFO core.services.log_service: Request completed
+[2026-04-30 08:31:45,990] ERROR django.request: Internal Server Error: /api/v1/integration/posMenuItems/
+[2026-04-30 08:32:24,969] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:19,442] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:19,731] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:20,122] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:20,437] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:20,786] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:21,335] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:31,847] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:35,496] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:36,372] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:37,445] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:38,543] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:39,677] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:40,761] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:41,629] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:42,391] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:43,135] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:43,966] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:44,626] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:45,396] INFO core.services.log_service: Request completed
+[2026-04-30 08:34:46,266] INFO core.services.log_service: Request completed
+[2026-04-30 08:35:35,685] INFO core.services.log_service: Request completed
+[2026-04-30 08:37:11,337] INFO core.services.log_service: Request completed
+[2026-04-30 08:37:11,702] INFO core.services.log_service: Request completed
+[2026-04-30 08:37:22,319] INFO core.services.log_service: Request completed
+[2026-04-30 08:39:55,096] INFO core.services.log_service: Request completed
+[2026-04-30 08:39:55,459] INFO core.services.log_service: Request completed
+[2026-04-30 08:40:01,906] INFO core.services.log_service: Request completed
+[2026-04-30 08:40:29,750] INFO core.services.log_service: Request completed
+[2026-04-30 08:40:30,098] INFO core.services.log_service: Request completed
+[2026-04-30 08:41:46,156] INFO core.services.log_service: Request completed
+[2026-04-30 08:41:46,452] INFO core.services.log_service: Request completed

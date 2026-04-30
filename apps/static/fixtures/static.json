@@ -5679,13 +5679,13 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
-      "code": "ItemList",
-      "description": "Item List by Role",
-      "route": "integration/items/",
-      "view": "IntegrationItemListAPIView",
-      "module_path": "apps.res.api.integration.item",
+      "code": "PosMenuItemList",
+      "description": "Pos Menu Item List by Role",
+      "route": "integration/posMenuItems/",
+      "view": "IntegrationPosMenuItemListAPIView",
+      "module_path": "apps.res.api.integration.pos_menu_item",
       "grouping": "integration",
-      "process_key": "INTEGRATION_ITEM_LIST",
+      "process_key": "INTEGRATION_POS_MENU_ITEM_LIST",
       "supports_create": false,
       "supports_read": true,
       "supports_update": false,
@@ -5694,7 +5694,7 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-04-29 00:00+0000",
-      "last_updated": "2026-04-29 00:00+0000"  
+      "last_updated": "2026-04-30 00:00+0000"  
     }
   }
 ,  {
