@@ -3798,6 +3798,58 @@
     }
   }
 ,  {
+    "model": "static.Menu",
+    "pk": "00M",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "001",
+      "page_id": "000",
+      "grid_id": "000",
+      "order_by": "05",
+      "description": "Point of Sale",
+      "title": "Point of Sale",
+      "sub_title": "Point of sale, setup and configuration",
+      "breadcrumb_name": "Point of Sale",
+      "route": "",
+      "params": "",
+      "icon": "point_of_sale",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "POINT_OF_SALE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00N",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00M",
+      "page_id": "007",
+      "grid_id": "006",
+      "order_by": "05.01",
+      "description": "Staged Transactions",
+      "title": "Staged Transactions",
+      "sub_title": "Transactions posted via third party",
+      "breadcrumb_name": "Staged Transactions",
+      "route": "",
+      "params": "",
+      "icon": "receipt",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "TRANSACTION_STAGED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Page",
     "pk": "001",
     "fields": {
@@ -4346,6 +4398,29 @@
     }
   }
 ,  {
+    "model": "static.Grid",
+    "pk": "006",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "description": "Staged Transactions",
+      "title": "Staged Transactions",
+      "can_create": false,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "data_source_application": "res",
+      "data_source_model_name": "Transaction",
+      "order_by": "-created_date",
+      "grouping": "Point of Sale",
+      "grid_key": "TRANSACTION_STAGED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.GridColumn",
     "pk": "00101",
     "fields": {
@@ -4663,6 +4738,66 @@
       "internal_comment": "",
       "created_date": "2026-04-23 00:00+0000",
       "last_updated": "2026-04-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00601",
+    "fields": {
+      "grid_id": "006",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "created date",
+      "description_short": "",
+      "field": "created_date",
+      "label": "Posted",
+      "format": "datetime",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00602",
+    "fields": {
+      "grid_id": "006",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "guest name",
+      "description_short": "",
+      "field": "guest__person__last_name",
+      "label": "Last Name",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00603",
+    "fields": {
+      "grid_id": "006",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "status",
+      "description_short": "",
+      "field": "status__code",
+      "label": "Status",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
     }
   }
 ,  {
@@ -5695,6 +5830,30 @@
       "internal_comment": "",
       "created_date": "2026-04-29 00:00+0000",
       "last_updated": "2026-04-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01G",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "Staged Transactions",
+      "description": "Staged Transactions",
+      "route": "grid/grid006",
+      "view": "Grid006APIView",
+      "module_path": "apps.res.api.grids.grid006",
+      "grouping": "grids",
+      "process_key": "GRID_TRANSACTION_STAGED",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-03 00:00+0000"  
     }
   }
 ,  {

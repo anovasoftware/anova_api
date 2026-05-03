@@ -1,4 +1,4 @@
-VERSION = '03.01.11'
+VERSION = '03.01.12'
 DATE_FORMAT = '%Y-%m-%d'
 from rest_framework import status as drf_status
 #

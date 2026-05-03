@@ -250,7 +250,7 @@ class Transaction(BaseModel):
 # AUTOGEN_BEGIN_TransactionItem#
 class TransactionItem(BaseModel):
     transaction_item_id   = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    transaction           = models.ForeignKey("res.Transaction", on_delete=models.CASCADE, related_name='transactionItems')
+    transaction           = models.ForeignKey("res.Transaction", on_delete=models.CASCADE, related_name='transaction_items')
     item                  = models.ForeignKey("base.Item", on_delete=models.CASCADE, related_name='+')
     type                  = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status                = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')

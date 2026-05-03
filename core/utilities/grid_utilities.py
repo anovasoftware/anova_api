@@ -119,16 +119,27 @@ class GridUtility(object):
     #
     #     return filters  # This will be used in queryset.filter()
 
+    # def get_query_filter(self):
+    #     filters = {
+    #         'status_id': status_constants.ACTIVE,
+    #     }
+    #
+    #     for remove_filter in self.remove_filters:
+    #         filters.pop(remove_filter, None)
+    #     filters.update(self.query_filters)
+    #     return filters
+
     def get_query_filter(self):
-        filters = {
+        base_filters = {
             'status_id': status_constants.ACTIVE,
         }
 
-        for remove_filter in self.remove_filters:
-            filters.pop(remove_filter, None)
+        filters = {
+            k: v  for k, v in base_filters.items()  if k not in self.remove_filters
+        }
+
         filters.update(self.query_filters)
         return filters
-
 
     def get_rows_qs(self):
         filters = self.get_query_filter()

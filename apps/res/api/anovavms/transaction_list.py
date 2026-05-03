@@ -22,7 +22,8 @@ class AnovaVMSTransactionListAPIView(AuthorizedTransactionAPIView):
         'currency_id': {'description': 'Currency', 'example': '002'},
         'status__status_id': {'description': 'Status id.', 'example': '001'},
         'status__description': {'description': 'Status description.', 'example': '001'},
-        'transactionItems': {'description': 'Transaction items.', 'example': '[]'},
+        'transaction_items': {'description': 'Transaction items.', 'example': '[]'},
+        'created_date': {'description': 'Created date.', 'example': '2026-05-02T19:29:55.820437Z'},
     }
 
     def __init__(self):
@@ -67,7 +68,7 @@ class AnovaVMSTransactionListAPIView(AuthorizedTransactionAPIView):
     def get_annotations(self):
         annotations = super().get_annotations()
 
-        annotations['item_count'] = Count('transactionItems')
+        annotations['item_count'] = Count('transaction_items')
         return annotations
 
     def get_value_list(self):

@@ -4,4 +4,5 @@ NOT_APPLICABLE = '000'                                           # not applicabl
 USER_ANOVA = '001'                                               # anova user#  Crew
 POSITION = '005'                                                 # position management#  Cruise Setup
 EVENT = '004'                                                    # cruise management#  Hotel Setup
-ROOM = '003'                                                     # roomsROOM_CATEGORY = '002'                                            # room categories
+ROOM = '003'                                                     # roomsROOM_CATEGORY = '002'                                            # room categories#  Point of Sale
+TRANSACTION_STAGED = '006'                                       # staged transactions
