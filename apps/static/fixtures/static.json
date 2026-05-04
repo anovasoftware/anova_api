@@ -4403,17 +4403,17 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "description": "Staged Transactions",
-      "title": "Staged Transactions",
+      "description": "Staged Transactions Items",
+      "title": "Staged Transactions Items",
       "can_create": false,
       "can_read": true,
       "can_update": false,
       "can_delete": false,
       "data_source_application": "res",
-      "data_source_model_name": "Transaction",
-      "order_by": "-created_date",
+      "data_source_model_name": "TransactionItem",
+      "order_by": "-transaction__created_date",
       "grouping": "Point of Sale",
-      "grid_key": "TRANSACTION_STAGED",
+      "grid_key": "TRANSACTION_ITEM_STAGED",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-05-03 00:00+0000",
@@ -4750,7 +4750,7 @@
       "order_by": "01",
       "description": "created date",
       "description_short": "",
-      "field": "created_date",
+      "field": "transaction__created_date",
       "label": "Posted",
       "format": "datetime",
       "style_class": "",
@@ -4770,8 +4770,8 @@
       "order_by": "02",
       "description": "guest name",
       "description_short": "",
-      "field": "guest__person__last_name",
-      "label": "Last Name",
+      "field": "transaction__guest__person__PERSON-NAME",
+      "label": "Guest Name",
       "format": "text",
       "style_class": "",
       "static_flag": "Y",
@@ -4790,7 +4790,7 @@
       "order_by": "03",
       "description": "status",
       "description_short": "",
-      "field": "status__code",
+      "field": "transaction__status__code",
       "label": "Status",
       "format": "text",
       "style_class": "",
@@ -4798,6 +4798,66 @@
       "internal_comment": "",
       "created_date": "2026-05-03 00:00+0000",
       "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00605",
+    "fields": {
+      "grid_id": "006",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "05",
+      "description": "quantity",
+      "description_short": "",
+      "field": "quantity",
+      "label": "Qty",
+      "format": "decimal",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-04 00:00+0000",
+      "last_updated": "2026-05-04 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00606",
+    "fields": {
+      "grid_id": "006",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "06",
+      "description": "price",
+      "description_short": "",
+      "field": "price",
+      "label": "Price",
+      "format": "currency",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-04 00:00+0000",
+      "last_updated": "2026-05-04 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00604",
+    "fields": {
+      "grid_id": "006",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "posted by user name",
+      "description_short": "",
+      "field": "transaction__user__username",
+      "label": "Posted By",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-03 00:00+0000",
+      "last_updated": "2026-05-04 00:00+0000"  
     }
   }
 ,  {
@@ -5844,7 +5904,7 @@
       "view": "Grid006APIView",
       "module_path": "apps.res.api.grids.grid006",
       "grouping": "grids",
-      "process_key": "GRID_TRANSACTION_STAGED",
+      "process_key": "GRID_TRANSACTION_ITEM_STAGED",
       "supports_create": false,
       "supports_read": true,
       "supports_update": false,

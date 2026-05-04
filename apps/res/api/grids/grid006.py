@@ -6,14 +6,22 @@ from constants import type_constants
 
 class Grid006Utility(GridHotelUtility):
     query_filters = {
-        # 'type_id': type_constants.RES_EVENT_CRUISE
     }
     remove_filters = ['status_id']
+    hotel_id_field = 'transaction__hotel_id'
 
+    def get_query_filter(self):
+        filters = super().get_query_filter().copy()
+        filters['transaction__event_id'] = self.hotel_extension.current_event.event_id
+
+        return filters
 
 class Grid006APIView(HotelGridAPIView):
-    process_id = process_constants.GRID_TRANSACTION_STAGED
-    grid_id = grid_constants.TRANSACTION_STAGED
+    process_id = process_constants.GRID_TRANSACTION_ITEM_STAGED
+    grid_id = grid_constants.TRANSACTION_ITEM_STAGED
     grid_utility_class = Grid006Utility
+
+
+
 
 

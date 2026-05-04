@@ -22,6 +22,8 @@ class GridAPIView(CoreAPIView):
         utility = self.grid_utility_class(grid_id=self.grid_id, params=self.params)
         if self.success:
             utility.load_grid()
+            if not self.success:
+                self.add_message(utility.message, status_constants.HTTP_BAD_REQUEST)
         if self.success:
             try:
 
