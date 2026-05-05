@@ -3672,7 +3672,7 @@
     "pk": "00G",
     "fields": {
       "type_id": "002",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "000",
       "page_id": "000",
       "grid_id": "000",
@@ -4187,7 +4187,7 @@
       "status_id": "001",
       "client_id": "002",
       "code": "EXP2",
-      "description": "Expedition",
+      "description": "MS Expedition",
       "vms_identifier": "1302",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "EXPEDITION2",
