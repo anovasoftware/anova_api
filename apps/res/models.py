@@ -117,7 +117,7 @@ class GuestRoom(BaseModel):
 # AUTOGEN_BEGIN_HotelExtension#
 class HotelExtension(BaseModel):
     hotel_extension_id = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
-    hotel              = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
+    hotel              = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='hotel_extensions', default='A000')
     type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     current_event      = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')

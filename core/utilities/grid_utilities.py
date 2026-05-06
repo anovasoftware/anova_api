@@ -1,6 +1,6 @@
 import pandas as pd
 from apps.static.models import Grid, GridColumn
-from apps.res.models import HotelExtension
+from apps.res.models import HotelExtension, Event
 from constants import status_constants
 from django.apps import apps
 from typing import Optional
@@ -225,6 +225,7 @@ class GridHotelUtility(GridUtility):
     query_filters = {
     }
     hotel_id_field = 'hotel_id'
+    event_id_field = 'event_id'
 
     def __init__(self, grid_id, params=None):
         super().__init__(grid_id, params)
@@ -240,7 +241,8 @@ class GridHotelUtility(GridUtility):
 
     def load_models(self):
         super().load_models()
-        self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
+        hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
+        self.hotel_extension = hotel_extension
 
         if not self.hotel_extension:
             self.message = f'hotel extension not found for hotelId={self.hotel_id}'
@@ -250,19 +252,37 @@ class GridHotelUtility(GridUtility):
         filters = super().get_query_filter().copy()
 
         filters[self.hotel_id_field] = self.hotel_id
-        filters['transaction__event_id'] = self.hotel_extension.current_event.event_id
+        # filters['transaction__event_id'] = self.hotel_extension.current_event.event_id
 
         return filters
 
 
-# FULLNAME_TOKEN = '#FULLNAME#'
-#
-#
-# def resolve_field_expression(field):
-#     result = F(field)
-#
-#     if isinstance(field, str) and '#FULLNAME#' in field:
-#         prefix = field.replace('#FULLNAME#', '').rstrip('.')
-#         result = get_person_name(prefix)
-#
-#     return result
+class GridEventUtility(GridHotelUtility):
+    query_filters = {
+    }
+    event_id_field = 'event_id'
+
+    def __init__(self, grid_id, params=None):
+        super().__init__(grid_id, params)
+        self.event_id = None
+        self.event: Optional[Event] = None
+
+    def load_params(self):
+        super().load_params()
+
+    def load_models(self):
+        super().load_models()
+        if self.success:
+            self.event_id = self.hotel_extension.current_event.event_id
+            self.event = Event.objects.filter(event_id=self.event_id).first()
+            if not self.event:
+                self.message = f'no event associated with hotel'
+                self.success = False
+
+    def get_query_filter(self):
+        filters = super().get_query_filter().copy()
+
+        filters[self.event_id_field] = self.event_id
+
+        return filters
+
