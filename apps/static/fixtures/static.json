@@ -717,7 +717,7 @@
     "model": "static.Status",
     "pk": "012",
     "fields": {
-      "grouping": "guest",
+      "grouping": "res_guest",
       "code": "Arriving",
       "description": "Arriving",
       "status_key": "GUEST_ARRIVING",
@@ -735,7 +735,7 @@
     "model": "static.Status",
     "pk": "013",
     "fields": {
-      "grouping": "guest",
+      "grouping": "res_guest",
       "code": "Onboard",
       "description": "Onboard",
       "status_key": "GUEST_ONBOARD",
@@ -753,7 +753,7 @@
     "model": "static.Status",
     "pk": "014",
     "fields": {
-      "grouping": "guest",
+      "grouping": "res_guest",
       "code": "Ashore",
       "description": "Ashore",
       "status_key": "GUEST_ASHORE",
@@ -771,7 +771,7 @@
     "model": "static.Status",
     "pk": "015",
     "fields": {
-      "grouping": "guest",
+      "grouping": "res_guest",
       "code": "Disembarked",
       "description": "Disembarked",
       "status_key": "GUEST_DISEMBARKED",
@@ -789,7 +789,7 @@
     "model": "static.Status",
     "pk": "016",
     "fields": {
-      "grouping": "guest",
+      "grouping": "res_guest",
       "code": "Cancelled",
       "description": "Cancelled",
       "status_key": "GUEST_CANCELLED",
@@ -915,7 +915,7 @@
     "model": "static.Status",
     "pk": "018",
     "fields": {
-      "grouping": "guest",
+      "grouping": "res_guest",
       "code": "NeverArrived",
       "description": "Never Arrived",
       "status_key": "GUEST_NEVER_ARRIVED",
@@ -3218,6 +3218,30 @@
       "internal_comment": "",
       "created_date": "2026-04-21 00:00+0000",
       "last_updated": "2026-04-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02F",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_guest",
+      "code": "Visitor",
+      "description": "Visitor",
+      "description_short": "Visitor",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_GUEST_VISITOR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-11 00:00+0000",
+      "last_updated": "2026-05-11 00:00+0000"  
     }
   }
 ,  {
@@ -5940,6 +5964,30 @@
       "internal_comment": "",
       "created_date": "2026-05-03 00:00+0000",
       "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01H",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "GangwayDashboard",
+      "description": "Gangway Dashboard",
+      "route": "gangway/dashboard/",
+      "view": "GangwayDashboardAPIView",
+      "module_path": "apps.res.api.gangway.gangway_dashboard",
+      "grouping": "gangway",
+      "process_key": "GANGWAY_DASHBOARD",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-09 00:00+0000",
+      "last_updated": "2026-05-09 00:00+0000"  
     }
   }
 ,  {

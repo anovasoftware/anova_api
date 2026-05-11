@@ -1,19 +1,35 @@
+from core.api_views.core_api import CoreAPIView, AuthorizedAPIView
 from core.api_views.table_api_views import AuthorizedTableAPIView
 from apps.static.models import Hotel
-from apps.res.models import HotelExtension
+from apps.res.models import HotelExtension, Event
 from constants import status_constants
+from typing import Optional, Type as TypingType, cast
 
 
+class ResCoreAPIView(CoreAPIView):
+    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES  # + ('',)
+    PARAM_OVERRIDES = {
+        **getattr(AuthorizedTableAPIView, 'PARAM_OVERRIDES', {}),
+        'hotelId': dict(
+            required_get=True,
+        ),
 
-class AuthorizedResAPIView(AuthorizedTableAPIView):
+    }
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
         self.hotel_id = None
-        self.hotel =None
-        self.hotel_extension = None
+        self.hotel: Optional[Hotel] = None
+        self.hotel_extension: Optional[HotelExtension] = None
         self.event_start_date = None
         self.event_end_date = None
+
+    def load_models(self, request):
+        super().load_models(request)
+
+        if self.success:
+            self.load_hotel(self.hotel_id)
 
     def load_hotel(self, hotel_id=None):
         self.hotel_id = hotel_id
@@ -44,15 +60,21 @@ class AuthorizedResAPIView(AuthorizedTableAPIView):
                     }
 
 
-                # self.context['event'] = {}
-                # self.context['event']['code'] = self.hotel_extension.current_event.code
-                # self.context['event']['start_date'] = self.event_start_date.strftime('%Y-%m-%d')
-                # self.context['event']['end_date'] = self.event_end_date.strftime('%Y-%m-%d')
-
-            # response['context']['hotel_id'] = hotel.hotel_id
-            # response['context']['hotel_description'] = hotel.description
+class AuthorizedResAPIView(AuthorizedAPIView, ResCoreAPIView):
+    pass
 
 
+class AuthorizedResTableAPIView(AuthorizedTableAPIView, ResCoreAPIView):
+    PARAM_NAMES = ResCoreAPIView.PARAM_NAMES  # + ('',)
 
+    # PARAM_OVERRIDES = {
+    #     **getattr(AuthorizedTableAPIView, 'PARAM_OVERRIDES', {}),
+    #     'hotelId': dict(
+    #         required_get=True,
+    #     ),
+    #
+    # }
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 

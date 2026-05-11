@@ -254,7 +254,10 @@ class IntegrationTransactionCreateAPIView(AuthorizedTransactionAPIView):
         if not self.guest.authorized_to_charge_flag == 'Y':
             message = f'guest_id={self.guest_id} not authorized to charge.'
             self.add_message(message, http_status_id=status_constants.HTTP_UNAUTHORIZED)
-        if self.success and Transaction.objects.filter(external_reference=self.external_reference).exists():
+        if abs(self.amount) >= Decimal('100'):
+            message = f'amount={self.amount} cannot exceed {self.currency_code} 100.'
+            self.add_message(message, http_status_id=status_constants.HTTP_FORBIDDEN)
+        if Transaction.objects.filter(external_reference=self.external_reference).exists():
             message = f'externalReference={self.external_reference} already exists.'
             self.set_message(message, http_status_id=status_constants.HTTP_FORBIDDEN)
 

@@ -328,8 +328,8 @@ class CoreAPIView(GenericAPIView):
                 spec = self.get_param_spec(key, param_overrides)
                 self.get_param_from_spec(spec)
         except Exception as e:
-            self.add_message(f'error loading request parameters: {str(e)}',
-                             http_status_id=status_constants.HTTP_BAD_REQUEST)
+            message = f'error loading request parameters: {str(e)}'
+            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
         if hasattr(request.user, 'user_id'):
             self.user_id = request.user.user_id

@@ -1,5 +1,5 @@
 from django.utils import timezone
-from apps.res.api_views.res_api_views import AuthorizedResAPIView
+from apps.res.api_views.res_api_views import AuthorizedResTableAPIView
 from apps.static.models import Status
 from apps.res.models import Guest, GuestRoom
 from constants import process_constants, status_constants, constants
@@ -21,11 +21,11 @@ record_dict = {
 }
 
 
-class AuthorizedGuestDetailAPIView(AuthorizedResAPIView):
+class AuthorizedGuestDetailAPIView(AuthorizedResTableAPIView):
     process_id = process_constants.RES_GUEST_DETAIL
-    PARAM_NAMES = AuthorizedResAPIView.PARAM_NAMES + ('recordId',)
+    PARAM_NAMES = AuthorizedResTableAPIView.PARAM_NAMES + ('recordId',)
     PARAM_OVERRIDES = {
-        **getattr(AuthorizedResAPIView, 'PARAM_OVERRIDES', {}),
+        **getattr(AuthorizedResTableAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(
             required_get=True,
             required_post=True,
