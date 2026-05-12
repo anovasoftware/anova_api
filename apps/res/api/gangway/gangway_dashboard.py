@@ -4,7 +4,7 @@ from apps.res.api_views.res_api_views import AuthorizedResAPIView
 from apps.res.models import Guest, GuestRoom
 from apps.res.utilities.gangway_utilities import GangwayUtility
 from apps.static.models import Type, Status
-from constants import process_constants
+from constants import process_constants, type_constants
 
 
 class GangwayDashboardAPIView(AuthorizedResAPIView):
@@ -43,8 +43,14 @@ class GangwayDashboardAPIView(AuthorizedResAPIView):
     def _get(self, request, *args, **kwargs):
         gangway_utility = GangwayUtility(self.hotel_extension.current_event)
 
-        guest_types = Type.objects.filter(
+        parent_type_ids = Type.objects.filter(
             grouping='res_guest'
+        ).values_list(
+            'parent_type_id', flat=True
+        ).distinct()
+
+        guest_types = Type.objects.filter(
+            type_id__in=parent_type_ids,
         ).values(
             'type_id',
             'description',
