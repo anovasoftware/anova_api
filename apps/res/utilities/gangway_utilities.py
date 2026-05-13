@@ -1,7 +1,9 @@
+import pandas as pd
 from django.db.models import Count
 from apps.res.models import GuestRoom, Event
 from typing import Optional
 from django.utils import timezone
+from collections import defaultdict
 
 today = timezone.localdate()
 
@@ -45,6 +47,25 @@ class GangwayUtility:
                 departure_date__gt=self.as_of_date,
             )
 
+        # guest_rooms_df = pd.DataFrame(
+        #     guest_rooms.values(
+        #         'guest_id',
+        #         'guest__type_id',
+        #         'guest__status_id',
+        #         'arrival_date',
+        #         'departure_date',
+        #     )
+        # )
+        # print(guest_rooms_df)
+        # debug_df = guest_rooms_df.copy()
+        # debug_df = debug_df.reset_index(drop=True)
+        # debug_df = debug_df.astype({
+        #     'guest_id': 'string',
+        #     'guest__type_id': 'string',
+        #     'guest__status_id': 'string',
+        #     'arrival_date': 'string',
+        #     'departure_date': 'string',
+        # })
         counts = guest_rooms.values(
             'guest__type_id',
             'guest__status_id'
@@ -57,8 +78,48 @@ class GangwayUtility:
 
         counts = list(counts)
 
-        for row in counts:
-            row['type_id'] = row.pop('guest__type_id')
-            row['status_id'] = row.pop('guest__status_id')
+        # for row in counts:
+        #     row['type_id'] = row.pop('guest__type_id')
+        #     row['status_id'] = row.pop('guest__status_id')
 
-        return counts
+        results = []
+        type_totals = defaultdict(int)
+        status_totals = defaultdict(int)
+        grand_total = 0
+
+        for row in counts:
+            type_id = row['guest__type_id']
+            status_id = row['guest__status_id']
+            count = int(row['count'] or 0)
+
+            results.append({
+                'type_id': type_id,
+                'status_id': status_id,
+                'count': count,
+            })
+
+            type_totals[type_id] += count
+            status_totals[status_id] += count
+            grand_total += count
+
+        for type_id, count in type_totals.items():
+            results.append({
+                'type_id': type_id,
+                'status_id': 'TOT',
+                'count': count,
+            })
+
+        for status_id, count in status_totals.items():
+            results.append({
+                'type_id': 'TOT',
+                'status_id': status_id,
+                'count': count,
+            })
+
+        results.append({
+            'type_id': 'TOT',
+            'status_id': 'TOT',
+            'count': grand_total,
+        })
+
+        return results

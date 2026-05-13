@@ -4,7 +4,7 @@ from apps.res.api_views.res_api_views import AuthorizedResAPIView
 from apps.res.models import Guest, GuestRoom
 from apps.res.utilities.gangway_utilities import GangwayUtility
 from apps.static.models import Type, Status
-from constants import process_constants, type_constants
+from constants import process_constants, type_constants, status_constants
 
 
 class GangwayDashboardAPIView(AuthorizedResAPIView):
@@ -57,18 +57,31 @@ class GangwayDashboardAPIView(AuthorizedResAPIView):
         ).order_by(
             'order_by'
         )
+        guest_types = list(guest_types)
+        guest_types.append({'type_id': 'TOT', 'description': 'Total'})
+
         guest_statuses = Status.objects.filter(
-            grouping='res_guest'
+            grouping='res_guest',
+            group2='G'
         ).values(
             'status_id',
             'description',
+            'css_class',
         ).order_by(
             'order_by'
         )
+        guest_statuses = list(guest_statuses)
+        guest_statuses.append({'status_id': 'TOT', 'description': 'Total', 'css_class': 'onboard-card'})
+
+        for status in guest_statuses:
+            if status['status_id'] == status_constants.GUEST_DISEMBARKED:
+                status['description'] = 'Disembarking'
+                break
+
 
         self.data['lookups'] = {}
-        self.data['lookups']['guest_types'] = list(guest_types)
-        self.data['lookups']['guest_statuses'] = list(guest_statuses)
+        self.data['lookups']['guest_types'] = guest_types
+        self.data['lookups']['guest_statuses'] = guest_statuses
         self.data['counters'] = gangway_utility.get_guest_counts()
 
 

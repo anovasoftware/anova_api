@@ -1,7 +1,7 @@
 # AUTO GENERATED
 #  
 NOT_APPLICABLE = '000'                                           # not applicable#  anovavms
-ANOVAVMS_ROLE_ITEM = '01D'                                       # role itemsANOVAVMS_TRANSACTION_LIST = '00K'                                # transactionANOVAVMS_TRANSACTION_STATUS = '00S'                              # transaction status#  core
+ANOVAVMS_ROLE_ITEM = '01D'                                       # role itemsANOVAVMS_GUEST_STATUS = '01J'                                    # update account statusANOVAVMS_TRANSACTION_LIST = '00K'                                # transactionANOVAVMS_TRANSACTION_STATUS = '00S'                              # transaction status#  core
 CORE_CONTEXT = '01C'                                             # application context#  forms
 FORM_001 = '00Y'                                                 # form001FORM_002 = '010'                                                 # form002FORM_004 = '00T'                                                 # form004FORM_005 = '00Z'                                                 # form005#  gangway
 GANGWAY_DASHBOARD = '01H'                                        # gangway dashboard#  grids

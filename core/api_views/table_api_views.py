@@ -70,6 +70,7 @@ class TableAPIView(CoreAPIView):
         self.data_to_load = []
         self.records_created = 0
         self.records_updated = 0
+        self.treat_as_patch = False
 
     def is_patch(self):
         is_patch = super().is_patch()
@@ -296,7 +297,7 @@ class TableAPIView(CoreAPIView):
         # self.context['request_data_exists'] = self.request_data is not None
 
         if self.request_data:
-            self._post_from_request_data(request)
+            self._post_from_request_data()
         else:
             self._post_simple(request)
 
@@ -319,32 +320,32 @@ class TableAPIView(CoreAPIView):
 
         return record
 
-    def _post_from_request_data(self, request):
+    def _post_from_request_data(self):
         for record in self.request_data:
             mapping = self.get_external_mapping(record)
             pk = mapping.internal_id
-            external_id = record['external_id']
 
-            record = get_active_dict(self.model, record)
-            try:
-                record = self._make_datetime_fields_aware(record)
-            except Exception as e:
-                message = f'error making datetime fields aware: {str(e)}'
-                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+            if pk or self.treat_as_patch == False:
+                record = get_active_dict(self.model, record)
+                try:
+                    record = self._make_datetime_fields_aware(record)
+                except Exception as e:
+                    message = f'error making datetime fields aware: {str(e)}'
+                    self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
-            model_obj, created = self.model.objects.update_or_create(
-                pk=pk,
-                defaults=record
-            )
+                model_obj, created = self.model.objects.update_or_create(
+                    pk=pk,
+                    defaults=record
+                )
 
-            if mapping.internal_id != model_obj.pk:
-                mapping.internal_id = model_obj.pk
-                mapping.save()
+                if mapping.internal_id != model_obj.pk:
+                    mapping.internal_id = model_obj.pk
+                    mapping.save()
 
-            if created:
-                self.records_updated += 1
-            else:
-                self.records_updated += 1
+                if created:
+                    self.records_updated += 1
+                else:
+                    self.records_updated += 1
 
     def _get_record(self, request):
         record = {
