@@ -163,6 +163,7 @@ class Grid(BaseModel):
     grid_id                 = models.CharField(max_length=  3, blank=False, unique=True , primary_key=True )
     type                    = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
     status                  = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    form                    = models.ForeignKey("static.Form", on_delete=models.CASCADE, related_name="+", default='000')
     description             = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
     title                   = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False, default='')
     can_create              = models.BooleanField(default=False)

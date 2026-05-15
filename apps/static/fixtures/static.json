@@ -120,6 +120,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "006",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "room/cabin configuration",
+      "header": "Room/Cabin Configuration",
+      "data_source_application": "base",
+      "data_source_model_name": "Category",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "CABIN_CONFIGURATION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -4430,6 +4450,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "000",
       "description": "Not Applicable",
       "title": "",
       "can_create": false,
@@ -4453,6 +4474,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "000",
       "description": "Anova User",
       "title": "Anova Users",
       "can_create": true,
@@ -4476,6 +4498,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "006",
       "description": "Room Categories",
       "title": "Room Categories",
       "can_create": true,
@@ -4499,6 +4522,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "000",
       "description": "Rooms",
       "title": "Rooms",
       "can_create": true,
@@ -4518,33 +4542,11 @@
   }
 ,  {
     "model": "static.Grid",
-    "pk": "999",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "description": "To Be Announced",
-      "title": "",
-      "can_create": false,
-      "can_read": false,
-      "can_update": false,
-      "can_delete": false,
-      "data_source_application": "",
-      "data_source_model_name": "",
-      "order_by": "",
-      "grouping": "ALL",
-      "grid_key": "TO_BE_ANNOUNCED",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2026-03-30 00:00+0000",
-      "last_updated": "2026-03-30 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Grid",
     "pk": "004",
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "000",
       "description": "Cruise Management",
       "title": "Cruise Management",
       "can_create": true,
@@ -4568,6 +4570,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "000",
       "description": "Position Management",
       "title": "Position Management",
       "can_create": true,
@@ -4591,6 +4594,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
+      "form_id": "000",
       "description": "Staged Transactions Items",
       "title": "Staged Transactions Items",
       "can_create": false,
@@ -4606,6 +4610,30 @@
       "internal_comment": "",
       "created_date": "2026-05-03 00:00+0000",
       "last_updated": "2026-05-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "description": "To Be Announced",
+      "title": "",
+      "can_create": false,
+      "can_read": false,
+      "can_update": false,
+      "can_delete": false,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "order_by": "",
+      "grouping": "ALL",
+      "grid_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
     }
   }
 ,  {
@@ -6153,6 +6181,30 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "01K",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Form006",
+      "description": "Form006",
+      "route": "form/006",
+      "view": "Form006APIView",
+      "module_path": "apps.res.api.forms.form_006",
+      "grouping": "forms",
+      "process_key": "FORM_006",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -6978,6 +7030,78 @@
       "internal_comment": "",
       "created_date": "2026-03-12 00:00+0000",
       "last_updated": "2026-03-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00601",
+    "fields": {
+      "form_id": "006",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Category Code",
+      "name": "code",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00602",
+    "fields": {
+      "form_id": "006",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Category Description",
+      "name": "description",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
     }
   }
 ,  {

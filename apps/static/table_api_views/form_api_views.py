@@ -286,7 +286,7 @@ class FormAPIView(CoreAPIView):
 
     def pre_post(self, request):
         # self.record = request.data
-        self.record = self.request_data
+        self.record = self.request_data[0]
 
     def _post(self, request):
         model = self.base_model
