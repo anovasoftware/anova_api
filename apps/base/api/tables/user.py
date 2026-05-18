@@ -1,4 +1,5 @@
-from core.api_views.table_api_views import PublicTableAPIView
+from core.api_views.core_api import AuthorizedRecordOLDAPIView
+from core.api_views.table_api_views import PublicTableAPIView, AuthorizedRecordAPIView
 from core.api_views.table_api_views import AuthorizedTableAPIView
 from apps.base.models import User
 from constants import type_constants, status_constants, process_constants
@@ -90,3 +91,32 @@ class AuthorizedUserAPIView(AuthorizedTableAPIView):
 
     def _patch(self, request):
         super()._patch(request)
+
+class User2APIView(AuthorizedRecordAPIView):
+    process_id = process_constants.BASE_USER2
+    PARAM_NAMES = AuthorizedRecordOLDAPIView.PARAM_NAMES
+    RECORD_DICT = {
+        'user_id': {'description': 'User Id.', 'example': '000221'},
+        'username': {'description': 'Username.', 'example': 'johndoe@somewebsite.com'},
+    }
+
+    def __init__(self):
+        super().__init__()
+        self.app_name = 'base'
+        self.model_name = 'User'
+        self.user_idx = None
+
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request)
+
+        if self.success:
+            self.user_idx = self.record_id
+
+    def get_value_list(self):
+        value_list = super().get_value_list()
+        value_list += list(self.RECORD_DICT.keys())
+
+        return value_list
+
+    def _get(self, request):
+        super()._get(request)

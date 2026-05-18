@@ -4160,7 +4160,7 @@
       "type_id": "000",
       "status_id": "001",
       "code": "AnovaUser",
-      "description": "Anova User Management",
+      "description": "Anova User Management List",
       "grouping": "Private",
       "page_key": "ANOVA_USER",
       "static_flag": "Y",
@@ -4183,6 +4183,22 @@
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
       "last_updated": "2026-04-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "008",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "AnovaUser1",
+      "description": "Anova User Management",
+      "grouping": "Private",
+      "page_key": "ANOVA_USER1",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-18 00:00+0000",
+      "last_updated": "2026-05-18 00:00+0000"  
     }
   }
 ,  {
@@ -4451,6 +4467,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
+      "page_id": "000",
       "description": "Not Applicable",
       "title": "",
       "can_create": false,
@@ -4475,7 +4492,8 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
-      "description": "Anova User",
+      "page_id": "008",
+      "description": "Anova Users",
       "title": "Anova Users",
       "can_create": true,
       "can_read": true,
@@ -4499,6 +4517,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "006",
+      "page_id": "000",
       "description": "Room Categories",
       "title": "Room Categories",
       "can_create": true,
@@ -4523,6 +4542,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
+      "page_id": "000",
       "description": "Rooms",
       "title": "Rooms",
       "can_create": true,
@@ -4547,6 +4567,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
+      "page_id": "000",
       "description": "Cruise Management",
       "title": "Cruise Management",
       "can_create": true,
@@ -4571,6 +4592,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
+      "page_id": "000",
       "description": "Position Management",
       "title": "Position Management",
       "can_create": true,
@@ -4595,6 +4617,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
+      "page_id": "000",
       "description": "Staged Transactions Items",
       "title": "Staged Transactions Items",
       "can_create": false,
@@ -4619,6 +4642,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
+      "page_id": "000",
       "description": "To Be Announced",
       "title": "",
       "can_create": false,
@@ -6202,6 +6226,30 @@
       "internal_comment": "",
       "created_date": "2026-05-15 00:00+0000",
       "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01L",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "User2",
+      "description": "Users",
+      "route": "base/user/<str:recordId>/",
+      "view": "User2APIView",
+      "module_path": "apps.base.api.tables.user",
+      "grouping": "views",
+      "process_key": "BASE_USER2",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-18 00:00+0000",
+      "last_updated": "2026-05-18 00:00+0000"  
     }
   }
 ,  {

@@ -1,13 +1,13 @@
-from core.api_views.core_api import AuthorizedRecordAPIView
+from core.api_views.core_api import AuthorizedRecordOLDAPIView
 from constants import process_constants
 from core.services.scheduler_service import SchedulerService
 
-class AuthorizedJobSchedulerAPIView(AuthorizedRecordAPIView):
+class AuthorizedJobSchedulerAPIView(AuthorizedRecordOLDAPIView):
     process_id = process_constants.BASE_JOB_SCHEDULER
 
-    PARAM_NAMES = AuthorizedRecordAPIView.PARAM_NAMES + ('recordId', 'action')
+    PARAM_NAMES = AuthorizedRecordOLDAPIView.PARAM_NAMES + ('recordId', 'action')
     PARAM_OVERRIDES = {
-        **getattr(AuthorizedRecordAPIView, 'PARAM_OVERRIDES', {}),
+        **getattr(AuthorizedRecordOLDAPIView, 'PARAM_OVERRIDES', {}),
         'recordId': dict(
             required_get=True,
             required_post=True,

@@ -76,6 +76,7 @@ class GridUtility(object):
         grid = Grid.objects.values(
             'grid_id',
             'form_id',
+            'page_id',
             'description',
             'title',
             'data_source_application',

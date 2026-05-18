@@ -7057,3 +7057,598 @@ TypeError: Object of type QuerySet is not JSON serializable
 [2026-05-15 19:14:30,511] INFO core.services.log_service: Request completed
 [2026-05-15 19:14:36,979] INFO core.services.log_service: Request completed
 [2026-05-15 19:14:38,196] INFO core.services.log_service: Request completed
+[2026-05-18 08:40:43,921] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 09:01:57,835] INFO core.services.log_service: Request completed
+[2026-05-18 09:01:57,885] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-05-18 09:01:57,946] INFO core.services.log_service: Request completed
+[2026-05-18 09:01:57,969] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-05-18 09:01:58,016] INFO core.services.log_service: Request completed
+[2026-05-18 09:01:58,039] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-05-18 09:43:56,851] INFO core.services.log_service: Request completed
+[2026-05-18 09:43:56,964] INFO core.services.log_service: Request completed
+[2026-05-18 09:43:57,094] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:45,969] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:46,088] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:46,297] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:54,848] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:58,542] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:58,662] INFO core.services.log_service: Request completed
+[2026-05-18 09:46:58,714] INFO core.services.log_service: Request completed
+[2026-05-18 09:47:03,759] INFO core.services.log_service: Request completed
+[2026-05-18 09:51:27,258] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\models.py changed, reloading.
+[2026-05-18 09:51:29,693] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 09:53:12,100] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\grid_constants.py changed, reloading.
+[2026-05-18 09:53:14,619] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 09:53:57,628] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 09:54:08,223] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:08,272] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:08,289] ERROR django.request: Internal Server Error: /api/v1/grid/grid001
+[2026-05-18 09:54:08,399] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:10,921] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:13,389] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:16,520] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:16,661] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:16,688] INFO core.services.log_service: Request completed
+[2026-05-18 09:54:18,877] INFO core.services.log_service: Request completed
+[2026-05-18 09:55:52,075] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 09:58:44,890] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:44,944] ERROR django.request: Internal Server Error: /api/v1/grid/grid001
+[2026-05-18 09:58:44,960] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:45,073] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:48,682] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:51,061] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:51,226] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:51,228] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:51,316] INFO core.services.log_service: Request completed
+[2026-05-18 09:58:53,607] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:53,955] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:53,981] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:54,087] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:56,430] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:59,111] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:59,246] INFO core.services.log_service: Request completed
+[2026-05-18 10:05:59,247] INFO core.services.log_service: Request completed
+[2026-05-18 10:06:01,331] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:02,823] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:02,964] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:06,188] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:08,674] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:08,794] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:08,844] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:08,909] INFO core.services.log_service: Request completed
+[2026-05-18 10:07:12,382] INFO core.services.log_service: Request completed
+[2026-05-18 10:10:53,964] INFO core.services.log_service: Request completed
+[2026-05-18 10:10:54,070] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:41,377] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:41,376] WARNING django.request: Not Found: /api/v1/user/A00001
+[2026-05-18 10:12:41,478] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:43,183] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:45,731] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:45,937] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:45,958] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:46,042] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:48,366] INFO core.services.log_service: Request completed
+[2026-05-18 10:12:51,006] WARNING django.request: Not Found: /api/v1/user/A00001
+[2026-05-18 10:12:57,739] WARNING django.request: Not Found: /api/v1/user/000004
+[2026-05-18 10:20:28,611] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-05-18 10:20:31,380] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:20:52,900] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:24:18,360] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:24:25,391] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:29,319] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:29,443] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:29,468] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:29,621] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:32,436] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:34,364] INFO core.services.log_service: Request completed
+[2026-05-18 10:24:34,399] WARNING django.request: Method Not Allowed: /api/v1/base/user/000004/
+[2026-05-18 10:25:36,384] INFO core.services.log_service: Request completed
+[2026-05-18 10:25:36,403] WARNING django.request: Method Not Allowed: /api/v1/base/user/000004/
+[2026-05-18 10:29:43,274] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:31:57,501] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:32:02,479] INFO core.services.log_service: Request completed
+[2026-05-18 10:32:02,508] WARNING django.request: Not Found: /api/v1/base/user/000004/
+[2026-05-18 10:33:29,713] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:34:18,484] INFO core.services.log_service: Request completed
+[2026-05-18 10:34:18,506] WARNING django.request: Not Found: /api/v1/base/user/000004/
+[2026-05-18 10:36:33,186] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\api\tables\user.py changed, reloading.
+[2026-05-18 10:36:35,921] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:49:48,343] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:51:00,382] INFO core.services.log_service: Request completed
+[2026-05-18 10:51:39,609] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:53:20,180] INFO core.services.log_service: Request completed
+[2026-05-18 10:56:53,371] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:57:04,815] INFO core.services.log_service: Request completed
+[2026-05-18 10:58:16,514] INFO django.utils.autoreload: C:\Projects2\anova_api\core\api_views\table_api_views.py changed, reloading.
+[2026-05-18 10:58:19,023] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:59:55,920] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 10:59:59,198] ERROR core.services.log_service: 'dict' object has no attribute 'remove'
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+[2026-05-18 10:59:59,230] ERROR core.services.log_service: Failed to save Log record: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KH, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 14:59:59.22415+00, 2026-05-18 14:59:59.22415+00, A002, 001, 000, A00005, 01L).
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KH, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 14:59:59.22415+00, 2026-05-18 14:59:59.22415+00, A002, 001, 000, A00005, 01L).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KH, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 14:59:59.22415+00, 2026-05-18 14:59:59.22415+00, A002, 001, 000, A00005, 01L).
+
+[2026-05-18 10:59:59,795] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+[2026-05-18 11:00:03,425] ERROR core.services.log_service: 'dict' object has no attribute 'remove'
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+[2026-05-18 11:00:03,447] ERROR core.services.log_service: Failed to save Log record: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KJ, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 15:00:03.441255+00, 2026-05-18 15:00:03.441255+00, A002, 001, 000, A00005, 01L).
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KJ, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 15:00:03.441255+00, 2026-05-18 15:00:03.441255+00, A002, 001, 000, A00005, 01L).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KJ, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 15:00:03.441255+00, 2026-05-18 15:00:03.441255+00, A002, 001, 000, A00005, 01L).
+
+[2026-05-18 11:00:03,809] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+[2026-05-18 11:00:34,888] ERROR core.services.log_service: 'dict' object has no attribute 'remove'
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+[2026-05-18 11:00:34,928] ERROR core.services.log_service: Failed to save Log record: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KK, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 15:00:34.923243+00, 2026-05-18 15:00:34.923243+00, A002, 001, 000, A00005, 01L).
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KK, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 15:00:34.923243+00, 2026-05-18 15:00:34.923243+00, A002, 001, 000, A00005, 01L).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "status_code" of relation "base_log" violates not-null constraint
+DETAIL:  Failing row contains (000003KK, ERROR, 'dict' object has no attribute 'remove', /api/v1/base/user/000004/, GET, null, {"hotelId": "A002"}, null, 'dict' object has no attribute 'remove', N, , 2026-05-18 15:00:34.923243+00, 2026-05-18 15:00:34.923243+00, A002, 001, 000, A00005, 01L).
+
+[2026-05-18 11:00:35,676] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 166, in dispatch
+    response = super().dispatch(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 525, in get
+    return self.get_response()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\core_api.py", line 432, in get_response
+    response = self.build_response()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects2\anova_api\core\api_views\table_api_views.py", line 553, in build_response
+    response['data'].remove('records')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'remove'
+[2026-05-18 11:01:12,793] INFO django.utils.autoreload: C:\Projects2\anova_api\core\api_views\table_api_views.py changed, reloading.
+[2026-05-18 11:01:15,364] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 11:01:50,625] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:38,809] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:39,006] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:43,197] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:43,214] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+[2026-05-18 11:05:53,174] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:55,602] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:55,764] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:55,791] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:55,834] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:58,162] INFO core.services.log_service: Request completed
+[2026-05-18 11:05:59,140] INFO core.services.log_service: Request completed
+[2026-05-18 11:06:23,557] INFO core.services.log_service: Request completed
+[2026-05-18 11:06:23,636] INFO core.services.log_service: Request completed
+[2026-05-18 11:06:23,652] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+[2026-05-18 11:06:23,768] INFO core.services.log_service: Request completed
+[2026-05-18 11:06:28,402] INFO core.services.log_service: Request completed
+[2026-05-18 11:06:28,456] INFO core.services.log_service: Request completed
+[2026-05-18 11:06:28,473] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+[2026-05-18 11:06:28,595] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:19,279] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:19,307] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:19,338] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+[2026-05-18 11:07:19,444] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:38,842] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:38,850] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:38,896] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+[2026-05-18 11:07:38,993] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:52,927] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:55,818] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:56,030] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:56,076] INFO core.services.log_service: Request completed
+[2026-05-18 11:07:56,147] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:01,828] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:02,917] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:05,145] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:05,277] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:05,298] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:07,547] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:09,500] INFO core.services.log_service: Request completed
+[2026-05-18 11:08:35,659] INFO core.services.log_service: Request completed

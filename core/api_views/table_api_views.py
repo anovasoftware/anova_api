@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 from datetime import datetime
 
-from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView
+from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView, RecordAPIView
 from core.utilities.data_transformation_utilities import transform_records
 from django.apps import apps
 from django.db import models
@@ -507,3 +507,48 @@ class AuthorizedTableAPIView(AuthorizedAPIView, TableAPIView):
 
 class PublicTableAPIView(PublicAPIView, TableAPIView):
     pass
+
+
+class AuthorizedRecordAPIView(AuthorizedTableAPIView):
+    PARAM_NAMES = AuthorizedAPIView.PARAM_NAMES + ('recordId', 'action')
+
+    PARAM_OVERRIDES = {
+        **getattr(CoreAPIView, 'PARAM_OVERRIDES', {}),
+        'recordId': dict(
+            required_get=True,
+            required_post=True,
+        )
+    }
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.record_id = None
+
+    def load_request(self, request, *args, **kwargs):
+        super().load_request(request)
+
+    # def _get(self, request):
+    #     filters = self.get_query_filter()
+
+    def get_query_filter(self):
+        filters = super().get_query_filter()
+        filters['pk'] = self.record_id
+
+        return filters  # This will be used in queryset.filter()
+
+    def get_value_list(self):
+        values_list = []
+
+        return values_list
+
+    def _get(self, request):
+        super()._get(request)
+
+        if self.success:
+            self.record = self.records[0]
+            self.data['record'] = self.record
+
+    def build_response(self):
+        response = super().build_response()
+        response['data'].pop('records', None)
+        return response

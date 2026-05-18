@@ -11,4 +11,4 @@ BASE_CATEGORY = '001'                                            # categoryBASE
 BASE_TABLE_JOB = '00P'                                           # job#  tablea
 BASE_USER = '00V'                                                # user#  utilities
 USER_PROFILE = '018'                                             # get user profile#  views
-BASE_JOB_SCHEDULER = '012'                                       # process scheduled jobs
+BASE_USER2 = '01L'                                               # usersBASE_JOB_SCHEDULER = '012'                                       # process scheduled jobs

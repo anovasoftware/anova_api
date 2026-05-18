@@ -891,5 +891,22 @@ class RecordAPIView(CoreAPIView):
         super().load_request(request)
 
 
-class AuthorizedRecordAPIView(AuthorizedAPIView, RecordAPIView):
-    pass
+class AuthorizedRecordOLDAPIView(AuthorizedAPIView, RecordAPIView):
+    PARAM_NAMES = AuthorizedAPIView.PARAM_NAMES + ('recordId', 'action')
+
+    def _get(self, request):
+        filters = self.get_query_filter()
+
+
+    def get_query_filter(self):
+        filters = {}
+        filters['pk'] = self.record_id
+
+        return filters  # This will be used in queryset.filter()
+
+    def get_value_list(self):
+        values_list = []
+
+        return values_list
+
+
