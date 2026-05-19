@@ -1440,7 +1440,7 @@
     "fields": {
       "parent_type_id": "000",
       "grouping": "static_client",
-      "code": "Cruise Line",
+      "code": "CRUISELINE",
       "description": "Cruise Line",
       "description_short": "Cruise Line",
       "description_long": "",
@@ -3403,6 +3403,30 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02G",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_client",
+      "code": "HOTELOPERATOR",
+      "description": "Hotel Operator",
+      "description_short": "Hotel Operator",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CLIENT_HOTEL_OPERATOR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-18 00:00+0000",
+      "last_updated": "2025-03-10 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -3486,6 +3510,23 @@
     }
   }
 ,  {
+    "model": "static.Client",
+    "pk": "004",
+    "fields": {
+      "parent_client_id": "000",
+      "type_id": "02G",
+      "status_id": "001",
+      "code": "ANOVA",
+      "description": "AovaSea",
+      "grouping": "Hotel Operator",
+      "client_key": "ANOVA_SEA",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-18 00:00+0000",
+      "last_updated": "2026-05-18 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Menu",
     "pk": "000",
     "fields": {
@@ -3494,6 +3535,7 @@
       "parent_menu_id": "000",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "00",
       "description": "Not Applicable",
       "title": "",
@@ -3520,6 +3562,7 @@
       "parent_menu_id": "000",
       "page_id": "001",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "01",
       "description": "HOME",
       "title": "",
@@ -3546,6 +3589,7 @@
       "parent_menu_id": "000",
       "page_id": "002",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "02",
       "description": "ABOUT",
       "title": "About Us",
@@ -3572,6 +3616,7 @@
       "parent_menu_id": "000",
       "page_id": "003",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "03",
       "description": "MODULES",
       "title": "Modules",
@@ -3598,6 +3643,7 @@
       "parent_menu_id": "000",
       "page_id": "004",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "04",
       "description": "LOGIN",
       "title": "Login",
@@ -3624,6 +3670,7 @@
       "parent_menu_id": "001",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "01",
       "description": "Administration",
       "title": "Administration",
@@ -3650,6 +3697,7 @@
       "parent_menu_id": "001",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "03",
       "description": "Guest Management",
       "title": "Guest Management",
@@ -3676,6 +3724,7 @@
       "parent_menu_id": "00P",
       "page_id": "006",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "01.01.01",
       "description": "Users",
       "title": "Users",
@@ -3702,6 +3751,7 @@
       "parent_menu_id": "001",
       "page_id": "005",
       "grid_id": "000",
+      "hotel_type_id": "006",
       "order_by": "05",
       "description": "Gangway",
       "title": "Gangway",
@@ -3728,6 +3778,7 @@
       "parent_menu_id": "005",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "01.02",
       "description": "Hotel Administration",
       "title": "<<HOTEL>> Administration",
@@ -3754,6 +3805,7 @@
       "parent_menu_id": "009",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "01.02.01",
       "description": "Property Setup",
       "title": "<<PROPERTY>> Setup",
@@ -3780,6 +3832,7 @@
       "parent_menu_id": "00B",
       "page_id": "007",
       "grid_id": "002",
+      "hotel_type_id": "000",
       "order_by": "01.02.01.01",
       "description": "Room Categories",
       "title": "<<ROOM>> Categories",
@@ -3806,6 +3859,7 @@
       "parent_menu_id": "00B",
       "page_id": "007",
       "grid_id": "003",
+      "hotel_type_id": "000",
       "order_by": "01.02.01.02",
       "description": "Rooms",
       "title": "<<ROOM>>s",
@@ -3832,6 +3886,7 @@
       "parent_menu_id": "00B",
       "page_id": "007",
       "grid_id": "004",
+      "hotel_type_id": "006",
       "order_by": "01.02.01.03",
       "description": "Cruise Management",
       "title": "Cruise Management",
@@ -3858,6 +3913,7 @@
       "parent_menu_id": "000",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "03",
       "description": "PRODUCTS",
       "title": "Products",
@@ -3884,6 +3940,7 @@
       "parent_menu_id": "00G",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "03.01",
       "description": "Anova Onboard",
       "title": "Anova Onboard",
@@ -3910,6 +3967,7 @@
       "parent_menu_id": "00G",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "03.02",
       "description": "Anova Connect",
       "title": "Anova Connect",
@@ -3936,6 +3994,7 @@
       "parent_menu_id": "001",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "006",
       "order_by": "04",
       "description": "Crew Management",
       "title": "Crew Management",
@@ -3962,6 +4021,7 @@
       "parent_menu_id": "00K",
       "page_id": "007",
       "grid_id": "005",
+      "hotel_type_id": "000",
       "order_by": "04.01",
       "description": "Positions",
       "title": "Positions",
@@ -3988,6 +4048,7 @@
       "parent_menu_id": "001",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "05",
       "description": "Point of Sale",
       "title": "Point of Sale",
@@ -4014,6 +4075,7 @@
       "parent_menu_id": "00M",
       "page_id": "007",
       "grid_id": "006",
+      "hotel_type_id": "000",
       "order_by": "05.01",
       "description": "Staged Transactions",
       "title": "Staged Transactions",
@@ -4040,6 +4102,7 @@
       "parent_menu_id": "005",
       "page_id": "000",
       "grid_id": "000",
+      "hotel_type_id": "000",
       "order_by": "01.01",
       "description": "Anova Administration",
       "title": "Anova Administration",
@@ -4458,6 +4521,25 @@
       "internal_comment": "",
       "created_date": "2026-02-22 00:00+0000",
       "last_updated": "2026-02-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Hotel",
+    "pk": "A005",
+    "fields": {
+      "type_id": "005",
+      "status_id": "001",
+      "client_id": "004",
+      "code": "AMH",
+      "description": "Anova Marina Hotel",
+      "vms_identifier": "2002",
+      "grouping": "HOTELS",
+      "hotel_key": "ANOVA_MARINA_HOTEL",
+      "public_key": "ZYVQQF",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-18 00:00+0000",
+      "last_updated": "2026-05-18 00:00+0000"  
     }
   }
 ,  {

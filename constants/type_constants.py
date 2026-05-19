@@ -31,7 +31,7 @@ RES_RESERVATION_INTERNAL = '009'                                 # internal rese
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  res_transaction
 RES_TRANSACTION_CHARGE = '00P'                                   # chargeRES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_STAGED = '016'                                   # staged transactionsRES_TRANSACTION_STAGED_CHARGE = '00N'                            # staged chargeRES_TRANSACTION_STAGED_REFUND = '014'                            # staged refund#  res_transaction_item
 RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  static_client
-CLIENT_CRUISE_LINE = '004'                                       # cruise line#  static_currency
+CLIENT_CRUISE_LINE = '004'                                       # cruise lineCLIENT_HOTEL_OPERATOR = '02G'                                    # hotel operator#  static_currency
 CURRENCY_REAL = '027'                                            # real#  static_form
 FORM_DATA_ENTRY = '602'                                          # data entry formsFORM_REPORT_PARAMETER = '601'                                    # report parameters#  static_form_control
 CONTROL_HIDDEN = '00Z'                                           # hiddenCONTROL_SELECT1 = '028'                                          # select1CONTROL_TEXTAREA = '01B'                                         # textareaCONTROL_TEXTBOX = '00Y'                                          # textbox#  static_form_extra

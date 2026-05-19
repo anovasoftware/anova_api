@@ -55,7 +55,8 @@ class PublicMenuAPIView(PublicTableAPIView):
             'page__page_id',
             'page__description',
             'icon',
-            'hotel_required'
+            'hotel_required',
+            'hotel_type_id',
         ]
 
         value_list += super().get_value_list()

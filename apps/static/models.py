@@ -254,6 +254,7 @@ class Menu(BaseModel):
     parent_menu      = models.ForeignKey("self", on_delete=models.CASCADE, to_field='menu_id', related_name="+", db_column="parent_menu_id", default=None, null=True)
     page             = models.ForeignKey("static.Page", on_delete=models.CASCADE, related_name='+', default=None, null=True)
     grid             = models.ForeignKey("static.Grid", on_delete=models.CASCADE, related_name='+', default='000')
+    hotel_type       = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     order_by         = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='00')
     description      = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False)
     title            = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False)

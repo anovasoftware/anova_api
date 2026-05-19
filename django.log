@@ -7652,3 +7652,198 @@ AttributeError: 'dict' object has no attribute 'remove'
 [2026-05-18 11:08:07,547] INFO core.services.log_service: Request completed
 [2026-05-18 11:08:09,500] INFO core.services.log_service: Request completed
 [2026-05-18 11:08:35,659] INFO core.services.log_service: Request completed
+[2026-05-18 12:24:24,449] INFO core.services.log_service: Request completed
+[2026-05-18 15:23:28,443] INFO core.services.log_service: Request completed
+[2026-05-18 17:47:32,543] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\type_constants.py changed, reloading.
+[2026-05-18 17:47:41,471] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 17:48:40,206] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 17:49:19,913] INFO core.services.log_service: Request completed
+[2026-05-18 17:49:35,477] INFO core.services.log_service: Request completed
+[2026-05-18 17:49:35,627] INFO core.services.log_service: Request completed
+[2026-05-18 17:49:35,655] INFO core.services.log_service: Request completed
+[2026-05-18 17:49:35,810] INFO core.services.log_service: Request completed
+[2026-05-18 17:50:46,853] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-05-18 17:50:49,430] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 17:51:02,659] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 17:51:06,189] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:06,317] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:10,223] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:10,380] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:10,404] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:17,055] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:17,096] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:17,305] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:17,408] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:17,493] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:38,206] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:38,228] WARNING django.request: Bad Request: /api/v1/grid/grid002
+[2026-05-18 17:51:50,343] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:50,360] WARNING django.request: Bad Request: /api/v1/grid/grid003
+[2026-05-18 17:51:54,595] INFO core.services.log_service: Request completed
+[2026-05-18 17:51:54,612] WARNING django.request: Bad Request: /api/v1/grid/grid004
+[2026-05-18 18:07:23,496] INFO core.services.log_service: Request completed
+[2026-05-18 18:07:23,589] INFO core.services.log_service: Request completed
+[2026-05-18 18:07:23,766] INFO core.services.log_service: Request completed
+[2026-05-18 21:21:53,830] INFO core.services.log_service: Request completed
+[2026-05-18 21:21:54,019] INFO core.services.log_service: Request completed
+[2026-05-18 21:21:54,202] INFO core.services.log_service: Request completed
+[2026-05-18 21:24:39,023] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\models.py changed, reloading.
+[2026-05-18 21:24:42,188] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 21:26:27,928] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-05-18 21:26:30,784] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 21:28:02,267] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-18 21:31:07,164] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:07,165] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:07,269] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:09,256] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:14,342] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:27,160] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:27,303] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:27,324] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:34,340] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:34,356] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:34,585] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:34,686] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:34,781] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:38,455] INFO core.services.log_service: Request completed
+[2026-05-18 21:31:44,079] INFO core.services.log_service: Request completed
+[2026-05-18 22:47:05,906] INFO core.services.log_service: Request completed
+[2026-05-19 01:55:22,429] INFO core.services.log_service: Request completed
+[2026-05-19 06:52:33,010] INFO core.services.log_service: Request completed
+[2026-05-19 06:52:33,034] INFO core.services.log_service: Request completed
+[2026-05-19 06:52:33,143] INFO core.services.log_service: Request completed
+[2026-05-19 06:52:36,572] INFO core.services.log_service: Request completed
+[2026-05-19 06:54:40,579] INFO core.services.log_service: Request completed
+[2026-05-19 06:54:40,738] INFO core.services.log_service: Request completed
+[2026-05-19 06:54:40,759] INFO core.services.log_service: Request completed
+[2026-05-19 07:29:50,824] INFO core.services.log_service: Request completed
+[2026-05-19 07:29:50,843] INFO core.services.log_service: Request completed
+[2026-05-19 07:32:23,309] INFO core.services.log_service: Request completed
+[2026-05-19 07:32:23,323] INFO core.services.log_service: Request completed
+[2026-05-19 07:34:28,042] INFO core.services.log_service: Request completed
+[2026-05-19 07:34:31,112] INFO core.services.log_service: Request completed
+[2026-05-19 07:34:31,235] INFO core.services.log_service: Request completed
+[2026-05-19 07:34:31,288] INFO core.services.log_service: Request completed
+[2026-05-19 07:34:52,644] INFO core.services.log_service: Request completed
+[2026-05-19 07:34:52,652] INFO core.services.log_service: Request completed
+[2026-05-19 07:35:22,130] INFO core.services.log_service: Request completed
+[2026-05-19 07:35:22,143] INFO core.services.log_service: Request completed
+[2026-05-19 07:36:00,122] INFO core.services.log_service: Request completed
+[2026-05-19 07:37:48,974] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-19 07:37:58,958] INFO core.services.log_service: Request completed
+[2026-05-19 07:38:02,521] INFO core.services.log_service: Request completed
+[2026-05-19 07:38:02,662] INFO core.services.log_service: Request completed
+[2026-05-19 07:38:02,678] INFO core.services.log_service: Request completed
+[2026-05-19 07:38:55,769] INFO core.services.log_service: Request completed
+[2026-05-19 07:38:56,156] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:00,123] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:03,781] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:03,917] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:03,934] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:23,981] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:23,991] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:24,195] INFO core.services.log_service: Request completed
+[2026-05-19 07:39:24,291] INFO core.services.log_service: Request completed
+[2026-05-19 07:41:40,678] INFO core.services.log_service: Request completed
+[2026-05-19 07:41:40,711] WARNING django.request: Not Found: /api/v1/utilities/base/user/profile
+[2026-05-19 07:41:49,393] INFO core.services.log_service: Request completed
+[2026-05-19 07:49:57,143] INFO core.services.log_service: Request completed
+[2026-05-19 07:49:57,172] INFO core.services.log_service: Request completed
+[2026-05-19 07:49:58,324] INFO core.services.log_service: Request completed
+[2026-05-19 07:50:00,481] INFO core.services.log_service: Request completed
+[2026-05-19 07:50:00,696] INFO core.services.log_service: Request completed
+[2026-05-19 10:48:33,828] INFO core.services.log_service: Request completed
+[2026-05-19 10:51:15,850] INFO core.services.log_service: Request completed
+[2026-05-19 10:51:16,203] INFO core.services.log_service: Request completed
+[2026-05-19 10:51:17,236] INFO core.services.log_service: Request completed
+[2026-05-19 10:51:30,115] INFO core.services.log_service: Request completed
+[2026-05-19 10:51:30,247] INFO core.services.log_service: Request completed
+[2026-05-19 10:53:39,959] INFO core.services.log_service: Request completed
+[2026-05-19 10:53:40,004] INFO core.services.log_service: Request completed
+[2026-05-19 10:53:42,528] INFO core.services.log_service: Request completed
+[2026-05-19 10:53:44,783] INFO core.services.log_service: Request completed
+[2026-05-19 10:53:44,896] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:43,100] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:43,121] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:45,109] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:47,682] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:50,990] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:53,354] INFO core.services.log_service: Request completed
+[2026-05-19 11:01:53,483] INFO core.services.log_service: Request completed
+[2026-05-19 11:07:01,361] INFO core.services.log_service: Request completed
+[2026-05-19 11:07:07,309] INFO core.services.log_service: Request completed
+[2026-05-19 11:07:07,397] INFO core.services.log_service: Request completed
+[2026-05-19 11:08:05,417] INFO core.services.log_service: Request completed
+[2026-05-19 11:09:22,088] INFO core.services.log_service: Request completed
+[2026-05-19 11:09:22,226] INFO core.services.log_service: Request completed
+[2026-05-19 11:11:47,368] INFO core.services.log_service: Request completed
+[2026-05-19 11:11:47,532] INFO core.services.log_service: Request completed
+[2026-05-19 11:11:54,799] INFO core.services.log_service: Request completed
+[2026-05-19 11:12:08,634] INFO core.services.log_service: Request completed
+[2026-05-19 11:12:08,779] INFO core.services.log_service: Request completed
+[2026-05-19 11:12:43,764] INFO core.services.log_service: Request completed
+[2026-05-19 11:15:49,921] INFO core.services.log_service: Request completed
+[2026-05-19 11:15:50,413] INFO core.services.log_service: Request completed
+[2026-05-19 11:15:52,506] INFO core.services.log_service: Request completed
+[2026-05-19 11:16:07,890] INFO core.services.log_service: Request completed
+[2026-05-19 11:16:08,119] INFO core.services.log_service: Request completed
+[2026-05-19 11:16:08,269] INFO core.services.log_service: Request completed
+[2026-05-19 11:16:18,269] INFO core.services.log_service: Request completed
+[2026-05-19 11:16:18,411] INFO core.services.log_service: Request completed
+[2026-05-19 11:16:18,757] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:01,073] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:01,310] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:03,740] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:07,462] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:07,653] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:53,212] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:53,243] INFO core.services.log_service: Request completed
+[2026-05-19 11:19:57,015] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:01,066] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:01,297] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:06,979] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:07,045] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:07,416] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:08,952] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:16,491] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:16,521] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:16,808] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:16,876] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-19 11:20:17,032] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:17,207] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:17,229] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-19 11:20:23,685] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:26,121] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:35,142] INFO core.services.log_service: Request completed
+[2026-05-19 11:20:35,176] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-19 11:21:08,774] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:12,591] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:12,773] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:12,837] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:12,880] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-19 11:21:17,282] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:17,316] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-19 11:21:43,495] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:47,044] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:47,307] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:47,309] INFO core.services.log_service: Request completed
+[2026-05-19 11:21:47,338] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-19 11:22:49,524] INFO core.services.log_service: Request completed
+[2026-05-19 11:22:49,563] INFO core.services.log_service: Request completed
+[2026-05-19 11:22:53,300] INFO core.services.log_service: Request completed
+[2026-05-19 11:22:53,331] INFO core.services.log_service: Request completed
+[2026-05-19 11:22:57,809] INFO core.services.log_service: Request completed
+[2026-05-19 11:23:02,683] INFO core.services.log_service: Request completed
+[2026-05-19 11:23:02,884] INFO core.services.log_service: Request completed
+[2026-05-19 11:23:36,747] INFO core.services.log_service: Request completed
+[2026-05-19 11:23:36,949] INFO core.services.log_service: Request completed
+[2026-05-19 11:28:09,062] INFO core.services.log_service: Request completed
+[2026-05-19 11:28:09,224] INFO core.services.log_service: Request completed
+[2026-05-19 11:28:11,459] INFO core.services.log_service: Request completed
+[2026-05-19 11:28:15,739] INFO core.services.log_service: Request completed
+[2026-05-19 11:28:15,952] INFO core.services.log_service: Request completed
+[2026-05-19 11:31:33,071] INFO core.services.log_service: Request completed
+[2026-05-19 11:31:33,264] INFO core.services.log_service: Request completed
+[2026-05-19 11:31:37,739] INFO core.services.log_service: Request completed
+[2026-05-19 11:31:40,740] INFO core.services.log_service: Request completed
+[2026-05-19 11:31:40,948] INFO core.services.log_service: Request completed
