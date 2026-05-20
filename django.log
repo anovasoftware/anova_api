@@ -7847,3 +7847,228 @@ AttributeError: 'dict' object has no attribute 'remove'
 [2026-05-19 11:31:37,739] INFO core.services.log_service: Request completed
 [2026-05-19 11:31:40,740] INFO core.services.log_service: Request completed
 [2026-05-19 11:31:40,948] INFO core.services.log_service: Request completed
+[2026-05-19 15:31:19,063] INFO core.services.log_service: Request completed
+[2026-05-19 15:31:35,082] INFO core.services.log_service: Request completed
+[2026-05-19 15:31:35,324] INFO core.services.log_service: Request completed
+[2026-05-19 17:03:27,917] INFO core.services.log_service: Request completed
+[2026-05-19 17:03:44,195] INFO core.services.log_service: Request completed
+[2026-05-19 17:03:44,453] INFO core.services.log_service: Request completed
+[2026-05-19 17:03:56,397] INFO core.services.log_service: Request completed
+[2026-05-19 17:04:00,158] INFO core.services.log_service: Request completed
+[2026-05-20 06:17:19,653] INFO core.services.log_service: Request completed
+[2026-05-20 06:17:19,816] ERROR django.request: Internal Server Error: /api/v1/base/user/000004/
+[2026-05-20 06:17:19,834] INFO core.services.log_service: Request completed
+[2026-05-20 06:17:30,029] INFO core.services.log_service: Request completed
+[2026-05-20 06:17:30,315] INFO core.services.log_service: Request completed
+[2026-05-20 06:46:44,062] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 06:57:38,628] INFO core.services.log_service: Request completed
+[2026-05-20 06:57:39,124] INFO core.services.log_service: Request completed
+[2026-05-20 06:57:41,948] INFO core.services.log_service: Request completed
+[2026-05-20 06:57:58,017] INFO core.services.log_service: Request completed
+[2026-05-20 06:58:03,286] INFO core.services.log_service: Request completed
+[2026-05-20 06:58:22,904] INFO core.services.log_service: Request completed
+[2026-05-20 06:58:49,895] INFO core.services.log_service: Request completed
+[2026-05-20 06:59:13,677] INFO core.services.log_service: Request completed
+[2026-05-20 06:59:42,674] INFO core.services.log_service: Request completed
+[2026-05-20 06:59:43,322] INFO core.services.log_service: Request completed
+[2026-05-20 06:59:45,124] INFO core.services.log_service: Request completed
+[2026-05-20 06:59:46,070] INFO core.services.log_service: Request completed
+[2026-05-20 06:59:46,994] INFO core.services.log_service: Request completed
+[2026-05-20 07:00:09,874] INFO core.services.log_service: Request completed
+[2026-05-20 07:00:33,898] INFO core.services.log_service: Request completed
+[2026-05-20 07:00:34,990] INFO core.services.log_service: Request completed
+[2026-05-20 07:00:35,401] INFO core.services.log_service: Request completed
+[2026-05-20 07:00:38,698] INFO core.services.log_service: Request completed
+[2026-05-20 07:00:39,435] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:02,486] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:02,806] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:03,712] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:04,810] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:15,587] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:31,533] INFO core.services.log_service: Request completed
+[2026-05-20 07:01:55,418] INFO core.services.log_service: Request completed
+[2026-05-20 07:02:22,760] INFO core.services.log_service: Request completed
+[2026-05-20 07:02:46,757] INFO core.services.log_service: Request completed
+[2026-05-20 07:03:18,956] INFO core.services.log_service: Request completed
+[2026-05-20 07:03:25,925] INFO core.services.log_service: Request completed
+[2026-05-20 07:03:33,426] INFO core.services.log_service: Request completed
+[2026-05-20 07:03:56,249] INFO core.services.log_service: Request completed
+[2026-05-20 07:04:07,031] INFO core.services.log_service: Request completed
+[2026-05-20 07:04:27,742] INFO core.services.log_service: Request completed
+[2026-05-20 07:04:35,386] INFO core.services.log_service: Request completed
+[2026-05-20 07:04:35,432] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-05-20 07:04:56,767] INFO core.services.log_service: Request completed
+[2026-05-20 07:04:56,798] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-05-20 07:05:17,767] INFO core.services.log_service: Request completed
+[2026-05-20 07:05:17,794] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-05-20 07:05:39,028] INFO core.services.log_service: Request completed
+[2026-05-20 07:05:39,053] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-05-20 07:06:18,584] INFO core.services.log_service: Request completed
+[2026-05-20 07:06:29,338] INFO core.services.log_service: Request completed
+[2026-05-20 07:06:35,174] INFO core.services.log_service: Request completed
+[2026-05-20 07:06:59,772] INFO core.services.log_service: Request completed
+[2026-05-20 07:07:02,381] INFO core.services.log_service: Request completed
+[2026-05-20 07:07:02,411] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-05-20 07:07:23,348] INFO core.services.log_service: Request completed
+[2026-05-20 07:07:23,380] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-05-20 07:07:44,677] INFO core.services.log_service: Request completed
+[2026-05-20 07:07:44,708] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-05-20 07:08:27,350] INFO core.services.log_service: Request completed
+[2026-05-20 07:08:38,289] INFO core.services.log_service: Request completed
+[2026-05-20 07:08:43,390] INFO core.services.log_service: Request completed
+[2026-05-20 07:09:08,674] INFO core.services.log_service: Request completed
+[2026-05-20 07:09:22,689] INFO core.services.log_service: Request completed
+[2026-05-20 07:09:47,397] INFO core.services.log_service: Request completed
+[2026-05-20 07:10:07,650] INFO core.services.log_service: Request completed
+[2026-05-20 07:10:18,412] INFO core.services.log_service: Request completed
+[2026-05-20 07:10:37,659] INFO core.services.log_service: Request completed
+[2026-05-20 07:10:48,335] INFO core.services.log_service: Request completed
+[2026-05-20 07:11:10,717] INFO core.services.log_service: Request completed
+[2026-05-20 07:11:21,406] INFO core.services.log_service: Request completed
+[2026-05-20 07:11:43,832] INFO core.services.log_service: Request completed
+[2026-05-20 07:11:54,621] INFO core.services.log_service: Request completed
+[2026-05-20 07:12:17,745] INFO core.services.log_service: Request completed
+[2026-05-20 07:12:28,526] INFO core.services.log_service: Request completed
+[2026-05-20 07:12:51,774] INFO core.services.log_service: Request completed
+[2026-05-20 07:13:02,525] INFO core.services.log_service: Request completed
+[2026-05-20 07:13:24,332] INFO core.services.log_service: Request completed
+[2026-05-20 07:13:34,989] INFO core.services.log_service: Request completed
+[2026-05-20 07:13:57,010] INFO core.services.log_service: Request completed
+[2026-05-20 07:14:07,732] INFO core.services.log_service: Request completed
+[2026-05-20 07:14:26,941] INFO core.services.log_service: Request completed
+[2026-05-20 07:14:37,651] INFO core.services.log_service: Request completed
+[2026-05-20 07:14:59,038] INFO core.services.log_service: Request completed
+[2026-05-20 07:15:09,721] INFO core.services.log_service: Request completed
+[2026-05-20 07:15:32,216] INFO core.services.log_service: Request completed
+[2026-05-20 07:37:38,650] INFO core.services.log_service: Request completed
+[2026-05-20 07:37:59,707] INFO core.services.log_service: Request completed
+[2026-05-20 07:38:10,315] INFO core.services.log_service: Request completed
+[2026-05-20 07:38:29,786] INFO core.services.log_service: Request completed
+[2026-05-20 07:38:40,520] INFO core.services.log_service: Request completed
+[2026-05-20 07:38:59,915] INFO core.services.log_service: Request completed
+[2026-05-20 07:39:10,618] INFO core.services.log_service: Request completed
+[2026-05-20 07:39:33,434] INFO core.services.log_service: Request completed
+[2026-05-20 07:39:34,026] INFO core.services.log_service: Request completed
+[2026-05-20 07:39:56,873] INFO core.services.log_service: Request completed
+[2026-05-20 07:40:07,502] INFO core.services.log_service: Request completed
+[2026-05-20 07:40:28,305] INFO core.services.log_service: Request completed
+[2026-05-20 07:40:39,054] INFO core.services.log_service: Request completed
+[2026-05-20 07:41:02,143] INFO core.services.log_service: Request completed
+[2026-05-20 07:41:12,838] INFO core.services.log_service: Request completed
+[2026-05-20 07:41:35,345] INFO core.services.log_service: Request completed
+[2026-05-20 07:41:46,268] INFO core.services.log_service: Request completed
+[2026-05-20 07:42:05,725] INFO core.services.log_service: Request completed
+[2026-05-20 07:42:16,358] INFO core.services.log_service: Request completed
+[2026-05-20 07:42:53,637] INFO core.services.log_service: Request completed
+[2026-05-20 07:43:04,322] INFO core.services.log_service: Request completed
+[2026-05-20 07:44:04,092] INFO core.services.log_service: Request completed
+[2026-05-20 07:44:14,750] INFO core.services.log_service: Request completed
+[2026-05-20 07:44:29,116] INFO core.services.log_service: Request completed
+[2026-05-20 07:44:39,839] INFO core.services.log_service: Request completed
+[2026-05-20 07:44:45,596] INFO core.services.log_service: Request completed
+[2026-05-20 07:44:51,342] INFO core.services.log_service: Request completed
+[2026-05-20 10:49:24,606] INFO core.services.log_service: Request completed
+[2026-05-20 10:49:24,644] WARNING django.request: Forbidden: /api/v1/integration/guests/
+[2026-05-20 10:49:37,832] INFO core.services.log_service: Request completed
+[2026-05-20 10:49:37,856] WARNING django.request: Bad Request: /api/v1/integration/guests/
+[2026-05-20 10:50:05,386] INFO core.services.log_service: Request completed
+[2026-05-20 10:50:05,403] WARNING django.request: Bad Request: /api/v1/integration/guests/
+[2026-05-20 10:50:27,125] INFO core.services.log_service: Request completed
+[2026-05-20 10:51:00,179] INFO core.services.log_service: Request completed
+[2026-05-20 10:51:00,201] WARNING django.request: Method Not Allowed: /api/v1/res/guests/<str:recordId>/toggleStatus
+[2026-05-20 10:51:28,564] INFO core.services.log_service: Request completed
+[2026-05-20 10:51:28,585] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus
+[2026-05-20 10:58:06,549] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 10:58:31,451] WARNING django.request: Not Found: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 10:58:43,444] WARNING django.request: Not Found: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 10:59:01,901] INFO core.services.log_service: Request completed
+[2026-05-20 10:59:01,931] WARNING django.request: Bad Request: /api/v1/res/guests/0004WX/toggleStatus
+[2026-05-20 10:59:22,802] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-05-20 10:59:25,477] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 10:59:43,503] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 10:59:49,913] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/res/guests/0004WX/toggleStatus/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2026-05-20 10:59:56,203] INFO core.services.log_service: Request completed
+[2026-05-20 10:59:56,232] WARNING django.request: Bad Request: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:00:03,557] INFO core.services.log_service: Request completed
+[2026-05-20 11:00:03,588] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:01:11,425] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 11:01:25,769] INFO core.services.log_service: Request completed
+[2026-05-20 11:01:25,800] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:01:43,895] INFO core.services.log_service: Request completed
+[2026-05-20 11:01:43,916] WARNING django.request: Method Not Allowed: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:01:55,934] INFO core.services.log_service: Request completed
+[2026-05-20 11:01:55,951] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:04:45,485] INFO core.services.log_service: Request completed
+[2026-05-20 11:04:45,504] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:05:18,216] INFO core.services.log_service: Request completed
+[2026-05-20 11:05:18,258] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:22:36,375] INFO core.services.log_service: Request completed
+[2026-05-20 11:22:36,410] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:23:32,305] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 11:23:45,994] INFO core.services.log_service: Request completed
+[2026-05-20 11:23:46,015] WARNING django.request: Not Found: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:24:47,174] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 11:24:57,242] INFO core.services.log_service: Request completed
+[2026-05-20 11:24:57,267] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:25:17,218] INFO core.services.log_service: Request completed
+[2026-05-20 11:25:17,249] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:26:20,909] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 11:26:29,993] INFO core.services.log_service: Request completed
+[2026-05-20 11:26:30,020] ERROR django.request: Internal Server Error: /api/v1/res/guests/0004WX/toggleStatus/
+[2026-05-20 11:28:23,530] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 11:29:14,167] INFO core.services.log_service: Request completed
+[2026-05-20 11:29:31,289] INFO core.services.log_service: Request completed
+[2026-05-20 14:19:22,576] INFO core.services.log_service: Request completed
+[2026-05-20 14:19:22,894] INFO core.services.log_service: Request completed
+[2026-05-20 14:19:24,747] INFO core.services.log_service: Request completed
+[2026-05-20 14:19:30,360] INFO core.services.log_service: Request completed
+[2026-05-20 14:19:30,607] INFO core.services.log_service: Request completed
+[2026-05-20 14:19:32,378] INFO core.services.log_service: Request completed
+[2026-05-20 14:20:31,005] INFO core.services.log_service: Request completed
+[2026-05-20 14:25:49,792] INFO core.services.log_service: Request completed
+[2026-05-20 14:27:44,626] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 14:28:25,723] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:37,534] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:37,555] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:37,591] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-05-20 14:28:40,448] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:43,490] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:43,669] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:43,788] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:43,807] INFO core.services.log_service: Request completed
+[2026-05-20 14:28:45,006] INFO core.services.log_service: Request completed
+[2026-05-20 14:29:51,885] INFO core.services.log_service: Request completed
+[2026-05-20 14:29:51,907] WARNING django.request: Bad Request: /api/v1/integration/guests/
+[2026-05-20 14:30:04,498] INFO core.services.log_service: Request completed
+[2026-05-20 14:30:04,521] WARNING django.request: Bad Request: /api/v1/integration/guests/
+[2026-05-20 14:30:09,927] INFO core.services.log_service: Request completed
+[2026-05-20 14:30:21,117] INFO core.services.log_service: Request completed
+[2026-05-20 14:30:39,347] INFO core.services.log_service: Request completed
+[2026-05-20 14:30:54,902] INFO core.services.log_service: Request completed
+[2026-05-20 14:31:02,040] INFO core.services.log_service: Request completed
+[2026-05-20 14:31:13,434] INFO core.services.log_service: Request completed
+[2026-05-20 14:31:51,300] INFO core.services.log_service: Request completed
+[2026-05-20 14:32:01,576] INFO core.services.log_service: Request completed
+[2026-05-20 14:32:13,361] INFO core.services.log_service: Request completed
+[2026-05-20 14:33:39,659] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-05-20 14:33:44,304] INFO core.services.log_service: Request completed
+[2026-05-20 14:34:06,929] INFO core.services.log_service: Request completed
+[2026-05-20 14:34:27,218] INFO core.services.log_service: Request completed
+[2026-05-20 14:35:07,083] INFO core.services.log_service: Request completed
+[2026-05-20 14:35:11,007] INFO core.services.log_service: Request completed
+[2026-05-20 14:35:58,432] INFO core.services.log_service: Request completed
+[2026-05-20 14:36:03,730] INFO core.services.log_service: Request completed
+[2026-05-20 14:36:17,169] INFO core.services.log_service: Request completed

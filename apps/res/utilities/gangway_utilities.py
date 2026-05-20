@@ -23,7 +23,8 @@ class GangwayUtility:
         event = self.event
 
         guest_rooms = GuestRoom.objects.filter(
-            guest__reservation__hotel_id=event.hotel_id
+            guest__reservation__hotel_id=event.hotel_id,
+            guest__status__group2='G'
         )
 
         if self.as_of_date == event.event_start_date:

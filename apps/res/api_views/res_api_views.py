@@ -67,13 +67,15 @@ class AuthorizedResAPIView(AuthorizedAPIView, ResCoreAPIView):
 class AuthorizedResTableAPIView(AuthorizedTableAPIView, ResCoreAPIView):
     PARAM_NAMES = ResCoreAPIView.PARAM_NAMES  # + ('',)
 
-    # PARAM_OVERRIDES = {
-    #     **getattr(AuthorizedTableAPIView, 'PARAM_OVERRIDES', {}),
-    #     'hotelId': dict(
-    #         required_get=True,
-    #     ),
-    #
-    # }
+    PARAM_OVERRIDES = {
+        **getattr(AuthorizedTableAPIView, 'PARAM_OVERRIDES', {}),
+        'hotelId': dict(
+            required_get=True,
+            required_post=True,
+            required_patch=True,
+        ),
+
+    }
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

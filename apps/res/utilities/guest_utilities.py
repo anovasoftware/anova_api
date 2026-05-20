@@ -10,10 +10,10 @@ def get_guest_adjusted(guest: Guest, guest_arrival_date, guest_departure_date):
 
     status_id_old = status.status_id
     status_id_new = status.status_id
-    if status.status_id == status_constants.GUEST_ARRIVING and today > guest_arrival_date.date():
+    if status.status_id == status_constants.GUEST_ARRIVING and today > guest_arrival_date:
         status_id_new = status_constants.GUEST_NEVER_ARRIVED
 
-    if today > guest_departure_date.date() and status.group1 == 1:
+    if today > guest_departure_date and status.group1 == 1:
         status_id_new = status_constants.GUEST_DISEMBARKED
 
     if status_id_old != status_id_new:
@@ -29,8 +29,8 @@ def save_guest_activity(guest: Guest, status_id_old, status_id_new):
 
 def get_guest_state(arrival_datetime, departure_datetime):
     today = timezone.localdate()
-    arrival = arrival_datetime.date()
-    departure = departure_datetime.date()
+    arrival = arrival_datetime
+    departure = departure_datetime
 
     if today < arrival:
         state = 'pre-arrival'

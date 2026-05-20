@@ -119,7 +119,7 @@ class IntegrationGuestListAPIView(AuthorizedGuestAPIView):
             if not guests.exists():
                 guests = Guest.objects.filter(
                     reservation__hotel_id=hotel.hotel_id,
-                    person__last_name__icontains=search_string
+                    person__last_name__iexact=search_string
                 )
 
             self.guests = guests.distinct()

@@ -87,6 +87,9 @@ class AuthorizedGuestDetailAPIView(AuthorizedResTableAPIView):
         except Guest.DoesNotExist:
             message = f'Guest not found: {self.guest_id}'
             self.add_message(message, http_status_id=status_constants.HTTP_NOT_FOUND)
+        except Exception as e:
+            message = str(e)
+            self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
     def get_value_list(self):
         value_list = list(record_dict.keys())

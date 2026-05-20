@@ -5790,9 +5790,9 @@
       "status_id": "001",
       "code": "Toggle Status",
       "description": "Toggle Guest Status",
-      "route": "res/guest/<str:recordId>/toggle_status",
-      "view": "AuthorizedGuestDetailToggleStatusAPIView",
-      "module_path": "apps.res.api_views.guest_api_views",
+      "route": "res/guests/<str:recordId>/toggleStatus/",
+      "view": "GuestStatusToggleAPIView",
+      "module_path": "apps.res.api.gangway.guest_status",
       "grouping": "table",
       "process_key": "RES_GUEST_TOGGLE_STATUS",
       "supports_create": true,
@@ -5803,7 +5803,7 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-02 00:00+0000",
-      "last_updated": "2026-03-02 00:00+0000"  
+      "last_updated": "2026-05-20 00:00+0000"  
     }
   }
 ,  {
