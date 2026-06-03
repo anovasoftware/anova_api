@@ -173,8 +173,14 @@ class GridUtility(object):
                     axis=1
                 )
 
+        display_as_field = self.get_display_as()
+
+        if display_as_field and display_as_field in rows_df.columns:
+            rows_df['display_as'] = rows_df[display_as_field].fillna('')
         return rows_df
 
+    def get_display_as(self):
+        return 'pk'
 
     def get_rows(self):
         rows = self.rows_df.to_dict('records')

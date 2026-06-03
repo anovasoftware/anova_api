@@ -98,6 +98,8 @@ class User2APIView(AuthorizedRecordAPIView):
     RECORD_DICT = {
         'user_id': {'description': 'User Id.', 'example': '000221'},
         'username': {'description': 'Username.', 'example': 'johndoe@somewebsite.com'},
+        'person__first_name': {'description': 'First Name.'},
+        'person__last_name': {'description': 'Last Name.'},
     }
 
     def __init__(self):
@@ -120,3 +122,8 @@ class User2APIView(AuthorizedRecordAPIView):
 
     def _get(self, request):
         super()._get(request)
+
+        if self.success and self.record:
+            first_name = self.record.get('person__first_name', '')
+            last_name = self.record.get('person__last_name', '')
+

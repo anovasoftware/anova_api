@@ -14,7 +14,7 @@ class AuthorizedEmailAPIView(AuthorizedAPIView):
         self.from_address = None
         self.to_address = None
 
-    def load_request(self, request):
+    def load_request(self, request, *args, **kwargs):
         super().load_request(request)
 
         default_from_address = 'support@anovasoftware.com'

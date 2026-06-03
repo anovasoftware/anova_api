@@ -1176,6 +1176,196 @@
     }
   }
 ,  {
+    "model": "base.Location",
+    "pk": "A00000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "N/A",
+      "external_code": "00",
+      "description": "Not Applicable",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "All Location Types",
+      "location_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A99999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "TBA",
+      "external_code": "99",
+      "description": "To Be Announced",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "All Location Types",
+      "location_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00001",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "ARG",
+      "external_code": "AR",
+      "description": "Argentina",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00002",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "CPV",
+      "external_code": "CV",
+      "description": "Cape Verde",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00003",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "ESP",
+      "external_code": "ES",
+      "description": "Spain",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00004",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "FRA",
+      "external_code": "FR",
+      "description": "France",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00005",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "ISL",
+      "external_code": "IS",
+      "description": "Iceland",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00006",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "NOR",
+      "external_code": "NO",
+      "description": "Norway",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00007",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "SCO",
+      "external_code": "FB",
+      "description": "Scotland",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Location",
+    "pk": "A00008",
+    "fields": {
+      "type_id": "02H",
+      "status_id": "001",
+      "code": "URY",
+      "external_code": "UY",
+      "description": "Uruguay",
+      "latitude": 0,
+      "longitude": 0,
+      "grouping": "",
+      "location_key": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-21 00:00+0000",
+      "last_updated": "2026-05-21 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Position",
     "pk": "A0000",
     "fields": {

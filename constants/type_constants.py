@@ -9,7 +9,8 @@ EXCHANGE_RATE_LATEST = '026'                                     # latest#  ba
 BASE_HOTEL_TYPE_INTERNET = '00M'                                 # internet#  base_item
 BASE_ITEM_INVENTORY = '00J'                                      # inventory itemBASE_ITEM_POINT_OF_SALE = '00H'                                  # point of sale item#  base_job
 BASE_JOB_SCHEDULED = '024'                                       # scheduled jobBASE_JOB_VMS_ETL = '015'                                         # vms - etl#  base_job.frequency
-FREQUENCY_DAILY = '022'                                          # dailyFREQUENCY_HOURLY = '01Z'                                         # hourlyFREQUENCY_WEEKLY = '025'                                         # weekly#  base_parameter
+FREQUENCY_DAILY = '022'                                          # dailyFREQUENCY_HOURLY = '01Z'                                         # hourlyFREQUENCY_WEEKLY = '025'                                         # weekly#  base_location
+LOCATION_COUNTRY = '02H'                                         # countriesLOCATION_SEAPORT = '02J'                                         # seaport#  base_parameter
 BASE_PARAMETER_CREATE_ACCOUNT = '018'                            # creae accountBASE_PARAMETER_LOGIN = '00X'                                     # login attempt#  base_period
 BASE_PERIOD_DAILY = '01X'                                        # dailyBASE_PERIOD_HOUR_4 = '01W'                                       # 4 hourBASE_PERIOD_MONTHLY = '01Y'                                      # monthly#  base_person
 PERSON_HOTEL_GUEST = '013'                                       # hotel/ship guestPERSON_REGULAR = '012'                                           # regular person#  base_person.gender

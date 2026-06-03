@@ -317,6 +317,34 @@ class JobRun(BaseModel):
 # AUTOGEN_END_JobRun#
 
 
+# AUTOGEN_BEGIN_Location#
+class Location(BaseModel):
+    location_id        = models.CharField(max_length=  6, blank=False, unique=False, primary_key=True )
+    type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    parent_location    = models.ForeignKey("self", on_delete=models.CASCADE, to_field='location_id', related_name="+", default=None, null=True)
+    code               = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
+    external_code      = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='', help_text="unlocode/iata_code/icao_code/iso_code")
+    description        = models.CharField(max_length= 60, blank=True , unique=False, primary_key=False, default='')
+    latitude           = models.DecimalField(max_digits=  9, decimal_places=  6, blank=False, unique=False, primary_key=False, default=0.000000)
+    longitude          = models.DecimalField(max_digits=  9, decimal_places=  6, blank=False, unique=False, primary_key=False, default=0.000000)
+    grouping           = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
+    location_key       = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
+    static_flag        = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment   = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date       = models.DateTimeField(auto_now_add=True)
+    last_updated       = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_location'
+        verbose_name_plural = 'locations (ports, states, etc) (base_location)'
+        ordering            = []
+        
+    def __str__(self):
+        return 'location'
+# AUTOGEN_END_Location#
+
+
 # AUTOGEN_BEGIN_Log#
 class Log(BaseModel):
     log_id           = models.CharField(max_length=  8, blank=False, unique=True , primary_key=True )
