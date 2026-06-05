@@ -131,6 +131,7 @@ class FormField(BaseModel):
     rows                                = models.IntegerField(default=0)
     min_length                          = models.IntegerField(default=0)
     max_length                          = models.IntegerField(default=0)
+    data_source_key                     = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
     data_source_application             = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     data_source_model_name              = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     data_source_filter                  = models.TextField(blank=False, unique=False, primary_key=False, default='')

@@ -98,6 +98,7 @@ class User2APIView(AuthorizedRecordAPIView):
     RECORD_DICT = {
         'user_id': {'description': 'User Id.', 'example': '000221'},
         'username': {'description': 'Username.', 'example': 'johndoe@somewebsite.com'},
+        'person__person_id': {'description': 'Person Id.', 'example': '000221'},
         'person__first_name': {'description': 'First Name.'},
         'person__last_name': {'description': 'Last Name.'},
     }

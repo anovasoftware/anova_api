@@ -96,10 +96,12 @@ class GridUtility(object):
             'label',
             'format'
         ).filter(
-            grid_id=self.grid_id
+            grid_id=self.grid_id,
+            status_id=status_constants.ACTIVE,
         ).order_by(
             'order_by'
         )
+
         columns_df = pd.DataFrame(list(columns_qs))
         # columns_df['expression'] = columns_df['field'].apply(resolve_field_expression)
 
@@ -189,6 +191,7 @@ class GridUtility(object):
     def get_displayed_columns(self):
         columns = GridColumn.objects.filter(
             grid_id=self.grid_id,
+            status_id=status_constants.ACTIVE,
         ).values_list(
             'field', flat=True
         ).order_by(

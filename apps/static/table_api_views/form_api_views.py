@@ -185,7 +185,7 @@ class FormAPIView(CoreAPIView):
     def get_record_values_list(self):
         value_fields = []
         for form_field in self.form_fields:
-            if form_field.custom_flag == 'Y':
+            if form_field.custom_flag == 'Y' or form_field.type_id in [type_constants.CONTROL_CHIPS]:
                 pass
             else:
                 value_fields.append(form_field.name)
@@ -221,12 +221,14 @@ class FormAPIView(CoreAPIView):
 
         value = self.get_field_value(field)
         data_options = self.get_data_options(field)
+        data_options_selected = self.get_data_options_selected(field)
 
         enriched_field = {
             **field_dict,
             'value': value,
             'readonly': self.is_readonly(field, value),
             'data_options': data_options,
+            'data_options_selected': data_options_selected,
             # 'editable': field['control_type'] == 'TEXTBOX',
             # 'required': field['type_id'] in [602, 603],
         }
@@ -249,15 +251,18 @@ class FormAPIView(CoreAPIView):
         return value
 
     def is_readonly(self, field, value):
-        action_key = f'disabled_{self.action}'
-        disabled_flag = getattr(field, action_key)
-
-        if self.record.get('static_flag') == 'Y':
-            readonly = True
-        elif disabled_flag:
+        if self.action == 'view':
             readonly = True
         else:
-            readonly = False
+            action_key = f'disabled_{self.action}'
+            disabled_flag = getattr(field, action_key)
+
+            if self.record.get('static_flag') == 'Y':
+                readonly = True
+            elif disabled_flag:
+                readonly = True
+            else:
+                readonly = False
 
         return readonly
 
@@ -283,6 +288,10 @@ class FormAPIView(CoreAPIView):
             data_options = list(data_options)
 
         return data_options
+
+    def get_data_options_selected(self, field):
+        data_options_selected = []
+        return data_options_selected
 
     def pre_post(self, request):
         # self.record = request.data
