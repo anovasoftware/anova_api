@@ -363,7 +363,7 @@
       "type_id": "000",
       "status_id": "001",
       "hotel_id": "A000",
-      "grouping": "ALL ROLES",
+      "grouping": "All",
       "code": "N/A",
       "description": "Not Applicable",
       "role_key": "NOT_APPLICABLE",
@@ -379,10 +379,10 @@
     "model": "base.Role",
     "pk": "A001",
     "fields": {
-      "type_id": "000",
+      "type_id": "02L",
       "status_id": "001",
       "hotel_id": "A000",
-      "grouping": "ALL ROLES",
+      "grouping": "System Roles",
       "code": "ADMIN",
       "description": "System Administrator",
       "role_key": "SYSTEM_ADMINISTRATOR",
@@ -398,10 +398,10 @@
     "model": "base.Role",
     "pk": "A002",
     "fields": {
-      "type_id": "000",
+      "type_id": "02M",
       "status_id": "001",
       "hotel_id": "A000",
-      "grouping": "API CONSUMER",
+      "grouping": "API Role",
       "code": "API1",
       "description": "API Consumer 1 (icafe)",
       "role_key": "API_CONSUMER_1",
@@ -420,7 +420,7 @@
       "type_id": "000",
       "status_id": "001",
       "hotel_id": "A000",
-      "grouping": "ALL ROLES",
+      "grouping": "All",
       "code": "TBA",
       "description": "To Be Announced",
       "role_key": "TO_BE_ANNOUNCED",
@@ -436,10 +436,10 @@
     "model": "base.Role",
     "pk": "A003",
     "fields": {
-      "type_id": "000",
+      "type_id": "02M",
       "status_id": "001",
       "hotel_id": "A000",
-      "grouping": "API CONSUMER",
+      "grouping": "API Role",
       "code": "API2",
       "description": "API Consumer Gangway",
       "role_key": "API_CONSUMER_GANGWAY",
@@ -449,6 +449,44 @@
       "internal_comment": "",
       "created_date": "2026-02-26 00:00+0000",
       "last_updated": "2026-02-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Role",
+    "pk": "A004",
+    "fields": {
+      "type_id": "02N",
+      "status_id": "001",
+      "hotel_id": "A004",
+      "grouping": "Hotel Specific Roles",
+      "code": "ADMIN",
+      "description": "Ship System Administrator",
+      "role_key": "A004_SYSTEM_ADMINISTRATOR",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-06 00:00+0000",
+      "last_updated": "2026-06-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Role",
+    "pk": "A005",
+    "fields": {
+      "type_id": "02L",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "System Roles",
+      "code": "IMPERONATE",
+      "description": "Impersonator",
+      "role_key": "IMPERSONATOR",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-09 00:00+0000",
+      "last_updated": "2026-06-09 00:00+0000"  
     }
   }
 ,  {

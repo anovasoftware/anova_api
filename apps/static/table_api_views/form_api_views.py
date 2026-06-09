@@ -58,7 +58,7 @@ class FormAPIView(CoreAPIView):
     PARAM_OVERRIDES = {
         'recordId': dict(
             required_get=True,
-            required_post=False,
+            required_post=True,
         ),
         'action': dict(
             required_get=True,

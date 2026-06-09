@@ -160,6 +160,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "008",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "user/role assignment",
+      "header": "User Roles",
+      "data_source_application": "base",
+      "data_source_model_name": "User",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "USER_ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-06 00:00+0000",
+      "last_updated": "2026-06-06 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -3609,6 +3629,81 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02L",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_role",
+      "code": "system",
+      "description": "System",
+      "description_short": "System",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ROLE_SYSTEM",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-09 00:00+0000",
+      "last_updated": "2026-06-09 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02M",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_role",
+      "code": "api",
+      "description": "API",
+      "description_short": "API",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ROLE_API",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-09 00:00+0000",
+      "last_updated": "2026-06-09 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02N",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_role",
+      "code": "hotel",
+      "description": "Hotel Specific",
+      "description_short": "Hotel Specific",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ROLE_HOTEL",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-09 00:00+0000",
+      "last_updated": "2026-06-09 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -6588,6 +6683,30 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "01N",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Form008",
+      "description": "Form008",
+      "route": "form/008",
+      "view": "Form008APIView",
+      "module_path": "apps.base.api.forms.form_008",
+      "grouping": "forms",
+      "process_key": "FORM_008",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-06 00:00+0000",
+      "last_updated": "2026-06-06 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -7621,6 +7740,43 @@
       "internal_comment": "",
       "created_date": "2026-06-04 00:00+0000",
       "last_updated": "2026-06-04 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00801",
+    "fields": {
+      "form_id": "008",
+      "type_id": "02K",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Selected Roles",
+      "name": "selected_roles",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "ROLES",
+      "data_source_application": "base",
+      "data_source_model_name": "Role",
+      "data_source_filter": "{ \"status_id\": \"001\", \"type_id__in\": [\"02L\", \"02N\", \"##HOTELID##\"] }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "description",
+      "display_value": "description",
+      "data_source_fields": "description",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-06 00:00+0000",
+      "last_updated": "2026-06-06 00:00+0000"  
     }
   }
 ,  {

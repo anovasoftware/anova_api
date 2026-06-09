@@ -315,7 +315,7 @@ class CoreAPIView(GenericAPIView):
         if required or param_exists:
             self.params[key] = ret_value
 
-        # print(f'{key} = {ret_value}')
+        print(f'{key} = {ret_value}')
         return ret_value
 
     def load_request(self, request, *args, **kwargs):
