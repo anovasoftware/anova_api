@@ -5,4 +5,5 @@ USER_ANOVA = '001'                                               # anova users
 POSITION = '005'                                                 # position management#  Cruise Setup
 EVENT = '004'                                                    # cruise management#  Hotel Setup
 ROOM = '003'                                                     # roomsROOM_CATEGORY = '002'                                            # room categories#  Point of Sale
-TRANSACTION_ITEM_STAGED = '006'                                  # staged transactions items
+TRANSACTION_ITEM_STAGED = '006'                                  # staged transactions items#  Security
+ROLE = '007'                                                     # roles

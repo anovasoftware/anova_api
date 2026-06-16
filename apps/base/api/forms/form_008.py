@@ -18,7 +18,8 @@ class Form008APIView(FormUserIdxAPIView):
         if field.data_source_key == 'ROLES':
             data_options_selected = list(
                 self.user_roles.filter(
-                    status_id=status_constants.ACTIVE
+                    status_id=status_constants.ACTIVE,
+                    role__type_id=self.type_id,
                     # hotel__type_id=type_constants.HOTEL_CRUISE_SHIP
                 # ).exclude(
                 #     role__type_id=type_constants.NOT_APPLICABLE

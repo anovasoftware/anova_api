@@ -14,10 +14,20 @@ def get_user_profile(user, is_logged_in=False):
     roles = get_roles(user_id)
     menus = get_menus(roles)
 
-    client_ids = UserHotel.objects.filter(user_id=user_id).values_list('hotel__client_id', flat=True)
+    client_ids = UserHotel.objects.filter(
+        user_id=user_id,
+        status_id=status_constants.ACTIVE
+    ).values_list(
+        'hotel__client_id', flat=True
+    )
     clients = Client.objects.filter(client_id__in=client_ids).order_by('description')
 
-    hotel_ids = UserHotel.objects.filter(user_id=user_id).values_list('hotel_id', flat=True)
+    hotel_ids = UserHotel.objects.filter(
+        user_id=user_id,
+        status_id=status_constants.ACTIVE
+    ).values_list(
+        'hotel_id', flat=True
+    )
     hotels = Hotel.objects.filter(hotel_id__in=hotel_ids).order_by('description')
 
     if hotels.exists() and user.last_hotel_id == hotel_constants.NOT_APPLICABLE:

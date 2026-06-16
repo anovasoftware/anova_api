@@ -1,4 +1,6 @@
 import pandas as pd
+
+from apps.base.utilities.hotel_utilities import get_hotel_extension
 from apps.static.models import Grid, GridColumn
 from apps.res.models import HotelExtension, Event
 from constants import status_constants
@@ -15,10 +17,11 @@ PERSON_NAME_TOKEN = '__PERSON-NAME'
 class GridUtility(object):
     remove_filters = []
     query_filters = {}
+    query_filters_exclude = {}
 
     def __init__(self, grid_id, params=None):
         self.grid_id = grid_id
-        self.params = {} or params
+        self.params = params or {}
         self.grid = None
         self.base_model: Optional[Model] = None
         self.columns = None
@@ -133,10 +136,16 @@ class GridUtility(object):
         filters.update(self.query_filters)
         return filters
 
+    def get_query_filter_exclude(self):
+        return self.query_filters_exclude
+
     def get_data_qs(self):
         filters = self.get_query_filter()
+        filters_exclude = self.get_query_filter_exclude()
         queryset = self.base_model.objects.filter(
             **filters
+        ).exclude(
+            **filters_exclude
         )
 
         queryset = queryset.values(
@@ -252,8 +261,8 @@ class GridHotelUtility(GridUtility):
 
     def load_models(self):
         super().load_models()
-        hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
-        self.hotel_extension = hotel_extension
+        # hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
+        self.hotel_extension = get_hotel_extension(self.hotel_id)
 
         if not self.hotel_extension:
             self.message = f'hotel extension not found for hotelId={self.hotel_id}'

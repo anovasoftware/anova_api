@@ -180,6 +180,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "009",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "role setup",
+      "header": "Role Setup",
+      "data_source_application": "base",
+      "data_source_model_name": "Role",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Security",
+      "form_key": "ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -3999,24 +4019,24 @@
       "type_id": "02B",
       "status_id": "001",
       "parent_menu_id": "00P",
-      "page_id": "006",
-      "grid_id": "000",
+      "page_id": "009",
+      "grid_id": "001",
       "hotel_type_id": "000",
       "order_by": "01.01.01",
-      "description": "Anova Users",
-      "title": "Anova Users",
+      "description": "Anova User Management",
+      "title": "User Management",
       "sub_title": "User security settings",
-      "breadcrumb_name": "Anova Users",
+      "breadcrumb_name": "Users",
       "route": "page",
       "params": "",
       "icon": "security",
       "hotel_required": false,
       "grouping": "Navigation",
-      "menu_key": "USER_ANOVA",
+      "menu_key": "ANOVA_USER",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-03-24 00:00+0000",
-      "last_updated": "2026-03-23 00:00+0000"  
+      "created_date": "2026-06-15 00:00+0000",
+      "last_updated": "2026-06-15 00:00+0000"  
     }
   }
 ,  {
@@ -4425,6 +4445,87 @@
     }
   }
 ,  {
+    "model": "static.Menu",
+    "pk": "00R",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00P",
+      "page_id": "009",
+      "grid_id": "007",
+      "hotel_type_id": "000",
+      "order_by": "01.01.02",
+      "description": "Anova Role Management",
+      "title": "Role Management",
+      "sub_title": "Roles",
+      "breadcrumb_name": "Roles",
+      "route": "page",
+      "params": "{ \"hotelIdx\": \"A000\" }",
+      "icon": "security",
+      "hotel_required": false,
+      "grouping": "Navigation",
+      "menu_key": "ANOVA_ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00S",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "009",
+      "page_id": "009",
+      "grid_id": "001",
+      "hotel_type_id": "000",
+      "order_by": "01.02.02",
+      "description": "User Management",
+      "title": "User Management",
+      "sub_title": "User security settings",
+      "breadcrumb_name": "Users",
+      "route": "page",
+      "params": "",
+      "icon": "security",
+      "hotel_required": false,
+      "grouping": "Navigation",
+      "menu_key": "HOTEL_USER",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-15 00:00+0000",
+      "last_updated": "2026-06-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00T",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "009",
+      "page_id": "009",
+      "grid_id": "007",
+      "hotel_type_id": "000",
+      "order_by": "01.02.03",
+      "description": "Role Management",
+      "title": "Role Management",
+      "sub_title": "Roles",
+      "breadcrumb_name": "Roles",
+      "route": "page",
+      "params": "{ \"hotelIdx\": \"<<HOTELID>>\" }",
+      "icon": "security",
+      "hotel_required": false,
+      "grouping": "Navigation",
+      "menu_key": "HOTEL_ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-15 00:00+0000",
+      "last_updated": "2026-06-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Page",
     "pk": "001",
     "fields": {
@@ -4566,6 +4667,22 @@
       "internal_comment": "",
       "created_date": "2026-05-18 00:00+0000",
       "last_updated": "2026-05-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "009",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "AnovaRole",
+      "description": "Anova Roles Management",
+      "grouping": "Private",
+      "page_key": "ANOVA_ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
     }
   }
 ,  {
@@ -5047,6 +5164,31 @@
     }
   }
 ,  {
+    "model": "static.Grid",
+    "pk": "007",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "009",
+      "page_id": "000",
+      "description": "Roles",
+      "title": "Roles",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "data_source_application": "base",
+      "data_source_model_name": "Role",
+      "order_by": "description",
+      "grouping": "Security",
+      "grid_key": "ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.GridColumn",
     "pk": "00101",
     "fields": {
@@ -5504,6 +5646,66 @@
       "internal_comment": "",
       "created_date": "2026-06-03 00:00+0000",
       "last_updated": "2026-06-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00701",
+    "fields": {
+      "grid_id": "007",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00702",
+    "fields": {
+      "grid_id": "007",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "hotel description",
+      "description_short": "",
+      "field": "hotel__description",
+      "label": "Hotel",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-14 00:00+0000",
+      "last_updated": "2026-06-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00703",
+    "fields": {
+      "grid_id": "007",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "type description",
+      "description_short": "",
+      "field": "type__description",
+      "label": "Type",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-14 00:00+0000",
+      "last_updated": "2026-06-14 00:00+0000"  
     }
   }
 ,  {
@@ -6707,6 +6909,54 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "01P",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Form009",
+      "description": "Form009",
+      "route": "form/009",
+      "view": "Form009APIView",
+      "module_path": "apps.base.api.forms.form_009",
+      "grouping": "forms",
+      "process_key": "FORM_009",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01Q",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "AnovaROLE",
+      "description": "Anova Roles",
+      "route": "grid/grid007",
+      "view": "Grid007APIView",
+      "module_path": "apps.base.api.grids.grid007",
+      "grouping": "grids",
+      "process_key": "GRID_ROLE",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -7763,7 +8013,7 @@
       "data_source_key": "ROLES",
       "data_source_application": "base",
       "data_source_model_name": "Role",
-      "data_source_filter": "{ \"status_id\": \"001\", \"type_id__in\": [\"02L\", \"02N\", \"##HOTELID##\"] }",
+      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"form_instance.type_id\"}",
       "data_source_filter_effective_status": "",
       "data_source_order": "description",
       "display_value": "description",
@@ -7777,6 +8027,80 @@
       "internal_comment": "",
       "created_date": "2026-06-06 00:00+0000",
       "last_updated": "2026-06-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00901",
+    "fields": {
+      "form_id": "009",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Description",
+      "name": "description",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-12 00:00+0000",
+      "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00902",
+    "fields": {
+      "form_id": "009",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Type",
+      "name": "type__description",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-14 00:00+0000",
+      "last_updated": "2026-06-14 00:00+0000"  
     }
   }
 ,  {

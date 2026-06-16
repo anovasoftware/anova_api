@@ -118,6 +118,16 @@ COMMON_PARAMS = {
         required_post=True,
         required_patch=True,
     ),
+    'hotelIdx': ParamSpec(
+        name='hotelIdx',
+        dest='hotel_idx',
+        kind='either',
+        cast=_to_str,
+        description='Hotel id for the request.',
+        required_get=True,
+        required_post=True,
+        required_patch=True,
+    ),
     # 'hotelPublicKey': ParamSpec(
     #     name='hotelPublicKey',
     #     dest='hotel_public_key',

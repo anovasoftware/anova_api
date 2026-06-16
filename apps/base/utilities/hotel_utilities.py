@@ -1,4 +1,5 @@
 from apps.base.models import HotelType
+from apps.res.models import HotelExtension
 from apps.static.models import Hotel, Type
 from constants import type_constants
 
@@ -28,3 +29,10 @@ def load_hotel_types():
 
     # if new_hotel_types:
     #     HotelType.objects.bulk_create(new_hotel_types)
+
+def get_hotel_extension(hotel_id: str):
+    hotel_extension, created = HotelExtension.objects.update_or_create(
+        hotel_id=hotel_id,
+        defaults={'hotel_id': hotel_id}
+    )
+    return hotel_extension

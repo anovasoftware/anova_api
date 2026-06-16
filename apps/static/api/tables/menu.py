@@ -1,6 +1,7 @@
+import json
 from core.api_views.table_api_views import PublicTableAPIView
 from apps.static.models import Menu
-from constants import type_constants, status_constants, process_constants
+from constants import type_constants, status_constants, hotel_constants
 
 
 class PublicMenuAPIView(PublicTableAPIView):
@@ -34,7 +35,6 @@ class PublicMenuAPIView(PublicTableAPIView):
 
     def load_request(self, request, *args, **kwargs):
         super().load_request(request, *args, **kwargs)
-
         # if self.menu_id:
         #     try:
         #         self.menu = Menu.objects.filter(type_id=self.type_id)
@@ -57,6 +57,7 @@ class PublicMenuAPIView(PublicTableAPIView):
             'icon',
             'hotel_required',
             'hotel_type_id',
+            'params'
         ]
 
         value_list += super().get_value_list()
@@ -76,6 +77,14 @@ class PublicMenuAPIView(PublicTableAPIView):
             room_or_cabin = 'Cabin'
 
         for record in self.records:
+            params = record.get('params')
+            params = params.replace('<<HOTELID>>', self.hotel.hotel_id)
+            try:
+                params = {} if not params else json.loads(params)
+            except json.JSONDecodeError:
+                params = {}
+            record['params'] = params
+
             for key, value in record.items():
                 if isinstance(value, str):
                     record[key] = (

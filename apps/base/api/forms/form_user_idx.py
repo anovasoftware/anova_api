@@ -7,6 +7,14 @@ from apps.base.utilities.user_utilities import get_user_profile
 
 # user/hotel profile
 class FormUserIdxAPIView(AuthorizedFormAPIView):
+    PARAM_NAMES = AuthorizedFormAPIView.PARAM_NAMES + ('typeId',)
+    PARAM_OVERRIDES = {
+        'typeId': dict(
+            required_get=False,
+            required_post=False,
+        ),
+    }
+
     def __init__(self):
         super().__init__()
         self.user_idx = None

@@ -68,7 +68,7 @@ class PublicGridAPIView(GridAPIView):
     pass
 
 
-class AuthorizedGridAPIView(GridAPIView, AuthorizedAPIView):
+class AuthorizedGridAPIView(AuthorizedAPIView, GridAPIView):
     pass
 
 
