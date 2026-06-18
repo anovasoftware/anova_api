@@ -81,6 +81,7 @@ class GridUtility(object):
             'form_id',
             'page_id',
             'description',
+            'display_as',
             'title',
             'data_source_application',
             'data_source_model_name',
@@ -191,7 +192,7 @@ class GridUtility(object):
         return rows_df
 
     def get_display_as(self):
-        return 'pk'
+        return self.grid.get('display_as', 'pk')
 
     def get_rows(self):
         rows = self.rows_df.to_dict('records')

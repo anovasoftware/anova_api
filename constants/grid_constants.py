@@ -6,4 +6,4 @@ POSITION = '005'                                                 # position mana
 EVENT = '004'                                                    # cruise management#  Hotel Setup
 ROOM = '003'                                                     # roomsROOM_CATEGORY = '002'                                            # room categories#  Point of Sale
 TRANSACTION_ITEM_STAGED = '006'                                  # staged transactions items#  Security
-ROLE = '007'                                                     # roles
+ROLE = '007'                                                     # rolesROLE_PROCESS = '008'                                             # role processes

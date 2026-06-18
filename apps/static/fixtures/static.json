@@ -3968,7 +3968,7 @@
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "01",
+      "order_by": "30",
       "description": "Administration",
       "title": "Administration",
       "sub_title": "System setup, security settings and configuration",
@@ -3991,11 +3991,11 @@
     "fields": {
       "type_id": "02B",
       "status_id": "001",
-      "parent_menu_id": "001",
+      "parent_menu_id": "00W",
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "03",
+      "order_by": "20.10",
       "description": "Guest Management",
       "title": "Guest Management",
       "sub_title": "Guest settings",
@@ -4022,7 +4022,7 @@
       "page_id": "009",
       "grid_id": "001",
       "hotel_type_id": "000",
-      "order_by": "01.01.01",
+      "order_by": "30.10.10",
       "description": "Anova User Management",
       "title": "User Management",
       "sub_title": "User security settings",
@@ -4045,11 +4045,11 @@
     "fields": {
       "type_id": "02B",
       "status_id": "001",
-      "parent_menu_id": "001",
+      "parent_menu_id": "00W",
       "page_id": "005",
       "grid_id": "000",
       "hotel_type_id": "006",
-      "order_by": "05",
+      "order_by": "20.40",
       "description": "Gangway",
       "title": "Gangway",
       "sub_title": "Gangway",
@@ -4076,7 +4076,7 @@
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "01.02",
+      "order_by": "30.20",
       "description": "Hotel Administration",
       "title": "<<HOTEL>> Administration",
       "sub_title": "Security settings and configuration",
@@ -4103,7 +4103,7 @@
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "01.02.01",
+      "order_by": "30.20.10",
       "description": "Property Setup",
       "title": "<<PROPERTY>> Setup",
       "sub_title": "Property Setup",
@@ -4130,7 +4130,7 @@
       "page_id": "007",
       "grid_id": "002",
       "hotel_type_id": "000",
-      "order_by": "01.02.01.01",
+      "order_by": "30.20.10.10",
       "description": "Room Categories",
       "title": "<<ROOM>> Categories",
       "sub_title": "Category Setup",
@@ -4157,7 +4157,7 @@
       "page_id": "007",
       "grid_id": "003",
       "hotel_type_id": "000",
-      "order_by": "01.02.01.02",
+      "order_by": "30.20.10.20",
       "description": "Rooms",
       "title": "<<ROOM>>s",
       "sub_title": "<<ROOM>> Setup",
@@ -4184,7 +4184,7 @@
       "page_id": "007",
       "grid_id": "004",
       "hotel_type_id": "006",
-      "order_by": "01.02.01.03",
+      "order_by": "30.20.10.30",
       "description": "Cruise Management",
       "title": "Cruise Management",
       "sub_title": "Cruise setup , configuration and pricing",
@@ -4288,11 +4288,11 @@
     "fields": {
       "type_id": "02B",
       "status_id": "001",
-      "parent_menu_id": "001",
+      "parent_menu_id": "00W",
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "006",
-      "order_by": "04",
+      "order_by": "20.20",
       "description": "Crew Management",
       "title": "Crew Management",
       "sub_title": "Crew management, configuration and setup",
@@ -4319,7 +4319,7 @@
       "page_id": "007",
       "grid_id": "005",
       "hotel_type_id": "000",
-      "order_by": "04.01",
+      "order_by": "20.20.10",
       "description": "Positions",
       "title": "Positions",
       "sub_title": "Crew positions",
@@ -4342,11 +4342,11 @@
     "fields": {
       "type_id": "02B",
       "status_id": "001",
-      "parent_menu_id": "001",
+      "parent_menu_id": "00W",
       "page_id": "000",
       "grid_id": "000",
-      "hotel_type_id": "000",
-      "order_by": "05",
+      "hotel_type_id": "006",
+      "order_by": "20.30",
       "description": "Point of Sale",
       "title": "Point of Sale",
       "sub_title": "Point of sale, setup and configuration",
@@ -4373,7 +4373,7 @@
       "page_id": "007",
       "grid_id": "006",
       "hotel_type_id": "000",
-      "order_by": "05.01",
+      "order_by": "20.30.10",
       "description": "Staged Transactions",
       "title": "Staged Transactions",
       "sub_title": "Transactions posted via third party",
@@ -4400,7 +4400,7 @@
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "01.01",
+      "order_by": "30.10",
       "description": "Anova Administration",
       "title": "Anova Administration",
       "sub_title": "Security settings and configuration",
@@ -4454,7 +4454,7 @@
       "page_id": "009",
       "grid_id": "007",
       "hotel_type_id": "000",
-      "order_by": "01.01.02",
+      "order_by": "30.10.20",
       "description": "Anova Role Management",
       "title": "Role Management",
       "sub_title": "Roles",
@@ -4481,7 +4481,7 @@
       "page_id": "009",
       "grid_id": "001",
       "hotel_type_id": "000",
-      "order_by": "01.02.02",
+      "order_by": "30.20.20",
       "description": "User Management",
       "title": "User Management",
       "sub_title": "User security settings",
@@ -4508,7 +4508,7 @@
       "page_id": "009",
       "grid_id": "007",
       "hotel_type_id": "000",
-      "order_by": "01.02.03",
+      "order_by": "30.20.30",
       "description": "Role Management",
       "title": "Role Management",
       "sub_title": "Roles",
@@ -4523,6 +4523,60 @@
       "internal_comment": "",
       "created_date": "2026-06-15 00:00+0000",
       "last_updated": "2026-06-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00V",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "001",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "10",
+      "description": "Reservation Management",
+      "title": "Reservation Management",
+      "sub_title": "Reservation Management",
+      "breadcrumb_name": "Reservations",
+      "route": "",
+      "params": "",
+      "icon": "event",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "ONBOARD",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-23 00:00+0000",
+      "last_updated": "2026-05-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00W",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "001",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "006",
+      "order_by": "20",
+      "description": "Anova Onboard",
+      "title": "Anova Onboard",
+      "sub_title": "Anova Onboard System",
+      "breadcrumb_name": "Onboard",
+      "route": "",
+      "params": "",
+      "icon": "directions_boat",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "RESERVATION",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
     }
   }
 ,  {
@@ -4628,9 +4682,9 @@
       "type_id": "000",
       "status_id": "001",
       "code": "AnovaUser",
-      "description": "Anova User Management List",
+      "description": "#AVAILABLE# POTENTIALLY",
       "grouping": "Private",
-      "page_key": "ANOVA_USER",
+      "page_key": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-03-28 00:00+0000",
@@ -4675,14 +4729,30 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "code": "AnovaRole",
-      "description": "Anova Roles Management",
+      "code": "GridMgr",
+      "description": "Grid Manager",
       "grouping": "Private",
-      "page_key": "ANOVA_ROLE",
+      "page_key": "GRID_MANAGER",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-12 00:00+0000",
-      "last_updated": "2026-06-12 00:00+0000"  
+      "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "010",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "AnovaRole",
+      "description": "Anova Role Management",
+      "grouping": "Private",
+      "page_key": "ANOVA_ROLE1",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
     }
   }
 ,  {
@@ -4973,6 +5043,7 @@
       "page_id": "000",
       "description": "Not Applicable",
       "title": "",
+      "display_as": "",
       "can_create": false,
       "can_read": false,
       "can_update": false,
@@ -4998,6 +5069,7 @@
       "page_id": "008",
       "description": "Anova Users",
       "title": "Anova Users",
+      "display_as": "username",
       "can_create": true,
       "can_read": true,
       "can_update": true,
@@ -5023,6 +5095,7 @@
       "page_id": "000",
       "description": "Room Categories",
       "title": "Room Categories",
+      "display_as": "",
       "can_create": true,
       "can_read": true,
       "can_update": true,
@@ -5048,6 +5121,7 @@
       "page_id": "000",
       "description": "Rooms",
       "title": "Rooms",
+      "display_as": "",
       "can_create": true,
       "can_read": true,
       "can_update": true,
@@ -5073,6 +5147,7 @@
       "page_id": "000",
       "description": "Cruise Management",
       "title": "Cruise Management",
+      "display_as": "",
       "can_create": true,
       "can_read": true,
       "can_update": true,
@@ -5098,6 +5173,7 @@
       "page_id": "000",
       "description": "Position Management",
       "title": "Position Management",
+      "display_as": "",
       "can_create": true,
       "can_read": true,
       "can_update": true,
@@ -5123,6 +5199,7 @@
       "page_id": "000",
       "description": "Staged Transactions Items",
       "title": "Staged Transactions Items",
+      "display_as": "",
       "can_create": false,
       "can_read": true,
       "can_update": false,
@@ -5140,6 +5217,32 @@
   }
 ,  {
     "model": "static.Grid",
+    "pk": "007",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "010",
+      "description": "Roles",
+      "title": "Roles",
+      "display_as": "description",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "data_source_application": "base",
+      "data_source_model_name": "Role",
+      "order_by": "description",
+      "grouping": "Security",
+      "grid_key": "ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
     "pk": "999",
     "fields": {
       "type_id": "000",
@@ -5148,6 +5251,7 @@
       "page_id": "000",
       "description": "To Be Announced",
       "title": "",
+      "display_as": "",
       "can_create": false,
       "can_read": false,
       "can_update": false,
@@ -5165,27 +5269,28 @@
   }
 ,  {
     "model": "static.Grid",
-    "pk": "007",
+    "pk": "008",
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "form_id": "009",
+      "form_id": "000",
       "page_id": "000",
-      "description": "Roles",
-      "title": "Roles",
+      "description": "Role Processes",
+      "title": "Role Processes",
+      "display_as": "",
       "can_create": true,
       "can_read": true,
       "can_update": true,
       "can_delete": true,
       "data_source_application": "base",
-      "data_source_model_name": "Role",
-      "order_by": "description",
+      "data_source_model_name": "RoleProcess",
+      "order_by": "process__description",
       "grouping": "Security",
-      "grid_key": "ROLE",
+      "grid_key": "ROLE_PROCESS",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-06-12 00:00+0000",
-      "last_updated": "2026-06-12 00:00+0000"  
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
     }
   }
 ,  {
@@ -5706,6 +5811,26 @@
       "internal_comment": "",
       "created_date": "2026-06-14 00:00+0000",
       "last_updated": "2026-06-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00801",
+    "fields": {
+      "grid_id": "008",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "description",
+      "description_short": "",
+      "field": "process__description",
+      "label": "Process",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
     }
   }
 ,  {
@@ -6954,6 +7079,30 @@
       "internal_comment": "",
       "created_date": "2026-06-12 00:00+0000",
       "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01R",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "RoleProcess",
+      "description": "Role Processes",
+      "route": "grid/grid008",
+      "view": "Grid008APIView",
+      "module_path": "apps.base.api.grids.grid008",
+      "grouping": "grids",
+      "process_key": "GRID_ROLE_PROCESS",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
     }
   }
 ,  {

@@ -168,6 +168,7 @@ class Grid(BaseModel):
     page                    = models.ForeignKey("static.Page", on_delete=models.CASCADE, related_name='+', default='000', null=True)
     description             = models.CharField(max_length= 50, blank=True , unique=False, primary_key=False)
     title                   = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False, default='')
+    display_as              = models.CharField(max_length= 80, blank=False, unique=False, primary_key=False, default='')
     can_create              = models.BooleanField(default=False)
     can_read                = models.BooleanField(default=False)
     can_update              = models.BooleanField(default=False)

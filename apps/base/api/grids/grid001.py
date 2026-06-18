@@ -37,9 +37,9 @@ class Grid001Utility(GridUtility):
     #         filters.pop(remove_filter, None)
     #     filters.update(self.query_filters)
     #     return filters
-    def get_display_as(self):
-        # return 'person__PERSON-NAME'
-        return 'username'
+    # def get_display_as(self):
+    #     # return 'person__PERSON-NAME'
+    #     return 'username'
 
 
 class Grid001APIView(AuthorizedGridAPIView):

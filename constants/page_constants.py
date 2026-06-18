@@ -1,5 +1,5 @@
 # AUTO GENERATED
 #  Hotel
 HOTEL_CATEGPRIES = '007'                                         # cabin/room categories#  Private
-ANOVA_ROLE = '009'                                               # anova roles managementANOVA_USER = '006'                                               # anova user management listANOVA_USER1 = '008'                                              # anova user managementGANGWAY = '005'                                                  # gangway#  Public
+ANOVA_ROLE1 = '010'                                              # anova role managementANOVA_USER1 = '008'                                              # anova user managementGANGWAY = '005'                                                  # gangwayGRID_MANAGER = '009'                                             # grid manager#  Public
 ABOUT = '002'                                                    # aboutHOME = '001'                                                     # homeLOGIN = '004'                                                    # welcome! log into your accountMODULES = '003'                                                  # modulesNOT_APPLICABLE = '000'                                           # not applicable
