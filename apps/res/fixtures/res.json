@@ -209,5 +209,26 @@
       "last_updated": "2025-04-26 00:00+0000"  
     }
   }
+,  {
+    "model": "res.Floor",
+    "pk": "A000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "order_by": "00",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "start_date": "2026-06-22 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "floor_key": "NOT_APPLICABLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
 
 ]

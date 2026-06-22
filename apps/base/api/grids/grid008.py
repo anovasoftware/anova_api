@@ -8,13 +8,36 @@ class Grid008Utility(GridUtility):
     query_filters_exclude = {
     }
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    # def __init__(self, **kwargs):
+    #     super().__init__(**kwargs)
+    #
+    # def load_params(self):
+    #     super().load_params()
+    #     print(self.params)
 
-        self.hotel_idx = None
+    def get_query_filter(self):
+        filters = super().get_query_filter()
+
+        role_id = self.params.get('roleId')
+
+        if role_id:
+            filters['role_id'] = role_id
+
+        return filters
+
 
 class Grid008APIView(AuthorizedGridAPIView):
     process_id = process_constants.GRID_ROLE_PROCESS
     grid_id = grid_constants.ROLE_PROCESS
     grid_utility_class = Grid008Utility
+
+    PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('roleId',)
+    PARAM_OVERRIDES = {
+        'roleId': dict(
+            required_get=True,
+            required_post=True,
+            default=None
+        ),
+    }
+
 

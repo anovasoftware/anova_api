@@ -149,6 +149,13 @@ COMMON_PARAMS = {
         cast=_to_str,
         description='RFID UID)',
     ),
+    'roleId': ParamSpec(
+        name='roleId',
+        dest='roleId',
+        kind='query',
+        cast=_to_str,
+        description='Role Id)',
+    ),
     'roomCode': ParamSpec(
         name='roomCode',
         dest='room_code',

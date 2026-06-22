@@ -208,6 +208,7 @@ class CoreAPIView(GenericAPIView):
         self.request_data_required = False
         self.hotel_id = None
         self.hotel: Optional[Hotel] = None
+        self.role_id = None
 
     def is_get(self):
         return self.request_method == 'GET'

@@ -125,8 +125,8 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "room/cabin configuration",
-      "header": "Room/Cabin Configuration",
+      "description": "cabin category configuration",
+      "header": "Cabin/Room Configuration",
       "data_source_application": "base",
       "data_source_model_name": "Category",
       "save_button_label": "Save",
@@ -197,6 +197,26 @@
       "internal_comment": "",
       "created_date": "2026-06-12 00:00+0000",
       "last_updated": "2026-06-12 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Form",
+    "pk": "010",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "floor/deck configuration",
+      "header": "Floor/Desck Configuration",
+      "data_source_application": "res",
+      "data_source_model_name": "Floor",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "FLOOR",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
     }
   }
 ,  {
@@ -3724,6 +3744,56 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02P",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_floor",
+      "code": "hotel floor",
+      "description": "Hotel Floor",
+      "description_short": "Floor",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FLOOR_FLOOR",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02Q",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_floor",
+      "code": "cruise ship deck",
+      "description": "Deck",
+      "description_short": "Deck",
+      "description_long": "",
+      "description2": "",
+      "type_key": "FLOOR_DECK",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -4100,7 +4170,7 @@
       "type_id": "02B",
       "status_id": "001",
       "parent_menu_id": "009",
-      "page_id": "000",
+      "page_id": "011",
       "grid_id": "000",
       "hotel_type_id": "000",
       "order_by": "30.20.10",
@@ -4125,7 +4195,7 @@
     "pk": "00C",
     "fields": {
       "type_id": "02B",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "00B",
       "page_id": "007",
       "grid_id": "002",
@@ -4152,7 +4222,7 @@
     "pk": "00D",
     "fields": {
       "type_id": "02B",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "00B",
       "page_id": "007",
       "grid_id": "003",
@@ -4179,7 +4249,7 @@
     "pk": "00F",
     "fields": {
       "type_id": "02B",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "00B",
       "page_id": "007",
       "grid_id": "004",
@@ -4756,6 +4826,22 @@
     }
   }
 ,  {
+    "model": "static.Page",
+    "pk": "011",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Property",
+      "description": "Property Setup",
+      "grouping": "Hotel",
+      "page_key": "PROPERTY_SETUP",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-21 00:00+0000",
+      "last_updated": "2026-06-21 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Currency",
     "pk": "00",
     "fields": {
@@ -5020,7 +5106,7 @@
     "fields": {
       "type_id": "005",
       "status_id": "001",
-      "client_id": "004",
+      "client_id": "003",
       "code": "AMH",
       "description": "Anova Marina Hotel",
       "vms_identifier": "2002",
@@ -5119,8 +5205,8 @@
       "status_id": "001",
       "form_id": "000",
       "page_id": "000",
-      "description": "Rooms",
-      "title": "Rooms",
+      "description": "Cabins/Rooms",
+      "title": "Cabins/Rooms",
       "display_as": "",
       "can_create": true,
       "can_read": true,
@@ -5291,6 +5377,32 @@
       "internal_comment": "",
       "created_date": "2026-06-18 00:00+0000",
       "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "009",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "010",
+      "page_id": "000",
+      "description": "Decks/Floors",
+      "title": "Decks/Floors",
+      "display_as": "",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "data_source_application": "res",
+      "data_source_model_name": "Floor",
+      "order_by": "description",
+      "grouping": "Hotel Setup",
+      "grid_key": "FLOOR",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
     }
   }
 ,  {
@@ -5831,6 +5943,66 @@
       "internal_comment": "",
       "created_date": "2026-06-18 00:00+0000",
       "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00901",
+    "fields": {
+      "grid_id": "009",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "code",
+      "description_short": "",
+      "field": "code",
+      "label": "Floor/Deck",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00902",
+    "fields": {
+      "grid_id": "009",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00904",
+    "fields": {
+      "grid_id": "009",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "hotel",
+      "description_short": "",
+      "field": "hotel__description",
+      "label": "Hotel/Ship",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
     }
   }
 ,  {
@@ -7106,6 +7278,78 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "01S",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "Floor",
+      "description": "Floor/Deck",
+      "route": "grid/grid009",
+      "view": "Grid009APIView",
+      "module_path": "apps.res.api.grids.grid009",
+      "grouping": "grids",
+      "process_key": "GRID_FLOOR",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01T",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "Deck",
+      "description": "Deck",
+      "route": "anovavms/res/floor/",
+      "view": "AnovaVMSFloorAPIView",
+      "module_path": "apps.res.api.anovavms.floor",
+      "grouping": "anovavms",
+      "process_key": "RES_FLOOR",
+      "supports_create": true,
+      "supports_read": false,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-11-22 00:00+0000",
+      "last_updated": "2025-11-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01Q",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Form010",
+      "description": "Form010",
+      "route": "form/010",
+      "view": "Form010APIView",
+      "module_path": "apps.res.api.forms.form_010",
+      "grouping": "forms",
+      "process_key": "FORM_010",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -7958,12 +8202,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00601",
+    "pk": "00603",
     "fields": {
       "form_id": "006",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "01",
+      "order_by": "03",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -7995,12 +8239,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00602",
+    "pk": "00604",
     "fields": {
       "form_id": "006",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "02",
+      "order_by": "04",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -8250,6 +8494,228 @@
       "internal_comment": "",
       "created_date": "2026-06-14 00:00+0000",
       "last_updated": "2026-06-14 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00601",
+    "fields": {
+      "form_id": "006",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Category Type",
+      "name": "type_id",
+      "mapping_name": "",
+      "default_value": "020",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Type",
+      "data_source_filter": "{ \"type_id\": \"020\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00602",
+    "fields": {
+      "form_id": "006",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Hotel/Cruise Ship",
+      "name": "hotel_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Hotel",
+      "data_source_filter": "{ \"status_id\": \"001\", \"hotel_id\": \"form_instance.hotel_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01001",
+    "fields": {
+      "form_id": "010",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Deck/Floor Type",
+      "name": "type_id",
+      "mapping_name": "",
+      "default_value": "02Q",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Type",
+      "data_source_filter": "{ \"type_id\": \"02Q\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01002",
+    "fields": {
+      "form_id": "010",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Hotel/Cruise Ship",
+      "name": "hotel_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Hotel",
+      "data_source_filter": "{ \"status_id\": \"001\", \"hotel_id\": \"form_instance.hotel_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01003",
+    "fields": {
+      "form_id": "010",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Code",
+      "name": "code",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01004",
+    "fields": {
+      "form_id": "010",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "04",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Description",
+      "name": "description",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
     }
   }
 ,  {

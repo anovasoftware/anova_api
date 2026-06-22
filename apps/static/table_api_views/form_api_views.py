@@ -243,11 +243,12 @@ class FormAPIView(CoreAPIView):
             pass
         elif name == 'username' and self.user:
             value = self.user.username
+        elif name == 'hotel_id' and self.hotel_id:
+            value = self.hotel_id
         elif record and name in record:
             value = record[name]
         else:
             value = field.default_value or ''
-
         return value
 
     def is_readonly(self, field, value):
@@ -296,6 +297,7 @@ class FormAPIView(CoreAPIView):
     def pre_post(self, request):
         # self.record = request.data
         self.record = self.request_data[0]
+        print(self.record)
 
     def _post(self, request):
         model = self.base_model
