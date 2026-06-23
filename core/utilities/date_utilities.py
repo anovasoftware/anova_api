@@ -58,6 +58,18 @@ def today():
     """
     return beginning_of_day()
 
+def get_date_from_flag(flag):
+    date = today()
+
+    if flag == 'today':
+        pass
+    if flag == 'beginning_of_time':
+        date = beginning_of_time()
+    elif flag == 'end_of_time':
+        date = end_of_time()
+
+    return date
+
 # from datetime import datetime, timezone
 #
 # # from django.utils import timezone

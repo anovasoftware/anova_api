@@ -4,6 +4,7 @@ from django.db.models import Model
 
 from core.api_views.table_api_views import PublicTableAPIView
 from core.utilities.api_utilities import model_to_field_dict
+from core.utilities.date_utilities import get_date_from_flag
 
 from apps.static.models import Form, FormField, FormExtra
 from apps.base.models import Parameter
@@ -180,8 +181,8 @@ class FormAPIView(CoreAPIView):
 
             if form_field.type.group1 == 'char':
                 value = dv
-            # if fc.type.group1 == 'date':
-            #     value = self.date_utility.get_date(flag=dv)
+            if form_field.type.group1 == 'date':
+                value = get_date_from_flag(dv)
             # if fc.type.group1 == 'decimal':
             #     if dv == '':
             #         value = Decimal(0)
@@ -411,14 +412,15 @@ class FormParameterAPIView(PublicFormAPIView):
 def get_data_source_filter(field: FormField, form_instance=None):
     raw = field.data_source_filter or '{}'
     data = json.loads(raw)
+    data = resolve_form_instance(data, form_instance)
 
     resolved = {}
     negations = []
 
     for key, value in data.items():
-        if isinstance(value, str) and value.startswith('form_instance.'):
-            _, suffix = value.split('.', 1)
-            value = get_nested_attr(form_instance, suffix)
+        # if isinstance(value, str) and value.startswith('form_instance.'):
+        #     _, suffix = value.split('.', 1)
+        #     value = get_nested_attr(form_instance, suffix)
 
         # handle "__ne" keys
         if key.endswith("__ne"):
@@ -435,7 +437,24 @@ def get_data_source_filter(field: FormField, form_instance=None):
 
     return q_object
 
+def resolve_form_instance(value, form_instance):
+    if isinstance(value, str) and value.startswith("form_instance."):
+        _, suffix = value.split(".", 1)
+        value = get_nested_attr(form_instance, suffix)
 
+    elif isinstance(value, list):
+        value = [resolve_form_instance(v, form_instance) for v in value]
+
+    elif isinstance(value, tuple):
+        value = tuple(resolve_form_instance(v, form_instance) for v in value)
+
+    elif isinstance(value, dict):
+        value = {
+            k: resolve_form_instance(v, form_instance)
+            for k, v in value.items()
+        }
+
+    return value
 def get_nested_attr(obj, attr_path):
     attrs = attr_path.split('.')
 

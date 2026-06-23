@@ -260,6 +260,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "013",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "cruise setup",
+      "header": "Cruise",
+      "data_source_application": "res",
+      "data_source_model_name": "Event",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Res",
+      "form_key": "EVENT_CRUISE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -3834,6 +3854,56 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02R",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_control",
+      "code": "spinner",
+      "description": "spinner",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_SPINNER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02S",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_control",
+      "code": "date",
+      "description": "date",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_DATE",
+      "group1": "date",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -4190,7 +4260,7 @@
       "description": "Hotel Administration",
       "title": "<<HOTEL>> Administration",
       "sub_title": "Security settings and configuration",
-      "breadcrumb_name": "Property",
+      "breadcrumb_name": "Hotel",
       "route": "",
       "params": "",
       "icon": "settings",
@@ -4201,33 +4271,6 @@
       "internal_comment": "",
       "created_date": "2026-04-15 00:00+0000",
       "last_updated": "2026-04-15 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Menu",
-    "pk": "00B",
-    "fields": {
-      "type_id": "02B",
-      "status_id": "001",
-      "parent_menu_id": "009",
-      "page_id": "011",
-      "grid_id": "000",
-      "hotel_type_id": "000",
-      "order_by": "30.20.10",
-      "description": "Property Setup",
-      "title": "<<PROPERTY>> Setup",
-      "sub_title": "Property Setup",
-      "breadcrumb_name": "Property Setup",
-      "route": "",
-      "params": "",
-      "icon": "business",
-      "hotel_required": true,
-      "grouping": "Navigation",
-      "menu_key": "PROPERTY_SETUP",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2026-04-17 00:00+0000",
-      "last_updated": "2026-04-17 00:00+0000"  
     }
   }
 ,  {
@@ -4289,26 +4332,26 @@
     "pk": "00F",
     "fields": {
       "type_id": "02B",
-      "status_id": "002",
-      "parent_menu_id": "00B",
+      "status_id": "001",
+      "parent_menu_id": "009",
       "page_id": "007",
       "grid_id": "004",
       "hotel_type_id": "006",
-      "order_by": "30.20.10.30",
+      "order_by": "30.20.10",
       "description": "Cruise Management",
       "title": "Cruise Management",
       "sub_title": "Cruise setup , configuration and pricing",
-      "breadcrumb_name": "Cruise Setup",
-      "route": "page",
+      "breadcrumb_name": "Cruises",
+      "route": "",
       "params": "",
       "icon": "directions_boat",
       "hotel_required": true,
       "grouping": "Navigation",
-      "menu_key": "EVENT",
+      "menu_key": "EVENT_CRUISE",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-04-19 00:00+0000",
-      "last_updated": "2026-04-19 00:00+0000"  
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
     }
   }
 ,  {
@@ -4591,7 +4634,7 @@
       "page_id": "009",
       "grid_id": "001",
       "hotel_type_id": "000",
-      "order_by": "30.20.20",
+      "order_by": "30.20.30",
       "description": "User Management",
       "title": "User Management",
       "sub_title": "User security settings",
@@ -4618,7 +4661,7 @@
       "page_id": "009",
       "grid_id": "007",
       "hotel_type_id": "000",
-      "order_by": "30.20.30",
+      "order_by": "30.20.40",
       "description": "Role Management",
       "title": "Role Management",
       "sub_title": "Roles",
@@ -4687,6 +4730,33 @@
       "internal_comment": "",
       "created_date": "2026-06-18 00:00+0000",
       "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00B",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "009",
+      "page_id": "011",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "30.20.20",
+      "description": "Property Setup",
+      "title": "<<PROPERTY>> Setup",
+      "sub_title": "Property Setup",
+      "breadcrumb_name": "Setup",
+      "route": "",
+      "params": "",
+      "icon": "business",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "PROPERTY_SETUP",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
     }
   }
 ,  {
@@ -5269,7 +5339,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "form_id": "000",
+      "form_id": "013",
       "page_id": "000",
       "description": "Cruise Management",
       "title": "Cruise Management",
@@ -5627,12 +5697,12 @@
   }
 ,  {
     "model": "static.GridColumn",
-    "pk": "00304",
+    "pk": "00305",
     "fields": {
       "grid_id": "003",
       "type_id": "000",
       "status_id": "001",
-      "order_by": "04",
+      "order_by": "05",
       "description": "hotel",
       "description_short": "",
       "field": "hotel__description",
@@ -6043,6 +6113,26 @@
       "internal_comment": "",
       "created_date": "2026-06-22 00:00+0000",
       "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00304",
+    "fields": {
+      "grid_id": "003",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "deck/floor",
+      "description_short": "",
+      "field": "floor__description",
+      "label": "Deck/Floor",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
     }
   }
 ,  {
@@ -7435,6 +7525,30 @@
       "internal_comment": "",
       "created_date": "2026-06-22 00:00+0000",
       "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01T",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Form013",
+      "description": "Form013",
+      "route": "form/013",
+      "view": "Form013APIView",
+      "module_path": "apps.res.api.forms.form_013",
+      "grouping": "forms",
+      "process_key": "FORM_013",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
     }
   }
 ,  {
@@ -8919,12 +9033,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "01204",
+    "pk": "01205",
     "fields": {
       "form_id": "012",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "04",
+      "order_by": "05",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -8956,12 +9070,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "01205",
+    "pk": "01206",
     "fields": {
       "form_id": "012",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "05",
+      "order_by": "06",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -9026,6 +9140,376 @@
       "internal_comment": "",
       "created_date": "2026-06-22 00:00+0000",
       "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01207",
+    "fields": {
+      "form_id": "012",
+      "type_id": "02R",
+      "status_id": "001",
+      "order_by": "07",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Lower Berths",
+      "name": "lower_berths",
+      "mapping_name": "",
+      "default_value": "0",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 9,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01204",
+    "fields": {
+      "form_id": "012",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "04",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Deck/Floor",
+      "name": "floor_id",
+      "mapping_name": "",
+      "default_value": "A000",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "res",
+      "data_source_model_name": "Floor",
+      "data_source_filter": "{ \"status_id\": \"001\", \"hotel_id__in\": [\"form_instance.hotel_id\",\"A000\"]}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-22 00:00+0000",
+      "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01208",
+    "fields": {
+      "form_id": "012",
+      "type_id": "02R",
+      "status_id": "001",
+      "order_by": "08",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Upper Berths",
+      "name": "upper_berths",
+      "mapping_name": "",
+      "default_value": "0",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 9,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01209",
+    "fields": {
+      "form_id": "012",
+      "type_id": "02R",
+      "status_id": "001",
+      "order_by": "09",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Maximum Occupancy",
+      "name": "maximum_occupancy",
+      "mapping_name": "",
+      "default_value": "0",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 9,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01301",
+    "fields": {
+      "form_id": "013",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Hotel/Cruise Ship",
+      "name": "hotel_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Hotel",
+      "data_source_filter": "{ \"status_id\": \"001\", \"hotel_id\": \"form_instance.hotel_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-18 00:00+0000",
+      "last_updated": "2026-06-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01302",
+    "fields": {
+      "form_id": "013",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Type",
+      "name": "type_id",
+      "mapping_name": "",
+      "default_value": "00R",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Type",
+      "data_source_filter": "{ \"type_id\": \"00R\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01303",
+    "fields": {
+      "form_id": "013",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Cruise Code",
+      "name": "code",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01304",
+    "fields": {
+      "form_id": "013",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "04",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Description",
+      "name": "description",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-05-15 00:00+0000",
+      "last_updated": "2026-05-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01305",
+    "fields": {
+      "form_id": "013",
+      "type_id": "02S",
+      "status_id": "001",
+      "order_by": "05",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Cruise Start Date",
+      "name": "event_start_date",
+      "mapping_name": "",
+      "default_value": "today",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01306",
+    "fields": {
+      "form_id": "013",
+      "type_id": "02S",
+      "status_id": "001",
+      "order_by": "06",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Cruise End Date",
+      "name": "event_start_date",
+      "mapping_name": "",
+      "default_value": "today",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
     }
   }
 ,  {

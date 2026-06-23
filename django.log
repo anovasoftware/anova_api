@@ -12770,3 +12770,203 @@ TypeError: 'Form' object is not subscriptable
 [2026-06-22 21:07:58,803] INFO core.services.log_service: Request completed
 [2026-06-22 21:08:10,754] INFO core.services.log_service: Request completed
 [2026-06-22 21:08:11,010] INFO core.services.log_service: Request completed
+[2026-06-22 21:09:57,020] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-22 21:09:59,827] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-22 21:10:03,445] INFO core.services.log_service: Request completed
+[2026-06-22 21:10:08,654] INFO core.services.log_service: Request completed
+[2026-06-22 21:10:08,694] INFO core.services.log_service: Request completed
+[2026-06-22 21:10:11,437] INFO core.services.log_service: Request completed
+[2026-06-22 21:10:11,576] INFO core.services.log_service: Request completed
+[2026-06-22 21:10:11,622] INFO core.services.log_service: Request completed
+[2026-06-22 21:10:11,755] INFO core.services.log_service: Request completed
+[2026-06-23 06:12:09,637] INFO core.services.log_service: Request completed
+[2026-06-23 06:12:09,740] INFO core.services.log_service: Request completed
+[2026-06-23 06:12:09,756] INFO core.services.log_service: Request completed
+[2026-06-23 06:12:09,775] ERROR django.request: Internal Server Error: /api/v1/form/011
+[2026-06-23 06:12:09,783] INFO core.services.log_service: Request completed
+[2026-06-23 06:12:09,783] ERROR django.request: Internal Server Error: /api/v1/grid/grid002
+[2026-06-23 06:12:09,801] ERROR django.request: Internal Server Error: /api/v1/grid/grid009
+[2026-06-23 06:12:09,828] ERROR django.request: Internal Server Error: /api/v1/grid/grid003
+[2026-06-23 06:20:05,983] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:31:29,194] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\models.py changed, reloading.
+[2026-06-23 06:31:31,920] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:32:10,385] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 06:32:12,974] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:38:58,058] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 06:39:00,230] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:39:36,955] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:39:49,966] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:04,373] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:04,536] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:04,769] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:08,922] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:09,178] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:09,271] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:09,334] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:19,203] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:33,067] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:33,140] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:33,575] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:39,028] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:39,168] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:39,260] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:39,298] INFO core.services.log_service: Request completed
+[2026-06-23 06:40:48,017] INFO core.services.log_service: Request completed
+[2026-06-23 06:41:14,998] INFO core.services.log_service: Request completed
+[2026-06-23 06:44:49,101] INFO core.services.log_service: Request completed
+[2026-06-23 06:45:16,539] INFO core.services.log_service: Request completed
+[2026-06-23 06:49:31,715] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\table_api_views\form_api_views.py changed, reloading.
+[2026-06-23 06:49:34,074] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:50:35,218] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:51:35,280] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:51:51,535] INFO core.services.log_service: Request completed
+[2026-06-23 06:52:01,333] INFO core.services.log_service: Request completed
+[2026-06-23 06:52:01,615] INFO core.services.log_service: Request completed
+[2026-06-23 06:52:13,230] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:12,127] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 06:54:14,497] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:54:38,597] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:54:46,575] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:46,622] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:46,841] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:46,866] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:46,873] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:53,900] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:58,671] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:58,914] INFO core.services.log_service: Request completed
+[2026-06-23 06:54:59,963] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:03,570] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:03,830] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:11,599] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:25,941] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:26,170] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:28,946] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:32,255] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:32,535] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:33,418] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:37,264] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:37,513] INFO core.services.log_service: Request completed
+[2026-06-23 06:55:39,754] INFO core.services.log_service: Request completed
+[2026-06-23 06:59:49,222] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\type_constants.py changed, reloading.
+[2026-06-23 06:59:52,399] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 06:59:55,433] INFO core.services.log_service: Request completed
+[2026-06-23 06:59:55,433] INFO core.services.log_service: Request completed
+[2026-06-23 06:59:55,449] INFO core.services.log_service: Request completed
+[2026-06-23 07:36:44,236] INFO core.services.log_service: Request completed
+[2026-06-23 07:45:00,990] INFO core.services.log_service: Request completed
+[2026-06-23 07:45:01,148] INFO core.services.log_service: Request completed
+[2026-06-23 07:45:01,168] INFO core.services.log_service: Request completed
+[2026-06-23 07:45:01,282] INFO core.services.log_service: Request completed
+[2026-06-23 07:45:01,300] INFO core.services.log_service: Request completed
+[2026-06-23 07:46:53,060] INFO core.services.log_service: Request completed
+[2026-06-23 07:49:28,488] INFO core.services.log_service: Request completed
+[2026-06-23 07:49:28,666] INFO core.services.log_service: Request completed
+[2026-06-23 07:49:28,690] INFO core.services.log_service: Request completed
+[2026-06-23 07:49:28,761] INFO core.services.log_service: Request completed
+[2026-06-23 07:49:28,778] INFO core.services.log_service: Request completed
+[2026-06-23 07:51:53,132] INFO core.services.log_service: Request completed
+[2026-06-23 07:51:53,302] INFO core.services.log_service: Request completed
+[2026-06-23 07:51:56,629] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:37,522] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:37,634] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:41,849] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:41,888] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:41,938] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:41,946] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:48,904] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:48,973] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:49,173] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:54,357] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:54,369] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:54,418] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:54,449] INFO core.services.log_service: Request completed
+[2026-06-23 07:52:59,333] INFO core.services.log_service: Request completed
+[2026-06-23 07:53:23,530] INFO core.services.log_service: Request completed
+[2026-06-23 07:53:23,758] INFO core.services.log_service: Request completed
+[2026-06-23 08:02:52,234] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\grid_constants.py changed, reloading.
+[2026-06-23 08:02:54,856] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 08:03:13,332] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:13,527] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:27,812] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:37,004] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:37,061] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:37,402] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:42,529] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:42,590] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:42,841] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:42,946] INFO core.services.log_service: Request completed
+[2026-06-23 08:03:45,290] INFO core.services.log_service: Request completed
+[2026-06-23 10:18:29,923] INFO core.services.log_service: Request completed
+[2026-06-23 10:18:30,046] ERROR django.request: Internal Server Error: /api/v1/grid/grid004
+[2026-06-23 11:11:29,826] INFO core.services.log_service: Request completed
+[2026-06-23 11:11:30,024] ERROR django.request: Internal Server Error: /api/v1/grid/grid004
+[2026-06-23 11:11:38,482] INFO core.services.log_service: Request completed
+[2026-06-23 11:11:38,510] ERROR django.request: Internal Server Error: /api/v1/grid/grid004
+[2026-06-23 11:18:10,185] INFO core.services.log_service: Request completed
+[2026-06-23 11:18:10,313] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:05,478] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:15,723] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:31,925] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:32,058] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:32,180] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:48,605] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:48,652] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:48,891] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:55,605] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:55,660] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:55,848] INFO core.services.log_service: Request completed
+[2026-06-23 11:19:55,910] INFO core.services.log_service: Request completed
+[2026-06-23 11:20:02,496] INFO core.services.log_service: Request completed
+[2026-06-23 11:26:48,945] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\grid_constants.py changed, reloading.
+[2026-06-23 11:26:55,972] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 11:27:15,799] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 11:27:21,986] INFO core.services.log_service: Request completed
+[2026-06-23 11:27:22,153] INFO core.services.log_service: Request completed
+[2026-06-23 11:27:27,097] WARNING django.request: Not Found: /api/v1/form/013
+[2026-06-23 11:28:09,496] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-06-23 11:28:13,295] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 11:29:28,085] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 11:29:36,670] INFO core.services.log_service: Request completed
+[2026-06-23 11:29:36,688] WARNING django.request: Method Not Allowed: /api/v1/form/013
+[2026-06-23 11:30:07,662] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 11:30:10,605] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 11:30:24,955] INFO core.services.log_service: Request completed
+[2026-06-23 11:30:25,163] INFO core.services.log_service: Request completed
+[2026-06-23 11:30:29,289] INFO core.services.log_service: Request completed
+[2026-06-23 12:49:23,698] INFO core.services.log_service: Request completed
+[2026-06-23 15:08:40,176] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:18:16,136] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\type_constants.py changed, reloading.
+[2026-06-23 15:18:19,847] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:20:41,747] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\table_api_views\form_api_views.py changed, reloading.
+[2026-06-23 15:20:44,183] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:27:06,474] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\date_utilities.py changed, reloading.
+[2026-06-23 15:27:08,860] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:30:11,950] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\date_utilities.py changed, reloading.
+[2026-06-23 15:30:14,342] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:30:19,995] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 15:30:22,266] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:30:54,529] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:30:57,268] INFO core.services.log_service: Request completed
+[2026-06-23 15:30:57,293] ERROR django.request: Internal Server Error: /api/v1/grid/grid004
+[2026-06-23 15:31:02,090] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:02,116] ERROR django.request: Internal Server Error: /api/v1/grid/grid004
+[2026-06-23 15:31:19,176] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:32,175] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:32,317] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:32,448] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:32,510] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:44,433] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:44,457] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:44,744] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:48,725] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:48,861] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:48,941] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:49,092] INFO core.services.log_service: Request completed
+[2026-06-23 15:31:59,245] INFO core.services.log_service: Request completed
+[2026-06-23 15:32:58,482] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 15:33:01,203] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:33:11,973] INFO core.services.log_service: Request completed
+[2026-06-23 15:33:12,075] INFO core.services.log_service: Request completed
+[2026-06-23 15:33:14,855] INFO core.services.log_service: Request completed
+[2026-06-23 15:33:24,694] INFO core.services.log_service: Request completed
+[2026-06-23 15:33:27,467] INFO core.services.log_service: Request completed
