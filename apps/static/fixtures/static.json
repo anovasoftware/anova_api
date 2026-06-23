@@ -9487,7 +9487,7 @@
       "control_type": "",
       "tab_name": "Detail",
       "label": "Cruise End Date",
-      "name": "event_start_date",
+      "name": "event_end_date",
       "mapping_name": "",
       "default_value": "today",
       "rows": 0,

@@ -12970,3 +12970,40 @@ TypeError: 'Form' object is not subscriptable
 [2026-06-23 15:33:14,855] INFO core.services.log_service: Request completed
 [2026-06-23 15:33:24,694] INFO core.services.log_service: Request completed
 [2026-06-23 15:33:27,467] INFO core.services.log_service: Request completed
+[2026-06-23 15:42:38,233] INFO core.services.log_service: Request completed
+[2026-06-23 15:42:38,300] INFO core.services.log_service: Request completed
+[2026-06-23 15:42:40,088] INFO core.services.log_service: Request completed
+[2026-06-23 15:43:44,790] INFO core.services.log_service: Request completed
+[2026-06-23 15:44:47,710] INFO core.services.log_service: Request completed
+[2026-06-23 15:46:00,150] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\date_utilities.py changed, reloading.
+[2026-06-23 15:46:02,674] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:47:26,866] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\date_utilities.py changed, reloading.
+[2026-06-23 15:47:29,333] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:51:06,808] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\date_utilities.py changed, reloading.
+[2026-06-23 15:51:09,155] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:53:34,382] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:53:51,323] INFO core.services.log_service: Request completed
+[2026-06-23 15:54:36,628] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-06-23 15:54:38,925] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:54:58,520] INFO core.services.log_service: Request completed
+[2026-06-23 15:55:03,486] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\table_api_views\form_api_views.py changed, reloading.
+[2026-06-23 15:55:05,791] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-23 15:55:32,878] INFO core.services.log_service: Request completed
+[2026-06-23 15:55:33,184] INFO core.services.log_service: Request completed
+[2026-06-23 15:56:18,804] INFO core.services.log_service: Request completed
+[2026-06-23 15:59:03,193] INFO core.services.log_service: Request completed
+[2026-06-23 15:59:03,220] ERROR django.request: Internal Server Error: /api/v1/form/013
+[2026-06-23 16:01:15,643] INFO core.services.log_service: Request completed
+[2026-06-23 16:01:15,880] INFO core.services.log_service: Request completed
+[2026-06-23 16:01:18,795] INFO core.services.log_service: Request completed
+[2026-06-23 16:02:34,869] INFO core.services.log_service: Request completed
+[2026-06-23 16:02:35,098] INFO core.services.log_service: Request completed
+[2026-06-23 16:03:00,346] INFO core.services.log_service: Request completed
+[2026-06-23 16:03:00,527] INFO core.services.log_service: Request completed
+[2026-06-23 16:03:03,426] INFO core.services.log_service: Request completed
+[2026-06-23 16:03:30,400] INFO core.services.log_service: Request completed
+[2026-06-23 16:04:13,598] INFO core.services.log_service: Request completed
+[2026-06-23 16:04:13,841] INFO core.services.log_service: Request completed
+[2026-06-23 16:04:15,809] INFO core.services.log_service: Request completed
+[2026-06-23 16:04:22,270] INFO core.services.log_service: Request completed
+[2026-06-23 16:04:22,491] INFO core.services.log_service: Request completed

@@ -1,75 +1,59 @@
-from datetime import datetime, timezone
-from django.utils import timezone as dj_timezone  # Alias to avoid confusion
-
-def string_to_datetime(date_str, date_format):
-    """
-    Convert a date string to a timezone-aware datetime object.
-    If the string is 'nan' or empty, it defaults to '2099.12.31' (UTC).
-    """
-    if date_str in ('nan', ''):
-        date_str = '2099.12.31'
-
-    x = date_str.strip().replace('-', '.')
-
-    try:
-        if date_format in ('%Y.%m.%d', 'YYYY.MM.DD'):
-            dt = datetime.strptime(x, '%Y.%m.%d')
-        elif date_format == '%Y%m%d':
-            dt = datetime.strptime(x, '%Y%m%d')
-        else:
-            dt = datetime(1900, 1, 1)
-
-        # Ensure the datetime is timezone-aware
-        return dj_timezone.make_aware(dt, timezone.utc) if dj_timezone.is_naive(dt) else dt
-    except Exception:
-        return dj_timezone.now()  # Default to current time if parsing fails
-
-
-def beginning_of_day(date_to_convert: datetime = None):
-    """
-    Return the beginning of the day (00:00:00) in UTC.
-    If no date is provided, defaults to today.
-    """
-    if date_to_convert is None:
-        date_to_convert = dj_timezone.now()  # Always timezone-aware
-
-    # Convert to UTC and reset time components
-    dt = date_to_convert.astimezone(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
-    return dt
-
-
-def beginning_of_time():
-    """
-    Returns the beginning of application time as '1900-01-01 00:00:00 UTC'.
-    """
-    return string_to_datetime('1900.01.01', '%Y.%m.%d')
-
-
-def end_of_time():
-    """
-    Returns the end of application time as '2099-12-31 23:59:59 UTC'.
-    """
-    return string_to_datetime('2099.12.31', '%Y.%m.%d')
+from datetime import date, datetime, time
+from django.utils import timezone
 
 
 def today():
-    """
-    Returns today's date at 00:00:00 UTC.
-    """
-    return beginning_of_day()
+    return timezone.localdate()
+
+
+def beginning_of_time():
+    return date(1900, 1, 1)
+
+
+def end_of_time():
+    return date(2099, 12, 31)
+
+
+def string_to_date(date_str, date_format='%Y.%m.%d'):
+    if date_str in (None, '', 'nan'):
+        return end_of_time()
+
+    x = str(date_str).strip().replace('-', '.')
+
+    try:
+        if date_format in ('%Y.%m.%d', 'YYYY.MM.DD'):
+            return date.fromisoformat(x.replace('.', '-'))
+
+        elif date_format == '%Y%m%d':
+            return datetime.strptime(x, '%Y%m%d').date()
+
+    except (ValueError, TypeError):
+        return today()
+
+    return today()
+
+
+def beginning_of_day(date_to_convert=None):
+    if date_to_convert is None:
+        date_to_convert = today()
+
+    if isinstance(date_to_convert, datetime):
+        date_to_convert = timezone.localtime(date_to_convert).date()
+
+    return timezone.make_aware(
+        datetime.combine(date_to_convert, time.min)
+    )
+
 
 def get_date_from_flag(flag):
-    date = today()
-
     if flag == 'today':
-        pass
-    if flag == 'beginning_of_time':
-        date = beginning_of_time()
+        return today()
+    elif flag == 'beginning_of_time':
+        return beginning_of_time()
     elif flag == 'end_of_time':
-        date = end_of_time()
+        return end_of_time()
 
-    return date
-
+    raise ValueError(f'Unknown date flag: {flag}')
 # from datetime import datetime, timezone
 #
 # # from django.utils import timezone

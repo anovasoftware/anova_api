@@ -182,7 +182,7 @@ class FormAPIView(CoreAPIView):
             if form_field.type.group1 == 'char':
                 value = dv
             if form_field.type.group1 == 'date':
-                value = get_date_from_flag(dv)
+                    value = get_date_from_flag(dv)
             # if fc.type.group1 == 'decimal':
             #     if dv == '':
             #         value = Decimal(0)
