@@ -21,7 +21,7 @@ from dataclasses import replace
 from django.utils import timezone
 from core.utilities.api_utilities import process_supports_method, required_flag_for_method
 from core.utilities.api_utilities import get_client_ip
-from core.utilities.data_transformation_utilities import flat_record, transform_keys, format_response, snake_to_camel
+from core.utilities.data_transformation_utilities import flat_record, transform_keys, format_response
 from core.utilities.api_docs_utilties import override_parameters, params_for
 from typing import Optional, Type as TypingType, cast
 from django.db.models import Q
@@ -414,20 +414,6 @@ class CoreAPIView(GenericAPIView):
 
     def validate_patch(self, request):
         pass
-
-    # def get_response(self):
-    #     response = self.build_response()
-    #
-    #     if self.debug_flag == 'Y':
-    #         response['messages'] = ['debug mode is on']
-    #
-    #     if self.response_format == 'camel_case':
-    #         # response = transform_keys(response, snake_to_camel)
-    #
-    #         response = format_response(response)
-    #
-    #     status_code = self.http_statuses[self.http_status_id]['status_code']
-    #     return Response(response, status=status_code)
 
     def get_response(self):
         response = self.build_response()

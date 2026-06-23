@@ -142,6 +142,14 @@ COMMON_PARAMS = {
         cast=_to_str,
         description='Item id for the request.',
     ),
+    # 'keyField': ParamSpec(
+    #     name='keyField',
+    #     dest='key_field',
+    #     kind='either',
+    #     cast=_to_str,
+    #     description='Key field for record lookup.',
+    #     default='pk',
+    # ),
     'rfidUid': ParamSpec(
         name='rfidUid',
         dest='rfid_uid',

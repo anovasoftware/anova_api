@@ -13,7 +13,7 @@ from django.db import models
 from django.apps import apps
 
 from core.api_views.core_api import AuthorizedAPIView, CoreAPIView, PublicAPIView
-from core.utilities.data_transformation_utilities import transform_records
+from core.utilities.data_transformation_utilities import transform_records, snake_to_camel
 from core.utilities.database_utilties import get_active_dict
 
 from constants import status_constants, type_constants
@@ -54,7 +54,10 @@ class FormAPIView(CoreAPIView):
     process_id = None
     form_id = None
 
-    PARAM_NAMES = PublicTableAPIView.PARAM_NAMES + ('recordId', 'action')
+    PARAM_NAMES = PublicTableAPIView.PARAM_NAMES + (
+        'recordId',
+        'action'
+    )
     PARAM_OVERRIDES = {
         'recordId': dict(
             required_get=True,
@@ -72,6 +75,7 @@ class FormAPIView(CoreAPIView):
 
         self.base_model: Optional[Model] = None
         self.record_id = None
+        self.key_field = 'pk'
         self.record = {}
         self.action = ''
         self.type_id = 'ALL'
@@ -153,9 +157,17 @@ class FormAPIView(CoreAPIView):
         if self.action == 'create':
             self.record = self.new_record()
         else:
-            records = self.base_model.objects.filter(pk=self.record_id)
+            # records = self.base_model.objects.filter(pk=self.record_id)
+
+            records = self.base_model.objects.filter(
+                **{self.key_field: self.record_id}
+            )
+
+
             if records.count() == 0:
                 self.add_message(f'Record not found. Id {self.record_id}', False)
+            elif records.count() > 1:
+                self.add_message(f'Multiple records found. Id {self.record_id}', False)
             else:
                 self.record = records.values(*value_fields)[0]
 
@@ -349,6 +361,8 @@ class FormAPIView(CoreAPIView):
         response = super().build_response()
 
         if self.form:
+            # form_field = self.form['form_fields']
+            # self.form['form_fields'] = snake_to_camel(form_field)
             response['data']['form'] = self.form_dict
 
         return response
