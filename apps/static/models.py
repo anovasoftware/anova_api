@@ -173,6 +173,7 @@ class Grid(BaseModel):
     can_read                = models.BooleanField(default=False)
     can_update              = models.BooleanField(default=False)
     can_delete              = models.BooleanField(default=False)
+    selectable              = models.BooleanField(default=False)
     data_source_application = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     data_source_model_name  = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     order_by                = models.CharField(max_length=100, blank=False, unique=False, primary_key=False, default='')

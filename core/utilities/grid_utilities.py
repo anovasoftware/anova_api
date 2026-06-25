@@ -86,7 +86,8 @@ class GridUtility(object):
             'data_source_application',
             'data_source_model_name',
             'order_by',
-            'can_create'
+            'can_create',
+            'selectable'
         ).get(
             pk=self.grid_id
         )

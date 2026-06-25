@@ -66,7 +66,7 @@ class PublicMenuAPIView(PublicTableAPIView):
     def get_query_filter(self):
         filters = super().get_query_filter()
         filters['status_id'] = status_constants.ACTIVE
-        # filters['menu_id'] = '008'
+        # filters['menu_id'] = '00X'
 
         return filters
 

@@ -3904,6 +3904,31 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02T",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_menu",
+      "code": "placeholder menu",
+      "description": "placeholder menu",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "MENU_PLACEHOLDER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-24 00:00+0000",
+      "last_updated": "2026-06-24 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -4601,7 +4626,7 @@
     "model": "static.Menu",
     "pk": "00R",
     "fields": {
-      "type_id": "02B",
+      "type_id": "02T",
       "status_id": "001",
       "parent_menu_id": "00P",
       "page_id": "009",
@@ -4757,6 +4782,33 @@
       "internal_comment": "",
       "created_date": "2026-04-17 00:00+0000",
       "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00X",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00T",
+      "page_id": "010",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "##",
+      "description": "Role Detail",
+      "title": "Role Detail",
+      "sub_title": "Role Detail",
+      "breadcrumb_name": "Role Detail",
+      "route": "",
+      "params": "",
+      "icon": "",
+      "hotel_required": false,
+      "grouping": "Placeholder",
+      "menu_key": "ROLE_DETAIL",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-24 00:00+0000",
+      "last_updated": "2026-06-24 00:00+0000"  
     }
   }
 ,  {
@@ -5244,6 +5296,7 @@
       "can_read": false,
       "can_update": false,
       "can_delete": false,
+      "selectable": false,
       "data_source_application": "",
       "data_source_model_name": "",
       "order_by": "",
@@ -5270,6 +5323,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "base",
       "data_source_model_name": "User",
       "order_by": "username",
@@ -5296,6 +5350,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "base",
       "data_source_model_name": "Category",
       "order_by": "description",
@@ -5322,6 +5377,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "res",
       "data_source_model_name": "Room",
       "order_by": "description",
@@ -5348,6 +5404,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "res",
       "data_source_model_name": "Event",
       "order_by": "-event_start_date",
@@ -5374,6 +5431,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "base",
       "data_source_model_name": "Position",
       "order_by": "code",
@@ -5400,6 +5458,7 @@
       "can_read": true,
       "can_update": false,
       "can_delete": false,
+      "selectable": false,
       "data_source_application": "res",
       "data_source_model_name": "TransactionItem",
       "order_by": "-transaction__created_date",
@@ -5426,6 +5485,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "base",
       "data_source_model_name": "Role",
       "order_by": "description",
@@ -5435,32 +5495,6 @@
       "internal_comment": "",
       "created_date": "2026-06-18 00:00+0000",
       "last_updated": "2026-06-18 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Grid",
-    "pk": "999",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "form_id": "000",
-      "page_id": "000",
-      "description": "To Be Announced",
-      "title": "",
-      "display_as": "",
-      "can_create": false,
-      "can_read": false,
-      "can_update": false,
-      "can_delete": false,
-      "data_source_application": "",
-      "data_source_model_name": "",
-      "order_by": "",
-      "grouping": "ALL",
-      "grid_key": "TO_BE_ANNOUNCED",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2026-03-30 00:00+0000",
-      "last_updated": "2026-03-30 00:00+0000"  
     }
   }
 ,  {
@@ -5478,6 +5512,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "base",
       "data_source_model_name": "RoleProcess",
       "order_by": "process__description",
@@ -5504,6 +5539,7 @@
       "can_read": true,
       "can_update": true,
       "can_delete": true,
+      "selectable": false,
       "data_source_application": "res",
       "data_source_model_name": "Floor",
       "order_by": "description",
@@ -5513,6 +5549,60 @@
       "internal_comment": "",
       "created_date": "2026-06-22 00:00+0000",
       "last_updated": "2026-06-22 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "999",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "To Be Announced",
+      "title": "",
+      "display_as": "",
+      "can_create": false,
+      "can_read": false,
+      "can_update": false,
+      "can_delete": false,
+      "selectable": false,
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "order_by": "",
+      "grouping": "ALL",
+      "grid_key": "TO_BE_ANNOUNCED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-03-30 00:00+0000",
+      "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "010",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Role Menus",
+      "title": "Role Menus",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "selectable": true,
+      "data_source_application": "static",
+      "data_source_model_name": "Menu",
+      "order_by": "description",
+      "grouping": "Security",
+      "grid_key": "GRID_ROLE_MENU",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
     }
   }
 ,  {
@@ -6136,6 +6226,26 @@
     }
   }
 ,  {
+    "model": "static.GridColumn",
+    "pk": "01001",
+    "fields": {
+      "grid_id": "010",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Menu",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-24 00:00+0000",
+      "last_updated": "2026-06-24 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Process",
     "pk": "001",
     "fields": {
@@ -6698,7 +6808,7 @@
       "route": "table/base/user/",
       "view": "AuthorizedUserAPIView",
       "module_path": "apps.base.api.tables.user",
-      "grouping": "tablea",
+      "grouping": "table",
       "process_key": "BASE_USER",
       "supports_create": false,
       "supports_read": false,
@@ -7549,6 +7659,54 @@
       "internal_comment": "",
       "created_date": "2026-06-23 00:00+0000",
       "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01V",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "RoleMenu",
+      "description": "Role Menus",
+      "route": "grid/grid010",
+      "view": "Grid010APIView",
+      "module_path": "apps.base.api.grids.grid010",
+      "grouping": "grids",
+      "process_key": "GRID_ROLE_MENU",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-24 00:00+0000",
+      "last_updated": "2026-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "01W",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Role2",
+      "description": "Role",
+      "route": "base/role/<str:recordId>/",
+      "view": "Role2APIView",
+      "module_path": "apps.base.api.tables.role",
+      "grouping": "table",
+      "process_key": "BASE_ROLE2",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-25 00:00+0000",
+      "last_updated": "2026-06-25 00:00+0000"  
     }
   }
 ,  {
