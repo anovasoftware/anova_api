@@ -4600,7 +4600,7 @@
     "pk": "00Q",
     "fields": {
       "type_id": "02B",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "007",
       "page_id": "008",
       "grid_id": "000",
@@ -4789,7 +4789,7 @@
     "pk": "00X",
     "fields": {
       "type_id": "02B",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "00T",
       "page_id": "010",
       "grid_id": "000",
@@ -5596,7 +5596,7 @@
       "selectable": true,
       "data_source_application": "static",
       "data_source_model_name": "Menu",
-      "order_by": "description",
+      "order_by": "order_by",
       "grouping": "Security",
       "grid_key": "GRID_ROLE_MENU",
       "static_flag": "Y",
@@ -6237,6 +6237,26 @@
       "description_short": "",
       "field": "description",
       "label": "Menu",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-24 00:00+0000",
+      "last_updated": "2026-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01002",
+    "fields": {
+      "grid_id": "010",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "order_by",
+      "description_short": "",
+      "field": "order_by",
+      "label": "Order By",
       "format": "text",
       "style_class": "",
       "static_flag": "Y",
@@ -7674,7 +7694,7 @@
       "module_path": "apps.base.api.grids.grid010",
       "grouping": "grids",
       "process_key": "GRID_ROLE_MENU",
-      "supports_create": false,
+      "supports_create": true,
       "supports_read": true,
       "supports_update": true,
       "supports_delete": true,

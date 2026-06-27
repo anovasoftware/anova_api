@@ -56,6 +56,12 @@ class GridUtility(object):
             if self.success:
                 self.rows_df = self.get_data_df()
                 if self.success:
+                    if self.grid.get('selectable', False):
+                        self.rows_df['selected'] = False
+                        self.displayed_columns = ['selected'] + self.displayed_columns
+
+                        self.update_selected()
+
                     self.rows = self.get_rows()
                     if self.success:
                         remove_keys = [
@@ -63,6 +69,7 @@ class GridUtility(object):
                             'data_source_model_name',
                             'order_by'
                         ]
+
                         self.grid = {k: v for k, v in self.grid.items() if k not in remove_keys}
                         self.displayed_columns = snake_to_camel_list(self.displayed_columns, '_')
                         self.grid['displayed_columns'] = snake_to_camel_list(self.displayed_columns, '.')
@@ -95,6 +102,7 @@ class GridUtility(object):
 
     def get_columns(self):
         columns = []
+
         columns_qs = GridColumn.objects.values(
             # 'grid_column_id',
             'description',
@@ -124,6 +132,15 @@ class GridUtility(object):
         else:
             self.message = 'no columns found'
             self.success = False
+
+        if self.success and self.grid.get('selectable', False):
+            columns.append({
+                'description': 'selected',
+                'field': 'selected',
+                'label': 'Select',
+                'format': 'checkbox',
+                'data_path': 'selected',
+            })
 
         return columns
 
@@ -200,6 +217,9 @@ class GridUtility(object):
         rows = self.rows_df.to_dict('records')
         return rows
 
+    def update_selected(self):
+        pass
+
     def get_displayed_columns(self):
         columns = GridColumn.objects.filter(
             grid_id=self.grid_id,
@@ -210,8 +230,7 @@ class GridUtility(object):
             'order_by'
         )
         columns = list(columns)
-        # columns = format_response(columns)
-        return list(columns)
+        return columns
 
     # def get_values_list(self):
     #     values_list = self.displayed_columns + ['pk', ]
