@@ -584,3 +584,73 @@
 [2026-06-26 20:30:47,089] INFO core.services.log_service: Request completed
 [2026-06-26 20:30:51,099] INFO core.services.log_service: Request completed
 [2026-06-26 20:30:51,329] INFO core.services.log_service: Request completed
+[2026-06-26 20:33:04,259] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\api\grids\grid010.py changed, reloading.
+[2026-06-26 20:33:06,579] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-26 20:33:33,291] INFO core.services.log_service: Request completed
+[2026-06-26 20:33:33,294] INFO core.services.log_service: Request completed
+[2026-06-26 20:34:47,669] INFO core.services.log_service: Request completed
+[2026-06-26 20:34:47,696] INFO core.services.log_service: Request completed
+[2026-06-26 20:35:57,309] INFO core.services.log_service: Request completed
+[2026-06-26 20:35:57,348] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:05,555] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:07,550] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:07,660] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:07,771] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:12,888] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:17,968] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:18,047] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:18,193] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:18,238] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:27,680] INFO core.services.log_service: Request completed
+[2026-06-26 20:36:43,366] INFO core.services.log_service: Request completed
+[2026-06-26 20:37:40,020] INFO core.services.log_service: Request completed
+[2026-06-26 20:37:40,054] INFO core.services.log_service: Request completed
+[2026-06-26 20:37:40,188] INFO core.services.log_service: Request completed
+[2026-06-26 20:37:40,220] INFO core.services.log_service: Request completed
+[2026-06-26 20:37:40,352] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:12,578] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-26 20:38:47,740] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:47,780] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:47,854] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:48,010] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:48,113] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:52,931] INFO core.services.log_service: Request completed
+[2026-06-26 20:38:52,950] ERROR django.request: Internal Server Error: /api/v1/grid/grid010
+[2026-06-26 20:39:03,327] INFO core.services.log_service: Request completed
+[2026-06-26 20:39:03,347] ERROR django.request: Internal Server Error: /api/v1/grid/grid010
+[2026-06-26 20:39:57,375] INFO core.services.log_service: Request completed
+[2026-06-26 20:39:57,391] ERROR django.request: Internal Server Error: /api/v1/grid/grid010
+[2026-06-26 20:40:30,114] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-06-26 20:40:43,571] INFO core.services.log_service: Request completed
+[2026-06-26 20:41:23,750] INFO core.services.log_service: Request completed
+[2026-06-26 20:41:23,832] INFO core.services.log_service: Request completed
+[2026-06-26 20:41:24,156] INFO core.services.log_service: Request completed
+[2026-06-26 20:41:24,223] INFO core.services.log_service: Request completed
+[2026-06-26 20:41:24,325] INFO core.services.log_service: Request completed
+[2026-06-26 20:42:09,260] INFO core.services.log_service: Request completed
+[2026-06-26 20:42:09,263] INFO core.services.log_service: Request completed
+[2026-06-26 20:43:39,068] INFO core.services.log_service: Request completed
+[2026-06-27 01:20:50,076] INFO core.services.log_service: Request completed
+[2026-06-27 01:20:50,109] INFO core.services.log_service: Request completed
+[2026-06-27 01:20:50,117] INFO core.services.log_service: Request completed
+[2026-06-27 01:20:50,140] INFO core.services.log_service: Request completed
+[2026-06-27 01:20:50,172] ERROR django.request: Internal Server Error: /api/v1/base/role/A004/
+[2026-06-27 01:20:50,180] ERROR django.request: Internal Server Error: /api/v1/grid/grid008
+[2026-06-27 01:20:50,180] ERROR django.request: Internal Server Error: /api/v1/form/009
+[2026-06-27 01:20:50,184] ERROR django.request: Internal Server Error: /api/v1/grid/grid010
+[2026-06-27 01:21:16,758] INFO core.services.log_service: Request completed
+[2026-06-27 01:21:16,808] INFO core.services.log_service: Request completed
+[2026-06-27 01:21:16,812] ERROR django.request: Internal Server Error: /api/v1/base/role/A004/
+[2026-06-27 01:21:16,815] INFO core.services.log_service: Request completed
+[2026-06-27 01:21:16,839] INFO core.services.log_service: Request completed
+[2026-06-27 01:21:16,866] ERROR django.request: Internal Server Error: /api/v1/grid/grid008
+[2026-06-27 01:21:16,873] ERROR django.request: Internal Server Error: /api/v1/form/009
+[2026-06-27 01:21:16,894] ERROR django.request: Internal Server Error: /api/v1/grid/grid010
+[2026-06-27 08:28:28,438] INFO core.services.log_service: Request completed
+[2026-06-27 08:28:28,538] INFO core.services.log_service: Request completed
+[2026-06-27 08:28:28,550] INFO core.services.log_service: Request completed
+[2026-06-27 08:28:28,563] ERROR django.request: Internal Server Error: /api/v1/base/role/A004/
+[2026-06-27 08:28:28,614] ERROR django.request: Internal Server Error: /api/v1/grid/grid008
+[2026-06-27 08:28:28,625] INFO core.services.log_service: Request completed
+[2026-06-27 08:28:28,630] ERROR django.request: Internal Server Error: /api/v1/form/009
+[2026-06-27 08:28:28,688] ERROR django.request: Internal Server Error: /api/v1/grid/grid010

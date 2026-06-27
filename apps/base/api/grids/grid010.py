@@ -47,6 +47,8 @@ class Grid010APIView(GridRoleAPIView):
     def _post(self, request):
         changes = request.data.get('changes', [])
         role_id = self.params.get('roleId')
+
+        updated_count = 0
         for change in changes:
             menu_id = change.get('recordId')
             selected = change.get('value')
@@ -60,3 +62,6 @@ class Grid010APIView(GridRoleAPIView):
                     'status_id': status_id
                 }
             )
+            updated_count += 1
+
+        self.set_message('Updated successfully. Records updated: ' + str(updated_count))
