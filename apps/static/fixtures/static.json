@@ -280,6 +280,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "014",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "role process setup",
+      "header": "Process",
+      "data_source_application": "base",
+      "data_source_model_name": "RoleProcess",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Security",
+      "form_key": "ROLE_PROCESS",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -3064,7 +3084,7 @@
       "description_short": "User Required Only",
       "description_long": "",
       "description2": "",
-      "type_key": "PROFILE_USER_REQUIRED_ONLY",
+      "type_key": "PROCESS_ENDPOINT_USER_REQUIRED",
       "group1": "",
       "flag1": "",
       "flag2": "",
@@ -3926,6 +3946,31 @@
       "internal_comment": "",
       "created_date": "2026-06-24 00:00+0000",
       "last_updated": "2026-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02V",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_control",
+      "code": "checkbox",
+      "description": "checkbox",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_CHECKBOX",
+      "group1": "boolean",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
     }
   }
 ,  {
@@ -5505,23 +5550,23 @@
       "status_id": "001",
       "form_id": "000",
       "page_id": "000",
-      "description": "Role Processes",
+      "description": "Role Processes (process driven)",
       "title": "Role Processes",
       "display_as": "",
-      "can_create": true,
+      "can_create": false,
       "can_read": true,
       "can_update": true,
       "can_delete": true,
-      "selectable": false,
-      "data_source_application": "base",
-      "data_source_model_name": "RoleProcess",
-      "order_by": "process__description",
+      "selectable": true,
+      "data_source_application": "static",
+      "data_source_model_name": "Process",
+      "order_by": "description",
       "grouping": "Security",
-      "grid_key": "ROLE_PROCESS",
+      "grid_key": "ROLE_PROCESS_PROCESS_DRIVEN",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-18 00:00+0000",
-      "last_updated": "2026-06-18 00:00+0000"  
+      "last_updated": "2026-06-28 00:00+0000"  
     }
   }
 ,  {
@@ -5598,11 +5643,38 @@
       "data_source_model_name": "Menu",
       "order_by": "order_by",
       "grouping": "Security",
-      "grid_key": "GRID_ROLE_MENU",
+      "grid_key": "ROLE_MENU",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-23 00:00+0000",
       "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "011",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "014",
+      "page_id": "000",
+      "description": "Role Processes",
+      "title": "Role Processes",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "selectable": false,
+      "data_source_application": "base",
+      "data_source_model_name": "RoleProcess",
+      "order_by": "process__description",
+      "grouping": "Security",
+      "grid_key": "ROLE_PROCESS_DETAIL",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
     }
   }
 ,  {
@@ -6135,7 +6207,7 @@
       "order_by": "01",
       "description": "description",
       "description_short": "",
-      "field": "process__description",
+      "field": "description",
       "label": "Process",
       "format": "text",
       "style_class": "",
@@ -6263,6 +6335,146 @@
       "internal_comment": "",
       "created_date": "2026-06-24 00:00+0000",
       "last_updated": "2026-06-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00802",
+    "fields": {
+      "grid_id": "008",
+      "type_id": "000",
+      "status_id": "002",
+      "order_by": "02",
+      "description": "supports create",
+      "description_short": "",
+      "field": "supports_create",
+      "label": "Create",
+      "format": "checkbox",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01101",
+    "fields": {
+      "grid_id": "011",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "process description",
+      "description_short": "",
+      "field": "role__description",
+      "label": "Role",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01102",
+    "fields": {
+      "grid_id": "011",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "role description",
+      "description_short": "",
+      "field": "process__description",
+      "label": "Process",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01103",
+    "fields": {
+      "grid_id": "011",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "can create",
+      "description_short": "",
+      "field": "can_create",
+      "label": "Create",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01104",
+    "fields": {
+      "grid_id": "011",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "can read",
+      "description_short": "",
+      "field": "can_read",
+      "label": "Read",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01105",
+    "fields": {
+      "grid_id": "011",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "05",
+      "description": "can update",
+      "description_short": "",
+      "field": "can_update",
+      "label": "Update",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01106",
+    "fields": {
+      "grid_id": "011",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "06",
+      "description": "can delte",
+      "description_short": "",
+      "field": "can_delete",
+      "label": "Delete",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
     }
   }
 ,  {
@@ -7587,7 +7799,7 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "01Q",
+    "pk": "01V",
     "fields": {
       "type_id": "021",
       "status_id": "001",
@@ -7611,7 +7823,7 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "01R",
+    "pk": "01W",
     "fields": {
       "type_id": "021",
       "status_id": "001",
@@ -7635,7 +7847,7 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "01S",
+    "pk": "01X",
     "fields": {
       "type_id": "021",
       "status_id": "001",
@@ -7659,7 +7871,7 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "01T",
+    "pk": "01Y",
     "fields": {
       "type_id": "021",
       "status_id": "001",
@@ -7683,7 +7895,7 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "01V",
+    "pk": "01Z",
     "fields": {
       "type_id": "02C",
       "status_id": "001",
@@ -7707,7 +7919,7 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "01W",
+    "pk": "020",
     "fields": {
       "type_id": "021",
       "status_id": "001",
@@ -7727,6 +7939,54 @@
       "internal_comment": "",
       "created_date": "2026-06-25 00:00+0000",
       "last_updated": "2026-06-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "021",
+    "fields": {
+      "type_id": "021",
+      "status_id": "001",
+      "code": "Form014",
+      "description": "Form014",
+      "route": "form/014",
+      "view": "Form014APIView",
+      "module_path": "apps.base.api.forms.form_014",
+      "grouping": "forms",
+      "process_key": "FORM_014",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "022",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "code": "RoleProcess",
+      "description": "Role Process Detail",
+      "route": "grid/grid011",
+      "view": "Grid011APIView",
+      "module_path": "apps.base.api.grids.grid011",
+      "grouping": "grids",
+      "process_key": "GRID_ROLE_PROCESS_DETAIL",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
     }
   }
 ,  {
@@ -9683,6 +9943,228 @@
       "data_source_key_field": "",
       "disabled_create": false,
       "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-23 00:00+0000",
+      "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01403",
+    "fields": {
+      "form_id": "014",
+      "type_id": "02V",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Can Create (POST)",
+      "name": "can_create",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01404",
+    "fields": {
+      "form_id": "014",
+      "type_id": "02V",
+      "status_id": "001",
+      "order_by": "04",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Can Read (GET)",
+      "name": "can_read",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01405",
+    "fields": {
+      "form_id": "014",
+      "type_id": "02V",
+      "status_id": "001",
+      "order_by": "05",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Can Update (PATCH)",
+      "name": "can_update",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01406",
+    "fields": {
+      "form_id": "014",
+      "type_id": "02V",
+      "status_id": "001",
+      "order_by": "06",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Can Delete (DELETE)",
+      "name": "can_delete",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01401",
+    "fields": {
+      "form_id": "014",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Role",
+      "name": "role_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "base",
+      "data_source_model_name": "Role",
+      "data_source_filter": "{ \"role_id\": \"form_instance._role_id\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01402",
+    "fields": {
+      "form_id": "014",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Process",
+      "name": "process_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Process",
+      "data_source_filter": "{ \"process_id\": \"form_instance._process_id\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
       "required_flag": "N",
       "static_flag": "Y",
       "internal_comment": "",

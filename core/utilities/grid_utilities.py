@@ -62,6 +62,8 @@ class GridUtility(object):
 
                         self.update_selected()
 
+                    self.displayed_columns = self.displayed_columns + ['pk']
+
                     self.rows = self.get_rows()
                     if self.success:
                         remove_keys = [
@@ -141,6 +143,14 @@ class GridUtility(object):
                 'format': 'checkbox',
                 'data_path': 'selected',
             })
+
+        columns.append({
+            'description': 'pk',
+            'field': 'pk',
+            'label': 'Id',
+            'format': 'text',
+            'data_path': 'pk',
+        })
 
         return columns
 

@@ -616,12 +616,12 @@ class AuthorizedAPIView(CoreAPIView):
                 self.set_message(message, http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)  # 405
 
             if self.success:
-                if process.type_id == type_constants.PROFILE_USER_REQUIRED_ONLY:
+                if process.type_id != type_constants.PROCESS_ENDPOINT_USER_REQUIRED:
                     pass
                 elif not self.user_has_access(request.user, self.process_id):
                     username = request.user.username
                     method = self.request_method
-                    message = f'User {username} is not authorized for process {method} ({self.process_id}).'
+                    message = f'User {username} is not authorized for process {process.description}. {method} ({self.process_id}).'
                     self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
         return
 

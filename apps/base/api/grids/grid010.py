@@ -41,27 +41,29 @@ class Grid010Utility(GridUtility):
 
 class Grid010APIView(GridRoleAPIView):
     process_id = process_constants.GRID_ROLE_MENU
-    grid_id = grid_constants.GRID_ROLE_MENU
+    grid_id = grid_constants.ROLE_MENU
     grid_utility_class = Grid010Utility
+    assignment_model = RoleMenu
+    assignment_field = 'menu_id'
 
-    def _post(self, request):
-        changes = request.data.get('changes', [])
-        role_id = self.params.get('roleId')
-
-        updated_count = 0
-        for change in changes:
-            menu_id = change.get('recordId')
-            selected = change.get('value')
-
-            status_id = status_constants.ACTIVE if selected else status_constants.INACTIVE
-
-            role_menu, created = RoleMenu.objects.update_or_create(
-                role_id=role_id,
-                menu_id=menu_id,
-                defaults={
-                    'status_id': status_id
-                }
-            )
-            updated_count += 1
-
-        self.set_message('Updated successfully. Records updated: ' + str(updated_count))
+    # def _post(self, request):
+    #     changes = request.data.get('changes', [])
+    #     role_id = self.params.get('roleId')
+    #
+    #     updated_count = 0
+    #     for change in changes:
+    #         menu_id = change.get('recordId')
+    #         selected = change.get('value')
+    #
+    #         status_id = status_constants.ACTIVE if selected else status_constants.INACTIVE
+    #
+    #         role_menu, created = RoleMenu.objects.update_or_create(
+    #             role_id=role_id,
+    #             menu_id=menu_id,
+    #             defaults={
+    #                 'status_id': status_id
+    #             }
+    #         )
+    #         updated_count += 1
+    #
+    #     self.set_message('Updated successfully. Records updated: ' + str(updated_count))
