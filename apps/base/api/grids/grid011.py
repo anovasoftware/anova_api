@@ -1,12 +1,13 @@
 from apps.base.api.grids.grid_role import GridRoleUtility, GridRoleAPIView
-from apps.base.models import RoleMenu
-from constants import process_constants, grid_constants, type_constants, status_constants
-from core.utilities.grid_utilities import GridUtility
+from constants import process_constants, grid_constants, type_constants
 
 
 class Grid011Utility(GridRoleUtility):
     def get_query_filter(self):
         filters = super().get_query_filter()
+        filters['process__type_id__in'] = [
+            type_constants.PROCESS_FORM,
+        ]
         return filters
 
 

@@ -5,7 +5,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "description": "not applicable",
+      "description": "Not Applicable",
       "header": "",
       "data_source_application": "",
       "data_source_model_name": "",
@@ -25,7 +25,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "login",
+      "description": "Login",
       "header": "Log in to your account",
       "data_source_application": "base",
       "data_source_model_name": "Parameter",
@@ -45,7 +45,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "create account",
+      "description": "Create Account",
       "header": "Create Account",
       "data_source_application": "base",
       "data_source_model_name": "Parameter",
@@ -65,7 +65,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "forgot password",
+      "description": "Forgot Password",
       "header": "Forgot Password",
       "data_source_application": "base",
       "data_source_model_name": "Parameter",
@@ -85,7 +85,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "user profile",
+      "description": "User Profile",
       "header": "Profile",
       "data_source_application": "base",
       "data_source_model_name": "Person",
@@ -105,7 +105,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "contact us",
+      "description": "Contact Us",
       "header": "Contact Us",
       "data_source_application": "base",
       "data_source_model_name": "Person",
@@ -125,7 +125,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "cabin category configuration",
+      "description": "Cabin Category Configuration",
       "header": "Cabin/Room Category Configuration",
       "data_source_application": "base",
       "data_source_model_name": "Category",
@@ -145,7 +145,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "user/hotel assignment",
+      "description": "User/Hotel Assignment",
       "header": "Hotel Access",
       "data_source_application": "base",
       "data_source_model_name": "User",
@@ -165,7 +165,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "user/role assignment",
+      "description": "User/Role Assignment",
       "header": "User Roles",
       "data_source_application": "base",
       "data_source_model_name": "User",
@@ -185,7 +185,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "role setup",
+      "description": "Role Setup",
       "header": "Role Setup",
       "data_source_application": "base",
       "data_source_model_name": "Role",
@@ -205,7 +205,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "floor/deck configuration",
+      "description": "Floor/Deck Configuration",
       "header": "Floor/Desck Configuration",
       "data_source_application": "res",
       "data_source_model_name": "Floor",
@@ -225,7 +225,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "hotel/ship configuration",
+      "description": "Hotel/Ship Configuration",
       "header": "Hotel/Ship Configuration",
       "data_source_application": "res",
       "data_source_model_name": "HotelExtension",
@@ -245,7 +245,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "cabin/room configuration",
+      "description": "Cabin/Room Configuration",
       "header": "Cabin/Room Configuration",
       "data_source_application": "res",
       "data_source_model_name": "Room",
@@ -265,7 +265,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "cruise setup",
+      "description": "Cruise Setup",
       "header": "Cruise",
       "data_source_application": "res",
       "data_source_model_name": "Event",
@@ -285,7 +285,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "role process setup",
+      "description": "Role Process Setup",
       "header": "Process",
       "data_source_application": "base",
       "data_source_model_name": "RoleProcess",
@@ -3974,6 +3974,31 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02W",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_process",
+      "code": "form",
+      "description": "Form",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "PROCESS_FORM",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-03 00:00+0000",
+      "last_updated": "2026-07-03 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -5560,9 +5585,9 @@
       "selectable": true,
       "data_source_application": "static",
       "data_source_model_name": "Process",
-      "order_by": "description",
+      "order_by": "form__description",
       "grouping": "Security",
-      "grid_key": "ROLE_PROCESS_PROCESS_DRIVEN",
+      "grid_key": "ROLE_PROCESS_FORM",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-18 00:00+0000",
@@ -6199,16 +6224,16 @@
   }
 ,  {
     "model": "static.GridColumn",
-    "pk": "00801",
+    "pk": "00802",
     "fields": {
       "grid_id": "008",
       "type_id": "000",
       "status_id": "001",
-      "order_by": "01",
-      "description": "description",
+      "order_by": "02",
+      "description": "user required flag",
       "description_short": "",
-      "field": "description",
-      "label": "Process",
+      "field": "user_required_flag",
+      "label": "Logged In Required",
       "format": "text",
       "style_class": "",
       "static_flag": "Y",
@@ -6339,22 +6364,22 @@
   }
 ,  {
     "model": "static.GridColumn",
-    "pk": "00802",
+    "pk": "00803",
     "fields": {
       "grid_id": "008",
       "type_id": "000",
       "status_id": "002",
-      "order_by": "02",
-      "description": "supports create",
+      "order_by": "03",
+      "description": "type",
       "description_short": "",
-      "field": "supports_create",
-      "label": "Create",
-      "format": "checkbox",
+      "field": "type__description",
+      "label": "Type",
+      "format": "text",
       "style_class": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-28 00:00+0000",
-      "last_updated": "2026-06-28 00:00+0000"  
+      "last_updated": "2026-06-29 00:00+0000"  
     }
   }
 ,  {
@@ -6387,8 +6412,8 @@
       "order_by": "02",
       "description": "role description",
       "description_short": "",
-      "field": "process__description",
-      "label": "Process",
+      "field": "process__form__description",
+      "label": "Form",
       "format": "text",
       "style_class": "",
       "static_flag": "Y",
@@ -6478,11 +6503,79 @@
     }
   }
 ,  {
+    "model": "static.GridColumn",
+    "pk": "00801",
+    "fields": {
+      "grid_id": "008",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "form",
+      "description_short": "",
+      "field": "form__description",
+      "label": "Form",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00804",
+    "fields": {
+      "grid_id": "008",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "form id",
+      "description_short": "",
+      "field": "form_id",
+      "label": "Form ID",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-06-29 00:00+0000",
+      "last_updated": "2026-06-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
+      "code": "N/A",
+      "description": "Not Applicable",
+      "route": "",
+      "view": "",
+      "module_path": "",
+      "grouping": "",
+      "process_key": "NOT_APPLICABLE",
+      "supports_create": false,
+      "supports_read": false,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-17 00:00+0000",
+      "last_updated": "2026-04-17 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Process",
     "pk": "001",
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Category",
       "description": "Category",
       "route": "table/base/category/",
@@ -6507,6 +6600,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Chart Field",
       "description": "Chart Field",
       "route": "table/base/chart_field/",
@@ -6531,6 +6626,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Company",
       "description": "Company",
       "route": "table/base/company/",
@@ -6555,6 +6652,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Email",
       "description": "Email",
       "route": "table/base/email/",
@@ -6579,6 +6678,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Hotel_type",
       "description": "Hotel_type",
       "route": "table/base/hotel_type/",
@@ -6603,6 +6704,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Item",
       "description": "Item",
       "route": "table/base/item/",
@@ -6627,6 +6730,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Person",
       "description": "Person",
       "route": "table/base/person/",
@@ -6651,6 +6756,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Pos Menu",
       "description": "Pos Menu",
       "route": "table/base/pos_menu/",
@@ -6675,6 +6782,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Pos Menu /tem",
       "description": "Pos Menu /tem",
       "route": "table/base/pos_menu_item/",
@@ -6699,6 +6808,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Event",
       "description": "Event",
       "route": "table/res/event/",
@@ -6723,6 +6834,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Guest",
       "description": "Guest",
       "route": "table/res/guest/",
@@ -6747,6 +6860,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Guest/Room",
       "description": "Guest/Room",
       "route": "table/res/guest_room/",
@@ -6771,6 +6886,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Hotel/item",
       "description": "Hotel/item",
       "route": "table/res/hotel_item/",
@@ -6795,6 +6912,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Reservation",
       "description": "Reservation",
       "route": "table/res/reservation/",
@@ -6819,6 +6938,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Room",
       "description": "Room",
       "route": "table/res/room/",
@@ -6843,6 +6964,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Transaction",
       "description": "Transaction",
       "route": "anovavms/transactions/",
@@ -6867,6 +6990,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Transaction/item",
       "description": "Transaction/item",
       "route": "table/res/transaction_item/",
@@ -6891,6 +7016,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Position",
       "description": "Posittion",
       "route": "table/base/position/",
@@ -6915,6 +7042,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Job",
       "description": "Job",
       "route": "table/base/job/",
@@ -6939,6 +7068,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Job Run",
       "description": "Job Run",
       "route": "table/base/job_run/",
@@ -6963,6 +7094,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Hotel Extension",
       "description": "Hotel Extension",
       "route": "table/res/hotel_extension/",
@@ -6987,6 +7120,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "TransactionStatus",
       "description": "Transaction Status",
       "route": "anovavms/transactions/<str:recordId>/status/",
@@ -7009,8 +7144,10 @@
     "model": "static.Process",
     "pk": "00T",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "004",
+      "user_required_flag": "Y",
       "code": "Form004",
       "description": "Form004",
       "route": "form/004",
@@ -7035,6 +7172,8 @@
     "fields": {
       "type_id": "021",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "Y",
       "code": "User",
       "description": "User",
       "route": "table/base/user/",
@@ -7059,6 +7198,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Guest Detail",
       "description": "Guest Detail",
       "route": "res/guest/<str:recordId>/",
@@ -7083,6 +7224,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Toggle Status",
       "description": "Toggle Guest Status",
       "route": "res/guests/<str:recordId>/toggleStatus/",
@@ -7105,8 +7248,10 @@
     "model": "static.Process",
     "pk": "00Y",
     "fields": {
-      "type_id": "02C",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "001",
+      "user_required_flag": "N",
       "code": "Form001",
       "description": "Form001",
       "route": "form/001",
@@ -7129,8 +7274,10 @@
     "model": "static.Process",
     "pk": "00Z",
     "fields": {
-      "type_id": "02C",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "005",
+      "user_required_flag": "N",
       "code": "Form005",
       "description": "Form005",
       "route": "form/005",
@@ -7153,8 +7300,10 @@
     "model": "static.Process",
     "pk": "010",
     "fields": {
-      "type_id": "02C",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "002",
+      "user_required_flag": "N",
       "code": "Form002",
       "description": "Form002",
       "route": "form/002",
@@ -7179,6 +7328,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "ExchageRate",
       "description": "Exchange rates",
       "route": "table/base/exchange_rate/",
@@ -7203,6 +7354,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Job2",
       "description": "Process Scheduled Jobs",
       "route": "base/job/<str:recordId>/",
@@ -7227,6 +7380,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Anova User",
       "description": "Anova Users",
       "route": "grid/grid001",
@@ -7251,6 +7406,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "GuestList",
       "description": "Guest Integration",
       "route": "integration/guests/",
@@ -7275,6 +7432,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "TransactionCreate",
       "description": "Create Transaction",
       "route": "integration/transactions/",
@@ -7299,6 +7458,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Room Categories",
       "description": "Room Categories",
       "route": "grid/grid002",
@@ -7319,34 +7480,12 @@
   }
 ,  {
     "model": "static.Process",
-    "pk": "000",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "code": "N/A",
-      "description": "Not Applicable",
-      "route": "",
-      "view": "",
-      "module_path": "",
-      "grouping": "",
-      "process_key": "NOT_APPLICABLE",
-      "supports_create": false,
-      "supports_read": false,
-      "supports_update": false,
-      "supports_delete": false,
-      "generate_doc": false,
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2026-04-17 00:00+0000",
-      "last_updated": "2026-04-17 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Process",
     "pk": "017",
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Cabins/Rooms",
       "description": "Cabins/Rooms",
       "route": "grid/grid003",
@@ -7371,6 +7510,8 @@
     "fields": {
       "type_id": "021",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "Y",
       "code": "GetUserProfile",
       "description": "Get User Profile",
       "route": "utilities/base/user/profile",
@@ -7395,6 +7536,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Cruise Manangement",
       "description": "Cruise Manangement",
       "route": "grid/grid004",
@@ -7419,6 +7562,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Positions",
       "description": "Position Management",
       "route": "grid/grid005",
@@ -7443,6 +7588,8 @@
     "fields": {
       "type_id": "021",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "Y",
       "code": "Context",
       "description": "Application Context",
       "route": "core/context/",
@@ -7467,6 +7614,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "RoleItem",
       "description": "Role Items",
       "route": "anovavms/base/roleItem/",
@@ -7491,6 +7640,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "PosMenuItemList",
       "description": "Pos Menu Item List by Role",
       "route": "integration/posMenuItems/",
@@ -7515,6 +7666,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Staged Transactions",
       "description": "Staged Transactions",
       "route": "grid/grid006",
@@ -7539,6 +7692,8 @@
     "fields": {
       "type_id": "021",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "Y",
       "code": "GangwayDashboard",
       "description": "Gangway Dashboard",
       "route": "gangway/dashboard/",
@@ -7563,6 +7718,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "UpdateAccountStatus",
       "description": "Update Account Status",
       "route": "anovavms/res/guest/status/",
@@ -7585,8 +7742,10 @@
     "model": "static.Process",
     "pk": "01K",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "006",
+      "user_required_flag": "Y",
       "code": "Form006",
       "description": "Form006",
       "route": "form/006",
@@ -7611,6 +7770,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "User2",
       "description": "Users",
       "route": "base/user/<str:recordId>/",
@@ -7633,8 +7794,10 @@
     "model": "static.Process",
     "pk": "01M",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "007",
+      "user_required_flag": "Y",
       "code": "Form007",
       "description": "Form007",
       "route": "form/007",
@@ -7657,8 +7820,10 @@
     "model": "static.Process",
     "pk": "01N",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "008",
+      "user_required_flag": "Y",
       "code": "Form008",
       "description": "Form008",
       "route": "form/008",
@@ -7681,8 +7846,10 @@
     "model": "static.Process",
     "pk": "01P",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "009",
+      "user_required_flag": "Y",
       "code": "Form009",
       "description": "Form009",
       "route": "form/009",
@@ -7707,6 +7874,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "AnovaROLE",
       "description": "Anova Roles",
       "route": "grid/grid007",
@@ -7731,6 +7900,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "RoleProcess",
       "description": "Role Processes",
       "route": "grid/grid008",
@@ -7755,6 +7926,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Floor",
       "description": "Floor/Deck",
       "route": "grid/grid009",
@@ -7779,6 +7952,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "Deck",
       "description": "Deck",
       "route": "anovavms/res/floor/",
@@ -7801,8 +7976,10 @@
     "model": "static.Process",
     "pk": "01V",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "010",
+      "user_required_flag": "Y",
       "code": "Form010",
       "description": "Form010",
       "route": "form/010",
@@ -7825,8 +8002,10 @@
     "model": "static.Process",
     "pk": "01W",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "011",
+      "user_required_flag": "Y",
       "code": "Form011",
       "description": "Form011",
       "route": "form/011",
@@ -7849,8 +8028,10 @@
     "model": "static.Process",
     "pk": "01X",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "012",
+      "user_required_flag": "Y",
       "code": "Form012",
       "description": "Form012",
       "route": "form/012",
@@ -7873,8 +8054,10 @@
     "model": "static.Process",
     "pk": "01Y",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "013",
+      "user_required_flag": "Y",
       "code": "Form013",
       "description": "Form013",
       "route": "form/013",
@@ -7899,6 +8082,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "RoleMenu",
       "description": "Role Menus",
       "route": "grid/grid010",
@@ -7923,6 +8108,8 @@
     "fields": {
       "type_id": "021",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "Y",
       "code": "Role2",
       "description": "Role",
       "route": "base/role/<str:recordId>/",
@@ -7945,8 +8132,10 @@
     "model": "static.Process",
     "pk": "021",
     "fields": {
-      "type_id": "021",
+      "type_id": "02W",
       "status_id": "001",
+      "form_id": "014",
+      "user_required_flag": "Y",
       "code": "Form014",
       "description": "Form014",
       "route": "form/014",
@@ -7971,6 +8160,8 @@
     "fields": {
       "type_id": "02C",
       "status_id": "001",
+      "form_id": "000",
+      "user_required_flag": "N",
       "code": "RoleProcess",
       "description": "Role Process Detail",
       "route": "grid/grid011",

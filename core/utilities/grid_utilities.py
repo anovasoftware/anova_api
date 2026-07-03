@@ -58,6 +58,7 @@ class GridUtility(object):
                 if self.success:
                     if self.grid.get('selectable', False):
                         self.rows_df['selected'] = False
+                        self.rows_df['selected_disabled'] = False
                         self.displayed_columns = ['selected'] + self.displayed_columns
 
                         self.update_selected()

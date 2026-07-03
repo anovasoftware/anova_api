@@ -616,7 +616,8 @@ class AuthorizedAPIView(CoreAPIView):
                 self.set_message(message, http_status_id=status_constants.HTTP_METHOD_NOT_ALLOWED)  # 405
 
             if self.success:
-                if process.type_id != type_constants.PROCESS_ENDPOINT_USER_REQUIRED:
+                # if process.type_id != type_constants.PROCESS_ENDPOINT_USER_REQUIRED:
+                if process.user_required_flag != 'Y':
                     pass
                 elif not self.user_has_access(request.user, self.process_id):
                     username = request.user.username
