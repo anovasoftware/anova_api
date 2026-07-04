@@ -314,6 +314,7 @@ class Process(BaseModel):
     type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     form               = models.ForeignKey("static.Form", on_delete=models.CASCADE, related_name='+', default='000')
+    grid               = models.ForeignKey("static.Grid", on_delete=models.CASCADE, related_name='+', default='000')
     user_required_flag = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='#')
     code               = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
     description        = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')

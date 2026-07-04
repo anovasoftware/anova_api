@@ -26,6 +26,7 @@ from core.utilities.api_docs_utilties import override_parameters, params_for
 from typing import Optional, Type as TypingType, cast
 from django.db.models import Q
 from core.utilities.data_transformation_utilities import transform_records
+from core.utilities.date_utilities import end_of_time
 
 
 class CoreAPIView(GenericAPIView):
@@ -628,30 +629,70 @@ class AuthorizedAPIView(CoreAPIView):
 
     def _load_user_access(self):
         user_id = self.access_user_id
-        user_roles = UserRole.objects.none()
-        role_processes = RoleProcess.objects.none()
 
         if not user_id:
-            pass
+            self.user_roles = UserRole.objects.none()
+            self.role_processes = RoleProcess.objects.none()
         else:
             if not self.user_roles:
-                user_roles = UserRole.objects.filter(
+                self.user_roles = UserRole.objects.filter(
                     user_id=user_id,
                     status_id=status_constants.ACTIVE,
-                    effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
-                    # ).values(
-                    #     'role_id',
-                    #     'role__description'
+                    effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT,
                 )
+
+                if not self.user_roles.filter(role_id=role_constants.ALL_USERS).exists():
+                    user_role, created = UserRole.objects.update_or_create(
+                        user_id=user_id,
+                        role_id=role_constants.ALL_USERS,
+                        defaults={
+                            'end_date': end_of_time(),
+                            'status_id': status_constants.ACTIVE,
+                            'effective_status_id': status_constants.EFFECTIVE_STATUS_CURRENT,
+                        }
+                    )
+
+                    self.user_roles = UserRole.objects.filter(
+                        user_id=user_id,
+                        status_id=status_constants.ACTIVE,
+                        effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT,
+                    )
+
             if not self.role_processes:
-                role_processes = RoleProcess.objects.filter(
-                    role__in=user_roles.values('role_id'),
+                self.role_processes = RoleProcess.objects.filter(
+                    role_id__in=self.user_roles.values_list('role_id', flat=True),
                     process__status_id=status_constants.ACTIVE,
                 )
 
-            self.user_roles = user_roles
-            self.role_processes = role_processes
-            return
+        return
+
+    # def _load_user_access(self):
+    #     user_id = self.access_user_id
+    #     user_roles = UserRole.objects.none()
+    #     role_processes = RoleProcess.objects.none()
+    #
+    #     if not user_id:
+    #         pass
+    #     else:
+    #         if not self.user_roles:
+    #             user_roles = UserRole.objects.filter(
+    #                 user_id=user_id,
+    #                 status_id=status_constants.ACTIVE,
+    #                 effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
+    #                 # ).values(
+    #                 #     'role_id',
+    #                 #     'role__description'
+    #             )
+    #         if not self.role_processes:
+    #             roles = user_roles.values('role_id')
+    #             role_processes = RoleProcess.objects.filter(
+    #                 role__in=user_roles.values('role_id'),
+    #                 process__status_id=status_constants.ACTIVE,
+    #             )
+    #
+    #         self.user_roles = user_roles
+    #         self.role_processes = role_processes
+    #         return
 
     # def _required_flag_for_method(self, request_method: str) -> str | None:
     #     method = (request_method or '').upper()

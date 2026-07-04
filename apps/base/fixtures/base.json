@@ -490,6 +490,25 @@
     }
   }
 ,  {
+    "model": "base.Role",
+    "pk": "A006",
+    "fields": {
+      "type_id": "02L",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "System Roles",
+      "code": "ALLUSERS",
+      "description": "All Users",
+      "role_key": "ALL_USERS",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-04 00:00+0000",
+      "last_updated": "2026-07-04 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.UserRole",
     "pk": "A00001",
     "fields": {
@@ -1177,6 +1196,24 @@
       "internal_comment": "",
       "created_date": "2026-04-29 00:00+0000",
       "last_updated": "2026-04-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleProcess",
+    "pk": "A00007",
+    "fields": {
+      "role_id": "A006",
+      "process_id": "00T",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-04 00:00+0000",
+      "last_updated": "2026-07-04 00:00+0000"  
     }
   }
 ,  {
