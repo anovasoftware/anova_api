@@ -2147,3 +2147,48 @@
 [2026-07-04 13:27:45,364] INFO core.services.log_service: Request completed
 [2026-07-04 13:27:45,376] INFO core.services.log_service: Request completed
 [2026-07-04 13:27:45,388] INFO core.services.log_service: Request completed
+[2026-07-05 07:20:21,541] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\models.py changed, reloading.
+[2026-07-05 08:11:22,366] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 08:11:34,740] INFO core.services.log_service: Request completed
+[2026-07-05 08:11:35,013] INFO core.services.log_service: Request completed
+[2026-07-05 08:13:14,491] INFO core.services.log_service: Request completed
+[2026-07-05 08:13:14,535] WARNING django.request: Method Not Allowed: /api/v1/base/job/A02/
+[2026-07-05 08:13:27,276] INFO core.services.log_service: Request completed
+[2026-07-05 08:13:35,934] INFO core.services.log_service: Request completed
+[2026-07-05 11:15:51,042] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\job_constants.py changed, reloading.
+[2026-07-05 11:16:00,989] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:21:54,721] INFO django.utils.autoreload: C:\Projects2\anova_api\core\services\scheduler_service.py changed, reloading.
+[2026-07-05 11:21:59,925] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:23:27,652] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\utilities\event_room_utilties.py changed, reloading.
+[2026-07-05 11:23:30,230] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:29:59,997] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\utilities\event_room_utilties.py changed, reloading.
+[2026-07-05 11:30:02,509] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:30:36,240] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:30:53,871] INFO core.services.log_service: Request completed
+[2026-07-05 11:31:04,734] INFO core.services.log_service: Request completed
+[2026-07-05 11:31:21,160] INFO core.services.log_service: Request completed
+[2026-07-05 11:32:25,000] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-05 11:32:27,260] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:32:42,643] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-05 11:32:45,572] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:34:06,971] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:34:46,939] INFO core.services.log_service: Request completed
+[2026-07-05 11:34:46,967] ERROR django.request: Internal Server Error: /api/v1/base/job/A03/
+[2026-07-05 11:35:18,680] INFO core.services.log_service: Request completed
+[2026-07-05 11:35:50,947] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\utilities\event_room_utilties.py changed, reloading.
+[2026-07-05 11:35:53,784] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:36:04,097] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:36:13,885] INFO core.services.log_service: Request completed
+[2026-07-05 11:37:55,487] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:41:08,635] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:41:52,127] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 11:50:27,936] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 12:06:10,348] INFO core.services.log_service: Request completed
+[2026-07-05 12:10:29,711] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\utilities\event_room_utilties.py changed, reloading.
+[2026-07-05 12:10:32,070] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 12:11:02,223] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-05 12:11:05,130] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-05 12:12:17,022] INFO core.services.log_service: Request completed
+[2026-07-05 12:12:32,671] INFO core.services.log_service: Request completed
+[2026-07-05 12:14:35,063] INFO core.services.log_service: Request completed
+[2026-07-05 12:14:59,548] INFO core.services.log_service: Request completed

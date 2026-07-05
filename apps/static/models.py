@@ -27,6 +27,7 @@ class Client(BaseModel):
         db_table            = 'static_client'
         verbose_name_plural = 'clients (static_client)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'client'
@@ -53,6 +54,7 @@ class Currency(BaseModel):
         db_table            = 'static_currency'
         verbose_name_plural = 'currencies (static_currency)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'currency'
@@ -81,6 +83,7 @@ class Form(BaseModel):
         db_table            = 'static_form'
         verbose_name_plural = 'forms (static_form)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'form'
@@ -108,6 +111,7 @@ class FormExtra(BaseModel):
         db_table            = 'static_form_extra'
         verbose_name_plural = 'form extras (static_form_extra)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'form_extra'
@@ -153,6 +157,7 @@ class FormField(BaseModel):
         db_table            = 'static_form_field'
         verbose_name_plural = 'form fields (static_form_field)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'form_field'
@@ -188,6 +193,7 @@ class Grid(BaseModel):
         db_table            = 'static_grid'
         verbose_name_plural = 'grids (static_grid)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'grid'
@@ -216,6 +222,7 @@ class GridColumn(BaseModel):
         db_table            = 'static_grid_column'
         verbose_name_plural = 'grid columns (static_grid_column)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'grid_column'
@@ -243,6 +250,7 @@ class Hotel(BaseModel):
         db_table            = 'static_hotel'
         verbose_name_plural = 'hotels/cruise ships (static_hotel)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'hotel'
@@ -278,6 +286,7 @@ class Menu(BaseModel):
         db_table            = 'static_menu'
         verbose_name_plural = 'menus (static_menu)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'menu'
@@ -302,6 +311,7 @@ class Page(BaseModel):
         db_table            = 'static_page'
         verbose_name_plural = 'pages (static_page)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'page'
@@ -337,6 +347,7 @@ class Process(BaseModel):
         db_table            = 'static_process'
         verbose_name_plural = 'processes (static_process)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'process'
@@ -365,6 +376,7 @@ class Status(BaseModel):
         db_table            = 'static_status'
         verbose_name_plural = 'status (static_status)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return self.status_id + '-' + self.description
@@ -393,6 +405,7 @@ class Text(BaseModel):
         db_table            = 'static_text'
         verbose_name_plural = 'freeform text including page content (static_text)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'text'
@@ -426,6 +439,7 @@ class Type(BaseModel):
         db_table            = 'static_type'
         verbose_name_plural = 'types (static_type)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return self.type_id + '-' + self.description

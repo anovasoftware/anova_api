@@ -1500,6 +1500,86 @@
     }
   }
 ,  {
+    "model": "static.Status",
+    "pk": "01S",
+    "fields": {
+      "grouping": "event_room.inventory",
+      "code": "AVAILABLE",
+      "description": "Available",
+      "status_key": "EVENT_ROOM_AVAILABLE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "group2": "",
+      "order_by": "99",
+      "css_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-05 00:00+0000",
+      "last_updated": "2026-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01T",
+    "fields": {
+      "grouping": "event_room.inventory",
+      "code": "OUT_OF_SERVICE",
+      "description": "Out of Service",
+      "status_key": "EVENT_ROOM_OUT_OF_SERVICE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "group2": "",
+      "order_by": "99",
+      "css_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-05 00:00+0000",
+      "last_updated": "2026-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01V",
+    "fields": {
+      "grouping": "event_room.inventory",
+      "code": "NOT_AVAILABLE",
+      "description": "Not Available",
+      "status_key": "EVENT_ROOM_NOT_AVAILABLE",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "group2": "",
+      "order_by": "99",
+      "css_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-05 00:00+0000",
+      "last_updated": "2026-07-05 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Status",
+    "pk": "01W",
+    "fields": {
+      "grouping": "event_room.inventory",
+      "code": "RESERVED",
+      "description": "Reserved for Operator",
+      "status_key": "EVENT_ROOM_RESERVED",
+      "status_code": 0,
+      "flag1": "",
+      "group1": "",
+      "group2": "",
+      "order_by": "99",
+      "css_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-05 00:00+0000",
+      "last_updated": "2026-07-05 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Type",
     "pk": "000",
     "fields": {
@@ -5286,7 +5366,7 @@
     "pk": "A001",
     "fields": {
       "type_id": "006",
-      "status_id": "001",
+      "status_id": "002",
       "client_id": "001",
       "code": "MEX",
       "description": "Magellan Explorer",

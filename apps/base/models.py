@@ -33,6 +33,7 @@ class Category(BaseModel):
         db_table            = 'base_category'
         verbose_name_plural = 'categories (base_category)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'category'
@@ -60,6 +61,7 @@ class ChartField(BaseModel):
         db_table            = 'base_chart_field'
         verbose_name_plural = 'Chart Fields (base_chart_field)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'chart_field'
@@ -89,6 +91,7 @@ class Company(BaseModel):
         db_table            = 'base_company'
         verbose_name_plural = 'companies (base_company)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'company'
@@ -116,6 +119,7 @@ class EmailQueue(BaseModel):
         db_table            = 'base_email_queue'
         verbose_name_plural = 'Email Queue (base_email_queue)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'email_queue'
@@ -143,6 +147,7 @@ class ExchangeRate(BaseModel):
         db_table            = 'base_exchange_rate'
         verbose_name_plural = 'exhange rates (base_exchange_rate)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'exchange_rate'
@@ -168,6 +173,7 @@ class ExternalMapping(BaseModel):
         db_table            = 'base_external_mapping'
         verbose_name_plural = 'mappings (base_external_mapping)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'external_mapping'
@@ -190,6 +196,7 @@ class HotelType(BaseModel):
         db_table            = 'base_hotel_type'
         verbose_name_plural = 'hotel types (base_hotel_type)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'hotel_type'
@@ -209,6 +216,7 @@ class Identifier(models.Model):
         db_table            = 'base_identifier'
         verbose_name_plural = 'identifiers (base_identifier)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'identifier'
@@ -238,6 +246,7 @@ class Item(BaseModel):
         db_table            = 'base_item'
         verbose_name_plural = 'items (base_item)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'item'
@@ -265,6 +274,7 @@ class Job(BaseModel):
         db_table            = 'base_job'
         verbose_name_plural = 'job definitions (base_job)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'job'
@@ -285,6 +295,7 @@ class JobExtension(BaseModel):
         db_table            = 'base_job_extension'
         verbose_name_plural = 'job definitions extension (base_job_extension)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'job_extension'
@@ -311,6 +322,7 @@ class JobRun(BaseModel):
         db_table            = 'base_job_run'
         verbose_name_plural = 'job run (base_job_run)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'job_run'
@@ -339,6 +351,7 @@ class Location(BaseModel):
         db_table            = 'base_location'
         verbose_name_plural = 'locations (ports, states, etc) (base_location)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'location'
@@ -370,6 +383,7 @@ class Log(BaseModel):
         db_table            = 'base_log'
         verbose_name_plural = 'logs (base_log)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'log'
@@ -406,6 +420,7 @@ class Parameter(BaseModel):
         db_table            = 'base_parameter'
         verbose_name_plural = 'parameters (base_parameter)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'parameter'
@@ -432,6 +447,7 @@ class Period(BaseModel):
         db_table            = 'base_period'
         verbose_name_plural = 'periods months, days (base_period)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'period'
@@ -464,6 +480,7 @@ class Person(BaseModel):
         db_table            = 'base_person'
         verbose_name_plural = 'people (base_person)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return ModelUtil.get_full_name(self.last_name, self.first_name, self.middle_name, self.salutation)
@@ -492,6 +509,7 @@ class PosMenu(BaseModel):
         db_table            = 'base_pos_menu'
         verbose_name_plural = 'Pont of Sale Menus (base_pos_menu)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'pos_menu'
@@ -515,6 +533,7 @@ class PosMenuItem(BaseModel):
         db_table            = 'base_pos_menu_item'
         verbose_name_plural = 'pos_menu/item junction (base_pos_menu_item)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'pos_menu_item'
@@ -542,6 +561,7 @@ class Position(BaseModel):
         db_table            = 'base_position'
         verbose_name_plural = 'Positions (base_position)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'position'
@@ -570,6 +590,7 @@ class Role(BaseModel):
         db_table            = 'base_role'
         verbose_name_plural = 'roles (base_role)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'role'
@@ -593,6 +614,7 @@ class RoleItem(BaseModel):
         db_table            = 'base_role_item'
         verbose_name_plural = 'role items (base_role_item)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'role_item'
@@ -618,6 +640,7 @@ class RoleMenu(BaseModel):
         db_table            = 'base_role_menu'
         verbose_name_plural = 'Role/Menu junction (base_role_menu)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'role_menu'
@@ -644,6 +667,7 @@ class RoleProcess(BaseModel):
         db_table            = 'base_role_process'
         verbose_name_plural = 'Role/Process junction (base_role_process)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'role_process'
@@ -670,6 +694,7 @@ class ServiceRequest(BaseModel):
         db_table            = 'base_service_request'
         verbose_name_plural = 'service requests (base_service_request)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'service_request'
@@ -707,6 +732,7 @@ class User(AbstractUser, BaseModel):
         db_table            = 'base_user'
         verbose_name_plural = 'users (base_user)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return self.code + ' ' + self.description
@@ -732,6 +758,7 @@ class UserHotel(BaseModel):
         db_table            = 'base_user_hotel'
         verbose_name_plural = 'user hotels junction (base_user_hotel)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'user_hotel'
@@ -758,6 +785,7 @@ class UserRole(BaseModel):
         db_table            = 'base_user_role'
         verbose_name_plural = 'user roles (base_user_role)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'user_role'
@@ -781,6 +809,7 @@ class UserVerification(BaseModel):
         db_table            = 'base_user_verification'
         verbose_name_plural = 'user verification (base_user_verification)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'user_verification'

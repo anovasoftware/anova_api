@@ -34,10 +34,38 @@ class Event(BaseModel):
         db_table            = 'res_event'
         verbose_name_plural = 'events (res_event)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'event'
 # AUTOGEN_END_Event#
+
+
+# AUTOGEN_BEGIN_EventRoom#
+class EventRoom(BaseModel):
+    event_room_id       = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='019')
+    event               = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    room                = models.ForeignKey("res.Room", on_delete=models.CASCADE, related_name='+', default='A000')
+    inventory_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    notes               = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_event_room'
+        verbose_name_plural = 'Event room inventory (res_event_room)'
+        ordering            = []
+        constraints         = [
+            models.UniqueConstraint(fields=['event', 'room'], name='unique_event_room' )
+        ]
+        
+    def __str__(self):
+        return 'event_room'
+# AUTOGEN_END_EventRoom#
 
 
 # AUTOGEN_BEGIN_Floor#
@@ -63,6 +91,7 @@ class Floor(BaseModel):
         db_table            = 'res_floor'
         verbose_name_plural = 'floors (res_floor)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'floor'
@@ -90,6 +119,7 @@ class Guest(BaseModel):
         db_table            = 'res_guest'
         verbose_name_plural = 'guests (res_guest)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'guest'
@@ -113,6 +143,7 @@ class GuestActivity(BaseModel):
         db_table            = 'res_guest_activity'
         verbose_name_plural = 'guest activities (res_guest_activity)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'guest_activity'
@@ -137,6 +168,7 @@ class GuestRoom(BaseModel):
         db_table            = 'res_guest_room'
         verbose_name_plural = 'guest rooms (res_guest_room)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'guest_room'
@@ -159,6 +191,7 @@ class HotelExtension(BaseModel):
         db_table            = 'res_hotel_extension'
         verbose_name_plural = 'hotels/cruise ships extension (res_hotel_extension)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'hotel_extension'
@@ -185,6 +218,7 @@ class HotelItem(BaseModel):
         db_table            = 'res_hotel_item'
         verbose_name_plural = 'hotel items (special items) (res_hotel_item)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'hotel_item'
@@ -210,6 +244,7 @@ class Reservation(BaseModel):
         db_table            = 'res_reservation'
         verbose_name_plural = 'reservation table (res_reservation)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'reservation'
@@ -246,6 +281,7 @@ class Room(BaseModel):
         db_table            = 'res_room'
         verbose_name_plural = 'rooms (res_room)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'room'
@@ -275,6 +311,7 @@ class Transaction(BaseModel):
         db_table            = 'res_transaction'
         verbose_name_plural = 'transactions: sales and payments (res_transaction)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'transaction'
@@ -305,6 +342,7 @@ class TransactionItem(BaseModel):
         db_table            = 'res_transaction_item'
         verbose_name_plural = 'Transaction Items (res_transaction_item)'
         ordering            = []
+        constraints         = []
         
     def __str__(self):
         return 'transaction_item'

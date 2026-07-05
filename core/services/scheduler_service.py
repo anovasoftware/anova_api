@@ -6,6 +6,7 @@ from constants import status_constants, type_constants, job_constants
 
 from apps.base.utilities.exchange_rate_utilities import  ExchangeRateService
 from apps.base.utilities.period_utilities import PeriodService
+from apps.res.utilities.event_room_utilties import EventRoomService
 
 
 class SchedulerService:
@@ -67,6 +68,7 @@ class SchedulerService:
         process_map = {
             job_constants.PERIOD_SERVICE: PeriodService,
             job_constants.EXCHANGE_RATE_SERVICE: ExchangeRateService,
+            job_constants.EVENT_ROOM_SERVICE: EventRoomService
         }
 
         service_class = process_map.get(job.job_id)

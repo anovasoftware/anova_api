@@ -250,5 +250,21 @@
       "last_updated": "2026-06-22 00:00+0000"  
     }
   }
+,  {
+    "model": "res.EventRoom",
+    "pk": "A00000",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "event_id": "A00000",
+      "room_id": "A000",
+      "inventory_status_id": "001",
+      "notes": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-05 00:00+0000",
+      "last_updated": "2026-07-05 00:00+0000"  
+    }
+  }
 
 ]

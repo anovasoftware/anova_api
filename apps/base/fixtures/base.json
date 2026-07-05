@@ -856,6 +856,25 @@
     }
   }
 ,  {
+    "model": "base.Job",
+    "pk": "A03",
+    "fields": {
+      "type_id": "024",
+      "status_id": "001",
+      "frequency_type_id": "01Z",
+      "order_by": "99",
+      "code": "EventRoomMaintenance",
+      "frequency": "#",
+      "description": "event room maintenance",
+      "grouping": "SCHEDULED",
+      "job_key": "EVENT_ROOM_SERVICE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-05 00:00+0000",
+      "last_updated": "2026-07-05 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.Category",
     "pk": "A0000",
     "fields": {
