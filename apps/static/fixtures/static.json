@@ -125,7 +125,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "Cabin Category Configuration",
+      "description": "Hotel Build: Cabin Category Configuration",
       "header": "Cabin/Room Category Configuration",
       "data_source_application": "base",
       "data_source_model_name": "Category",
@@ -205,7 +205,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "Floor/Deck Configuration",
+      "description": "Hotel Build: Floor/Deck Configuration",
       "header": "Floor/Desck Configuration",
       "data_source_application": "res",
       "data_source_model_name": "Floor",
@@ -225,7 +225,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "Hotel/Ship Configuration",
+      "description": "Hotel Build: Hotel/Ship Configuration",
       "header": "Hotel/Ship Configuration",
       "data_source_application": "res",
       "data_source_model_name": "HotelExtension",
@@ -245,7 +245,7 @@
     "fields": {
       "type_id": "602",
       "status_id": "001",
-      "description": "Cabin/Room Configuration",
+      "description": "Hotel Build: Cabin/Room Configuration",
       "header": "Cabin/Room Configuration",
       "data_source_application": "res",
       "data_source_model_name": "Room",
@@ -5407,8 +5407,8 @@
       "status_id": "001",
       "client_id": "001",
       "code": "GEM",
-      "description": "Gemini",
-      "vms_identifier": "1202",
+      "description": "Gemini - Test",
+      "vms_identifier": "",
       "grouping": "CRUISE SHIPS",
       "hotel_key": "GEMINI",
       "public_key": "K8Q9SP",
@@ -5446,7 +5446,7 @@
       "client_id": "003",
       "code": "AMH",
       "description": "Anova Marina Hotel",
-      "vms_identifier": "2002",
+      "vms_identifier": "",
       "grouping": "HOTELS",
       "hotel_key": "ANOVA_MARINA_HOTEL",
       "public_key": "ZYVQQF",
@@ -5651,7 +5651,7 @@
     "fields": {
       "type_id": "000",
       "status_id": "001",
-      "form_id": "000",
+      "form_id": "009",
       "page_id": "010",
       "description": "Roles",
       "title": "Roles",
@@ -9711,12 +9711,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00901",
+    "pk": "00902",
     "fields": {
       "form_id": "009",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "01",
+      "order_by": "02",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -9748,39 +9748,39 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00902",
+    "pk": "00903",
     "fields": {
       "form_id": "009",
-      "type_id": "00Y",
+      "type_id": "028",
       "status_id": "001",
-      "order_by": "02",
+      "order_by": "03",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
       "label": "Type",
-      "name": "type__description",
+      "name": "type_id",
       "mapping_name": "",
-      "default_value": "",
+      "default_value": "02N",
       "rows": 0,
       "min_length": 0,
       "max_length": 0,
       "data_source_key": "",
-      "data_source_application": "",
-      "data_source_model_name": "",
-      "data_source_filter": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Type",
+      "data_source_filter": "{ \"grouping\": \"base_role\"}",
       "data_source_filter_effective_status": "",
       "data_source_order": "",
-      "display_value": "",
+      "display_value": "description",
       "data_source_fields": "",
       "data_source_fstring": "",
       "data_source_key_field": "",
-      "disabled_create": false,
-      "disabled_update": false,
+      "disabled_create": true,
+      "disabled_update": true,
       "required_flag": "N",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-14 00:00+0000",
-      "last_updated": "2026-06-14 00:00+0000"  
+      "last_updated": "2026-07-06 00:00+0000"  
     }
   }
 ,  {
@@ -10817,6 +10817,43 @@
       "internal_comment": "",
       "created_date": "2026-06-23 00:00+0000",
       "last_updated": "2026-06-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00901",
+    "fields": {
+      "form_id": "009",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Hotel/Cruise Ship",
+      "name": "hotel_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Hotel",
+      "data_source_filter": "{ \"status_id\": \"001\", \"hotel_id\": \"form_instance.hotel_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
     }
   }
 ,  {

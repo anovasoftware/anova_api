@@ -28,7 +28,12 @@ def get_user_profile(user, is_logged_in=False):
     ).values_list(
         'hotel_id', flat=True
     )
-    hotels = Hotel.objects.filter(hotel_id__in=hotel_ids).order_by('description')
+    hotels = Hotel.objects.filter(
+        status_id=status_constants.ACTIVE,
+        hotel_id__in=hotel_ids
+    ).order_by(
+        'description'
+    )
 
     if hotels.exists() and user.last_hotel_id == hotel_constants.NOT_APPLICABLE:
         user.last_hotel_id = hotels.first().hotel_id
