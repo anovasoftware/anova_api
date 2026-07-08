@@ -1,6 +1,7 @@
 import json
 from typing import Optional, Type as TypingType, cast
 from django.db.models import Model
+from typing import cast
 
 from core.api_views.table_api_views import PublicTableAPIView
 from core.utilities.api_utilities import model_to_field_dict
@@ -74,7 +75,8 @@ class FormAPIView(CoreAPIView):
     def __init__(self):
         super().__init__()
 
-        self.base_model: Optional[Model] = None
+        # self.base_model: Optional[Model] = None
+        self.base_model: type[models.Model]
         self.record_id = None
         self.key_field = 'pk'
         self.record = {}
@@ -308,13 +310,18 @@ class FormAPIView(CoreAPIView):
         return data_options_selected
 
     def pre_post(self, request):
-        # self.record = request.data
         self.record = self.request_data[0]
-        print(self.record)
 
     def _post(self, request):
-        model = self.base_model
-        self.save_record(model)
+        # model = self.base_model
+        # self.save_record(model)
+        self.save_record(cast(type[models.Model], self.base_model))
+
+    def pre_patch(self, request, *args, **kwargs):
+        self.record = self.request_data[0]
+
+    def _patch(self, request, *args, **kwargs):
+        self.patch_record(cast(type[models.Model], self.base_model))
 
     def split_record(self, record):
         record_dict = {}
@@ -357,6 +364,32 @@ class FormAPIView(CoreAPIView):
                 self.data['record_id'] = self.record_id
         except Exception as e:
             self.add_message(f'error saving record: {str(e)}.', http_status_id='BAD_REQUEST')
+
+    def patch_record(self, model: type[models.Model], record=None):
+        record = record or self.record
+        record_id = record["recordId"]
+        key_field = self.key_field
+
+        try:
+            instance = model.objects.get(**{key_field: record_id})
+            instance.updated_by_user_id = self.access_user_id
+
+            patchable_fields = list(self.form_fields.filter(disabled_update=False).values_list("name", flat=True))
+
+            for field in patchable_fields:
+                if field in record:
+                    setattr(instance, field, record[field])
+
+            instance.save()
+
+            self.record_id = instance.pk
+            self.data["record_id"] = self.record_id
+        except model.DoesNotExist:
+            message = f'record not found: {record_id}.'
+            self.add_message(message, http_status_id=status_constants.HTTP_NOT_FOUND)
+        except Exception as e:
+            message = f'error patching record: {str(e)}.'
+            self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
 
     def build_response(self):
         response = super().build_response()

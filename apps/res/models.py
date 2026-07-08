@@ -41,15 +41,40 @@ class Event(BaseModel):
 # AUTOGEN_END_Event#
 
 
+# AUTOGEN_BEGIN_EventCategoryPrice#
+class EventCategoryPrice(BaseModel):
+    event_category_price_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                    = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status                  = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    event                   = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    category                = models.ForeignKey("base.Category", on_delete=models.CASCADE, related_name='+', default='A0000')
+    currency                = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    price                   = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    static_flag             = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment        = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date            = models.DateTimeField(auto_now_add=True)
+    last_updated            = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_event_category_price'
+        verbose_name_plural = 'event category prices (res_event_category_price)'
+        ordering            = []
+        constraints         = []
+        
+    def __str__(self):
+        return 'event_category_price'
+# AUTOGEN_END_EventCategoryPrice#
+
+
 # AUTOGEN_BEGIN_EventRoom#
 class EventRoom(BaseModel):
     event_room_id       = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
-    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='019')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     event               = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
     room                = models.ForeignKey("res.Room", on_delete=models.CASCADE, related_name='+', default='A000')
     inventory_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
-    notes               = models.TextField(blank=False, unique=False, primary_key=False, default='')
+    notes               = models.TextField(blank=True , unique=False, primary_key=False, default='')
     static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
     created_date        = models.DateTimeField(auto_now_add=True)
@@ -66,6 +91,32 @@ class EventRoom(BaseModel):
     def __str__(self):
         return 'event_room'
 # AUTOGEN_END_EventRoom#
+
+
+# AUTOGEN_BEGIN_EventRoomAssignment#
+class EventRoomAssignment(BaseModel):
+    event_room_assignment_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    type                     = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status                   = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    event_room               = models.ForeignKey("res.EventRoom", on_delete=models.CASCADE, related_name='+', default='A00000')
+    reservation              = models.ForeignKey("res.Reservation", on_delete=models.CASCADE, related_name='+', default='A00000')
+    assignment_start_date    = models.DateField(default=today)
+    assignment_end_date      = models.DateField(default=today)
+    notes                    = models.TextField(blank=True , unique=False, primary_key=False, default='')
+    static_flag              = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment         = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date             = models.DateTimeField(auto_now_add=True)
+    last_updated             = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_event_room_assignment'
+        verbose_name_plural = 'event room assignments (res_event_room_assignment)'
+        ordering            = []
+        constraints         = []
+        
+    def __str__(self):
+        return 'event_room_assignment'
+# AUTOGEN_END_EventRoomAssignment#
 
 
 # AUTOGEN_BEGIN_Floor#
@@ -182,6 +233,7 @@ class HotelExtension(BaseModel):
     type               = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status             = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     current_event      = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    currency           = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='99')
     static_flag        = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment   = models.TextField(blank=True , unique=False, primary_key=False)
     created_date       = models.DateTimeField(auto_now_add=True)

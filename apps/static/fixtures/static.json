@@ -4104,6 +4104,306 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "02Y",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "RESERVATION",
+      "description": "Reservation",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_RESERVATION",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "02Z",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "GROUP_HOLD",
+      "description": "Group Hold",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_GROUP_HOLD",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "030",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "CREW",
+      "description": "Crew",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_CREW",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "031",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "MAINTENANCE",
+      "description": "Maintenance",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_MAINTENANCE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "032",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "HOUSE_USE",
+      "description": "House Use",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_HOUSE_USE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "033",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "OPERATOR_USE",
+      "description": "Operator Use",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_OPERATOR_USE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "034",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "BLOCK",
+      "description": "Block",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_BLOCK",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "035",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_room_assignment",
+      "code": "CHARTER",
+      "description": "Charter",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ASSIGNMENT_CHARTER",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "036",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price",
+      "code": "STANDARD",
+      "description": "Standard",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_STANDARD",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "037",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price",
+      "code": "SINGLE_SUPPLEMENT",
+      "description": "Single Supplement",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_SINGLE_SUPPLEMENT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "038",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price",
+      "code": "CHILD_FARE",
+      "description": "Child Fare",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_CHILD_FARE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "039",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price",
+      "code": "PROMO_FARE",
+      "description": "Promo Fare",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_PROMO_FARE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -9693,7 +9993,7 @@
       "data_source_key": "ROLES",
       "data_source_application": "base",
       "data_source_model_name": "Role",
-      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"form_instance.type_id\"}",
+      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"form_instance.type_id\", \"hotel_id\": \"form_instance.hotel_id\" }",
       "data_source_filter_effective_status": "",
       "data_source_order": "description",
       "display_value": "description",
@@ -10854,6 +11154,80 @@
       "internal_comment": "",
       "created_date": "2026-07-06 00:00+0000",
       "last_updated": "2026-07-06 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01103",
+    "fields": {
+      "form_id": "011",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Current Cruise",
+      "name": "current_event_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "res",
+      "data_source_model_name": "Event",
+      "data_source_filter": "{ \"status_id\": \"001\", \"hotel_id\": \"form_instance.hotel_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-08 00:00+0000",
+      "last_updated": "2026-07-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01102",
+    "fields": {
+      "form_id": "011",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Currency",
+      "name": "currency_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Currency",
+      "data_source_filter": "{ \"status_id\": \"001\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-08 00:00+0000",
+      "last_updated": "2026-07-08 00:00+0000"  
     }
   }
 ,  {

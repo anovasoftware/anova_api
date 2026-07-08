@@ -29,6 +29,7 @@ class Form008APIView(FormUserIdxAPIView):
                     status_id=status_constants.ACTIVE,
                     role__type_id=self.type_id,
                     effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT,
+                    role__hotel_id=self.hotel_id,
                     # hotel__type_id=type_constants.HOTEL_CRUISE_SHIP
                 # ).exclude(
                 #     role__type_id=type_constants.NOT_APPLICABLE
