@@ -1,5 +1,6 @@
 # AUTO GENERATED
 #  Global
 CABIN_CONFIGURATION = '006'                                      # hotel build: cabin category configurationCONTACT_US = '005'                                               # contact usCREATE_ACCOUNT = '002'                                           # create accountFLOOR = '010'                                                    # hotel build: floor/deck configurationFORGOT_PASSWORD = '003'                                          # forgot passwordHOTEL = '011'                                                    # hotel build: hotel/ship configurationLOGIN = '001'                                                    # loginNOT_APPLICABLE = '000'                                           # not applicablePROFILE = '004'                                                  # user profileROOM = '012'                                                     # hotel build: cabin/room configurationUSER_HOTEL = '007'                                               # user/hotel assignmentUSER_ROLE = '008'                                                # user/role assignment#  Res
-EVENT_CRUISE = '013'                                             # cruise setup#  Security
+EVENT_CRUISE = '013'                                             # cruise setup#  Reservations
+COMPANY_TRAVEL_AGENCY = '015'                                    # travel agency#  Security
 ROLE = '009'                                                     # role setupROLE_PROCESS = '014'                                             # role process setup

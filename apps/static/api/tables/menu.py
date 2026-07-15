@@ -94,7 +94,9 @@ class PublicMenuAPIView(PublicTableAPIView):
                         .replace('<<PROPERTY>>', self.hotel.type.description)
                         .replace('<<ROOM>>', room_or_cabin)
                     )
-
+            if record['parent_menu_id'] in ['001']:
+                print(record['description'])
+        print(self.records)
         # for record in self.records:
         #     for mask_field in mask_fields:
         #         if mask_field in record:

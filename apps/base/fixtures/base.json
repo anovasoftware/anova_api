@@ -727,18 +727,26 @@
       "client_id": "000",
       "type_id": "000",
       "status_id": "001",
+      "currency_id": "00",
       "code": "N/A",
       "description": "Not Applicable",
+      "description_long": "Not Applicable",
       "description_short": "Not Applicable",
+      "phone": "",
+      "email": "",
+      "website": 0,
       "start_date": "1900-01-01 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
       "effective_status_id": "021",
-      "grouping": "Static Companies",
+      "tax_identifier": "",
+      "external_identifier": "",
+      "grouping": "ALL",
       "company_key": "NOT_APPLICABLE",
+      "notes": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-21 00:00+0000",
-      "last_updated": "2025-03-21 00:00+0000"  
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {
@@ -748,18 +756,26 @@
       "client_id": "000",
       "type_id": "000",
       "status_id": "001",
+      "currency_id": "00",
       "code": "TBA",
       "description": "To Be Announced",
+      "description_long": "To Be Announced",
       "description_short": "To Be Announced",
+      "phone": "",
+      "email": "",
+      "website": 0,
       "start_date": "1900-01-01 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
       "effective_status_id": "021",
-      "grouping": "Static Companies",
+      "tax_identifier": "",
+      "external_identifier": "",
+      "grouping": "",
       "company_key": "TO_BE_ANNOUNCED",
+      "notes": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-21 00:00+0000",
-      "last_updated": "2025-03-21 00:00+0000"  
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {

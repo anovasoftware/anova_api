@@ -2486,3 +2486,553 @@
 [2026-07-08 08:23:14,572] INFO core.services.log_service: Request completed
 [2026-07-08 08:23:14,695] INFO core.services.log_service: Request completed
 [2026-07-08 08:23:14,801] INFO core.services.log_service: Request completed
+[2026-07-14 06:48:40,741] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-14 06:49:12,022] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:12,328] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:14,858] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:31,880] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:32,043] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:56,015] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:56,225] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:56,309] INFO core.services.log_service: Request completed
+[2026-07-14 06:49:56,402] INFO core.services.log_service: Request completed
+[2026-07-14 15:52:43,108] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:00,034] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:00,170] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:00,290] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:08,986] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:09,003] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:09,282] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:09,283] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:25,192] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:25,226] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:35,369] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:35,381] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:35,434] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:35,436] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:47,155] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:47,395] INFO core.services.log_service: Request completed
+[2026-07-14 15:53:58,743] INFO core.services.log_service: Request completed
+[2026-07-14 15:54:25,902] INFO core.services.log_service: Request completed
+[2026-07-14 15:54:30,179] INFO core.services.log_service: Request completed
+[2026-07-15 06:59:15,282] INFO core.services.log_service: Request completed
+[2026-07-15 08:21:02,976] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 08:21:50,474] INFO core.services.log_service: Request completed
+[2026-07-15 08:21:50,532] ERROR django.request: Internal Server Error: /api/v1/public/table/static/menu/
+[2026-07-15 08:22:31,193] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 08:22:51,610] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 08:23:00,486] INFO core.services.log_service: Request completed
+[2026-07-15 08:23:00,768] INFO core.services.log_service: Request completed
+[2026-07-15 08:24:24,509] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 08:24:34,379] INFO core.services.log_service: Request completed
+[2026-07-15 08:24:34,542] INFO core.services.log_service: Request completed
+[2026-07-15 08:27:00,290] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 08:27:25,501] INFO core.services.log_service: Request completed
+[2026-07-15 08:27:25,659] INFO core.services.log_service: Request completed
+[2026-07-15 08:27:44,726] INFO core.services.log_service: Request completed
+[2026-07-15 08:28:48,086] INFO core.services.log_service: Request completed
+[2026-07-15 08:29:21,600] INFO core.services.log_service: Request completed
+[2026-07-15 08:37:40,675] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-15 08:37:43,823] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 08:38:26,627] INFO core.services.log_service: Request completed
+[2026-07-15 08:38:26,835] INFO core.services.log_service: Request completed
+[2026-07-15 08:38:36,133] INFO core.services.log_service: Request completed
+[2026-07-15 08:38:36,249] INFO core.services.log_service: Request completed
+[2026-07-15 08:38:57,381] INFO core.services.log_service: Request completed
+[2026-07-15 08:38:57,386] INFO core.services.log_service: Request completed
+[2026-07-15 09:03:40,262] INFO core.services.log_service: Request completed
+[2026-07-15 09:03:40,475] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:23,533] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:30,992] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:31,054] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:31,330] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:31,523] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:31,720] INFO core.services.log_service: Request completed
+[2026-07-15 09:04:34,565] INFO core.services.log_service: Request completed
+[2026-07-15 09:05:48,427] INFO core.services.log_service: Request completed
+[2026-07-15 09:05:55,839] INFO core.services.log_service: Request completed
+[2026-07-15 09:05:55,920] INFO core.services.log_service: Request completed
+[2026-07-15 09:05:56,082] INFO core.services.log_service: Request completed
+[2026-07-15 09:05:56,179] INFO core.services.log_service: Request completed
+[2026-07-15 09:51:42,543] INFO core.services.log_service: Request completed
+[2026-07-15 09:51:42,583] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-07-15 09:51:42,641] INFO core.services.log_service: Request completed
+[2026-07-15 09:51:42,673] ERROR django.request: Internal Server Error: /api/v1/gangway/dashboard/
+[2026-07-15 10:18:25,657] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\models.py changed, reloading.
+[2026-07-15 10:18:31,163] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 10:25:48,052] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\models.py changed, reloading.
+[2026-07-15 10:25:50,158] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 10:43:02,948] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 10:45:48,607] INFO core.services.log_service: Request completed
+[2026-07-15 10:45:53,780] INFO core.services.log_service: Request completed
+[2026-07-15 10:45:53,974] INFO core.services.log_service: Request completed
+[2026-07-15 10:45:54,034] INFO core.services.log_service: Request completed
+[2026-07-15 10:45:54,145] INFO core.services.log_service: Request completed
+[2026-07-15 10:45:54,253] INFO core.services.log_service: Request completed
+[2026-07-15 10:53:41,658] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-07-15 10:53:44,659] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 10:59:09,526] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\grid_constants.py changed, reloading.
+[2026-07-15 10:59:12,499] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:00:06,951] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\api\grids\grid014.py changed, reloading.
+[2026-07-15 11:00:09,616] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:00:18,424] INFO core.services.log_service: Request completed
+[2026-07-15 11:00:18,800] INFO core.services.log_service: Request completed
+[2026-07-15 11:00:18,937] INFO core.services.log_service: Request completed
+[2026-07-15 11:00:19,092] INFO core.services.log_service: Request completed
+[2026-07-15 11:00:36,301] INFO core.services.log_service: Request completed
+[2026-07-15 11:06:30,033] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:09:37,584] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:09:56,354] INFO core.services.log_service: Request completed
+[2026-07-15 11:10:32,617] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:10:47,877] INFO core.services.log_service: Request completed
+[2026-07-15 11:10:47,910] ERROR django.request: Internal Server Error: /api/v1/grid/grid014
+[2026-07-15 11:11:28,771] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:11:46,531] INFO core.services.log_service: Request completed
+[2026-07-15 11:11:46,556] ERROR django.request: Internal Server Error: /api/v1/grid/grid014
+[2026-07-15 11:12:39,946] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:12:50,546] INFO core.services.log_service: Request completed
+[2026-07-15 11:13:03,671] INFO core.services.log_service: Request completed
+[2026-07-15 11:13:03,675] INFO core.services.log_service: Request completed
+[2026-07-15 11:13:03,872] INFO core.services.log_service: Request completed
+[2026-07-15 11:13:22,489] INFO core.services.log_service: Request completed
+[2026-07-15 11:13:39,766] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:13:53,918] INFO core.services.log_service: Request completed
+[2026-07-15 11:14:00,826] INFO core.services.log_service: Request completed
+[2026-07-15 11:14:00,864] INFO core.services.log_service: Request completed
+[2026-07-15 11:14:01,112] INFO core.services.log_service: Request completed
+[2026-07-15 11:14:17,114] INFO core.services.log_service: Request completed
+[2026-07-15 11:19:09,537] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-07-15 11:19:12,608] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:21:56,728] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:22:04,383] INFO core.services.log_service: Request completed
+[2026-07-15 11:22:07,422] INFO core.services.log_service: Request completed
+[2026-07-15 11:25:36,800] INFO django.utils.autoreload: C:\Projects2\anova_api\core\api_views\core_api.py changed, reloading.
+[2026-07-15 11:25:39,122] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:25:54,758] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-15 11:25:57,203] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:26:12,149] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:26:15,374] INFO core.services.log_service: Request completed
+[2026-07-15 11:26:15,391] ERROR core.services.log_service: Failed to save Log record: Object of type Hotel is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:26:15,907] ERROR django.request: Internal Server Error: /api/v1/table/base/user/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:26:30,385] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-15 11:26:32,570] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:26:53,389] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:26:59,548] INFO core.services.log_service: Request completed
+[2026-07-15 11:26:59,563] ERROR core.services.log_service: Failed to save Log record: Object of type Hotel is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:26:59,965] ERROR django.request: Internal Server Error: /api/v1/table/base/user/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:27:18,665] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:27:25,797] INFO core.services.log_service: Request completed
+[2026-07-15 11:27:25,812] ERROR core.services.log_service: Failed to save Log record: Object of type Hotel is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:27:26,186] ERROR django.request: Internal Server Error: /api/v1/table/base/user/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:28:10,275] INFO core.services.log_service: Request completed
+[2026-07-15 11:28:10,290] ERROR core.services.log_service: Failed to save Log record: Object of type Hotel is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:28:10,665] ERROR django.request: Internal Server Error: /api/v1/table/base/user/
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Hotel is not JSON serializable
+[2026-07-15 11:28:28,261] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:28:46,423] INFO core.services.log_service: Request completed
+[2026-07-15 11:28:47,959] INFO core.services.log_service: Request completed
+[2026-07-15 11:28:53,235] INFO core.services.log_service: Request completed
+[2026-07-15 11:28:53,355] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:06,716] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:15,141] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:15,152] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:15,362] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:22,813] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:29,712] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:29,713] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:29,905] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:35,165] INFO core.services.log_service: Request completed
+[2026-07-15 11:29:37,152] INFO core.services.log_service: Request completed
+[2026-07-15 11:31:00,560] INFO core.services.log_service: Request completed
+[2026-07-15 11:33:20,568] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:33:31,984] INFO core.services.log_service: Request completed
+[2026-07-15 11:35:19,861] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-15 11:35:21,921] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:36:33,393] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:36:46,713] INFO core.services.log_service: Request completed
+[2026-07-15 11:37:19,752] INFO core.services.log_service: Request completed
+[2026-07-15 11:37:42,839] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-15 11:38:02,540] INFO core.services.log_service: Request completed

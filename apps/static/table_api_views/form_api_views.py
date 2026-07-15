@@ -191,6 +191,9 @@ class FormAPIView(CoreAPIView):
             #     else:
             #         value = Decimal(eval(dv))
 
+            if value == '<<CLIENTID>>':
+                value = self.client_id
+
             record[name] = value
 
         record['pk'] = 'new'

@@ -207,6 +207,7 @@ class CoreAPIView(GenericAPIView):
         self.client_ip = '000.000.000.000'
         self.request_data = None
         self.request_data_required = False
+        self.client_id = None
         self.hotel_id = None
         self.hotel: Optional[Hotel] = None
         self.role_id = None
@@ -317,7 +318,7 @@ class CoreAPIView(GenericAPIView):
         if required or param_exists:
             self.params[key] = ret_value
 
-        print(f'{key} = {ret_value}')
+        # print(f'{key} = {ret_value}')
         return ret_value
 
     def load_request(self, request, *args, **kwargs):
@@ -387,6 +388,10 @@ class CoreAPIView(GenericAPIView):
 
             if self.hotel:
                 self.hotel_id = self.hotel.hotel_id
+                self.client_id = self.hotel.client_id
+                # self.params['hotel'] = self.hotel
+                self.params['clientId'] = self.hotel.client_id
+
             else:
                 self.add_message('hotel not found', http_status_id=status_constants.HTTP_NOT_FOUND)
 

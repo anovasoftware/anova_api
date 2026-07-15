@@ -300,6 +300,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "015",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "Travel Agency",
+      "header": "Travel Agency",
+      "data_source_application": "base",
+      "data_source_model_name": "Company",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Reservations",
+      "form_key": "COMPANY_TRAVEL_AGENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -5287,6 +5307,33 @@
     }
   }
 ,  {
+    "model": "static.Menu",
+    "pk": "00Y",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00V",
+      "page_id": "009",
+      "grid_id": "014",
+      "hotel_type_id": "000",
+      "order_by": "10.10",
+      "description": "Agency Management",
+      "title": "Agency Management",
+      "sub_title": "Agency and agencies settings and configuration",
+      "breadcrumb_name": "Agency",
+      "route": "",
+      "params": "",
+      "icon": "people",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "AGENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Page",
     "pk": "001",
     "fields": {
@@ -6159,6 +6206,33 @@
       "internal_comment": "",
       "created_date": "2026-07-03 00:00+0000",
       "last_updated": "2026-07-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "014",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "015",
+      "page_id": "000",
+      "description": "Travel Agencies",
+      "title": "Travel Agencies",
+      "display_as": "description",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "selectable": false,
+      "data_source_application": "base",
+      "data_source_model_name": "Company",
+      "order_by": "description",
+      "grouping": "Reservations",
+      "grid_key": "COMPANY_TRAVEL_AGENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {
@@ -7179,6 +7253,26 @@
       "internal_comment": "",
       "created_date": "2026-07-03 00:00+0000",
       "last_updated": "2026-07-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01401",
+    "fields": {
+      "grid_id": "014",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {
@@ -8934,6 +9028,60 @@
       "internal_comment": "",
       "created_date": "2026-07-03 00:00+0000",
       "last_updated": "2026-07-03 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "025",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "014",
+      "user_required_flag": "Y",
+      "code": "TravelAgency",
+      "description": "Travel Agencies",
+      "route": "grid/grid014",
+      "view": "Grid014APIView",
+      "module_path": "apps.base.api.grids.grid014",
+      "grouping": "grids",
+      "process_key": "GRID_COMPANY_TRAVEL_AGENCY",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "026",
+    "fields": {
+      "type_id": "02W",
+      "status_id": "001",
+      "form_id": "015",
+      "grid_id": "000",
+      "user_required_flag": "Y",
+      "code": "Form015",
+      "description": "Form015",
+      "route": "form/015",
+      "view": "Form015APIView",
+      "module_path": "apps.base.api.forms.form_015",
+      "grouping": "forms",
+      "process_key": "FORM_015",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {
@@ -11228,6 +11376,80 @@
       "internal_comment": "",
       "created_date": "2026-07-08 00:00+0000",
       "last_updated": "2026-07-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01502",
+    "fields": {
+      "form_id": "015",
+      "type_id": "00Y",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Description",
+      "name": "description",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01501",
+    "fields": {
+      "form_id": "015",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Client",
+      "name": "client_id",
+      "mapping_name": "",
+      "default_value": "<<CLIENTID>>",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Client",
+      "data_source_filter": "{ \"status_id\": \"001\", \"client_id\": \"form_instance.client_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {
