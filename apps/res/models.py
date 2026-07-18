@@ -8,6 +8,29 @@ from core.utilities.database_utilties import ModelUtilities as ModelUtil
 # from .models_extended import *
 
 
+# AUTOGEN_BEGIN_ClientExtension#
+class ClientExtension(BaseModel):
+    client_extension_id = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='000')
+    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='99')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_client_extension'
+        verbose_name_plural = 'client extension (res_client_extension)'
+        ordering            = []
+        constraints         = []
+        
+    def __str__(self):
+        return 'client_extension'
+# AUTOGEN_END_ClientExtension#
+
+
 # AUTOGEN_BEGIN_Event#
 class Event(BaseModel):
     event_id            = models.CharField(max_length=  6, blank=False, unique=False, primary_key=True )

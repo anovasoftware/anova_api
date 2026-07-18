@@ -80,6 +80,7 @@ class PublicMenuAPIView(PublicTableAPIView):
         for record in self.records:
             params = record.get('params')
             params = params.replace('<<HOTELID>>', self.hotel.hotel_id)
+
             try:
                 params = {} if not params else json.loads(params)
             except json.JSONDecodeError:
@@ -90,6 +91,7 @@ class PublicMenuAPIView(PublicTableAPIView):
                 if isinstance(value, str):
                     record[key] = (
                         value
+                        .replace('<<CLIENT>>', self.hotel.client.description)
                         .replace('<<HOTEL>>', self.hotel.description)
                         .replace('<<PROPERTY>>', self.hotel.type.description)
                         .replace('<<ROOM>>', room_or_cabin)

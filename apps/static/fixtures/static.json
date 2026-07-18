@@ -320,6 +320,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "016",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "Client Configuration",
+      "header": "Client Configuration",
+      "data_source_application": "res",
+      "data_source_model_name": "ClientExtension",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Global",
+      "form_key": "CLIENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-16 00:00+0000",
+      "last_updated": "2026-07-16 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -4776,10 +4796,10 @@
       "page_id": "000",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "30.20",
+      "order_by": "30.30",
       "description": "Hotel Administration",
       "title": "<<HOTEL>> Administration",
-      "sub_title": "Security settings and configuration",
+      "sub_title": "Property settings and configuration",
       "breadcrumb_name": "Hotel",
       "route": "",
       "params": "",
@@ -4803,7 +4823,7 @@
       "page_id": "007",
       "grid_id": "002",
       "hotel_type_id": "000",
-      "order_by": "30.20.10.10",
+      "order_by": "30.30.10.10",
       "description": "Room Categories",
       "title": "<<ROOM>> Categories",
       "sub_title": "Category Setup",
@@ -4830,7 +4850,7 @@
       "page_id": "007",
       "grid_id": "003",
       "hotel_type_id": "000",
-      "order_by": "30.20.10.20",
+      "order_by": "30.30.10.20",
       "description": "Rooms",
       "title": "<<ROOM>>s",
       "sub_title": "<<ROOM>> Setup",
@@ -4857,7 +4877,7 @@
       "page_id": "007",
       "grid_id": "004",
       "hotel_type_id": "006",
-      "order_by": "30.20.10",
+      "order_by": "30.30.20",
       "description": "Cruise Management",
       "title": "Cruise Management",
       "sub_title": "Cruise setup , configuration and pricing",
@@ -5154,7 +5174,7 @@
       "page_id": "009",
       "grid_id": "001",
       "hotel_type_id": "000",
-      "order_by": "30.20.30",
+      "order_by": "30.30.30",
       "description": "User Management",
       "title": "User Management",
       "sub_title": "User security settings",
@@ -5181,7 +5201,7 @@
       "page_id": "009",
       "grid_id": "007",
       "hotel_type_id": "000",
-      "order_by": "30.20.40",
+      "order_by": "30.30.40",
       "description": "Role Management",
       "title": "Role Management",
       "sub_title": "Roles",
@@ -5262,10 +5282,10 @@
       "page_id": "011",
       "grid_id": "000",
       "hotel_type_id": "000",
-      "order_by": "30.20.20",
+      "order_by": "30.30.10",
       "description": "Property Setup",
       "title": "<<PROPERTY>> Setup",
-      "sub_title": "Property Setup",
+      "sub_title": "Property setup and configuration",
       "breadcrumb_name": "Setup",
       "route": "",
       "params": "",
@@ -5331,6 +5351,60 @@
       "internal_comment": "",
       "created_date": "2026-07-15 00:00+0000",
       "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "00Z",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "005",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "30.20",
+      "description": "Client Administration",
+      "title": "<<CLIENT>> Administration",
+      "sub_title": "Client settings and configuration",
+      "breadcrumb_name": "Client",
+      "route": "",
+      "params": "",
+      "icon": "settings",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "DATABASE_CLIENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-16 00:00+0000",
+      "last_updated": "2026-07-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "020",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00Z",
+      "page_id": "012",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "30.20.10",
+      "description": "Client Setup",
+      "title": "Setup and Configuration",
+      "sub_title": "Client setup and configuration",
+      "breadcrumb_name": "Client Setup",
+      "route": "",
+      "params": "",
+      "icon": "business",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "CLIENT_SETUP",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-16 00:00+0000",
+      "last_updated": "2026-07-16 00:00+0000"  
     }
   }
 ,  {
@@ -5523,6 +5597,22 @@
       "internal_comment": "",
       "created_date": "2026-06-21 00:00+0000",
       "last_updated": "2026-06-21 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "012",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Client",
+      "description": "Client Setup",
+      "grouping": "Client",
+      "page_key": "CLIENT_SETUP",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-16 00:00+0000",
+      "last_updated": "2026-07-16 00:00+0000"  
     }
   }
 ,  {
@@ -9085,6 +9175,33 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "027",
+    "fields": {
+      "type_id": "02W",
+      "status_id": "001",
+      "form_id": "016",
+      "grid_id": "000",
+      "user_required_flag": "Y",
+      "code": "Form016",
+      "description": "Form016",
+      "route": "form/016",
+      "view": "Form016APIView",
+      "module_path": "apps.res.api.forms.form_016",
+      "grouping": "forms",
+      "process_key": "FORM_016",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-16 00:00+0000",
+      "last_updated": "2026-07-16 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -11380,12 +11497,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "01502",
+    "pk": "01504",
     "fields": {
       "form_id": "015",
       "type_id": "00Y",
       "status_id": "001",
-      "order_by": "02",
+      "order_by": "04",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -11445,6 +11562,80 @@
       "data_source_key_field": "",
       "disabled_create": true,
       "disabled_update": true,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01502",
+    "fields": {
+      "form_id": "015",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Company Type",
+      "name": "type_id",
+      "mapping_name": "",
+      "default_value": "023",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Type",
+      "data_source_filter": "{ \"type_id\": \"023\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01503",
+    "fields": {
+      "form_id": "015",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Preferred Currency",
+      "name": "currency_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Currency",
+      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"027\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
       "required_flag": "Y",
       "static_flag": "Y",
       "internal_comment": "",
