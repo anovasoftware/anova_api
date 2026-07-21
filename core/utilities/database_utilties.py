@@ -57,5 +57,10 @@ def get_active_dict(model: type[models.Model], record0: dict, base_fields: bool 
 class ModelUtilities:
     @staticmethod
     def get_full_name(first, middle, last, salutation):
-        full_name = f'{last}, {first}' + ' '.join(p.strip() for p in [middle, salutation] if p)
+        full_name = f'{last}, {first}'
+        suffix = ' '.join(p.strip() for p in [middle, salutation] if p)
+
+        if suffix:
+            full_name += f' {suffix}'
+
         return full_name

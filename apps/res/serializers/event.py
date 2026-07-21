@@ -9,7 +9,7 @@ class EventSerializer(serializers.ModelSerializer):
             'event_id',
             'code',
             'description',
-            'start_date',
-            'end_date',
+            'event_start_date',
+            'event_end_date',
             'status_id',
         )

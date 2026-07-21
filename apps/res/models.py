@@ -13,7 +13,7 @@ class ClientExtension(BaseModel):
     client_extension_id = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name="+", default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='001')
-    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='000')
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='client_extensions', default='000')
     currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='99')
     static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
     internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)

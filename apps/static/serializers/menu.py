@@ -7,5 +7,6 @@ class MenuSerializer(serializers.ModelSerializer):
         fields = (
             'menu_id',
             'description',
-            'hotel_required'
+            'hotel_required',
+            'order_by'
         )

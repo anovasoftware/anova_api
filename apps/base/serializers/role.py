@@ -6,5 +6,6 @@ class RoleSerializer(serializers.ModelSerializer):
         model = Role
         fields = (
             'role_id',
-            'description'
+            'description',
+            'hotel_id',
         )
