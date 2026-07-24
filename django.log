@@ -3613,3 +3613,274 @@ TypeError: Object of type Hotel is not JSON serializable
 [2026-07-20 20:27:10,115] INFO core.services.log_service: Request completed
 [2026-07-20 20:32:58,388] INFO core.services.log_service: Request completed
 [2026-07-20 20:33:21,706] INFO core.services.log_service: Request completed
+[2026-07-21 11:42:03,767] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\models.py changed, reloading.
+[2026-07-21 11:42:12,110] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-21 11:46:25,013] INFO core.services.log_service: Request completed
+[2026-07-21 11:46:29,111] INFO core.services.log_service: Request completed
+[2026-07-21 11:46:29,247] INFO core.services.log_service: Request completed
+[2026-07-21 11:46:38,276] INFO core.services.log_service: Request completed
+[2026-07-21 11:46:42,075] INFO core.services.log_service: Request completed
+[2026-07-22 09:42:22,412] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 09:43:32,683] INFO core.services.log_service: Request completed
+[2026-07-22 09:43:32,715] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-07-22 09:43:32,740] INFO core.services.log_service: Request completed
+[2026-07-22 09:43:32,750] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-07-22 09:43:32,775] INFO core.services.log_service: Request completed
+[2026-07-22 09:43:32,786] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-07-22 09:43:40,229] INFO core.services.log_service: Request completed
+[2026-07-22 09:43:55,023] INFO core.services.log_service: Request completed
+[2026-07-22 09:43:55,088] INFO core.services.log_service: Request completed
+[2026-07-22 09:43:55,191] INFO core.services.log_service: Request completed
+[2026-07-22 09:45:02,203] INFO core.services.log_service: Request completed
+[2026-07-22 09:46:54,438] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:11,658] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-22 09:47:13,192] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 09:47:28,461] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:32,119] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:46,602] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:46,611] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:46,694] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:46,695] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:57,654] INFO core.services.log_service: Request completed
+[2026-07-22 09:47:59,260] INFO core.services.log_service: Request completed
+[2026-07-22 09:48:04,447] INFO core.services.log_service: Request completed
+[2026-07-22 09:48:07,392] INFO core.services.log_service: Request completed
+[2026-07-22 09:48:07,492] INFO core.services.log_service: Request completed
+[2026-07-22 09:48:07,500] INFO core.services.log_service: Request completed
+[2026-07-22 09:48:07,500] INFO core.services.log_service: Request completed
+[2026-07-22 09:48:07,502] INFO core.services.log_service: Request completed
+[2026-07-22 09:53:15,404] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 09:53:16,788] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 09:56:04,102] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 09:56:05,320] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:01:46,292] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 10:01:47,804] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:44:43,464] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 10:44:44,987] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:45:37,005] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\models.py changed, reloading.
+[2026-07-22 10:45:38,345] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:45:59,644] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\currency_constants.py changed, reloading.
+[2026-07-22 10:46:01,142] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:47:12,740] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 10:47:13,908] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:48:08,096] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 10:48:09,386] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 10:56:05,312] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\job_constants.py changed, reloading.
+[2026-07-22 10:56:06,666] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:00:53,274] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:01:07,436] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\static\utilities\client_utilities.py changed, reloading.
+[2026-07-22 11:01:08,615] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:02:21,053] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-22 11:02:22,185] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:04:14,617] INFO core.services.log_service: Request completed
+[2026-07-22 11:04:14,620] WARNING django.request: Method Not Allowed: /api/v1/base/job/ALL/
+[2026-07-22 11:04:23,579] INFO core.services.log_service: Request completed
+[2026-07-22 11:04:23,586] ERROR django.request: Internal Server Error: /api/v1/base/job/ALL/
+[2026-07-22 11:04:53,753] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:05:04,053] INFO core.services.log_service: Request completed
+[2026-07-22 11:05:04,060] ERROR django.request: Internal Server Error: /api/v1/base/job/ALL/
+[2026-07-22 11:05:24,904] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:07:57,057] INFO core.services.log_service: Request completed
+[2026-07-22 11:09:37,714] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-07-22 11:09:40,573] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:10:27,142] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:12:26,847] INFO core.services.log_service: Request completed
+[2026-07-22 11:12:49,005] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-22 11:13:24,006] INFO core.services.log_service: Request completed
+[2026-07-22 11:15:41,476] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-23 06:45:11,821] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-23 06:56:53,069] INFO core.services.log_service: Request completed
+[2026-07-23 06:56:53,318] INFO core.services.log_service: Request completed
+[2026-07-23 06:56:54,032] INFO core.services.log_service: Request completed
+[2026-07-23 06:56:57,588] INFO core.services.log_service: Request completed
+[2026-07-23 06:56:59,117] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:03,943] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:09,558] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:14,347] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:20,087] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:20,359] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:20,871] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:21,184] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:21,442] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:25,638] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:30,383] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:30,741] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:30,956] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:31,861] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:32,197] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:37,297] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:37,489] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:37,751] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:38,212] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:38,460] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:49,088] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:52,575] INFO core.services.log_service: Request completed
+[2026-07-23 06:57:57,323] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:03,298] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:08,395] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:14,452] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:16,371] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:18,463] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:28,584] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:39,013] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:42,686] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:47,508] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:49,012] INFO core.services.log_service: Request completed
+[2026-07-23 06:58:49,023] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 06:59:09,879] INFO core.services.log_service: Request completed
+[2026-07-23 06:59:09,886] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 06:59:31,292] INFO core.services.log_service: Request completed
+[2026-07-23 06:59:31,298] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 06:59:52,342] INFO core.services.log_service: Request completed
+[2026-07-23 07:00:02,725] INFO core.services.log_service: Request completed
+[2026-07-23 07:00:09,026] INFO core.services.log_service: Request completed
+[2026-07-23 07:00:10,329] INFO core.services.log_service: Request completed
+[2026-07-23 07:00:10,338] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:00:31,836] INFO core.services.log_service: Request completed
+[2026-07-23 07:00:31,843] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:00:52,702] INFO core.services.log_service: Request completed
+[2026-07-23 07:00:52,710] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:01:14,303] INFO core.services.log_service: Request completed
+[2026-07-23 07:01:14,327] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:01:47,110] INFO core.services.log_service: Request completed
+[2026-07-23 07:01:57,496] INFO core.services.log_service: Request completed
+[2026-07-23 07:01:58,799] INFO core.services.log_service: Request completed
+[2026-07-23 07:01:58,809] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:02:20,372] INFO core.services.log_service: Request completed
+[2026-07-23 07:02:20,379] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:02:41,325] INFO core.services.log_service: Request completed
+[2026-07-23 07:02:41,332] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:03:02,721] INFO core.services.log_service: Request completed
+[2026-07-23 07:03:02,728] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:03:34,048] INFO core.services.log_service: Request completed
+[2026-07-23 07:03:44,428] INFO core.services.log_service: Request completed
+[2026-07-23 07:03:45,633] INFO core.services.log_service: Request completed
+[2026-07-23 07:03:45,638] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:04:07,075] INFO core.services.log_service: Request completed
+[2026-07-23 07:04:07,083] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:04:27,986] INFO core.services.log_service: Request completed
+[2026-07-23 07:04:27,995] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:04:49,426] INFO core.services.log_service: Request completed
+[2026-07-23 07:04:49,434] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:05:20,872] INFO core.services.log_service: Request completed
+[2026-07-23 07:05:31,321] INFO core.services.log_service: Request completed
+[2026-07-23 07:05:32,719] INFO core.services.log_service: Request completed
+[2026-07-23 07:05:32,728] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:05:54,197] INFO core.services.log_service: Request completed
+[2026-07-23 07:05:54,205] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:06:15,049] INFO core.services.log_service: Request completed
+[2026-07-23 07:06:15,057] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:06:36,569] INFO core.services.log_service: Request completed
+[2026-07-23 07:06:36,575] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:07:07,817] INFO core.services.log_service: Request completed
+[2026-07-23 07:07:18,210] INFO core.services.log_service: Request completed
+[2026-07-23 07:07:19,407] INFO core.services.log_service: Request completed
+[2026-07-23 07:07:19,414] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:07:40,921] INFO core.services.log_service: Request completed
+[2026-07-23 07:07:40,929] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:08:01,743] INFO core.services.log_service: Request completed
+[2026-07-23 07:08:01,754] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:08:23,223] INFO core.services.log_service: Request completed
+[2026-07-23 07:08:23,231] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:08:54,337] INFO core.services.log_service: Request completed
+[2026-07-23 07:09:04,820] INFO core.services.log_service: Request completed
+[2026-07-23 07:09:06,166] INFO core.services.log_service: Request completed
+[2026-07-23 07:09:06,174] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:09:27,585] INFO core.services.log_service: Request completed
+[2026-07-23 07:09:27,592] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:09:48,426] INFO core.services.log_service: Request completed
+[2026-07-23 07:09:48,436] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:10:10,079] INFO core.services.log_service: Request completed
+[2026-07-23 07:10:10,087] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:10:41,161] INFO core.services.log_service: Request completed
+[2026-07-23 07:10:51,537] INFO core.services.log_service: Request completed
+[2026-07-23 07:10:52,794] INFO core.services.log_service: Request completed
+[2026-07-23 07:10:52,801] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:11:14,219] INFO core.services.log_service: Request completed
+[2026-07-23 07:11:14,227] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:11:35,169] INFO core.services.log_service: Request completed
+[2026-07-23 07:11:35,178] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:11:56,581] INFO core.services.log_service: Request completed
+[2026-07-23 07:11:56,589] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:12:21,926] INFO core.services.log_service: Request completed
+[2026-07-23 07:12:32,304] INFO core.services.log_service: Request completed
+[2026-07-23 07:12:33,561] INFO core.services.log_service: Request completed
+[2026-07-23 07:12:33,569] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:12:55,009] INFO core.services.log_service: Request completed
+[2026-07-23 07:12:55,016] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:13:15,848] INFO core.services.log_service: Request completed
+[2026-07-23 07:13:15,855] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:13:37,405] INFO core.services.log_service: Request completed
+[2026-07-23 07:13:37,416] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:13:57,712] INFO core.services.log_service: Request completed
+[2026-07-23 07:14:08,281] INFO core.services.log_service: Request completed
+[2026-07-23 07:14:09,547] INFO core.services.log_service: Request completed
+[2026-07-23 07:14:09,556] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:14:31,078] INFO core.services.log_service: Request completed
+[2026-07-23 07:14:31,086] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:14:51,895] INFO core.services.log_service: Request completed
+[2026-07-23 07:14:51,903] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:15:13,400] INFO core.services.log_service: Request completed
+[2026-07-23 07:15:13,408] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:15:33,684] INFO core.services.log_service: Request completed
+[2026-07-23 07:15:44,304] INFO core.services.log_service: Request completed
+[2026-07-23 07:15:45,532] INFO core.services.log_service: Request completed
+[2026-07-23 07:15:45,540] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:16:07,061] INFO core.services.log_service: Request completed
+[2026-07-23 07:16:07,071] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:16:27,917] INFO core.services.log_service: Request completed
+[2026-07-23 07:16:27,925] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:16:49,357] INFO core.services.log_service: Request completed
+[2026-07-23 07:16:49,366] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:17:09,671] INFO core.services.log_service: Request completed
+[2026-07-23 07:17:20,257] INFO core.services.log_service: Request completed
+[2026-07-23 07:17:21,500] INFO core.services.log_service: Request completed
+[2026-07-23 07:17:21,508] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:17:43,080] INFO core.services.log_service: Request completed
+[2026-07-23 07:17:43,087] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:18:03,934] INFO core.services.log_service: Request completed
+[2026-07-23 07:18:03,941] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:18:25,422] INFO core.services.log_service: Request completed
+[2026-07-23 07:18:25,430] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:18:45,748] INFO core.services.log_service: Request completed
+[2026-07-23 07:18:56,332] INFO core.services.log_service: Request completed
+[2026-07-23 07:18:57,516] INFO core.services.log_service: Request completed
+[2026-07-23 07:18:57,523] WARNING django.request: Bad Request: /api/v1/table/res/reservation/
+[2026-07-23 07:19:19,004] INFO core.services.log_service: Request completed
+[2026-07-23 07:19:19,013] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:19:39,804] INFO core.services.log_service: Request completed
+[2026-07-23 07:19:39,812] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-07-23 07:20:01,381] INFO core.services.log_service: Request completed
+[2026-07-23 07:20:01,391] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-07-23 07:20:21,655] INFO core.services.log_service: Request completed
+[2026-07-24 16:33:55,317] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-24 16:34:44,502] INFO core.services.log_service: Request completed
+[2026-07-24 16:34:44,688] INFO core.services.log_service: Request completed
+[2026-07-24 16:34:44,715] INFO core.services.log_service: Request completed
+[2026-07-24 16:34:47,717] INFO core.services.log_service: Request completed
+[2026-07-24 16:34:50,162] INFO core.services.log_service: Request completed
+[2026-07-24 16:34:50,291] INFO core.services.log_service: Request completed
+[2026-07-24 16:34:54,852] INFO core.services.log_service: Request completed
+[2026-07-24 16:35:06,258] INFO core.services.log_service: Request completed
+[2026-07-24 16:35:08,346] INFO core.services.log_service: Request completed
+[2026-07-24 16:35:08,554] INFO core.services.log_service: Request completed
+[2026-07-24 16:35:08,555] INFO core.services.log_service: Request completed
+[2026-07-24 16:35:08,742] INFO core.services.log_service: Request completed
+[2026-07-24 16:35:08,787] INFO core.services.log_service: Request completed
+[2026-07-24 16:44:26,817] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-07-24 16:44:30,796] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-24 16:54:14,390] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-24 16:54:54,171] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\api\forms\form_017.py changed, reloading.
+[2026-07-24 16:54:56,929] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-07-24 16:55:24,948] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:25,141] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:29,158] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:33,846] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:34,140] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:34,168] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:34,435] INFO core.services.log_service: Request completed
+[2026-07-24 16:55:34,459] INFO core.services.log_service: Request completed
+[2026-07-24 16:58:21,583] INFO core.services.log_service: Request completed
+[2026-07-24 16:58:21,610] INFO core.services.log_service: Request completed
+[2026-07-24 16:58:21,722] INFO core.services.log_service: Request completed
+[2026-07-24 16:58:25,166] INFO core.services.log_service: Request completed

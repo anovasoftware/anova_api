@@ -1,4 +1,4 @@
 # AUTO GENERATED
 #  ALL
-NA = '00'                                                        # not applicableTBA = '99'                                                       # to be announced#  real currency
-CAD = '04'                                                       # canadian dollaryCLP = '05'                                                       # chilian pesoEUR = '03'                                                       # euroGBP = '02'                                                       # british poundTRY = '06'                                                       # turkish liraUSD = '01'                                                       # us dollar
+NOT_APPLICABLE = '00'                                            # not applicableTO_BE_ANNOUNCED = '99'                                           # to be announced#  real currency
+CAD = '04'                                                       # canadian dollarCLP = '05'                                                       # chilian pesoEUR = '03'                                                       # euroGBP = '02'                                                       # british poundTRY = '06'                                                       # turkish liraUSD = '01'                                                       # us dollar

@@ -340,6 +340,26 @@
     }
   }
 ,  {
+    "model": "static.Form",
+    "pk": "017",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "Client Currencies",
+      "header": "Client Currencies",
+      "data_source_application": "static",
+      "data_source_model_name": "Client",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Res",
+      "form_key": "CLIENT_CURRENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-24 00:00+0000",
+      "last_updated": "2026-07-24 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Status",
     "pk": "000",
     "fields": {
@@ -5625,7 +5645,7 @@
       "symbol": "",
       "description": "Not Applicable",
       "order_by": "99",
-      "currency_key": "NA",
+      "currency_key": "NOT_APPLICABLE",
       "grouping": "ALL",
       "static_flag": "Y",
       "internal_comment": "",
@@ -5642,7 +5662,7 @@
       "code": "USD",
       "symbol": "$",
       "description": "US Dollar",
-      "order_by": "99",
+      "order_by": "01",
       "currency_key": "USD",
       "grouping": "real currency",
       "static_flag": "Y",
@@ -5660,7 +5680,7 @@
       "code": "GBP",
       "symbol": "£",
       "description": "British Pound",
-      "order_by": "99",
+      "order_by": "03",
       "currency_key": "GBP",
       "grouping": "real currency",
       "static_flag": "Y",
@@ -5678,27 +5698,9 @@
       "code": "EUR",
       "symbol": "€",
       "description": "Euro",
-      "order_by": "99",
+      "order_by": "02",
       "currency_key": "EUR",
       "grouping": "real currency",
-      "static_flag": "Y",
-      "internal_comment": "",
-      "created_date": "2025-03-29 00:00+0000",
-      "last_updated": "2025-03-29 00:00+0000"  
-    }
-  }
-,  {
-    "model": "static.Currency",
-    "pk": "99",
-    "fields": {
-      "type_id": "000",
-      "status_id": "001",
-      "code": "TBA",
-      "symbol": "",
-      "description": "To Be Announced",
-      "order_by": "99",
-      "currency_key": "TBA",
-      "grouping": "ALL",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-03-29 00:00+0000",
@@ -5713,7 +5715,7 @@
       "status_id": "001",
       "code": "CAD",
       "symbol": "$",
-      "description": "Canadian Dollary",
+      "description": "Canadian Dollar",
       "order_by": "99",
       "currency_key": "CAD",
       "grouping": "real currency",
@@ -5757,6 +5759,24 @@
       "internal_comment": "",
       "created_date": "2026-03-26 00:00+0000",
       "last_updated": "2026-03-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Currency",
+    "pk": "99",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "TBA",
+      "symbol": "",
+      "description": "To Be Announced",
+      "order_by": "99",
+      "currency_key": "TO_BE_ANNOUNCED",
+      "grouping": "ALL",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2025-03-29 00:00+0000",
+      "last_updated": "2025-03-29 00:00+0000"  
     }
   }
 ,  {
@@ -9202,6 +9222,33 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "028",
+    "fields": {
+      "type_id": "02W",
+      "status_id": "001",
+      "form_id": "017",
+      "grid_id": "000",
+      "user_required_flag": "Y",
+      "code": "Form017",
+      "description": "Form017",
+      "route": "form/017",
+      "view": "Form017APIView",
+      "module_path": "apps.base.api.forms.form_017",
+      "grouping": "forms",
+      "process_key": "FORM_017",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-24 00:00+0000",
+      "last_updated": "2026-07-24 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -11691,7 +11738,7 @@
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
-      "label": "Currency",
+      "label": "Home Currency",
       "name": "currency_id",
       "mapping_name": "",
       "default_value": "",
@@ -11715,6 +11762,43 @@
       "internal_comment": "",
       "created_date": "2026-07-08 00:00+0000",
       "last_updated": "2026-07-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01701",
+    "fields": {
+      "form_id": "017",
+      "type_id": "02K",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Selected Cuurencies",
+      "name": "selected_currencies",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "CURRENCIES",
+      "data_source_application": "static",
+      "data_source_model_name": "Currency",
+      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"127\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "order_by, description",
+      "display_value": "description",
+      "data_source_fields": "description",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-24 00:00+0000",
+      "last_updated": "2026-07-24 00:00+0000"  
     }
   }
 ,  {

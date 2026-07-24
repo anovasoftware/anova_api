@@ -2,6 +2,7 @@ from datetime import timedelta
 from typing import Optional
 from django.utils import timezone
 from apps.base.models import Job, JobExtension
+from apps.static.utilities.client_utilities import ClientService
 from constants import status_constants, type_constants, job_constants
 
 from apps.base.utilities.exchange_rate_utilities import  ExchangeRateService
@@ -68,7 +69,8 @@ class SchedulerService:
         process_map = {
             job_constants.PERIOD_SERVICE: PeriodService,
             job_constants.EXCHANGE_RATE_SERVICE: ExchangeRateService,
-            job_constants.EVENT_ROOM_SERVICE: EventRoomService
+            job_constants.EVENT_ROOM_SERVICE: EventRoomService,
+            job_constants.CLIENT_SERVICE: ClientService
         }
 
         service_class = process_map.get(job.job_id)

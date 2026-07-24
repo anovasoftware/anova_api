@@ -68,6 +68,34 @@ class ChartField(BaseModel):
 # AUTOGEN_END_ChartField#
 
 
+# AUTOGEN_BEGIN_ClientCurrency#
+class ClientCurrency(BaseModel):
+    client_currency_id  = models.CharField(max_length=  4, blank=False, unique=False, primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='000')
+    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_client_currency'
+        verbose_name_plural = 'client/currencies (base_client_currency)'
+        ordering            = []
+        constraints         = [
+            models.UniqueConstraint(fields=['client', 'currency'], name='unique_client_currency')
+        ]
+        
+    def __str__(self):
+        return 'client_currency'
+# AUTOGEN_END_ClientCurrency#
+
+
 # AUTOGEN_BEGIN_Company#
 class Company(BaseModel):
     company_id          = models.CharField(max_length=  5, blank=False, unique=True , primary_key=True )

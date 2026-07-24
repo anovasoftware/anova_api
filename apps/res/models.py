@@ -64,6 +64,34 @@ class Event(BaseModel):
 # AUTOGEN_END_Event#
 
 
+# AUTOGEN_BEGIN_EventCurrency#
+class EventCurrency(BaseModel):
+    event_currency_id   = models.CharField(max_length=  5, blank=False, unique=False, primary_key=True )
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    event               = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A00000')
+    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    start_date          = models.DateTimeField(default=beginning_of_time)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_event__currency'
+        verbose_name_plural = 'event/currencies (res_event__currency)'
+        ordering            = []
+        constraints         = [
+            models.UniqueConstraint(fields=['event', 'currency'], name='unique_event_currency')
+        ]
+        
+    def __str__(self):
+        return 'event__currency'
+# AUTOGEN_END_EventCurrency#
+
+
 # AUTOGEN_BEGIN_EventCategoryPrice#
 class EventCategoryPrice(BaseModel):
     event_category_price_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
