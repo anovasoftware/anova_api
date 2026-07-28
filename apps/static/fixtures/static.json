@@ -5416,7 +5416,7 @@
       "sub_title": "Client setup and configuration",
       "breadcrumb_name": "Client Setup",
       "route": "",
-      "params": "",
+      "params": "{ \"pk\": \"<<CLIENTID>>\" }",
       "icon": "business",
       "hotel_required": true,
       "grouping": "Navigation",
@@ -6343,6 +6343,33 @@
       "internal_comment": "",
       "created_date": "2026-07-15 00:00+0000",
       "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "015",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Client Currencies",
+      "title": "Client Currencies",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "selectable": true,
+      "data_source_application": "static",
+      "data_source_model_name": "Currency",
+      "order_by": "order_by, description",
+      "grouping": "Reservations",
+      "grid_key": "CLIENT_CURRENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-28 00:00+0000",
+      "last_updated": "2026-06-28 00:00+0000"  
     }
   }
 ,  {
@@ -7383,6 +7410,26 @@
       "internal_comment": "",
       "created_date": "2026-07-15 00:00+0000",
       "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01501",
+    "fields": {
+      "grid_id": "015",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "currency",
+      "description_short": "",
+      "field": "description",
+      "label": "Currency",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-28 00:00+0000",
+      "last_updated": "2026-07-28 00:00+0000"  
     }
   }
 ,  {
@@ -9246,6 +9293,60 @@
       "internal_comment": "",
       "created_date": "2026-07-24 00:00+0000",
       "last_updated": "2026-07-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "029",
+    "fields": {
+      "type_id": "02C",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "000",
+      "user_required_flag": "Y",
+      "code": "Client",
+      "description": "Clients",
+      "route": "base/client/<str:recordId>/",
+      "view": "ClientAPIView",
+      "module_path": "apps.base.api.tables.client",
+      "grouping": "views",
+      "process_key": "BASE_CLIENT",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-25 00:00+0000",
+      "last_updated": "2026-07-25 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02B",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "008",
+      "user_required_flag": "Y",
+      "code": "ClientCurrency",
+      "description": "Client Currencies",
+      "route": "grid/grid015",
+      "view": "Grid015APIView",
+      "module_path": "apps.base.api.grids.grid015",
+      "grouping": "grids",
+      "process_key": "GRID_CLIENT_CURRENCY",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-28 00:00+0000",
+      "last_updated": "2026-07-28 00:00+0000"  
     }
   }
 ,  {

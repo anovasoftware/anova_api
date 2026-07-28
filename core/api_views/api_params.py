@@ -91,6 +91,16 @@ COMMON_PARAMS = {
         cast=_to_money,
         description='Amount.',
     ),
+    'clientId': ParamSpec(
+        name='clientId',
+        dest='client_id',
+        kind='either',
+        cast=_to_str,
+        description='Client id for the request.',
+        # required_get=True,
+        # required_post=True,
+        # required_patch=True,
+    ),
     'debugFlag': ParamSpec(
         name='debugFlag',
         dest='debug_flag',

@@ -84,4 +84,64 @@ class HotelGridAPIView(AuthorizedGridAPIView):
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
 
+# class GridSelectAPIView(AuthorizedGridAPIView):
+#     assignment_model = None
+#     assignment_field = None
+#     param_field = None
+#
+#
+#     def _post(self, request):
+#         changes = request.data.get('changes', [])
+#         role_id = self.params.get(self.param_field)
+#
+#         updated_count = 0
+#
+#         for change in changes:
+#             record_id = change.get('recordId')
+#             selected = change.get('value')
+#
+#             status_id = status_constants.ACTIVE if selected else status_constants.INACTIVE
+#
+#             self.assignment_model.objects.update_or_create(
+#                 role_id=role_id,
+#                 **{self.assignment_field: record_id},
+#                 defaults={'status_id': status_id}
+#             )
+#
+#             updated_count += 1
+#
+#         self.set_message(f'Updated successfully. Records updated: {updated_count}')
+class GridSelectAPIView(AuthorizedGridAPIView):
+    assignment_model = None
+    assignment_lookup_field = None      # e.g. 'role_id'
+    assignment_record_field = None      # e.g. 'process_id'
+    param_field = None                  # e.g. 'roleIid'
 
+    def _post(self, request):
+        changes = request.data.get('changes', [])
+        lookup_value = self.params.get(self.param_field)
+
+        updated_count = 0
+
+        for change in changes:
+            record_id = change.get('recordId')
+            selected = change.get('value')
+
+            status_id = status_constants.ACTIVE if selected else status_constants.INACTIVE
+
+            lookup = {
+                self.assignment_lookup_field: lookup_value,
+                self.assignment_record_field: record_id,
+            }
+
+            self.assignment_model.objects.update_or_create(
+                **lookup,
+                defaults={
+                    'status_id': status_id,
+                }
+            )
+
+            updated_count += 1
+
+        self.set_message(f'Updated successfully. Records updated: {updated_count}'
+        )

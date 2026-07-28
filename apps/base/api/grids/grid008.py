@@ -42,8 +42,9 @@ class Grid008APIView(GridRoleAPIView):
     process_id = process_constants.GRID_ROLE_PROCESS
     grid_id = grid_constants.ROLE_PROCESS_FORM
     grid_utility_class = Grid008Utility
+
     assignment_model = RoleProcess
-    assignment_field = 'process_id'
+    assignment_record_field = 'process_id'
 
 
 

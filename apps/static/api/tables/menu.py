@@ -80,6 +80,7 @@ class PublicMenuAPIView(PublicTableAPIView):
         for record in self.records:
             params = record.get('params')
             params = params.replace('<<HOTELID>>', self.hotel.hotel_id)
+            params = params.replace('<<CLIENTID>>', self.client_id)
 
             try:
                 params = {} if not params else json.loads(params)
