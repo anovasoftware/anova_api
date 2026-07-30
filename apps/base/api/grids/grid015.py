@@ -50,7 +50,8 @@ class Grid015APIView(GridSelectAPIView):
     grid_id = grid_constants.CLIENT_CURRENCY
     grid_utility_class = Grid015Utility
 
-    assignment_model = ClientCurrency
-    assignment_lookup_field = 'currency_id'
-    assignment_record_field = 'currency_id'
     param_field = 'clientId'
+    assignment_model = ClientCurrency
+    assignment_key_field1 = 'client_id'
+    assignment_key_field2 = 'currency_id'
+

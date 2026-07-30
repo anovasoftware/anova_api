@@ -43,7 +43,8 @@ class Grid010APIView(GridRoleAPIView):
     process_id = process_constants.GRID_ROLE_MENU
     grid_id = grid_constants.ROLE_MENU
     grid_utility_class = Grid010Utility
+
     assignment_model = RoleMenu
-    assignment_record_field = 'menu_id'
+    assignment_key_field2 = 'menu_id'
 
 

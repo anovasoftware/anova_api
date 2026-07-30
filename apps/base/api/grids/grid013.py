@@ -1,5 +1,6 @@
-from apps.base.api.grids.grid_role import GridRoleUtility, GridRoleAPIView
+from apps.base.api.grids.grid_role import GridRoleUtility
 from constants import process_constants, grid_constants, type_constants
+from core.api_views.grid_api import AuthorizedGridAPIView
 
 
 class Grid013Utility(GridRoleUtility):
@@ -11,7 +12,7 @@ class Grid013Utility(GridRoleUtility):
         return filters
 
 
-class Grid013APIView(GridRoleAPIView):
+class Grid013APIView(AuthorizedGridAPIView):
     process_id = process_constants.GRID_ROLE_PROCESS_DETAIL_GRID
     grid_id = grid_constants.ROLE_PROCESS_DETAIL_GRID
     grid_utility_class = Grid013Utility

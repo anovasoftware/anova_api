@@ -112,30 +112,26 @@ class HotelGridAPIView(AuthorizedGridAPIView):
 #
 #         self.set_message(f'Updated successfully. Records updated: {updated_count}')
 class GridSelectAPIView(AuthorizedGridAPIView):
+    param_field = None                # e.g. 'roleId'
     assignment_model = None
-    assignment_lookup_field = None      # e.g. 'role_id'
-    assignment_record_field = None      # e.g. 'process_id'
-    param_field = None                  # e.g. 'roleIid'
+    assignment_key_field1 = None      # e.g. 'role_id'
+    assignment_key_field2 = None      # e.g. 'process_id'
+
 
     def _post(self, request):
         changes = request.data.get('changes', [])
-        lookup_value = self.params.get(self.param_field)
+        key_field1_value = self.params.get(self.param_field)
 
         updated_count = 0
 
         for change in changes:
             record_id = change.get('recordId')
             selected = change.get('value')
-
             status_id = status_constants.ACTIVE if selected else status_constants.INACTIVE
-
-            lookup = {
-                self.assignment_lookup_field: lookup_value,
-                self.assignment_record_field: record_id,
-            }
-
+            key_fields = self.get_key_fields(key_field1_value=key_field1_value, key_field2_value=record_id)
+            print(self.grid_id, self.assignment_model, key_fields)
             self.assignment_model.objects.update_or_create(
-                **lookup,
+                **key_fields,
                 defaults={
                     'status_id': status_id,
                 }
@@ -145,3 +141,11 @@ class GridSelectAPIView(AuthorizedGridAPIView):
 
         self.set_message(f'Updated successfully. Records updated: {updated_count}'
         )
+
+    def get_key_fields(self, key_field1_value=None, key_field2_value=None):
+        key_fields = {
+            self.assignment_key_field1: key_field1_value,
+            self.assignment_key_field2: key_field2_value,
+        }
+
+        return key_fields

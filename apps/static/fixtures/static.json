@@ -4820,7 +4820,7 @@
       "description": "Hotel Administration",
       "title": "<<HOTEL>> Administration",
       "sub_title": "Property settings and configuration",
-      "breadcrumb_name": "Hotel",
+      "breadcrumb_name": "Hotel/Ship",
       "route": "",
       "params": "",
       "icon": "settings",
@@ -4892,7 +4892,7 @@
     "pk": "00F",
     "fields": {
       "type_id": "02B",
-      "status_id": "001",
+      "status_id": "002",
       "parent_menu_id": "009",
       "page_id": "007",
       "grid_id": "004",
@@ -4907,7 +4907,7 @@
       "icon": "directions_boat",
       "hotel_required": true,
       "grouping": "Navigation",
-      "menu_key": "EVENT_CRUISE",
+      "menu_key": "EVENT_CRUISE_OLD",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-23 00:00+0000",
@@ -5356,8 +5356,8 @@
       "page_id": "009",
       "grid_id": "014",
       "hotel_type_id": "000",
-      "order_by": "10.10",
-      "description": "Agency Management",
+      "order_by": "10.30",
+      "description": "Agencies",
       "title": "Agency Management",
       "sub_title": "Agency and agencies settings and configuration",
       "breadcrumb_name": "Agency",
@@ -5425,6 +5425,114 @@
       "internal_comment": "",
       "created_date": "2026-07-16 00:00+0000",
       "last_updated": "2026-07-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "021",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00V",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "10.10",
+      "description": "Cruise Management",
+      "title": "Cruise Management",
+      "sub_title": "Cruise setup, pricing configuration",
+      "breadcrumb_name": "Cruise Management",
+      "route": "",
+      "params": "",
+      "icon": "directions_boat",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "EVENT_CRUISE_MANAGEMENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-30 00:00+0000",
+      "last_updated": "2026-07-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "022",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "021",
+      "page_id": "007",
+      "grid_id": "004",
+      "hotel_type_id": "000",
+      "order_by": "10.10.10",
+      "description": "Cruises",
+      "title": "Cruises",
+      "sub_title": "Cruises",
+      "breadcrumb_name": "Cruises",
+      "route": "",
+      "params": "",
+      "icon": "directions_boat",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "EVENT_CRUISE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-30 00:00+0000",
+      "last_updated": "2026-07-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "023",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "021",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "10.10.20",
+      "description": "Itinerary",
+      "title": "Itinerary",
+      "sub_title": "Itinerary",
+      "breadcrumb_name": "Itinerary",
+      "route": "",
+      "params": "",
+      "icon": "route",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "EVENT_CRUISE_ITINERARY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-30 00:00+0000",
+      "last_updated": "2026-07-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "024",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "021",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "10.10.30",
+      "description": "Grade Pricing",
+      "title": "Grade Pricing",
+      "sub_title": "Grade Pricing",
+      "breadcrumb_name": "Grade Pricing",
+      "route": "",
+      "params": "",
+      "icon": "sell",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "EVENT_CRUISE_PRICING",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-30 00:00+0000",
+      "last_updated": "2026-07-30 00:00+0000"  
     }
   }
 ,  {
@@ -6370,6 +6478,33 @@
       "internal_comment": "",
       "created_date": "2026-07-28 00:00+0000",
       "last_updated": "2026-06-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "016",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Hotel Currencies",
+      "title": "Hotel Currencies",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": true,
+      "selectable": true,
+      "data_source_application": "static",
+      "data_source_model_name": "Currency",
+      "order_by": "order_by, description",
+      "grouping": "Reservations",
+      "grid_key": "HOTEL_CURRENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-29 00:00+0000",
+      "last_updated": "2026-07-29 00:00+0000"  
     }
   }
 ,  {
@@ -7430,6 +7565,26 @@
       "internal_comment": "",
       "created_date": "2026-07-28 00:00+0000",
       "last_updated": "2026-07-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01601",
+    "fields": {
+      "grid_id": "016",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "currency",
+      "description_short": "",
+      "field": "description",
+      "label": "Currency",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-29 00:00+0000",
+      "last_updated": "2026-07-29 00:00+0000"  
     }
   }
 ,  {
@@ -9347,6 +9502,33 @@
       "internal_comment": "",
       "created_date": "2026-07-28 00:00+0000",
       "last_updated": "2026-07-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02C",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "008",
+      "user_required_flag": "Y",
+      "code": "HotelCurrency",
+      "description": "Hotel Currencies",
+      "route": "grid/grid016",
+      "view": "Grid016APIView",
+      "module_path": "apps.base.api.grids.grid016",
+      "grouping": "grids",
+      "process_key": "GRID_HOTEL_CURRENCY",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-29 00:00+0000",
+      "last_updated": "2026-07-29 00:00+0000"  
     }
   }
 ,  {
