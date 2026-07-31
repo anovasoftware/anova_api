@@ -84,6 +84,19 @@ class HotelGridAPIView(AuthorizedGridAPIView):
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
 
+
+class EventGridAPIView(AuthorizedGridAPIView):
+    PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('eventId', )
+    PARAM_OVERRIDES = {
+        'eventId': dict(
+            required_get=True,
+            required_post=True,
+            required_patch=True,
+            default=None
+        ),
+        # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
+    }
+
 # class GridSelectAPIView(AuthorizedGridAPIView):
 #     assignment_model = None
 #     assignment_field = None

@@ -3,7 +3,7 @@
 NOT_APPLICABLE = '000'                                           # not applicableTO_BE_ANNOUNCED = '999'                                          # to be announced#  Anova
 USER_ANOVA = '001'                                               # anova users#  Crew
 POSITION = '005'                                                 # position management#  Cruise Setup
-EVENT = '004'                                                    # cruise management#  Hotel Setup
+EVENT = '004'                                                    # cruise managementEVENT_CATEGORY_PRICE = '018'                                     # grade pricingEVENT_SELECT_FOR_PRICING = '017'                                 # select cruise for pricing#  Hotel Setup
 FLOOR = '009'                                                    # hotel build: decks/floorsROOM = '003'                                                     # hotel build: cabins/roomsROOM_CATEGORY = '002'                                            # hotel build: room categories#  Point of Sale
 TRANSACTION_ITEM_STAGED = '006'                                  # staged transactions items#  Reservations
 CLIENT_CURRENCY = '015'                                          # client currenciesCOMPANY_TRAVEL_AGENCY = '014'                                    # travel agenciesHOTEL_CURRENCY = '016'                                           # hotel currencies#  Security

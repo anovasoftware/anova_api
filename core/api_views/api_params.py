@@ -110,6 +110,13 @@ COMMON_PARAMS = {
         description='Enable debug output.',
         allowed=('Y', 'N'),
     ),
+    'eventId': ParamSpec(
+        name='eventId',
+        dest='event_id',
+        kind='either',
+        cast=_to_str,
+        description='Event id for the request.',
+    ),
     'guestId': ParamSpec(
         name='guestId',
         dest='guest_id',

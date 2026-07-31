@@ -1,4 +1,4 @@
 # AUTO GENERATED
 #  ALL
 NOT_APPLICABLE = 'A00'                                           # not applicable#  SCHEDULED
-CLIENT_SERVICE = 'A04'                                           # client maintenanceEVENT_ROOM_SERVICE = 'A03'                                       # event room maintenanceEXCHANGE_RATE_SERVICE = 'A02'                                    # base_exchange_rate maintenancePERIOD_SERVICE = 'A01'                                           # base_period maintenance
+CLIENT_SERVICE = 'A04'                                           # client maintenanceEVENT_CATEGORY_PRICE_SERVICE = 'A05'                             # event category price maintenanceEVENT_ROOM_SERVICE = 'A03'                                       # event room maintenanceEXCHANGE_RATE_SERVICE = 'A02'                                    # base_exchange_rate maintenancePERIOD_SERVICE = 'A01'                                           # base_period maintenance

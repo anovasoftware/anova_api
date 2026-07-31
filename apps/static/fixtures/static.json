@@ -3195,8 +3195,8 @@
       "parent_type_id": "000",
       "grouping": "base_category",
       "code": "",
-      "description": "Room/Cabin Category",
-      "description_short": "Room/Cabin Category",
+      "description": "Room/Cabin Grade",
+      "description_short": "Room/Cabin Grade",
       "description_long": "",
       "description2": "",
       "type_key": "BASE_CATEGORY_ROOM_CABIN",
@@ -4464,6 +4464,181 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "03B",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.rate",
+      "code": "FIT",
+      "description": "FIT",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_RATE_FIT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "01",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03C",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.occupancy",
+      "code": "Double",
+      "description": "Double Occupancy",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_OCCUPANCY_DOUBLE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "01",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03D",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.occupancy",
+      "code": "Single",
+      "description": "Single Occupancy",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_OCCUPANCY_SINGLE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "02",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03F",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.occupancy",
+      "code": "Third Guest",
+      "description": "Third Guest",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_OCCUPANCY_THIRD_GUEST",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "03",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03G",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.occupancy",
+      "code": "Fourth Guest",
+      "description": "Fourth Guest",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_OCCUPANCY_FOURTH_GUEST",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "04",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03H",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.occupancy",
+      "code": "Child",
+      "description": "Child",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_OCCUPANCY_CHILD",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "05",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03J",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "event_category_price.occupancy",
+      "code": "Infant",
+      "description": "Infant",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "EVENT_CATEGORY_PRICE_OCCUPANCY_INFANT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "06",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-06 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -5515,8 +5690,8 @@
       "type_id": "02B",
       "status_id": "001",
       "parent_menu_id": "021",
-      "page_id": "000",
-      "grid_id": "000",
+      "page_id": "007",
+      "grid_id": "017",
       "hotel_type_id": "000",
       "order_by": "10.10.30",
       "description": "Grade Pricing",
@@ -5741,6 +5916,22 @@
       "internal_comment": "",
       "created_date": "2026-07-16 00:00+0000",
       "last_updated": "2026-07-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "013",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Pricing",
+      "description": "Grade Pricing",
+      "grouping": "Hotel",
+      "page_key": "GRADE_PRICING",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-31 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
     }
   }
 ,  {
@@ -6505,6 +6696,60 @@
       "internal_comment": "",
       "created_date": "2026-07-29 00:00+0000",
       "last_updated": "2026-07-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "017",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "013",
+      "description": "Select Cruise for Pricing",
+      "title": "Select Cruise for Pricing",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "selectable": false,
+      "data_source_application": "res",
+      "data_source_model_name": "Event",
+      "order_by": "event_start_date",
+      "grouping": "Cruise Setup",
+      "grid_key": "EVENT_SELECT_FOR_PRICING",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-30 00:00+0000",
+      "last_updated": "2026-07-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "018",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Grade Pricing",
+      "title": "Grade Pricing",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "selectable": false,
+      "data_source_application": "res",
+      "data_source_model_name": "EventCategoryPrice",
+      "order_by": "category__order_by",
+      "grouping": "Cruise Setup",
+      "grid_key": "EVENT_CATEGORY_PRICE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-31 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
     }
   }
 ,  {
@@ -7585,6 +7830,206 @@
       "internal_comment": "",
       "created_date": "2026-07-29 00:00+0000",
       "last_updated": "2026-07-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01701",
+    "fields": {
+      "grid_id": "017",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "code",
+      "description_short": "",
+      "field": "code",
+      "label": "Cruise Code",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01702",
+    "fields": {
+      "grid_id": "017",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01703",
+    "fields": {
+      "grid_id": "017",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "event start date",
+      "description_short": "",
+      "field": "event_start_date",
+      "label": "Embark",
+      "format": "date",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01704",
+    "fields": {
+      "grid_id": "017",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "event end date",
+      "description_short": "",
+      "field": "event_end_date",
+      "label": "Disembark",
+      "format": "date",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-19 00:00+0000",
+      "last_updated": "2026-04-19 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01801",
+    "fields": {
+      "grid_id": "018",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "event/cruise",
+      "description_short": "",
+      "field": "event__code",
+      "label": "Event/Cruise",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-31 00:00+0000",
+      "last_updated": "2026-08-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01802",
+    "fields": {
+      "grid_id": "018",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "category",
+      "description_short": "",
+      "field": "category__code",
+      "label": "Grade",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-31 00:00+0000",
+      "last_updated": "2026-08-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01803",
+    "fields": {
+      "grid_id": "018",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "currency",
+      "description_short": "",
+      "field": "currency__code",
+      "label": "Currency",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-31 00:00+0000",
+      "last_updated": "2026-08-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01804",
+    "fields": {
+      "grid_id": "018",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "rate type",
+      "description_short": "",
+      "field": "rate_type__code",
+      "label": "Rate Type",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-31 00:00+0000",
+      "last_updated": "2026-08-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01806",
+    "fields": {
+      "grid_id": "018",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "06",
+      "description": "price",
+      "description_short": "",
+      "field": "price",
+      "label": "Price",
+      "format": "decimal",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-31 00:00+0000",
+      "last_updated": "2026-08-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "01805",
+    "fields": {
+      "grid_id": "018",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "05",
+      "description": "occupany type",
+      "description_short": "",
+      "field": "occupancy_type__code",
+      "label": "Occupancy Type",
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-31 00:00+0000",
+      "last_updated": "2026-08-31 00:00+0000"  
     }
   }
 ,  {
@@ -9484,7 +9929,7 @@
       "type_id": "02X",
       "status_id": "001",
       "form_id": "000",
-      "grid_id": "008",
+      "grid_id": "015",
       "user_required_flag": "Y",
       "code": "ClientCurrency",
       "description": "Client Currencies",
@@ -9529,6 +9974,60 @@
       "internal_comment": "",
       "created_date": "2026-07-29 00:00+0000",
       "last_updated": "2026-07-29 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02D",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "017",
+      "user_required_flag": "Y",
+      "code": "Cruise Select",
+      "description": "Cruise Select",
+      "route": "grid/grid017",
+      "view": "Grid017APIView",
+      "module_path": "apps.res.api.grids.grid017",
+      "grouping": "grids",
+      "process_key": "GRID_EVENT_SELECT",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-30 00:00+0000",
+      "last_updated": "2026-07-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02F",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "018",
+      "user_required_flag": "Y",
+      "code": "Grade Price",
+      "description": "Grade Pricing",
+      "route": "grid/grid018",
+      "view": "Grid018APIView",
+      "module_path": "apps.res.api.grids.grid018",
+      "grouping": "grids",
+      "process_key": "GRID_EVENT_GRADE_PRICE",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-31 00:00+0000",
+      "last_updated": "2026-07-31 00:00+0000"  
     }
   }
 ,  {
