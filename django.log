@@ -4782,3 +4782,247 @@ DETAIL:  Key (process_id)=(029) is not present in table "static_process".
 [2026-07-31 18:03:00,926] INFO core.services.log_service: Request completed
 [2026-07-31 18:03:03,121] INFO core.services.log_service: Request completed
 [2026-07-31 18:03:08,764] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 08:10:14,727] INFO core.services.log_service: Request completed
+[2026-08-01 08:10:14,773] INFO core.services.log_service: Request completed
+[2026-08-01 08:10:14,773] INFO core.services.log_service: Request completed
+[2026-08-01 08:10:14,792] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 08:16:08,517] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 08:16:42,124] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 08:17:21,678] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:35,336] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:35,407] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:35,519] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:41,791] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:44,020] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:44,039] INFO core.services.log_service: Request completed
+[2026-08-01 08:17:44,039] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 08:18:18,526] INFO core.services.log_service: Request completed
+[2026-08-01 08:18:18,537] INFO core.services.log_service: Request completed
+[2026-08-01 08:18:18,605] INFO core.services.log_service: Request completed
+[2026-08-01 08:18:18,621] INFO core.services.log_service: Request completed
+[2026-08-01 08:18:18,680] INFO core.services.log_service: Request completed
+[2026-08-01 08:18:25,714] INFO core.services.log_service: Request completed
+[2026-08-01 08:18:51,729] INFO core.services.log_service: Request completed
+[2026-08-01 08:20:16,193] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-01 08:20:18,235] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 08:20:41,463] INFO core.services.log_service: Request completed
+[2026-08-01 08:20:49,446] INFO core.services.log_service: Request completed
+[2026-08-01 08:20:56,058] INFO core.services.log_service: Request completed
+[2026-08-01 08:20:58,138] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:02,907] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:03,085] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:04,255] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:07,918] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:08,087] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:09,153] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:13,459] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:13,635] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:17,318] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:23,617] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:23,785] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:24,839] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:29,180] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:29,337] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:34,833] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:36,801] INFO core.services.log_service: Request completed
+[2026-08-01 08:21:36,811] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 08:21:36,860] INFO core.services.log_service: Request completed
+[2026-08-01 08:24:49,816] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-01 08:24:51,663] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 08:25:12,162] INFO core.services.log_service: Request completed
+[2026-08-01 08:25:13,132] INFO core.services.log_service: Request completed
+[2026-08-01 08:25:13,151] INFO core.services.log_service: Request completed
+[2026-08-01 08:25:13,155] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 08:25:55,072] INFO core.services.log_service: Request completed
+[2026-08-01 08:25:56,893] INFO core.services.log_service: Request completed
+[2026-08-01 08:25:56,904] INFO core.services.log_service: Request completed
+[2026-08-01 08:25:56,907] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 08:26:30,700] INFO core.services.log_service: Request completed
+[2026-08-01 08:30:27,530] INFO core.services.log_service: Request completed
+[2026-08-01 08:31:04,467] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 08:31:35,704] INFO core.services.log_service: Request completed
+[2026-08-01 08:38:49,301] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\grid_utilities.py changed, reloading.
+[2026-08-01 08:38:51,553] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:11:18,376] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:12:01,580] INFO core.services.log_service: Request completed
+[2026-08-01 09:14:57,430] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:15:20,609] INFO core.services.log_service: Request completed
+[2026-08-01 09:15:20,623] ERROR django.request: Internal Server Error: /api/v1/grid/grid019
+[2026-08-01 09:15:45,639] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:16:11,260] INFO core.services.log_service: Request completed
+[2026-08-01 09:18:04,811] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:18:50,234] INFO core.services.log_service: Request completed
+[2026-08-01 09:20:52,795] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\grid_utilities.py changed, reloading.
+[2026-08-01 09:20:54,828] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:21:41,501] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:22:05,918] INFO core.services.log_service: Request completed
+[2026-08-01 09:22:05,925] ERROR core.services.log_service: Failed to save Log record: Object of type QuerySet is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type QuerySet is not JSON serializable
+[2026-08-01 09:23:11,195] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\api\grids\grid019.py changed, reloading.
+[2026-08-01 09:23:13,776] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:24:51,336] INFO core.services.log_service: Request completed
+[2026-08-01 09:24:51,344] ERROR core.services.log_service: Failed to save Log record: Object of type QuerySet is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type QuerySet is not JSON serializable
+[2026-08-01 09:25:33,292] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:34:39,128] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:34:57,380] INFO core.services.log_service: Request completed
+[2026-08-01 09:34:57,397] ERROR django.request: Internal Server Error: /api/v1/grid/grid019
+[2026-08-01 09:36:14,821] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 09:37:52,429] INFO core.services.log_service: Request completed
+[2026-08-01 12:38:38,279] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\api\grids\grid019.py changed, reloading.
+[2026-08-01 12:38:41,757] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 14:08:05,389] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 14:08:14,176] INFO core.services.log_service: Request completed
+[2026-08-01 14:39:28,541] INFO core.services.log_service: Request completed
+[2026-08-01 14:39:28,557] INFO core.services.log_service: Request completed
+[2026-08-01 14:39:28,562] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 14:41:30,565] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:30,579] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:30,592] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 14:41:35,869] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:47,982] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:48,099] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:48,156] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:50,287] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:53,669] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:55,860] INFO core.services.log_service: Request completed
+[2026-08-01 14:41:55,869] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 14:41:55,880] INFO core.services.log_service: Request completed
+[2026-08-01 14:50:56,212] INFO core.services.log_service: Request completed
+[2026-08-01 14:50:56,217] INFO core.services.log_service: Request completed
+[2026-08-01 14:50:56,234] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 14:50:56,251] INFO core.services.log_service: Request completed
+[2026-08-01 14:50:56,290] INFO core.services.log_service: Request completed
+[2026-08-01 14:53:37,300] INFO core.services.log_service: Request completed
+[2026-08-01 14:53:37,338] INFO core.services.log_service: Request completed
+[2026-08-01 14:53:37,381] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 14:53:37,450] INFO core.services.log_service: Request completed
+[2026-08-01 14:53:37,496] INFO core.services.log_service: Request completed
+[2026-08-01 14:57:10,629] INFO core.services.log_service: Request completed
+[2026-08-01 14:57:19,224] INFO core.services.log_service: Request completed
+[2026-08-01 14:57:19,278] INFO core.services.log_service: Request completed
+[2026-08-01 14:57:19,294] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-01 14:57:19,698] INFO core.services.log_service: Request completed
+[2026-08-01 14:57:19,768] INFO core.services.log_service: Request completed

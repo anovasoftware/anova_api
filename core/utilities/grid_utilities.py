@@ -34,11 +34,14 @@ class GridUtility(object):
 
         self.success = True
         self.message = 'grid loaded'
+        self.lookups = {}
 
     def load_grid(self):
         self.load_params()
+
         if self.success:
             self.load_models()
+            self.load_lookups()
         if self.success:
             self.grid = self.get_grid()
             self.columns = self.get_columns()
@@ -101,6 +104,8 @@ class GridUtility(object):
         ).get(
             pk=self.grid_id
         )
+
+        grid['lookups'] = self.lookups
         return grid
 
     def get_columns(self):
@@ -267,12 +272,20 @@ class GridUtility(object):
 
         return values_list
 
-
     def get_order_by(self):
         order_by = self.grid.get('order_by', None)
         order_by = [f.strip() for f in order_by.split(',')]
         return order_by
 
+    def load_lookups(self):
+        self.lookups = {}
+
+    def add_lookup(self, lookup_name: str, label: str, options, selected_id: str | None = None):
+        self.lookups[lookup_name] = {
+            'label': label,
+            'selectedId': selected_id,
+            'options': list(options),
+        }
 
 class GridHotelUtility(GridUtility):
     query_filters = {
@@ -338,4 +351,3 @@ class GridEventUtility(GridHotelUtility):
         filters[self.event_id_field] = self.event_id
 
         return filters
-
