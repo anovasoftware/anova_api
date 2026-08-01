@@ -1,5 +1,6 @@
 import pandas as pd
 
+from apps.base.models import HotelCurrency
 from apps.base.utilities.hotel_utilities import get_hotel_extension
 from apps.static.models import Grid, GridColumn
 from apps.res.models import HotelExtension, Event
@@ -321,6 +322,17 @@ class GridHotelUtility(GridUtility):
         # filters['transaction__event_id'] = self.hotel_extension.current_event.event_id
 
         return filters
+
+    def get_currency_lookup(self):
+        currencies = HotelCurrency.objects.filter(
+            hotel_id=self.hotel_id,
+            status_id=status_constants.ACTIVE
+        ).values(
+            id=F('currency__currency_id'),
+            description=F('currency__description')
+        )
+        return currencies
+
 
 
 class GridEventUtility(GridHotelUtility):

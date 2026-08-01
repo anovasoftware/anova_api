@@ -37,16 +37,6 @@ class Grid019Utility(GridHotelUtility):
             selected_id=self.hotel_extension.currency_id
         )
 
-    def get_currency_lookup(self):
-        currencies = HotelCurrency.objects.filter(
-            hotel_id=self.hotel_id,
-            status_id=status_constants.ACTIVE
-        ).values(
-            id=F('currency__currency_id'),
-            description=F('currency__description')
-        )
-        return currencies
-
 
 class Grid019APIView(EventGridAPIView):
     process_id = process_constants.GRID_EVENT_GRADE_PRICE
