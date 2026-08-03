@@ -1,10 +1,6 @@
-from botocore.docs import params
-
-from apps.base.models import HotelCurrency
-from constants import process_constants, grid_constants, currency_constants, type_constants, status_constants
+from constants import process_constants, grid_constants, type_constants
 from core.api_views.grid_api import EventGridAPIView
-from core.utilities.grid_utilities import GridEventUtility, GridHotelUtility
-from django.db.models import F
+from core.utilities.grid_utilities import GridHotelUtility
 
 
 class Grid019Utility(GridHotelUtility):
@@ -35,6 +31,12 @@ class Grid019Utility(GridHotelUtility):
             label='Currency',
             options=self.get_currency_lookup(),
             selected_id=self.hotel_extension.currency_id
+        )
+        self.add_lookup(
+            lookup_name='lookup2',
+            label='Rate Type',
+            options=self.get_rate_type_lookup(),
+            selected_id=type_constants.EVENT_CATEGORY_PRICE_RATE_FIT
         )
 
 

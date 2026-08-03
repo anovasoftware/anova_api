@@ -2,7 +2,7 @@ import pandas as pd
 
 from apps.base.models import HotelCurrency
 from apps.base.utilities.hotel_utilities import get_hotel_extension
-from apps.static.models import Grid, GridColumn
+from apps.static.models import Grid, GridColumn, Type
 from apps.res.models import HotelExtension, Event
 from constants import status_constants
 from django.apps import apps
@@ -82,6 +82,7 @@ class GridUtility(object):
                         self.grid['displayed_columns'] = snake_to_camel_list(self.displayed_columns, '.')
                         self.grid['columns'] = self.columns
                         self.grid['rows'] = self.rows
+                        self.grid['lookups'] = self.lookups
 
     def load_params(self):
         pass
@@ -106,7 +107,7 @@ class GridUtility(object):
             pk=self.grid_id
         )
 
-        grid['lookups'] = self.lookups
+        # grid['lookups'] = self.lookups
         return grid
 
     def get_columns(self):
@@ -281,10 +282,12 @@ class GridUtility(object):
     def load_lookups(self):
         self.lookups = {}
 
-    def add_lookup(self, lookup_name: str, label: str, options, selected_id: str | None = None):
+    def add_lookup(self, lookup_name: str, label: str, options, selected_id: str | None = None, enabled=True):
+        enabled = enabled and len(options) > 1
         self.lookups[lookup_name] = {
             'label': label,
             'selectedId': selected_id,
+            'enabled': enabled,
             'options': list(options),
         }
 
@@ -332,6 +335,17 @@ class GridHotelUtility(GridUtility):
             description=F('currency__description')
         )
         return currencies
+
+    def get_rate_type_lookup(self):
+        self.success = True
+
+        rate_types = Type.objects.filter(
+            grouping='event_category_price.rate'
+        ).values(
+            'description',
+            id=F('type_id')
+        )
+        return rate_types
 
 
 

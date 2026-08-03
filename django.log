@@ -5052,3 +5052,92 @@ TypeError: Object of type QuerySet is not JSON serializable
 [2026-08-01 17:34:46,827] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\grid_utilities.py changed, reloading.
 [2026-08-01 17:34:51,427] INFO django.utils.autoreload: Watching for file changes with StatReloader
 [2026-08-01 18:56:39,876] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-01 18:59:48,338] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\api\grids\grid018.py changed, reloading.
+[2026-08-01 18:59:58,681] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-02 11:16:47,544] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\api\grids\grid019.py changed, reloading.
+[2026-08-02 11:16:51,754] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-02 11:18:27,895] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\grid_utilities.py changed, reloading.
+[2026-08-02 11:18:29,754] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-02 11:21:55,906] INFO django.utils.autoreload: C:\Projects2\anova_api\core\utilities\grid_utilities.py changed, reloading.
+[2026-08-02 11:21:57,527] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-02 11:22:06,538] INFO core.services.log_service: Request completed
+[2026-08-02 11:22:17,627] INFO core.services.log_service: Request completed
+[2026-08-02 11:22:17,706] INFO core.services.log_service: Request completed
+[2026-08-02 11:22:22,259] INFO core.services.log_service: Request completed
+[2026-08-02 11:22:25,298] INFO core.services.log_service: Request completed
+[2026-08-02 11:22:25,305] INFO core.services.log_service: Request completed
+[2026-08-02 11:22:25,313] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-02 11:22:25,316] ERROR django.request: Internal Server Error: /api/v1/grid/grid019
+[2026-08-02 11:23:39,076] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-02 11:23:42,927] INFO core.services.log_service: Request completed
+[2026-08-02 11:23:46,044] INFO core.services.log_service: Request completed
+[2026-08-02 11:23:46,051] INFO core.services.log_service: Request completed
+[2026-08-02 11:23:46,057] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-02 11:23:46,061] ERROR django.request: Internal Server Error: /api/v1/grid/grid019
+[2026-08-02 11:24:46,566] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-02 11:24:50,983] INFO core.services.log_service: Request completed
+[2026-08-02 11:24:52,595] INFO core.services.log_service: Request completed
+[2026-08-02 11:24:52,608] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-02 11:24:52,614] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:14,337] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:14,412] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:14,468] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:14,528] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:20,694] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:22,795] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:22,942] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:25,796] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:27,558] INFO core.services.log_service: Request completed
+[2026-08-02 11:30:27,570] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-02 11:30:27,577] INFO core.services.log_service: Request completed
+[2026-08-03 01:14:04,400] INFO core.services.log_service: Request completed
+[2026-08-03 01:14:04,431] INFO core.services.log_service: Request completed
+[2026-08-03 01:14:04,808] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 01:15:21,576] INFO core.services.log_service: Request completed
+[2026-08-03 01:15:21,585] INFO core.services.log_service: Request completed
+[2026-08-03 01:15:21,604] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 01:15:49,340] INFO core.services.log_service: Request completed
+[2026-08-03 01:15:49,352] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 01:15:49,359] INFO core.services.log_service: Request completed
+[2026-08-03 06:15:14,154] INFO core.services.log_service: Request completed
+[2026-08-03 06:15:14,162] INFO core.services.log_service: Request completed
+[2026-08-03 06:15:14,179] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:16:06,922] INFO core.services.log_service: Request completed
+[2026-08-03 06:16:26,094] INFO core.services.log_service: Request completed
+[2026-08-03 06:16:26,180] INFO core.services.log_service: Request completed
+[2026-08-03 06:16:26,239] INFO core.services.log_service: Request completed
+[2026-08-03 06:16:29,503] INFO core.services.log_service: Request completed
+[2026-08-03 06:16:30,856] INFO core.services.log_service: Request completed
+[2026-08-03 06:16:30,873] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:16:30,881] INFO core.services.log_service: Request completed
+[2026-08-03 06:17:26,926] INFO core.services.log_service: Request completed
+[2026-08-03 06:17:31,818] INFO core.services.log_service: Request completed
+[2026-08-03 06:17:31,837] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:17:31,843] INFO core.services.log_service: Request completed
+[2026-08-03 06:18:35,727] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:04,468] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:04,479] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:04,497] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:19:04,570] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:04,596] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:29,730] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:33,112] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:36,095] INFO core.services.log_service: Request completed
+[2026-08-03 06:19:36,103] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:19:36,114] INFO core.services.log_service: Request completed
+[2026-08-03 06:22:00,132] INFO core.services.log_service: Request completed
+[2026-08-03 06:36:31,154] INFO core.services.log_service: Request completed
+[2026-08-03 06:36:32,335] INFO core.services.log_service: Request completed
+[2026-08-03 06:40:37,410] INFO core.services.log_service: Request completed
+[2026-08-03 06:40:38,876] INFO core.services.log_service: Request completed
+[2026-08-03 06:40:38,885] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:40:38,935] INFO core.services.log_service: Request completed
+[2026-08-03 06:43:49,885] INFO core.services.log_service: Request completed
+[2026-08-03 06:43:49,954] INFO core.services.log_service: Request completed
+[2026-08-03 06:43:49,964] ERROR django.request: Internal Server Error: /api/v1/base/client/00007L/
+[2026-08-03 06:43:50,020] INFO core.services.log_service: Request completed
+[2026-08-03 06:43:50,074] INFO core.services.log_service: Request completed
+[2026-08-03 06:44:01,704] INFO core.services.log_service: Request completed
+[2026-08-03 06:44:27,508] INFO core.services.log_service: Request completed
+[2026-08-03 06:46:12,401] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-03 06:46:25,134] INFO core.services.log_service: Request completed
