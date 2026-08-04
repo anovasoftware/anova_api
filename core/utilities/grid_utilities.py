@@ -1,10 +1,11 @@
 import pandas as pd
 
-from apps.base.models import HotelCurrency
+from apps.base.models import HotelCurrency, ClientCurrency
 from apps.base.utilities.hotel_utilities import get_hotel_extension
 from apps.static.models import Grid, GridColumn, Type
-from apps.res.models import HotelExtension, Event
-from constants import status_constants
+from apps.res.models import HotelExtension, Event, ClientExtension
+from apps.static.utilities.client_utilities import get_client_extension
+from constants import status_constants, currency_constants
 from django.apps import apps
 from typing import Optional
 from django.db.models import Model
@@ -60,29 +61,36 @@ class GridUtility(object):
             if self.success:
                 self.rows_df = self.get_data_df()
                 if self.success:
-                    if self.grid.get('selectable', False):
-                        self.rows_df['selected'] = False
-                        self.rows_df['selected_disabled'] = False
-                        self.displayed_columns = ['selected'] + self.displayed_columns
+                    self.load_grid2()
 
-                        self.update_selected()
+    def load_grid2(self):
+        self.post_get_data_df()
 
-                    self.displayed_columns = self.displayed_columns + ['pk']
+        if self.success:
+            if self.grid.get('selectable', False):
+                self.rows_df['selected'] = False
+                self.rows_df['selected_disabled'] = False
+                self.displayed_columns = ['selected'] + self.displayed_columns
 
-                    self.rows = self.get_rows()
-                    if self.success:
-                        remove_keys = [
-                            'data_source_application',
-                            'data_source_model_name',
-                            'order_by'
-                        ]
+                self.update_selected()
 
-                        self.grid = {k: v for k, v in self.grid.items() if k not in remove_keys}
-                        self.displayed_columns = snake_to_camel_list(self.displayed_columns, '_')
-                        self.grid['displayed_columns'] = snake_to_camel_list(self.displayed_columns, '.')
-                        self.grid['columns'] = self.columns
-                        self.grid['rows'] = self.rows
-                        self.grid['lookups'] = self.lookups
+            if self.grid.get('display_pk', True):
+                self.displayed_columns = self.displayed_columns + ['pk']
+
+            self.rows = self.get_rows()
+            if self.success:
+                remove_keys = [
+                    'data_source_application',
+                    'data_source_model_name',
+                    'order_by'
+                ]
+
+                self.grid = {k: v for k, v in self.grid.items() if k not in remove_keys}
+                self.displayed_columns = snake_to_camel_list(self.displayed_columns, '_')
+                self.grid['displayed_columns'] = snake_to_camel_list(self.displayed_columns, '.')
+                self.grid['columns'] = self.columns
+                self.grid['rows'] = self.rows
+                self.grid['lookups'] = self.lookups
 
     def load_params(self):
         pass
@@ -102,7 +110,8 @@ class GridUtility(object):
             'data_source_model_name',
             'order_by',
             'can_create',
-            'selectable'
+            'selectable',
+            'display_pk'
         ).get(
             pk=self.grid_id
         )
@@ -118,7 +127,8 @@ class GridUtility(object):
             'description',
             'field',
             'label',
-            'format'
+            'format',
+            'editable'
         ).filter(
             grid_id=self.grid_id,
             status_id=status_constants.ACTIVE,
@@ -144,23 +154,64 @@ class GridUtility(object):
             self.success = False
 
         if self.success and self.grid.get('selectable', False):
-            columns.append({
-                'description': 'selected',
-                'field': 'selected',
-                'label': 'Select',
-                'format': 'checkbox',
-                'data_path': 'selected',
-            })
+            columns.append(
+                self.create_grid_column(
+                    description='selected',
+                    field='selected',
+                    label='Select',
+                    format='checkbox',
+                    data_path='selected',
+                )
+            )
 
-        columns.append({
-            'description': 'pk',
-            'field': 'pk',
-            'label': 'Id',
-            'format': 'text',
-            'data_path': 'pk',
-        })
+            # columns.append({
+            #     'description': 'selected',
+            #     'field': 'selected',
+            #     'label': 'Select',
+            #     'format': 'checkbox',
+            #     'data_path': 'selected',
+            # })
 
+        # columns.append({
+        #     'description': 'pk',
+        #     'field': 'pk',
+        #     'label': 'Id',
+        #     'format': 'text',
+        #     'data_path': 'pk',
+        # })
+        columns.append(
+            self.create_grid_column(
+                field='pk',
+                label='Id',
+                description='pk',
+            )
+        )
         return columns
+
+    def create_grid_column(
+            self,
+            *,
+            field,
+            label,
+            description=None,
+            format='text',
+            editable=False,
+            data_path=None,
+            **options,
+    ):
+        self.success = True
+        column = {
+            'description': description or label,
+            'field': field,
+            'label': label,
+            'format': format,
+            'editable': editable,
+            'dataPath': data_path or field,
+        }
+
+        column.update(options)
+
+        return column
 
     def get_query_filter(self):
         base_filters = {
@@ -195,11 +246,6 @@ class GridUtility(object):
 
         return queryset
 
-    # def get_data_df(self):
-    #     rows_df = pd.DataFrame(list(self.rows_qs))
-    #     rows_df['transaction__guest__person__PERSON-NAME'] = 'fullname here'
-    #     return rows_df
-
     def get_data_df(self):
         rows_df = pd.DataFrame(list(self.rows_qs))
 
@@ -226,7 +272,11 @@ class GridUtility(object):
 
         if display_as_field and display_as_field in rows_df.columns:
             rows_df['display_as'] = rows_df[display_as_field].fillna('')
+
         return rows_df
+
+    def post_get_data_df(self):
+        pass
 
     def get_display_as(self):
         return self.grid.get('display_as', 'pk')
@@ -282,9 +332,10 @@ class GridUtility(object):
     def load_lookups(self):
         self.lookups = {}
 
-    def add_lookup(self, lookup_name: str, label: str, options, selected_id: str | None = None, enabled=True):
+    def add_lookup(self, lookup_name, param_name, label, options, selected_id: str | None = None, enabled=True):
         enabled = enabled and len(options) > 1
         self.lookups[lookup_name] = {
+            'paramName': param_name,
             'label': label,
             'selectedId': selected_id,
             'enabled': enabled,
@@ -299,6 +350,8 @@ class GridHotelUtility(GridUtility):
 
     def __init__(self, grid_id, params=None):
         super().__init__(grid_id, params)
+        self.client_id = None
+        self.client_extension: Optional[ClientExtension] = None
         self.hotel_id = None
         self.hotel_extension: Optional[HotelExtension] = None
 
@@ -317,6 +370,9 @@ class GridHotelUtility(GridUtility):
         if not self.hotel_extension:
             self.message = f'hotel extension not found for hotelId={self.hotel_id}'
             self.success = False
+        else:
+            self.client_id = self.hotel_extension.hotel.client_id
+            self.client_extension = get_client_extension(self.client_id)
 
     def get_query_filter(self):
         filters = super().get_query_filter().copy()
@@ -326,7 +382,17 @@ class GridHotelUtility(GridUtility):
 
         return filters
 
-    def get_currency_lookup(self):
+    def get_client_currency_lookup(self):
+        currencies = ClientCurrency.objects.filter(
+            client_id=self.client_id,
+            status_id=status_constants.ACTIVE
+        ).values(
+            id=F('currency__currency_id'),
+            description=F('currency__description')
+        )
+        return currencies
+
+    def get_hotel_currency_lookup(self):
         currencies = HotelCurrency.objects.filter(
             hotel_id=self.hotel_id,
             status_id=status_constants.ACTIVE
@@ -346,6 +412,32 @@ class GridHotelUtility(GridUtility):
             id=F('type_id')
         )
         return rate_types
+
+    def get_client_currency_id(self):
+        currency_id = self.params.get('currencyId', currency_constants.TO_BE_ANNOUNCED)
+
+        if currency_id == currency_constants.TO_BE_ANNOUNCED and self.client_extension is not None:
+            currency_id = self.client_extension.currency_id
+
+        return currency_id
+
+    def get_hotel_currency_id(self):
+        currency_id = self.params.get('currencyId', currency_constants.TO_BE_ANNOUNCED)
+
+        if currency_id == currency_constants.TO_BE_ANNOUNCED:
+            currency_id = self.hotel_extension.currency_id if self.hotel_extension is not None else currency_id
+
+        return currency_id
+
+    def get_occupancy_types(self):
+        hotel_id = self.hotel_id
+
+        occupancy_types = Type.objects.filter(
+            grouping='event_category_price.occupancy'
+        ).order_by(
+            'order_by'
+        )
+        return occupancy_types
 
 
 

@@ -101,6 +101,16 @@ COMMON_PARAMS = {
         # required_post=True,
         # required_patch=True,
     ),
+    'currencyId': ParamSpec(
+        name='currencyId',
+        dest='currency_id',
+        kind='either',
+        cast=_to_str,
+        description='Currency id for the request.',
+        # required_get=True,
+        # required_post=True,
+        # required_patch=True,
+    ),
     'debugFlag': ParamSpec(
         name='debugFlag',
         dest='debug_flag',
@@ -172,7 +182,14 @@ COMMON_PARAMS = {
         dest='rfid_uid',
         kind='query',
         cast=_to_str,
-        description='RFID UID)',
+        description='RFID UID',
+    ),
+    'rateTypeId': ParamSpec(
+        name='rateTypeId',
+        dest='rate_type_id',
+        kind='query',
+        cast=_to_str,
+        description='Rate type (FIT) for request',
     ),
     'roleId': ParamSpec(
         name='roleId',
@@ -291,4 +308,5 @@ TRANSACTION_PARAMS = {
 PARAM_DEFINITIONS = {
     **COMMON_PARAMS,
     **TRANSACTION_PARAMS,
+
 }
