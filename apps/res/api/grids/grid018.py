@@ -1,5 +1,5 @@
 from constants import process_constants, grid_constants, currency_constants, type_constants
-from core.api_views.grid_api import EventGridAPIView
+from core.api_views.grid_api import GridEventAPIView
 from core.utilities.grid_utilities import GridHotelUtility
 
 
@@ -26,7 +26,7 @@ class Grid018Utility(GridHotelUtility):
 
         return rows_df
 
-class Grid018APIView(EventGridAPIView):
+class Grid018EventAPIView(GridEventAPIView):
     process_id = process_constants.GRID_EVENT_GRADE_PRICE
     grid_id = grid_constants.EVENT_CATEGORY_PRICE
     grid_utility_class = Grid018Utility

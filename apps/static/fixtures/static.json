@@ -6760,7 +6760,7 @@
       "can_update": true,
       "can_delete": false,
       "selectable": false,
-      "display_pk": true,
+      "display_pk": false,
       "data_source_application": "base",
       "data_source_model_name": "Category",
       "order_by": "order_by",

@@ -1,7 +1,8 @@
 from decimal import Decimal
 
-from constants import process_constants, grid_constants, type_constants, currency_constants, event_constants
-from core.api_views.grid_api import EventGridAPIView
+from constants import process_constants, grid_constants, type_constants, currency_constants, event_constants, \
+    status_constants
+from core.api_views.grid_api import GridEventAPIView, GridUpdateMixin
 from core.utilities.grid_utilities import GridHotelUtility
 from apps.static.models import Type
 from apps.res.models import EventCategoryPrice
@@ -116,12 +117,12 @@ class Grid019Utility(GridHotelUtility):
 
         self.rows_df = rows_df
 
-class Grid019APIView(EventGridAPIView):
+class Grid019EventAPIView(GridUpdateMixin, GridEventAPIView):
     process_id = process_constants.GRID_EVENT_GRADE_PRICE
     grid_id = grid_constants.EVENT_CATEGORY_PRICE
     grid_utility_class = Grid019Utility
 
-    PARAM_NAMES = EventGridAPIView.PARAM_NAMES + ('currencyId', 'rateTypeId')
+    PARAM_NAMES = GridEventAPIView.PARAM_NAMES + ('currencyId', 'rateTypeId')
     PARAM_OVERRIDES = {
         'currencyId': dict(
             required_get=False,
@@ -134,9 +135,47 @@ class Grid019APIView(EventGridAPIView):
             default=type_constants.EVENT_CATEGORY_PRICE_RATE_FIT,
         ),
     }
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
-    # def __init__(self, **kwargs):
-    #     super().__init__(**kwargs)
-    #
-    #     self.currency_id = currency_constants.TO_BE_ANNOUNCED
-    #
+        self.currency_id = None
+        self.rate_type_id = None
+
+    def _post(self, request):
+        updated_count = self.process_changes(request)
+
+        self.set_message(
+            f'Updated successfully. Records updated: {updated_count}'
+        )
+
+    def save_change(self, change):
+        category_id = change.get('recordId')
+        field = change.get('field')
+        price = change.get('value')
+
+        if not category_id:
+            self.add_message(message=f'Category id is required.', http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+        if not field or not field.startswith('price'):
+            self.add_message(message=f'Field is required.', http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+        if self.success:
+            occupancy_type_id = field.removeprefix('price')
+
+            try:
+                event_category_price = EventCategoryPrice.objects.get(
+                    event_id=self.event_id,
+                    category_id=category_id,
+                    occupancy_type_id=occupancy_type_id,
+                    currency_id=self.currency_id,
+                    rate_type_id=self.params.get('rateTypeId'),
+                )
+
+                event_category_price.price = price
+                event_category_price.save()
+            except Exception as e:
+                message = f'Failed to update event category price. Error: {e}'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+
+        return self.success

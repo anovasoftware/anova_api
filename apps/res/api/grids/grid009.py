@@ -1,5 +1,5 @@
 from constants import process_constants, grid_constants
-from core.api_views.grid_api import HotelGridAPIView
+from core.api_views.grid_api import GridHotelAPIView
 from core.utilities.grid_utilities import GridEventUtility, GridHotelUtility
 
 
@@ -16,7 +16,7 @@ class Grid009Utility(GridHotelUtility):
     #
     #     return filters
 
-class Grid009APIView(HotelGridAPIView):
+class Grid009HotelAPIView(GridHotelAPIView):
     process_id = process_constants.GRID_FLOOR
     grid_id = grid_constants.FLOOR
     grid_utility_class = Grid009Utility

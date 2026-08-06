@@ -84,7 +84,7 @@ class GridUtility(object):
                     'data_source_model_name',
                     'order_by'
                 ]
-
+                self.displayed_columns += ['grid_spacer', ]
                 self.grid = {k: v for k, v in self.grid.items() if k not in remove_keys}
                 self.displayed_columns = snake_to_camel_list(self.displayed_columns, '_')
                 self.grid['displayed_columns'] = snake_to_camel_list(self.displayed_columns, '.')
@@ -184,6 +184,14 @@ class GridUtility(object):
                 field='pk',
                 label='Id',
                 description='pk',
+            )
+        )
+        columns.append(
+            self.create_grid_column(
+                field='gridSpacer',
+                label='',
+                description='',
+                format='spacer',
             )
         )
         return columns

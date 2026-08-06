@@ -1,5 +1,5 @@
 from constants import process_constants, grid_constants
-from core.api_views.grid_api import HotelGridAPIView, AuthorizedGridAPIView
+from core.api_views.grid_api import GridHotelAPIView, AuthorizedGridAPIView
 from core.utilities.grid_utilities import GridHotelUtility, GridUtility
 from constants import type_constants, hotel_constants
 

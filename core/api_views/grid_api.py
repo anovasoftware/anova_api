@@ -72,7 +72,7 @@ class AuthorizedGridAPIView(AuthorizedAPIView, GridAPIView):
     pass
 
 
-class HotelGridAPIView(AuthorizedGridAPIView):
+class GridHotelAPIView(AuthorizedGridAPIView):
     PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('hotelId', )
     PARAM_OVERRIDES = {
         'hotelId': dict(
@@ -85,7 +85,7 @@ class HotelGridAPIView(AuthorizedGridAPIView):
     }
 
 
-class EventGridAPIView(AuthorizedGridAPIView):
+class GridEventAPIView(AuthorizedGridAPIView):
     PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('eventId', )
     PARAM_OVERRIDES = {
         'eventId': dict(
@@ -96,34 +96,12 @@ class EventGridAPIView(AuthorizedGridAPIView):
         ),
         # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
-# class GridSelectAPIView(AuthorizedGridAPIView):
-#     assignment_model = None
-#     assignment_field = None
-#     param_field = None
-#
-#
-#     def _post(self, request):
-#         changes = request.data.get('changes', [])
-#         role_id = self.params.get(self.param_field)
-#
-#         updated_count = 0
-#
-#         for change in changes:
-#             record_id = change.get('recordId')
-#             selected = change.get('value')
-#
-#             status_id = status_constants.ACTIVE if selected else status_constants.INACTIVE
-#
-#             self.assignment_model.objects.update_or_create(
-#                 role_id=role_id,
-#                 **{self.assignment_field: record_id},
-#                 defaults={'status_id': status_id}
-#             )
-#
-#             updated_count += 1
-#
-#         self.set_message(f'Updated successfully. Records updated: {updated_count}')
+        self.event_id = None
+
+
 class GridSelectAPIView(AuthorizedGridAPIView):
     param_field = None                # e.g. 'roleId'
     assignment_model = None
@@ -162,3 +140,20 @@ class GridSelectAPIView(AuthorizedGridAPIView):
         }
 
         return key_fields
+
+
+class GridUpdateMixin:
+    def process_changes(self, request):
+        changes = request.data.get('changes', [])
+
+        updated_count = 0
+
+        for change in changes:
+            if self.save_change(change):
+                updated_count += 1
+
+        return updated_count
+
+    def save_change(self, change):
+        raise NotImplementedError
+
