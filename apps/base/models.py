@@ -135,6 +135,38 @@ class Company(BaseModel):
 # AUTOGEN_END_Company#
 
 
+# AUTOGEN_BEGIN_CompanyUser#
+class CompanyUser(BaseModel):
+    company_user_id     = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    order_by            = models.CharField(max_length=  2, blank=True , unique=False, primary_key=False, default="99")
+    company             = models.ForeignKey("base.Company", on_delete=models.CASCADE, related_name='+', default='A0000')
+    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name="+", default='A99999')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    office_phone        = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    extension           = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='')
+    is_primary_contact  = models.BooleanField(default=False)
+    start_date          = models.DateTimeField(default=today)
+    end_date            = models.DateTimeField(default=end_of_time)
+    effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", db_column="effective_status_id", default='021')
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'base_company_user'
+        verbose_name_plural = 'company users (base_company_user)'
+        ordering            = []
+        constraints         = [
+            models.UniqueConstraint(fields=['company', 'user'], name='unique_company_user')
+        ]
+        
+    def __str__(self):
+        return 'company_user'
+# AUTOGEN_END_CompanyUser#
+
+
 # AUTOGEN_BEGIN_EmailQueue#
 class EmailQueue(BaseModel):
     email_queue_id   = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )

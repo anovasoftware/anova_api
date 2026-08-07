@@ -16,7 +16,7 @@ class Grid009Utility(GridHotelUtility):
     #
     #     return filters
 
-class Grid009HotelAPIView(GridHotelAPIView):
+class Grid009APIView(GridHotelAPIView):
     process_id = process_constants.GRID_FLOOR
     grid_id = grid_constants.FLOOR
     grid_utility_class = Grid009Utility

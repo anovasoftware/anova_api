@@ -1,7 +1,8 @@
 # AUTO GENERATED
 #  ALL
 NOT_APPLICABLE = '000'                                           # not applicableTO_BE_ANNOUNCED = '999'                                          # to be announced#  Anova
-USER_ANOVA = '001'                                               # anova users#  Crew
+USER_ANOVA = '001'                                               # anova users#  Client
+COMPANY_USER_AGENT = '020'                                       # travel agents#  Crew
 POSITION = '005'                                                 # position management#  Cruise Setup
 EVENT = '004'                                                    # cruise managementEVENT_CATEGORY_PRICE = '019'                                     # grade pricingEVENT_CATEGORY_PRICE_DETAIL = '018'                              # grade pricing - detailEVENT_SELECT_FOR_PRICING = '017'                                 # select cruise for pricing#  Hotel Setup
 FLOOR = '009'                                                    # hotel build: decks/floorsROOM = '003'                                                     # hotel build: cabins/roomsROOM_CATEGORY = '002'                                            # hotel build: room categories#  Point of Sale

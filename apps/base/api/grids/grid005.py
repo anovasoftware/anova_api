@@ -10,7 +10,7 @@ class Grid005Utility(GridHotelUtility):
     }
 
 
-class Grid005HotelAPIView(GridHotelAPIView):
+class Grid005APIView(GridHotelAPIView):
     process_id = process_constants.GRID_POSITION
     grid_id = grid_constants.POSITION
     grid_utility_class = Grid005Utility

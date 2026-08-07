@@ -4639,6 +4639,31 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "03K",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "company_user",
+      "code": "Agent",
+      "description": "Travel Agent",
+      "description_short": "Travel Agent",
+      "description_long": "",
+      "description2": "",
+      "type_key": "COMPANY_USER_AGENT",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-07 00:00+0000",
+      "last_updated": "2026-08-07 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -5535,7 +5560,7 @@
       "description": "Agencies",
       "title": "Agency Management",
       "sub_title": "Agency and agencies settings and configuration",
-      "breadcrumb_name": "Agency",
+      "breadcrumb_name": "Agencies",
       "route": "",
       "params": "",
       "icon": "people",
@@ -5932,6 +5957,22 @@
       "internal_comment": "",
       "created_date": "2026-07-31 00:00+0000",
       "last_updated": "2026-07-31 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "014",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Agencies",
+      "description": "Agencies",
+      "grouping": "Client",
+      "page_key": "COMPANY_USER_AGENCY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-07 00:00+0000",
+      "last_updated": "2026-08-07 00:00+0000"  
     }
   }
 ,  {
@@ -6611,7 +6652,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "015",
-      "page_id": "000",
+      "page_id": "014",
       "description": "Travel Agencies",
       "title": "Travel Agencies",
       "display_as": "description",
@@ -6798,6 +6839,34 @@
       "internal_comment": "",
       "created_date": "2026-03-30 00:00+0000",
       "last_updated": "2026-03-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "020",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Travel Agents",
+      "title": "Travel Agents",
+      "display_as": "",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "selectable": false,
+      "display_pk": false,
+      "data_source_application": "base",
+      "data_source_model_name": "CompanyUser",
+      "order_by": "user__description",
+      "grouping": "Client",
+      "grid_key": "COMPANY_USER_AGENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-07 00:00+0000",
+      "last_updated": "2026-08-07 00:00+0000"  
     }
   }
 ,  {
@@ -8163,6 +8232,27 @@
       "internal_comment": "",
       "created_date": "2026-09-01 00:00+0000",
       "last_updated": "2026-09-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02001",
+    "fields": {
+      "grid_id": "020",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "travel agent (user)",
+      "description_short": "",
+      "field": "user__description",
+      "label": "User Name",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-07 00:00+0000",
+      "last_updated": "2026-08-07 00:00+0000"  
     }
   }
 ,  {
@@ -10188,6 +10278,33 @@
       "internal_comment": "",
       "created_date": "2026-08-01 00:00+0000",
       "last_updated": "2026-08-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02H",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "020",
+      "user_required_flag": "Y",
+      "code": "Travel Agents",
+      "description": "Travel Agents",
+      "route": "grid/grid020",
+      "view": "Grid020APIView",
+      "module_path": "apps.base.api.grids.grid020",
+      "grouping": "grids",
+      "process_key": "GRID_COMPANY_USER_AGENT",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-07 00:00+0000",
+      "last_updated": "2026-08-07 00:00+0000"  
     }
   }
 ,  {

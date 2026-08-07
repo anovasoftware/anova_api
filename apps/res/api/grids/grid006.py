@@ -17,7 +17,7 @@ class Grid006Utility(GridEventUtility):
 
         return filters
 
-class Grid006HotelAPIView(GridHotelAPIView):
+class Grid006APIView(GridHotelAPIView):
     process_id = process_constants.GRID_TRANSACTION_ITEM_STAGED
     grid_id = grid_constants.TRANSACTION_ITEM_STAGED
     grid_utility_class = Grid006Utility

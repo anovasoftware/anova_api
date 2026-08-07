@@ -117,7 +117,7 @@ class Grid019Utility(GridHotelUtility):
 
         self.rows_df = rows_df
 
-class Grid019EventAPIView(GridUpdateMixin, GridEventAPIView):
+class Grid019APIView(GridUpdateMixin, GridEventAPIView):
     process_id = process_constants.GRID_EVENT_GRADE_PRICE
     grid_id = grid_constants.EVENT_CATEGORY_PRICE
     grid_utility_class = Grid019Utility

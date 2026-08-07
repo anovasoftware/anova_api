@@ -32,7 +32,7 @@ class Grid003Utility(GridHotelUtility):
     #     return rows
 
 
-class Grid003HotelAPIView(GridHotelAPIView):
+class Grid003APIView(GridHotelAPIView):
     process_id = process_constants.GRID_ROOM
     grid_id = grid_constants.ROOM
     grid_utility_class = Grid003Utility

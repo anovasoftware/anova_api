@@ -26,7 +26,7 @@ class Grid018Utility(GridHotelUtility):
 
         return rows_df
 
-class Grid018EventAPIView(GridEventAPIView):
+class Grid018APIView(GridEventAPIView):
     process_id = process_constants.GRID_EVENT_GRADE_PRICE
     grid_id = grid_constants.EVENT_CATEGORY_PRICE
     grid_utility_class = Grid018Utility
