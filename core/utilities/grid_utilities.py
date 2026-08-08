@@ -23,6 +23,7 @@ class GridUtility(object):
 
     def __init__(self, grid_id, params=None):
         self.grid_id = grid_id
+        self.column_grid_id = grid_id
         self.params = params or {}
         self.grid = None
         self.base_model: Optional[Model] = None
@@ -130,7 +131,7 @@ class GridUtility(object):
             'format',
             'editable'
         ).filter(
-            grid_id=self.grid_id,
+            grid_id=self.column_grid_id,
             status_id=status_constants.ACTIVE,
         ).order_by(
             'order_by'
@@ -298,7 +299,7 @@ class GridUtility(object):
 
     def get_displayed_columns(self):
         columns = GridColumn.objects.filter(
-            grid_id=self.grid_id,
+            grid_id=self.column_grid_id,
             status_id=status_constants.ACTIVE,
         ).values_list(
             'field', flat=True

@@ -12,5 +12,5 @@ class Grid017Utility(GridHotelUtility):
 
 class Grid017APIView(GridHotelAPIView):
     process_id = process_constants.GRID_EVENT_SELECT
-    grid_id = grid_constants.EVENT_SELECT_FOR_PRICING
+    grid_id = grid_constants.SELECT_EVENT_FOR_PRICING
     grid_utility_class = Grid017Utility

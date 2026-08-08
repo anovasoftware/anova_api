@@ -5576,14 +5576,14 @@
       "page_id": "009",
       "grid_id": "014",
       "hotel_type_id": "000",
-      "order_by": "10.30",
-      "description": "Agencies",
+      "order_by": "10.20",
+      "description": "Agency Management",
       "title": "Agency Management",
       "sub_title": "Agency and agencies settings and configuration",
       "breadcrumb_name": "Agencies",
       "route": "",
       "params": "",
-      "icon": "people",
+      "icon": "business",
       "hotel_required": true,
       "grouping": "Navigation",
       "menu_key": "AGENCY",
@@ -5685,9 +5685,9 @@
       "grid_id": "004",
       "hotel_type_id": "000",
       "order_by": "10.10.10",
-      "description": "Cruises",
-      "title": "Cruises",
-      "sub_title": "Cruises",
+      "description": "Cruises/Sailings",
+      "title": "Cruises/Sailings",
+      "sub_title": "Cruise setup and configuration",
       "breadcrumb_name": "Cruises",
       "route": "",
       "params": "",
@@ -5738,7 +5738,7 @@
       "page_id": "007",
       "grid_id": "017",
       "hotel_type_id": "000",
-      "order_by": "10.10.30",
+      "order_by": "10.10.40",
       "description": "Grade Pricing",
       "title": "Grade Pricing",
       "sub_title": "Grade Pricing",
@@ -5753,6 +5753,60 @@
       "internal_comment": "",
       "created_date": "2026-07-30 00:00+0000",
       "last_updated": "2026-07-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "025",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "021",
+      "page_id": "007",
+      "grid_id": "021",
+      "hotel_type_id": "000",
+      "order_by": "10.10.30",
+      "description": "Cabin Inventory",
+      "title": "Cabin Inventory",
+      "sub_title": "Cabin inventory",
+      "breadcrumb_name": "Cabin Inventory",
+      "route": "",
+      "params": "",
+      "icon": "bed",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "EVENT_CABIN_INVENTORY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-08 00:00+0000",
+      "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "026",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00V",
+      "page_id": "000",
+      "grid_id": "000",
+      "hotel_type_id": "000",
+      "order_by": "10.30",
+      "description": "Booking Management",
+      "title": "Booking Management",
+      "sub_title": "Bookings",
+      "breadcrumb_name": "Bookings",
+      "route": "",
+      "params": "",
+      "icon": "book_online",
+      "hotel_required": true,
+      "grouping": "Navigation",
+      "menu_key": "BOOKING_MANAGEMENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-08 00:00+0000",
+      "last_updated": "2026-08-08 00:00+0000"  
     }
   }
 ,  {
@@ -6770,7 +6824,7 @@
       "data_source_model_name": "Event",
       "order_by": "event_start_date",
       "grouping": "Cruise Setup",
-      "grid_key": "EVENT_SELECT_FOR_PRICING",
+      "grid_key": "SELECT_EVENT_FOR_PRICING",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-07-30 00:00+0000",
@@ -6887,6 +6941,34 @@
       "internal_comment": "",
       "created_date": "2026-08-07 00:00+0000",
       "last_updated": "2026-08-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "021",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Select Cruise for Cruise Inventory",
+      "title": "Select Cruise for Cruise Inventory",
+      "display_as": "code",
+      "can_create": false,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "selectable": false,
+      "display_pk": true,
+      "data_source_application": "res",
+      "data_source_model_name": "Event",
+      "order_by": "event_start_date",
+      "grouping": "Cruise Setup",
+      "grid_key": "SELECT_EVENT_FOR_INVENTORY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-08 00:00+0000",
+      "last_updated": "2026-08-08 00:00+0000"  
     }
   }
 ,  {
@@ -10347,6 +10429,33 @@
       "supports_read": true,
       "supports_update": true,
       "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-08 00:00+0000",
+      "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02K",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "020",
+      "user_required_flag": "Y",
+      "code": "Cruise Inventory",
+      "description": "Cruise Inventory",
+      "route": "grid/grid021",
+      "view": "Grid021APIView",
+      "module_path": "apps.res.api.grids.grid021",
+      "grouping": "grids",
+      "process_key": "GRID_EVENT_INVENTORY",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": true,
       "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
