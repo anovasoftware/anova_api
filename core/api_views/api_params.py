@@ -101,6 +101,13 @@ COMMON_PARAMS = {
         # required_post=True,
         # required_patch=True,
     ),
+    'companyId': ParamSpec(
+        name='companyId',
+        dest='company_id',
+        kind='either',
+        cast=_to_str,
+        description='Company id for the request.',
+    ),
     'currencyId': ParamSpec(
         name='currencyId',
         dest='currency_id',
