@@ -50,7 +50,7 @@ class EventRoomService(JobService):
                         room_id=room.room_id,
                         defaults={
                             'type_id': type_constants.NOT_APPLICABLE,
-                            'status_id': status_constants.ACTIVE,
+                            'status_id': status_constants.EVENT_ROOM_AVAILABLE,
                             'inventory_status_id': status_constants.EVENT_ROOM_AVAILABLE
                         }
                     )

@@ -1584,7 +1584,7 @@
     "pk": "01S",
     "fields": {
       "grouping": "event_room.inventory",
-      "code": "AVAILABLE",
+      "code": "Available",
       "description": "Available",
       "status_key": "EVENT_ROOM_AVAILABLE",
       "status_code": 0,
@@ -1604,7 +1604,7 @@
     "pk": "01T",
     "fields": {
       "grouping": "event_room.inventory",
-      "code": "OUT_OF_SERVICE",
+      "code": "Out of Service",
       "description": "Out of Service",
       "status_key": "EVENT_ROOM_OUT_OF_SERVICE",
       "status_code": 0,
@@ -1624,7 +1624,7 @@
     "pk": "01V",
     "fields": {
       "grouping": "event_room.inventory",
-      "code": "NOT_AVAILABLE",
+      "code": "Not Available",
       "description": "Not Available",
       "status_key": "EVENT_ROOM_NOT_AVAILABLE",
       "status_code": 0,
@@ -1644,7 +1644,7 @@
     "pk": "01W",
     "fields": {
       "grouping": "event_room.inventory",
-      "code": "RESERVED",
+      "code": "Reserved",
       "description": "Reserved for Operator",
       "status_key": "EVENT_ROOM_RESERVED",
       "status_code": 0,
@@ -6050,6 +6050,22 @@
     }
   }
 ,  {
+    "model": "static.Page",
+    "pk": "015",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Inventory",
+      "description": "Cabin Inventory",
+      "grouping": "Hotel",
+      "page_key": "ROOM_INVENTORY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-10 00:00+0000",
+      "last_updated": "2026-08-10 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Currency",
     "pk": "00",
     "fields": {
@@ -6811,8 +6827,8 @@
       "status_id": "001",
       "form_id": "000",
       "page_id": "013",
-      "description": "Select Cruise for Pricing",
-      "title": "Select Cruise for Pricing",
+      "description": "Select Cruise for Grade Pricing",
+      "title": "Select Cruise for Grade Pricing",
       "display_as": "code",
       "can_create": false,
       "can_read": true,
@@ -6950,7 +6966,7 @@
       "type_id": "000",
       "status_id": "001",
       "form_id": "000",
-      "page_id": "000",
+      "page_id": "015",
       "description": "Select Cruise for Cruise Inventory",
       "title": "Select Cruise for Cruise Inventory",
       "display_as": "code",
@@ -6969,6 +6985,34 @@
       "internal_comment": "",
       "created_date": "2026-08-08 00:00+0000",
       "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "022",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Cabin Inventory",
+      "title": "Cabin Inventory",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "selectable": false,
+      "display_pk": true,
+      "data_source_application": "res",
+      "data_source_model_name": "EventRoom",
+      "order_by": "room__code",
+      "grouping": "Cruise Setup",
+      "grid_key": "EVENT_ROOM_INVENTORY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-10 00:00+0000",
+      "last_updated": "2026-08-10 00:00+0000"  
     }
   }
 ,  {
@@ -8355,6 +8399,69 @@
       "internal_comment": "",
       "created_date": "2026-08-07 00:00+0000",
       "last_updated": "2026-08-07 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02201",
+    "fields": {
+      "grid_id": "022",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "room/cabin",
+      "description_short": "",
+      "field": "room__code",
+      "label": "Cabin/Room",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-10 00:00+0000",
+      "last_updated": "2026-08-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02202",
+    "fields": {
+      "grid_id": "022",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "grade/category",
+      "description_short": "",
+      "field": "room__category__code",
+      "label": "Cabin Grade",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-10 00:00+0000",
+      "last_updated": "2026-08-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02203",
+    "fields": {
+      "grid_id": "022",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "inventory status",
+      "description_short": "",
+      "field": "inventory_status__code",
+      "label": "Inventory Status",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-10 00:00+0000",
+      "last_updated": "2026-08-01 00:00+0000"  
     }
   }
 ,  {
@@ -10443,10 +10550,10 @@
       "type_id": "02X",
       "status_id": "001",
       "form_id": "000",
-      "grid_id": "020",
+      "grid_id": "021",
       "user_required_flag": "Y",
-      "code": "Cruise Inventory",
-      "description": "Cruise Inventory",
+      "code": "Cruise Select",
+      "description": "Cruise Select",
       "route": "grid/grid021",
       "view": "Grid021APIView",
       "module_path": "apps.res.api.grids.grid021",
@@ -10461,6 +10568,33 @@
       "internal_comment": "",
       "created_date": "2026-08-08 00:00+0000",
       "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02L",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "022",
+      "user_required_flag": "Y",
+      "code": "Cabin Inventory",
+      "description": "Cabin Inventory",
+      "route": "grid/grid022",
+      "view": "Grid022APIView",
+      "module_path": "apps.res.api.grids.grid022",
+      "grouping": "grids",
+      "process_key": "GRID_EVENT_ROOM_INVENTORY",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-10 00:00+0000",
+      "last_updated": "2026-08-10 00:00+0000"  
     }
   }
 ,  {
