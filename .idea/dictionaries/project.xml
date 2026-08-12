@@ -5,6 +5,7 @@
       <w>hotelid</w>
       <w>icontains</w>
       <w>pgdata</w>
+      <w>userhotels</w>
     </words>
   </dictionary>
 </component>

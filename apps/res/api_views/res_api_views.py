@@ -34,7 +34,7 @@ class ResCoreAPIView(CoreAPIView):
     def load_hotel(self, hotel_id=None):
         self.hotel_id = hotel_id
 
-        user_hotels = self.user.userHotels.filter(
+        user_hotels = self.user.userhotels.filter(
             hotel_id=self.hotel_id,
             effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
         )

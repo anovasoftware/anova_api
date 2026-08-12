@@ -7016,6 +7016,34 @@
     }
   }
 ,  {
+    "model": "static.Grid",
+    "pk": "023",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Cabin Inventory Summary",
+      "title": "Cabin Inventory Summary",
+      "display_as": "",
+      "can_create": false,
+      "can_read": true,
+      "can_update": false,
+      "can_delete": false,
+      "selectable": false,
+      "display_pk": true,
+      "data_source_application": "base",
+      "data_source_model_name": "Category",
+      "order_by": "order_by",
+      "grouping": "Cruise Setup",
+      "grid_key": "EVENT_ROOM_INVENTORY_SUMMARY",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-11 00:00+0000",
+      "last_updated": "2026-08-11 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.GridColumn",
     "pk": "00101",
     "fields": {
@@ -8462,6 +8490,69 @@
       "internal_comment": "",
       "created_date": "2026-08-10 00:00+0000",
       "last_updated": "2026-08-01 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02301",
+    "fields": {
+      "grid_id": "023",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "cabin grade",
+      "description_short": "",
+      "field": "code",
+      "label": "Grade",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-11 00:00+0000",
+      "last_updated": "2026-08-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02302",
+    "fields": {
+      "grid_id": "023",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "cabin grade description",
+      "description_short": "",
+      "field": "description",
+      "label": "Description",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-11 00:00+0000",
+      "last_updated": "2026-08-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02303",
+    "fields": {
+      "grid_id": "023",
+      "type_id": "000",
+      "status_id": "002",
+      "order_by": "03",
+      "description": "inventory status id",
+      "description_short": "",
+      "field": "inventory_status_id",
+      "label": "Inventory Status Id",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-11 00:00+0000",
+      "last_updated": "2026-08-11 00:00+0000"  
     }
   }
 ,  {
@@ -10588,13 +10679,40 @@
       "process_key": "GRID_EVENT_ROOM_INVENTORY",
       "supports_create": false,
       "supports_read": true,
-      "supports_update": true,
+      "supports_update": false,
       "supports_delete": false,
       "generate_doc": false,
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-08-10 00:00+0000",
       "last_updated": "2026-08-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02M",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "023",
+      "user_required_flag": "Y",
+      "code": "Cabin Inventory Summ",
+      "description": "Cabin Inventory Summary",
+      "route": "grid/grid023",
+      "view": "Grid023APIView",
+      "module_path": "apps.res.api.grids.grid023",
+      "grouping": "grids",
+      "process_key": "GRID_EVENT_ROOM_INVENTORY_SUMMARY",
+      "supports_create": false,
+      "supports_read": true,
+      "supports_update": false,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-11 00:00+0000",
+      "last_updated": "2026-08-11 00:00+0000"  
     }
   }
 ,  {

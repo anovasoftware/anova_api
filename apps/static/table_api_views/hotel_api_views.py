@@ -82,7 +82,7 @@ class AuthorizedHotelAPIView(AuthorizedTableAPIView):
 
         if self.success:
             try:
-                user_hotels = self.user.userHotels.filter(
+                user_hotels = self.user.userhotels.filter(
                     hotel_id=self.hotel_id,
                     effective_status_id=status_constants.EFFECTIVE_STATUS_CURRENT
                 )

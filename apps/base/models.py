@@ -839,7 +839,7 @@ class User(AbstractUser, BaseModel):
 # AUTOGEN_BEGIN_UserHotel#
 class UserHotel(BaseModel):
     user_hotel_id       = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='userhotel', default='001')
+    user                = models.ForeignKey("base.User", on_delete=models.CASCADE, related_name='userhotels', default='001')
     hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A00000')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
