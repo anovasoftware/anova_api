@@ -5789,7 +5789,7 @@
       "type_id": "02B",
       "status_id": "001",
       "parent_menu_id": "00V",
-      "page_id": "000",
+      "page_id": "016",
       "grid_id": "000",
       "hotel_type_id": "000",
       "order_by": "10.30",
@@ -6063,6 +6063,22 @@
       "internal_comment": "",
       "created_date": "2026-08-10 00:00+0000",
       "last_updated": "2026-08-10 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Page",
+    "pk": "016",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "code": "Bookings",
+      "description": "Booking Management",
+      "grouping": "Reservation",
+      "page_key": "BOOKING_MANAGEMENT",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-13 00:00+0000",
+      "last_updated": "2026-08-13 00:00+0000"  
     }
   }
 ,  {
@@ -7041,6 +7057,34 @@
       "internal_comment": "",
       "created_date": "2026-08-11 00:00+0000",
       "last_updated": "2026-08-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Grid",
+    "pk": "024",
+    "fields": {
+      "type_id": "000",
+      "status_id": "001",
+      "form_id": "000",
+      "page_id": "000",
+      "description": "Bookings",
+      "title": "Bookings",
+      "display_as": "",
+      "can_create": true,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "selectable": false,
+      "display_pk": false,
+      "data_source_application": "res",
+      "data_source_model_name": "Reservation",
+      "order_by": "reservation_id",
+      "grouping": "Cruise Setup",
+      "grid_key": "BOOKINGS",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-13 00:00+0000",
+      "last_updated": "2026-08-13 00:00+0000"  
     }
   }
 ,  {
@@ -8553,6 +8597,69 @@
       "internal_comment": "",
       "created_date": "2026-08-11 00:00+0000",
       "last_updated": "2026-08-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02401",
+    "fields": {
+      "grid_id": "024",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "01",
+      "description": "booking",
+      "description_short": "",
+      "field": "reservation_id",
+      "label": "Booking",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-13 00:00+0000",
+      "last_updated": "2026-08-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02403",
+    "fields": {
+      "grid_id": "024",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "lead person",
+      "description_short": "",
+      "field": "person__PERSON-NAME",
+      "label": "Lead Guest",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-13 00:00+0000",
+      "last_updated": "2026-08-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "02402",
+    "fields": {
+      "grid_id": "024",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "02",
+      "description": "travel agency",
+      "description_short": "",
+      "field": "travel_agency_company__description",
+      "label": "Agency",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-13 00:00+0000",
+      "last_updated": "2026-08-13 00:00+0000"  
     }
   }
 ,  {
@@ -10713,6 +10820,33 @@
       "internal_comment": "",
       "created_date": "2026-08-11 00:00+0000",
       "last_updated": "2026-08-11 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Process",
+    "pk": "02N",
+    "fields": {
+      "type_id": "02X",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "024",
+      "user_required_flag": "Y",
+      "code": "Bookings",
+      "description": "Bookings",
+      "route": "grid/grid024",
+      "view": "Grid024APIView",
+      "module_path": "apps.res.api.grids.grid024",
+      "grouping": "grids",
+      "process_key": "GRID_BOOKINGS",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-13 00:00+0000",
+      "last_updated": "2026-08-13 00:00+0000"  
     }
   }
 ,  {
