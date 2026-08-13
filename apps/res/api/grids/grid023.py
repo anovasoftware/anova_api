@@ -4,6 +4,7 @@ from apps.static.models import Status
 from constants import process_constants, grid_constants, status_constants, type_constants
 from core.api_views.grid_api import GridEventAPIView
 from core.utilities.grid_utilities import GridEventUtility, GridHotelUtility
+from django.db.models import Count
 
 
 class Grid023Utility(GridHotelUtility):
@@ -14,6 +15,7 @@ class Grid023Utility(GridHotelUtility):
 
     def __init__(self, grid_id, params=None):
         super().__init__(grid_id, params)
+        self.event_id = self.params.get('eventId')
 
     def get_data_qs(self):
         queryset = super().get_data_qs()
@@ -67,9 +69,32 @@ class Grid023Utility(GridHotelUtility):
         self.displayed_columns = displayed_columns
         self.columns.extend(dynamic_columns)
 
-        # self.add_inventory_counts()
+        self.add_inventory_counts()
 
         return
+
+    def add_inventory_counts(self):
+        room_counts = (
+            EventRoom.objects.filter(
+                event_id=self.event_id
+            ).values(
+                'room__category_id',
+                'inventory_status_id',
+            ).annotate(
+                count=Count('pk')
+            )
+        )
+
+        for item in room_counts:
+            category_id = item['room__category_id']
+            inventory_status_id = item['inventory_status_id']
+            count = item['count']
+
+            mask = self.rows_df['pk'] == category_id
+
+            self.rows_df.loc[mask, f'status{inventory_status_id}'] = count
+            self.rows_df.loc[mask, 'total'] += count
+
 
 
 class Grid023APIView(GridEventAPIView):
