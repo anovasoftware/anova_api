@@ -111,6 +111,7 @@ class GridUtility(object):
             'data_source_model_name',
             'order_by',
             'can_create',
+            'create_button_label',
             'selectable',
             'display_pk'
         ).get(
