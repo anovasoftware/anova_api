@@ -113,7 +113,8 @@ class GridUtility(object):
             'can_create',
             'create_button_label',
             'selectable',
-            'display_pk'
+            'display_pk',
+            'row_action'
         ).get(
             pk=self.grid_id
         )

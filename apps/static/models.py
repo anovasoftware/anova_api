@@ -181,6 +181,7 @@ class Grid(BaseModel):
     selectable              = models.BooleanField(default=False)
     display_pk              = models.BooleanField(default=True)
     create_button_label     = models.CharField(max_length= 30, blank=False, unique=False, primary_key=False, default='Add')
+    row_action              = models.CharField(max_length= 10, blank=False, unique=False, primary_key=False, default='update')
     data_source_application = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     data_source_model_name  = models.CharField(max_length= 40, blank=False, unique=False, primary_key=False, default='')
     order_by                = models.CharField(max_length=100, blank=False, unique=False, primary_key=False, default='')
