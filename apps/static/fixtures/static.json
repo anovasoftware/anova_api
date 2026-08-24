@@ -4684,6 +4684,31 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "03L",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "base_role",
+      "code": "client",
+      "description": "Client Specific",
+      "description_short": "Client Specific",
+      "description_long": "",
+      "description2": "",
+      "type_key": "ROLE_CLIENT",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-23 00:00+0000",
+      "last_updated": "2026-08-23 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -5037,8 +5062,8 @@
       "grid_id": "000",
       "hotel_type_id": "000",
       "order_by": "30.30",
-      "description": "Hotel Administration",
-      "title": "<<HOTEL>> Administration",
+      "description": "Property Administration",
+      "title": "Property Administration",
       "sub_title": "Property settings and configuration",
       "breadcrumb_name": "Hotel/Ship",
       "route": "",
@@ -5393,7 +5418,7 @@
       "sub_title": "Roles",
       "breadcrumb_name": "Roles",
       "route": "page",
-      "params": "{ \"hotelIdx\": \"A000\" }",
+      "params": "{ \"typeId\": \"02L\"}",
       "icon": "security",
       "hotel_required": false,
       "grouping": "Navigation",
@@ -5447,7 +5472,7 @@
       "sub_title": "Roles",
       "breadcrumb_name": "Roles",
       "route": "page",
-      "params": "{ \"hotelIdx\": \"<<HOTELID>>\" }",
+      "params": "{ \"typeId\": \"02N\"}",
       "icon": "security",
       "hotel_required": false,
       "grouping": "Navigation",
@@ -5524,7 +5549,7 @@
       "hotel_type_id": "000",
       "order_by": "30.30.10",
       "description": "Property Setup",
-      "title": "<<PROPERTY>> Setup",
+      "title": "Property Setup",
       "sub_title": "Property setup and configuration",
       "breadcrumb_name": "Setup",
       "route": "",
@@ -5605,7 +5630,7 @@
       "hotel_type_id": "000",
       "order_by": "30.20",
       "description": "Client Administration",
-      "title": "<<CLIENT>> Administration",
+      "title": "Client Administration",
       "sub_title": "Client settings and configuration",
       "breadcrumb_name": "Client",
       "route": "",
@@ -5807,6 +5832,33 @@
       "internal_comment": "",
       "created_date": "2026-08-08 00:00+0000",
       "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Menu",
+    "pk": "027",
+    "fields": {
+      "type_id": "02B",
+      "status_id": "001",
+      "parent_menu_id": "00Z",
+      "page_id": "009",
+      "grid_id": "007",
+      "hotel_type_id": "000",
+      "order_by": "30.20.20",
+      "description": "Role Management",
+      "title": "Role Management",
+      "sub_title": "Roles",
+      "breadcrumb_name": "Roles",
+      "route": "page",
+      "params": "{ \"typeId\": \"03L\" }",
+      "icon": "security",
+      "hotel_required": false,
+      "grouping": "Navigation",
+      "menu_key": "CLIENT_ROLE",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-23 00:00+0000",
+      "last_updated": "2026-08-23 00:00+0000"  
     }
   }
 ,  {
@@ -12012,12 +12064,12 @@
   }
 ,  {
     "model": "static.FormField",
-    "pk": "00801",
+    "pk": "00802",
     "fields": {
       "form_id": "008",
       "type_id": "02K",
       "status_id": "001",
-      "order_by": "01",
+      "order_by": "02",
       "custom_flag": "N",
       "control_type": "",
       "tab_name": "Detail",
@@ -12031,7 +12083,7 @@
       "data_source_key": "ROLES",
       "data_source_application": "base",
       "data_source_model_name": "Role",
-      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"form_instance.type_id\", \"hotel_id\": \"form_instance.hotel_id\" }",
+      "data_source_filter": "{ \"status_id\": \"001\", \"type_id\": \"form_instance.type_id\"}",
       "data_source_filter_effective_status": "",
       "data_source_order": "description",
       "display_value": "description",
@@ -13636,6 +13688,43 @@
       "internal_comment": "",
       "created_date": "2026-08-08 00:00+0000",
       "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "00801",
+    "fields": {
+      "form_id": "008",
+      "type_id": "028",
+      "status_id": "002",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Client",
+      "name": "client_id",
+      "mapping_name": "",
+      "default_value": "<<CLIENTID>>",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "static",
+      "data_source_model_name": "Client",
+      "data_source_filter": "{ \"status_id\": \"001\", \"client_id\": \"form_instance.client_id\"}",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-07-15 00:00+0000",
+      "last_updated": "2026-07-15 00:00+0000"  
     }
   }
 ,  {

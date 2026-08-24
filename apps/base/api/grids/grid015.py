@@ -1,4 +1,4 @@
-from apps.base.api.grids.grid_role import GridRoleUtility, GridRoleAPIView
+from apps.base.api.grids.grid_role import GridRoleUtility, GridSelectRoleAPIView
 from apps.base.models import RoleProcess, ClientCurrency
 from constants import process_constants, grid_constants, type_constants, status_constants
 from core.api_views.grid_api import AuthorizedGridAPIView, GridSelectAPIView

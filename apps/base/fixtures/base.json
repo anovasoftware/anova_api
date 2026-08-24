@@ -455,19 +455,19 @@
     "model": "base.Role",
     "pk": "A004",
     "fields": {
-      "type_id": "02N",
+      "type_id": "03L",
       "status_id": "001",
-      "hotel_id": "A004",
-      "grouping": "Hotel Specific Roles",
+      "hotel_id": "A000",
+      "grouping": "Client Roles",
       "code": "ADMIN",
-      "description": "Ship System Administrator",
-      "role_key": "A004_SYSTEM_ADMINISTRATOR",
+      "description": "System Administrator",
+      "role_key": "SYSTEM_ADMINISTRATOR",
       "group1": "",
       "group2": "",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-06-06 00:00+0000",
-      "last_updated": "2026-06-06 00:00+0000"  
+      "last_updated": "2026-08-24 00:00+0000"  
     }
   }
 ,  {
@@ -509,6 +509,25 @@
     }
   }
 ,  {
+    "model": "base.Role",
+    "pk": "A007",
+    "fields": {
+      "type_id": "03L",
+      "status_id": "001",
+      "hotel_id": "A000",
+      "grouping": "Client Roles",
+      "code": "AGENT",
+      "description": "Travel Agent",
+      "role_key": "CLIENT_TRAVEL_AGENT",
+      "group1": "",
+      "group2": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-23 00:00+0000",
+      "last_updated": "2026-08-23 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.UserRole",
     "pk": "A00001",
     "fields": {
@@ -516,6 +535,8 @@
       "role_id": "A001",
       "type_id": "000",
       "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
       "access_flag": "#",
       "start_date": "2025-11-28 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
@@ -534,6 +555,8 @@
       "role_id": "A002",
       "type_id": "000",
       "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
       "access_flag": "#",
       "start_date": "2025-11-28 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
@@ -552,6 +575,8 @@
       "role_id": "A001",
       "type_id": "000",
       "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
       "access_flag": "#",
       "start_date": "2025-11-28 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
@@ -570,9 +595,11 @@
       "role_id": "A003",
       "type_id": "000",
       "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
       "access_flag": "#",
       "start_date": "2026-02-26 00:00+0000",
-      "end_date": "2099-12-31 00:00+0000",
+      "end_date": "2026-08-24 00:00+0000",
       "effective_status_id": "021",
       "static_flag": "Y",
       "internal_comment": "",
@@ -1290,6 +1317,42 @@
     }
   }
 ,  {
+    "model": "base.RoleProcess",
+    "pk": "A00008",
+    "fields": {
+      "role_id": "A007",
+      "process_id": "02N",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-24 00:00+0000",
+      "last_updated": "2026-08-24 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleProcess",
+    "pk": "A00009",
+    "fields": {
+      "role_id": "A007",
+      "process_id": "02P",
+      "type_id": "000",
+      "status_id": "001",
+      "can_create": false,
+      "can_read": true,
+      "can_update": true,
+      "can_delete": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-24 00:00+0000",
+      "last_updated": "2026-08-24 00:00+0000"  
+    }
+  }
+,  {
     "model": "base.RoleMenu",
     "pk": "A00000",
     "fields": {
@@ -1321,6 +1384,40 @@
       "internal_comment": "",
       "created_date": "2026-03-26 00:00+0000",
       "last_updated": "2026-03-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleMenu",
+    "pk": "A00002",
+    "fields": {
+      "role_id": "A007",
+      "menu_id": "00V",
+      "type_id": "000",
+      "status_id": "001",
+      "start_date": "2026-08-23 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-23 00:00+0000",
+      "last_updated": "2026-08-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.RoleMenu",
+    "pk": "A00003",
+    "fields": {
+      "role_id": "A007",
+      "menu_id": "026",
+      "type_id": "000",
+      "status_id": "001",
+      "start_date": "2026-08-23 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-23 00:00+0000",
+      "last_updated": "2026-08-23 00:00+0000"  
     }
   }
 ,  {

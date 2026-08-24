@@ -571,7 +571,7 @@ class CoreAPIView(GenericAPIView):
                             if self.success:
                                 self.post_patch(request)
         except Exception as e:
-            message = f'post() error:  {str(e)}'
+            message = f'patch() error:  {str(e)}'
             self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
         return self.get_response()

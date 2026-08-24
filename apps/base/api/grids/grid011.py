@@ -1,7 +1,7 @@
 from apps.base.api.grids.grid_role import GridRoleUtility
 from constants import process_constants, grid_constants, type_constants
 from core.api_views.grid_api import AuthorizedGridAPIView
-
+from apps.base.api.grids.grid_role import GridSelectRoleAPIView
 
 class Grid011Utility(GridRoleUtility):
     def get_query_filter(self):
@@ -12,7 +12,12 @@ class Grid011Utility(GridRoleUtility):
         return filters
 
 
-class Grid011APIView(AuthorizedGridAPIView):
+# class Grid011APIView(AuthorizedGridAPIView):
+#     process_id = process_constants.GRID_ROLE_PROCESS_DETAIL_FORM
+#     grid_id = grid_constants.ROLE_PROCESS_DETAIL_FORM
+#     grid_utility_class = Grid011Utility
+#
+class Grid011APIView(GridSelectRoleAPIView):
     process_id = process_constants.GRID_ROLE_PROCESS_DETAIL_FORM
     grid_id = grid_constants.ROLE_PROCESS_DETAIL_FORM
     grid_utility_class = Grid011Utility

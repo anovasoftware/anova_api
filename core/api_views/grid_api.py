@@ -79,9 +79,7 @@ class GridHotelAPIView(AuthorizedGridAPIView):
             required_get=True,
             required_post=True,
             required_patch=True,
-            default=None
         ),
-        # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
 
 
@@ -92,9 +90,7 @@ class GridEventAPIView(AuthorizedGridAPIView):
             required_get=True,
             required_post=True,
             required_patch=True,
-            default=None
         ),
-        # 'debugFlag': dict(required_get=True, allowed=('Y', 'N'))
     }
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

@@ -14,9 +14,10 @@ class GridRoleUtility(GridUtility):
         return filters
 
 
-class GridRoleAPIView(GridSelectAPIView):
-    PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('roleId',)
+class GridSelectRoleAPIView(GridSelectAPIView):
+    PARAM_NAMES = GridSelectAPIView.PARAM_NAMES + ('roleId',)
     PARAM_OVERRIDES = {
+        **GridSelectAPIView.PARAM_OVERRIDES,
         'roleId': dict(
             required_get=True,
             required_post=True,
@@ -27,3 +28,19 @@ class GridRoleAPIView(GridSelectAPIView):
     assignment_model = None
     assignment_key_field1 = 'role_id'
     assignment_key_field2 = None
+
+
+class GridRoleAPIView(AuthorizedGridAPIView):
+    PARAM_NAMES = AuthorizedGridAPIView.PARAM_NAMES + ('roleId',)
+    PARAM_OVERRIDES = {
+        **AuthorizedGridAPIView.PARAM_OVERRIDES,
+        'roleId': dict(
+            required_get=True,
+            required_post=True,
+            default=None
+        ),
+    }
+    # param_field = 'roleId'
+    # assignment_model = None
+    # assignment_key_field1 = 'role_id'
+    # assignment_key_field2 = None

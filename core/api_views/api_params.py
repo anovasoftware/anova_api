@@ -101,6 +101,16 @@ COMMON_PARAMS = {
         # required_post=True,
         # required_patch=True,
     ),
+    'clientIdx': ParamSpec(
+        name='clientIdx',
+        dest='client_idx',
+        kind='either',
+        cast=_to_str,
+        description='Client id for the request.',
+        required_get=True,
+        required_post=True,
+        required_patch=True,
+    ),
     'companyId': ParamSpec(
         name='companyId',
         dest='company_id',

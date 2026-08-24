@@ -18,7 +18,7 @@ GENDER_FEMALE = '702'                                            # femaleGENDER
 BASE_POS_MENU_MAIN = '00K'                                       # main menu#  base_pos_menu_item
 BASE_POS_MENU_ITEM_REGULAR = '00L'                               # regular item#  base_position
 BASE_POSITION_ONBOARD = '001'                                    # onboard position#  base_role
-ROLE_API = '02M'                                                 # apiROLE_HOTEL = '02N'                                               # hotel specificROLE_SYSTEM = '02L'                                              # system#  base_service_request
+ROLE_API = '02M'                                                 # apiROLE_CLIENT = '03L'                                              # client specificROLE_HOTEL = '02N'                                               # hotel specificROLE_SYSTEM = '02L'                                              # system#  base_service_request
 SERVICE_REQUEST_CONTACT_US = '01G'                               # contact usSERVICE_REQUEST_TECH_SUPPORT = '01H'                             # technical support#  base_user
 USER_API_CONSUMER = '043'                                        # api consumerUSER_DUMMY = '042'                                               # dummy userUSER_REAL = '041'                                                # real user#  base_user_veridication
 BASE_USER_VERIFICATION_EMAIL = '019'                             # email verification#  company_user

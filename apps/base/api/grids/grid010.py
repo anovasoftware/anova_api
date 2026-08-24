@@ -1,4 +1,4 @@
-from apps.base.api.grids.grid_role import GridRoleUtility, GridRoleAPIView
+from apps.base.api.grids.grid_role import GridRoleUtility, GridSelectRoleAPIView
 from apps.base.models import RoleMenu
 from constants import process_constants, grid_constants, type_constants, status_constants
 from core.utilities.grid_utilities import GridUtility
@@ -39,7 +39,7 @@ class Grid010Utility(GridUtility):
         return df
 
 
-class Grid010APIView(GridRoleAPIView):
+class Grid010APIView(GridSelectRoleAPIView):
     process_id = process_constants.GRID_ROLE_MENU
     grid_id = grid_constants.ROLE_MENU
     grid_utility_class = Grid010Utility

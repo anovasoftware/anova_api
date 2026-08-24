@@ -869,6 +869,8 @@ class UserRole(BaseModel):
     role                = models.ForeignKey("base.Role", on_delete=models.CASCADE, related_name='userRoles')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='000')
+    hotel               = models.ForeignKey("static.Hotel", on_delete=models.CASCADE, related_name='+', default='A000')
     access_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='')
     start_date          = models.DateTimeField(default=timezone.now)
     end_date            = models.DateTimeField(default=timezone.now)

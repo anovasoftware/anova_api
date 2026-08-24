@@ -44,7 +44,7 @@ def get_user_profile(user, is_logged_in=False):
     clients = Client.objects.filter(client_id__in=client_ids).order_by('description')
 
     roles = get_roles(user_id, user.last_hotel_id)
-    menus = get_menus(roles)
+    menus = get_menus(roles, user.last_hotel_id)
 
     profile = UserSerializer(user).data
     profile['is_logged_in'] = is_logged_in
@@ -90,7 +90,7 @@ def get_roles(user_id, hotel_id=None):
     return roles
 
 
-def get_menus(roles):
+def get_menus(roles, hotel_id):
     role_ids = roles.values('role_id')
 
     menu_ids = RoleMenu.objects.filter(
