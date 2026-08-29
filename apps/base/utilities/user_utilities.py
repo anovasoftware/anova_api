@@ -1,3 +1,4 @@
+from apps.base.serializers.company import CompanyListSerializer
 from apps.base.serializers.user import UserSerializer
 from apps.base.serializers.role import RoleSerializer
 from apps.base.utilities.hotel_utilities import get_hotel_extension
@@ -5,9 +6,9 @@ from apps.static.serializers.client import ClientListSerializer, ClientDetailSer
 from apps.static.serializers.hotel import HotelDetailSerializer, HotelListSerializer
 from apps.static.serializers.menu import MenuSerializer
 from apps.static.models import Client, Hotel, Menu
-from apps.base.models import UserHotel, RoleMenu, UserRole, Role
+from apps.base.models import UserHotel, RoleMenu, UserRole, Role, CompanyUser, Company
 from apps.static.utilities.client_utilities import get_client_extension
-from constants import hotel_constants, status_constants, role_constants, type_constants
+from constants import hotel_constants, status_constants, role_constants, type_constants, company_constants
 
 
 def get_user_profile(user, is_logged_in=False):
@@ -54,6 +55,20 @@ def get_user_profile(user, is_logged_in=False):
     profile['clients'] = ClientListSerializer(clients, many=True).data
     profile['roles'] = RoleSerializer(roles, many=True).data
     profile['menus'] = MenuSerializer(menus, many=True).data
+
+    profile['agency'] = None
+    if current_client:
+        company_user = CompanyUser.objects.filter(
+            user_id=user_id,
+            company__client_id=current_client.client_id,
+            status_id=status_constants.ACTIVE
+        ).select_related('company').first()
+
+        if company_user:
+            profile['agency'] = CompanyListSerializer(
+                company_user.company,
+            ).data
+
 
     return profile
 
@@ -107,3 +122,21 @@ def get_menus(roles, hotel_id):
         'order_by'
     )
     return menus
+
+
+def get_user_travel_agency_company(user_id, client_id):
+    company_user = CompanyUser.objects.filter(
+        user_id=user_id,
+        company__client_id=client_id,
+        status_id=status_constants.ACTIVE
+    ).select_related(
+        'company'
+    ).first()
+
+    company = None
+    if company_user:
+        company = CompanyListSerializer(
+            company_user.company,
+        ).data
+
+    return company

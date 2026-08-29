@@ -1,5 +1,6 @@
 from constants import process_constants, grid_constants
 from core.api_views.grid_api import GridHotelAPIView, GridEventAPIView
+from django.utils import timezone
 from core.utilities.grid_utilities import GridHotelUtility
 from constants import type_constants
 
@@ -13,6 +14,15 @@ class Grid025Utility(GridHotelUtility):
         super().__init__(grid_id, params)
 
         self.column_grid_id = grid_constants.SELECT_EVENT_FOR_PRICING
+
+    def get_query_filter(self):
+        today = timezone.localdate()
+        query_filter = super().get_query_filter()
+
+        query_filter['event_start_date__gt'] = today
+
+        return query_filter
+
 
 
 class Grid025APIView(GridHotelAPIView):

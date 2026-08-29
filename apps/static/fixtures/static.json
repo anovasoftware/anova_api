@@ -351,7 +351,7 @@
       "data_source_model_name": "Client",
       "save_button_label": "Save",
       "save_button_action": "saveAndClose",
-      "grouping": "Res",
+      "grouping": "Reservations",
       "form_key": "CLIENT_CURRENCY",
       "static_flag": "Y",
       "internal_comment": "",
@@ -371,12 +371,32 @@
       "data_source_model_name": "CompanyUser",
       "save_button_label": "Save",
       "save_button_action": "saveAndClose",
-      "grouping": "Res",
+      "grouping": "Reservations",
       "form_key": "COMPANY_USER_AGENT",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-08-08 00:00+0000",
       "last_updated": "2026-08-08 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Form",
+    "pk": "019",
+    "fields": {
+      "type_id": "602",
+      "status_id": "001",
+      "description": "Booking Reservation",
+      "header": "Booking",
+      "data_source_application": "res",
+      "data_source_model_name": "Reservation",
+      "save_button_label": "Save",
+      "save_button_action": "saveAndClose",
+      "grouping": "Reservations",
+      "form_key": "BOOKING",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-27 00:00+0000",
+      "last_updated": "2026-08-27 00:00+0000"  
     }
   }
 ,  {
@@ -11027,6 +11047,33 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "02Q",
+    "fields": {
+      "type_id": "02W",
+      "status_id": "001",
+      "form_id": "019",
+      "grid_id": "000",
+      "user_required_flag": "Y",
+      "code": "Form019",
+      "description": "Form019",
+      "route": "form/019",
+      "view": "Form019APIView",
+      "module_path": "apps.res.api.forms.form_019",
+      "grouping": "forms",
+      "process_key": "FORM_019",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-27 00:00+0000",
+      "last_updated": "2026-08-27 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {
@@ -13725,6 +13772,80 @@
       "internal_comment": "",
       "created_date": "2026-07-15 00:00+0000",
       "last_updated": "2026-07-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01901",
+    "fields": {
+      "form_id": "019",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "01",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Travel Agency",
+      "name": "travel_agency_company_id",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "base",
+      "data_source_model_name": "Company",
+      "data_source_filter": "{ \"type_id\": \"023\", \"client_id\": \"form_instance.client_id\" }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "description",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-27 00:00+0000",
+      "last_updated": "2026-08-27 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01902",
+    "fields": {
+      "form_id": "019",
+      "type_id": "028",
+      "status_id": "001",
+      "order_by": "02",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Event",
+      "name": "event_id",
+      "mapping_name": "",
+      "default_value": "A00001",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "res",
+      "data_source_model_name": "Event",
+      "data_source_filter": "{ \"type_id\": \"00R\", \"hotel_id__in\": [\"form_instance.hotel_id\", \"A000\"] }",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "description",
+      "data_source_fields": "description",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": true,
+      "disabled_update": true,
+      "required_flag": "Y",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-28 00:00+0000",
+      "last_updated": "2026-08-28 00:00+0000"  
     }
   }
 ,  {

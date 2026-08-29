@@ -340,6 +340,7 @@ class Reservation(BaseModel):
     type                     = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status                   = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     travel_agency_company    = models.ForeignKey("base.Company", on_delete=models.CASCADE, related_name='+', default='A0000')
+    event                    = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A99999')
     person                   = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
     grouping                 = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
     reservation_key          = models.CharField(max_length= 25, blank=False, unique=False, primary_key=False, default='')

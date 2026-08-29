@@ -119,6 +119,7 @@
       "type_id": "000",
       "status_id": "001",
       "travel_agency_company_id": "A0000",
+      "event_id": "A00000",
       "person_id": "A00000",
       "grouping": "ALL",
       "reservation_key": "NOT_APPLICABLE",
@@ -136,6 +137,7 @@
       "type_id": "000",
       "status_id": "001",
       "travel_agency_company_id": "A0000",
+      "event_id": "A00000",
       "person_id": "A00000",
       "grouping": "ALL",
       "reservation_key": "TO_BE_ANNOUNCED",
@@ -204,6 +206,29 @@
       "internal_comment": "",
       "created_date": "2025-04-26 00:00+0000",
       "last_updated": "2025-04-26 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Event",
+    "pk": "A00001",
+    "fields": {
+      "type_id": "00R",
+      "status_id": "001",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "code": "Not Selected",
+      "description": "Cruise Not Selected",
+      "event_start_date": "1900-01-01",
+      "event_end_date": "2099-12-31",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "ALL",
+      "event_key": "CRUISE_NOT_SELECTED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-28 00:00+0000",
+      "last_updated": "2026-08-28 00:00+0000"  
     }
   }
 ,  {

@@ -7895,3 +7895,860 @@ ValueError: Out of range float values are not JSON compliant: nan
 [2026-08-24 11:53:08,174] INFO core.services.log_service: Request completed
 [2026-08-24 11:54:13,972] INFO core.services.log_service: Request completed
 [2026-08-24 11:54:43,710] INFO core.services.log_service: Request completed
+[2026-08-25 11:09:00,002] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 15:42:22,367] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:22,442] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-08-25 15:42:22,473] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:22,488] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-08-25 15:42:22,518] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:22,533] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-08-25 15:42:32,168] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:44,825] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:44,876] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:44,970] INFO core.services.log_service: Request completed
+[2026-08-25 15:42:52,390] INFO core.services.log_service: Request completed
+[2026-08-25 15:43:16,148] INFO core.services.log_service: Request completed
+[2026-08-25 15:45:51,550] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\api\grids\grid025.py changed, reloading.
+[2026-08-25 15:45:54,584] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 15:54:39,111] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 15:54:44,728] INFO core.services.log_service: Request completed
+[2026-08-25 15:54:54,936] INFO core.services.log_service: Request completed
+[2026-08-25 15:54:59,936] INFO core.services.log_service: Request completed
+[2026-08-25 15:55:55,947] INFO core.services.log_service: Request completed
+[2026-08-25 15:59:46,116] INFO core.services.log_service: Request completed
+[2026-08-25 16:03:48,640] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 16:04:06,041] INFO core.services.log_service: Request completed
+[2026-08-25 16:06:11,457] INFO core.services.log_service: Request completed
+[2026-08-25 16:06:45,005] INFO core.services.log_service: Request completed
+[2026-08-25 16:07:47,869] INFO core.services.log_service: Request completed
+[2026-08-25 16:09:14,189] INFO core.services.log_service: Request completed
+[2026-08-25 16:15:05,218] INFO core.services.log_service: Request completed
+[2026-08-25 16:15:05,257] INFO core.services.log_service: Request completed
+[2026-08-25 16:15:05,267] INFO core.services.log_service: Request completed
+[2026-08-25 16:16:42,159] INFO core.services.log_service: Request completed
+[2026-08-25 16:16:42,218] INFO core.services.log_service: Request completed
+[2026-08-25 16:16:42,227] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:32,386] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:32,402] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:32,407] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-08-25 17:44:45,735] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:45,736] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:45,753] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-08-25 17:44:47,150] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:49,051] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:49,123] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:49,154] INFO core.services.log_service: Request completed
+[2026-08-25 17:44:52,536] INFO core.services.log_service: Request completed
+[2026-08-25 17:46:10,681] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\utilities\user_utilities.py changed, reloading.
+[2026-08-25 17:46:12,678] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:46:18,626] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\utilities\user_utilities.py changed, reloading.
+[2026-08-25 17:46:20,629] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:51:00,235] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:51:04,524] INFO core.services.log_service: Request completed
+[2026-08-25 17:51:30,301] INFO core.services.log_service: Request completed
+[2026-08-25 17:51:30,313] ERROR django.request: Internal Server Error: /api/v1/form/001
+[2026-08-25 17:53:02,899] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:53:08,398] INFO core.services.log_service: Request completed
+[2026-08-25 17:53:22,567] INFO core.services.log_service: Request completed
+[2026-08-25 17:53:22,580] ERROR django.request: Internal Server Error: /api/v1/form/001
+[2026-08-25 17:54:36,807] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:54:57,339] INFO core.services.log_service: Request completed
+[2026-08-25 17:54:57,356] ERROR django.request: Internal Server Error: /api/v1/form/001
+[2026-08-25 17:56:40,115] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:57:12,985] INFO core.services.log_service: Request completed
+[2026-08-25 17:57:13,050] INFO core.services.log_service: Request completed
+[2026-08-25 17:57:15,748] INFO core.services.log_service: Request completed
+[2026-08-25 17:58:11,711] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\utilities\user_utilities.py changed, reloading.
+[2026-08-25 17:58:13,522] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:59:05,878] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 17:59:48,433] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 18:00:06,391] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 18:00:30,059] INFO core.services.log_service: Request completed
+[2026-08-25 18:00:34,466] INFO core.services.log_service: Request completed
+[2026-08-25 18:00:34,541] INFO core.services.log_service: Request completed
+[2026-08-25 18:00:50,108] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 18:01:02,566] INFO core.services.log_service: Request completed
+[2026-08-25 18:01:38,744] INFO core.services.log_service: Request completed
+[2026-08-25 18:01:38,816] INFO core.services.log_service: Request completed
+[2026-08-25 18:01:42,047] INFO core.services.log_service: Request completed
+[2026-08-25 18:36:26,597] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\utilities\user_utilities.py changed, reloading.
+[2026-08-25 18:36:28,413] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 18:38:17,842] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 18:38:35,423] INFO core.services.log_service: Request completed
+[2026-08-25 18:39:22,663] INFO core.services.log_service: Request completed
+[2026-08-25 18:39:22,811] INFO core.services.log_service: Request completed
+[2026-08-25 18:40:51,031] INFO core.services.log_service: Request completed
+[2026-08-25 18:42:49,828] INFO core.services.log_service: Request completed
+[2026-08-25 18:42:49,841] WARNING django.request: Unauthorized: /api/v1/utilities/base/user/profile
+[2026-08-25 18:43:27,425] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:05,840] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:05,841] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:05,930] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:17,155] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:38,512] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:38,605] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:38,956] INFO core.services.log_service: Request completed
+[2026-08-25 18:50:41,917] INFO core.services.log_service: Request completed
+[2026-08-25 18:51:18,994] INFO core.services.log_service: Request completed
+[2026-08-25 18:52:29,590] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-25 18:52:40,454] INFO core.services.log_service: Request completed
+[2026-08-25 18:52:48,386] INFO core.services.log_service: Request completed
+[2026-08-25 18:52:48,449] INFO core.services.log_service: Request completed
+[2026-08-25 18:52:51,461] INFO core.services.log_service: Request completed
+[2026-08-25 18:53:57,769] INFO core.services.log_service: Request completed
+[2026-08-25 18:53:57,902] INFO core.services.log_service: Request completed
+[2026-08-25 18:53:57,967] INFO core.services.log_service: Request completed
+[2026-08-25 18:54:14,952] INFO core.services.log_service: Request completed
+[2026-08-25 18:54:15,077] INFO core.services.log_service: Request completed
+[2026-08-25 18:54:15,152] INFO core.services.log_service: Request completed
+[2026-08-25 18:54:29,047] INFO core.services.log_service: Request completed
+[2026-08-25 18:54:29,178] INFO core.services.log_service: Request completed
+[2026-08-25 18:54:29,201] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:01,541] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:01,676] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:01,695] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:50,550] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:50,719] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:50,798] INFO core.services.log_service: Request completed
+[2026-08-25 18:55:59,036] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:07,700] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:07,844] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:07,889] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-25 18:59:09,045] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:21,400] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:21,463] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:21,524] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:21,672] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:23,601] INFO core.services.log_service: Request completed
+[2026-08-25 18:59:24,889] INFO core.services.log_service: Request completed
+[2026-08-25 19:00:30,494] INFO core.services.log_service: Request completed
+[2026-08-25 19:00:32,558] INFO core.services.log_service: Request completed
+[2026-08-25 19:00:32,621] INFO core.services.log_service: Request completed
+[2026-08-25 19:00:35,091] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:25,592] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:27,628] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:27,702] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:33,190] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:43,752] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:45,672] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:45,729] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:48,276] INFO core.services.log_service: Request completed
+[2026-08-25 19:05:49,836] INFO core.services.log_service: Request completed
+[2026-08-25 19:06:29,595] INFO core.services.log_service: Request completed
+[2026-08-25 19:08:07,664] INFO core.services.log_service: Request completed
+[2026-08-25 19:10:14,006] INFO core.services.log_service: Request completed
+[2026-08-25 19:10:35,859] INFO core.services.log_service: Request completed
+[2026-08-25 19:10:50,154] INFO core.services.log_service: Request completed
+[2026-08-25 19:12:07,527] INFO core.services.log_service: Request completed
+[2026-08-25 19:12:43,352] INFO core.services.log_service: Request completed
+[2026-08-25 19:12:43,366] INFO core.services.log_service: Request completed
+[2026-08-25 19:12:43,406] INFO core.services.log_service: Request completed
+[2026-08-26 10:26:11,219] INFO core.services.log_service: Request completed
+[2026-08-26 10:26:11,256] INFO core.services.log_service: Request completed
+[2026-08-26 10:26:11,275] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-26 10:27:36,530] INFO core.services.log_service: Request completed
+[2026-08-26 10:27:50,164] INFO core.services.log_service: Request completed
+[2026-08-26 10:27:50,238] INFO core.services.log_service: Request completed
+[2026-08-26 10:27:50,288] INFO core.services.log_service: Request completed
+[2026-08-26 10:27:51,932] INFO core.services.log_service: Request completed
+[2026-08-26 10:28:42,021] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:13,336] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:15,765] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:15,827] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:20,360] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:27,171] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:56,849] INFO core.services.log_service: Request completed
+[2026-08-26 10:33:57,004] INFO core.services.log_service: Request completed
+[2026-08-26 10:34:12,024] INFO core.services.log_service: Request completed
+[2026-08-26 10:34:14,088] INFO core.services.log_service: Request completed
+[2026-08-26 10:34:14,158] INFO core.services.log_service: Request completed
+[2026-08-26 10:34:16,798] INFO core.services.log_service: Request completed
+[2026-08-26 10:34:18,831] INFO core.services.log_service: Request completed
+[2026-08-26 17:05:59,835] INFO core.services.log_service: Request completed
+[2026-08-26 17:06:13,111] INFO core.services.log_service: Request completed
+[2026-08-26 17:06:13,187] INFO core.services.log_service: Request completed
+[2026-08-26 17:06:15,797] INFO core.services.log_service: Request completed
+[2026-08-26 17:06:17,345] INFO core.services.log_service: Request completed
+[2026-08-27 11:41:43,883] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-27 11:42:04,295] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:04,565] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:05,305] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:08,880] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:10,380] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:15,016] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:20,964] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:26,481] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:32,044] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:32,352] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:32,879] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:33,188] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:33,509] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:37,740] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:42,609] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:43,057] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:43,281] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:44,180] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:44,880] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:49,414] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:49,623] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:50,356] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:50,726] INFO core.services.log_service: Request completed
+[2026-08-27 11:42:51,438] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:01,971] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:05,875] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:12,090] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:18,690] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:24,333] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:30,678] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:32,604] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:34,589] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:39,564] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:50,040] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:53,510] INFO core.services.log_service: Request completed
+[2026-08-27 11:43:58,948] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:04,925] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:09,772] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:16,206] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:21,401] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:23,354] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:27,123] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:32,524] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:33,861] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:33,874] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-08-27 11:44:54,486] INFO core.services.log_service: Request completed
+[2026-08-27 11:44:54,493] WARNING django.request: Bad Request: /api/v1/table/res/guest/
+[2026-08-27 11:45:15,415] INFO core.services.log_service: Request completed
+[2026-08-27 11:45:15,423] WARNING django.request: Bad Request: /api/v1/table/res/guest_room/
+[2026-08-27 11:45:39,462] INFO core.services.log_service: Request completed
+[2026-08-27 11:45:49,833] INFO core.services.log_service: Request completed
+[2026-08-27 11:45:51,328] INFO core.services.log_service: Request completed
+[2026-08-27 11:45:52,998] INFO core.services.log_service: Request completed
+[2026-08-27 11:45:57,191] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:00,178] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:05,511] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:10,504] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:20,937] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:24,713] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:35,084] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:40,490] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:50,857] INFO core.services.log_service: Request completed
+[2026-08-27 11:46:54,789] INFO core.services.log_service: Request completed
+[2026-08-27 11:47:05,202] INFO core.services.log_service: Request completed
+[2026-08-27 11:47:09,204] INFO core.services.log_service: Request completed
+[2026-08-27 11:47:19,571] INFO core.services.log_service: Request completed
+[2026-08-27 11:47:26,797] INFO core.services.log_service: Request completed
+[2026-08-27 11:47:37,180] INFO core.services.log_service: Request completed
+[2026-08-27 11:47:50,068] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:00,457] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:12,615] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:23,072] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:23,382] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:34,024] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:39,583] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:45,144] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:50,713] INFO core.services.log_service: Request completed
+[2026-08-27 11:48:56,274] INFO core.services.log_service: Request completed
+[2026-08-27 11:49:01,840] INFO core.services.log_service: Request completed
+[2026-08-27 11:49:07,379] INFO core.services.log_service: Request completed
+[2026-08-27 12:38:48,520] INFO core.services.log_service: Request completed
+[2026-08-27 16:10:37,744] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\process_constants.py changed, reloading.
+[2026-08-27 16:10:41,528] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-27 16:12:23,862] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-27 16:19:23,495] INFO core.services.log_service: Request completed
+[2026-08-27 16:19:23,507] INFO core.services.log_service: Request completed
+[2026-08-27 16:19:23,539] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 16:19:41,885] INFO core.services.log_service: Request completed
+[2026-08-27 16:19:41,990] INFO core.services.log_service: Request completed
+[2026-08-27 16:19:42,059] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 17:46:26,936] INFO core.services.log_service: Request completed
+[2026-08-27 17:46:26,962] INFO core.services.log_service: Request completed
+[2026-08-27 17:46:27,023] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 17:52:25,325] INFO core.services.log_service: Request completed
+[2026-08-27 17:52:25,400] INFO core.services.log_service: Request completed
+[2026-08-27 17:52:25,477] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 17:52:35,372] INFO core.services.log_service: Request completed
+[2026-08-27 17:52:35,400] INFO core.services.log_service: Request completed
+[2026-08-27 17:52:35,456] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 17:59:16,776] INFO core.services.log_service: Request completed
+[2026-08-27 17:59:16,834] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 17:59:17,077] INFO core.services.log_service: Request completed
+[2026-08-27 18:09:17,513] INFO core.services.log_service: Request completed
+[2026-08-27 18:09:17,568] INFO core.services.log_service: Request completed
+[2026-08-27 18:09:17,578] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 18:11:54,809] INFO core.services.log_service: Request completed
+[2026-08-27 18:11:54,820] INFO core.services.log_service: Request completed
+[2026-08-27 18:11:54,825] ERROR core.services.log_service: Failed to save Log record: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.ForeignKeyViolation: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+
+[2026-08-27 18:11:54,865] INFO core.services.log_service: Request completed
+[2026-08-27 18:11:54,880] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-27 18:11:54,894] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 18:12:20,045] INFO core.services.log_service: Request completed
+[2026-08-27 18:12:20,057] ERROR core.services.log_service: Failed to save Log record: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.ForeignKeyViolation: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+
+[2026-08-27 18:12:20,058] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-27 18:12:33,718] INFO core.services.log_service: Request completed
+[2026-08-27 18:12:33,727] ERROR core.services.log_service: Failed to save Log record: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.ForeignKeyViolation: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 28, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: insert or update on table "base_log" violates foreign key constraint "base_log_process_id_ce09d267_fk_static_process_process_id"
+DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
+
+[2026-08-27 18:12:33,728] WARNING django.request: Bad Request: /api/v1/form/019
+[2026-08-27 18:12:56,214] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-27 18:12:59,439] INFO core.services.log_service: Request completed
+[2026-08-27 18:12:59,452] WARNING django.request: Bad Request: /api/v1/form/019
+[2026-08-27 18:13:15,057] INFO core.services.log_service: Request completed
+[2026-08-27 18:13:15,067] WARNING django.request: Bad Request: /api/v1/form/019
+[2026-08-27 18:13:27,423] INFO core.services.log_service: Request completed
+[2026-08-27 18:13:27,435] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-27 18:14:07,009] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-27 18:14:08,731] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-27 18:14:16,209] INFO core.services.log_service: Request completed
+[2026-08-27 18:15:06,799] INFO core.services.log_service: Request completed
+[2026-08-27 18:15:14,686] INFO core.services.log_service: Request completed
+[2026-08-27 18:15:32,584] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:05,944] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:05,965] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:05,974] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:05,981] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-27 18:16:05,986] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-27 18:16:12,670] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:25,251] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:25,336] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:25,402] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:30,155] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:32,350] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:32,408] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:34,170] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:36,954] INFO core.services.log_service: Request completed
+[2026-08-27 18:16:36,970] WARNING django.request: Bad Request: /api/v1/form/019
+[2026-08-27 18:16:36,997] INFO core.services.log_service: Request completed
+[2026-08-27 18:17:07,909] INFO core.services.log_service: Request completed
+[2026-08-27 18:17:11,058] INFO core.services.log_service: Request completed
+[2026-08-27 18:17:11,069] WARNING django.request: Bad Request: /api/v1/form/019
+[2026-08-27 18:17:11,086] INFO core.services.log_service: Request completed
+[2026-08-27 18:17:47,360] INFO core.services.log_service: Request completed
+[2026-08-27 18:17:47,367] WARNING django.request: Bad Request: /api/v1/form/019
+[2026-08-27 18:17:54,778] INFO core.services.log_service: Request completed
+[2026-08-27 18:18:31,885] INFO core.services.log_service: Request completed
+[2026-08-27 18:20:08,563] INFO core.services.log_service: Request completed
+[2026-08-27 18:20:08,731] INFO core.services.log_service: Request completed
+[2026-08-27 18:20:08,786] INFO core.services.log_service: Request completed
+[2026-08-27 18:20:11,629] INFO core.services.log_service: Request completed
+[2026-08-27 18:20:11,640] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-27 18:20:11,668] INFO core.services.log_service: Request completed
+[2026-08-27 18:20:37,347] INFO core.services.log_service: Request completed
+[2026-08-27 18:21:19,116] INFO core.services.log_service: Request completed
+[2026-08-27 18:21:19,128] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-27 18:22:23,589] INFO core.services.log_service: Request completed
+[2026-08-27 18:22:23,596] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-27 18:22:29,996] INFO core.services.log_service: Request completed
+[2026-08-27 18:22:31,878] INFO core.services.log_service: Request completed
+[2026-08-27 18:22:42,048] INFO core.services.log_service: Request completed
+[2026-08-27 18:22:42,065] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-27 18:22:42,095] INFO core.services.log_service: Request completed
+[2026-08-27 18:24:32,216] INFO core.services.log_service: Request completed
+[2026-08-28 06:16:02,999] INFO core.services.log_service: Request completed
+[2026-08-28 06:16:02,999] INFO core.services.log_service: Request completed
+[2026-08-28 06:16:03,024] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-28 06:16:03,024] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-08-28 06:16:04,868] INFO core.services.log_service: Request completed
+[2026-08-28 06:16:19,070] INFO core.services.log_service: Request completed
+[2026-08-28 06:16:19,444] INFO core.services.log_service: Request completed
+[2026-08-28 06:16:30,378] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:20,773] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:20,981] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:21,090] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:35,398] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:37,421] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:37,479] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:37,523] INFO core.services.log_service: Request completed
+[2026-08-28 06:17:40,123] INFO core.services.log_service: Request completed
+[2026-08-28 06:18:15,115] INFO core.services.log_service: Request completed
+[2026-08-28 06:18:15,123] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:18:15,134] INFO core.services.log_service: Request completed
+[2026-08-28 06:20:50,217] INFO core.services.log_service: Request completed
+[2026-08-28 06:20:50,231] INFO core.services.log_service: Request completed
+[2026-08-28 06:20:50,330] INFO core.services.log_service: Request completed
+[2026-08-28 06:20:51,706] INFO core.services.log_service: Request completed
+[2026-08-28 06:21:10,169] INFO core.services.log_service: Request completed
+[2026-08-28 06:21:10,185] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:21:10,218] INFO core.services.log_service: Request completed
+[2026-08-28 06:21:36,692] INFO core.services.log_service: Request completed
+[2026-08-28 06:21:37,782] INFO core.services.log_service: Request completed
+[2026-08-28 06:21:37,792] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:21:37,811] INFO core.services.log_service: Request completed
+[2026-08-28 06:21:49,528] INFO core.services.log_service: Request completed
+[2026-08-28 06:23:07,064] INFO core.services.log_service: Request completed
+[2026-08-28 06:23:07,076] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:23:15,932] INFO core.services.log_service: Request completed
+[2026-08-28 06:29:52,062] INFO core.services.log_service: Request completed
+[2026-08-28 06:30:20,473] INFO core.services.log_service: Request completed
+[2026-08-28 06:30:20,485] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:30:22,132] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:00,131] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:00,243] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:02,560] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:02,577] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:34:02,637] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:23,001] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:26,927] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:36,256] INFO core.services.log_service: Request completed
+[2026-08-28 06:34:36,268] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:34:36,293] INFO core.services.log_service: Request completed
+[2026-08-28 06:35:17,222] INFO core.services.log_service: Request completed
+[2026-08-28 06:35:17,251] INFO core.services.log_service: Request completed
+[2026-08-28 06:35:17,274] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:35:17,352] INFO core.services.log_service: Request completed
+[2026-08-28 06:35:17,383] INFO core.services.log_service: Request completed
+[2026-08-28 06:35:21,814] INFO core.services.log_service: Request completed
+[2026-08-28 06:35:24,181] INFO core.services.log_service: Request completed
+[2026-08-28 06:36:04,774] INFO core.services.log_service: Request completed
+[2026-08-28 06:36:04,791] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:36:04,825] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:31,877] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:31,937] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:31,956] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:37:31,980] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:32,119] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:38,616] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:40,517] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:52,270] INFO core.services.log_service: Request completed
+[2026-08-28 06:37:52,280] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:37:52,304] INFO core.services.log_service: Request completed
+[2026-08-28 06:47:16,126] INFO core.services.log_service: Request completed
+[2026-08-28 06:47:16,146] INFO core.services.log_service: Request completed
+[2026-08-28 06:47:16,168] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:47:16,220] INFO core.services.log_service: Request completed
+[2026-08-28 06:47:16,245] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:30,599] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:30,601] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:30,626] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:54:30,671] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:30,690] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:32,946] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:36,000] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:37,741] INFO core.services.log_service: Request completed
+[2026-08-28 06:54:37,750] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:54:37,777] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:06,151] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:06,171] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:06,194] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:55:06,278] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:06,312] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:06,387] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:08,898] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:08,909] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:55:08,943] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:08,998] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:11,697] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:11,708] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:55:11,757] INFO core.services.log_service: Request completed
+[2026-08-28 06:55:11,793] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:09,070] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:09,153] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:09,200] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:11,133] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:11,145] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:57:11,181] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:11,241] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:16,165] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:16,178] INFO core.services.log_service: Request completed
+[2026-08-28 06:57:16,177] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 06:57:16,258] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:00,717] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:00,780] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:00,847] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:05,692] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:07,470] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:08,631] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:08,639] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 07:00:08,720] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:22,797] INFO core.services.log_service: Request completed
+[2026-08-28 07:00:22,809] WARNING django.request: Forbidden: /api/v1/form/019
+[2026-08-28 07:00:22,880] INFO core.services.log_service: Request completed
+[2026-08-28 07:01:19,621] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 07:01:24,885] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 07:01:31,868] INFO core.services.log_service: Request completed
+[2026-08-28 07:01:39,260] INFO core.services.log_service: Request completed
+[2026-08-28 07:39:57,485] INFO core.services.log_service: Request completed
+[2026-08-28 07:40:08,436] INFO core.services.log_service: Request completed
+[2026-08-28 07:40:12,413] INFO core.services.log_service: Request completed
+[2026-08-28 07:40:17,321] INFO core.services.log_service: Request completed
+[2026-08-28 07:42:13,843] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 07:42:15,572] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 07:55:01,610] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 07:55:18,549] INFO core.services.log_service: Request completed
+[2026-08-28 07:55:44,149] INFO core.services.log_service: Request completed
+[2026-08-28 07:55:44,165] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-28 07:55:44,273] INFO core.services.log_service: Request completed
+[2026-08-28 07:56:02,340] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 07:56:33,492] INFO core.services.log_service: Request completed
+[2026-08-28 07:56:33,601] INFO core.services.log_service: Request completed
+[2026-08-28 08:03:22,384] INFO core.services.log_service: Request completed
+[2026-08-28 08:13:38,518] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 08:14:08,531] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:08,610] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:08,688] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:11,708] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:14,126] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:14,191] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:15,928] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:17,656] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:17,728] INFO core.services.log_service: Request completed
+[2026-08-28 08:14:59,532] INFO core.services.log_service: Request completed
+[2026-08-28 08:57:09,721] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\res\models.py changed, reloading.
+[2026-08-28 08:57:12,823] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:00:24,523] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 09:00:26,244] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:03:05,789] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 09:03:41,911] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:03:49,686] INFO core.services.log_service: Request completed
+[2026-08-28 09:03:51,499] INFO core.services.log_service: Request completed
+[2026-08-28 09:03:51,510] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-28 09:03:51,600] INFO core.services.log_service: Request completed
+[2026-08-28 09:04:34,169] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 09:04:36,655] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:04:45,660] INFO core.services.log_service: Request completed
+[2026-08-28 09:04:47,871] INFO core.services.log_service: Request completed
+[2026-08-28 09:04:47,935] INFO core.services.log_service: Request completed
+[2026-08-28 09:05:39,136] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 09:05:41,607] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:06:00,645] INFO core.services.log_service: Request completed
+[2026-08-28 09:06:06,112] INFO core.services.log_service: Request completed
+[2026-08-28 09:06:06,191] INFO core.services.log_service: Request completed
+[2026-08-28 09:07:48,560] INFO core.services.log_service: Request completed
+[2026-08-28 09:08:21,039] INFO core.services.log_service: Request completed
+[2026-08-28 09:08:21,129] INFO core.services.log_service: Request completed
+[2026-08-28 09:11:22,598] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 09:11:27,113] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:11:40,575] INFO core.services.log_service: Request completed
+[2026-08-28 09:11:50,206] INFO core.services.log_service: Request completed
+[2026-08-28 09:11:50,217] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-28 09:11:50,313] INFO core.services.log_service: Request completed
+[2026-08-28 09:12:25,846] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 09:12:28,075] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 09:12:34,076] INFO core.services.log_service: Request completed
+[2026-08-28 09:12:40,689] INFO core.services.log_service: Request completed
+[2026-08-28 09:12:40,767] INFO core.services.log_service: Request completed
+[2026-08-28 10:08:06,427] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 10:08:08,649] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 10:08:18,526] INFO core.services.log_service: Request completed
+[2026-08-28 10:08:20,754] INFO core.services.log_service: Request completed
+[2026-08-28 10:08:20,763] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-08-28 10:08:20,837] INFO core.services.log_service: Request completed
+[2026-08-28 10:10:34,464] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 10:10:36,268] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 10:14:06,997] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:07,103] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:19,526] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:19,536] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-08-28 10:14:25,354] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:27,958] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:28,038] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:32,080] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:37,982] INFO core.services.log_service: Request completed
+[2026-08-28 10:14:38,065] INFO core.services.log_service: Request completed
+[2026-08-28 10:46:44,173] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 10:46:45,926] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 10:47:15,044] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 10:47:35,411] INFO core.services.log_service: Request completed
+[2026-08-28 10:48:06,890] INFO core.services.log_service: Request completed
+[2026-08-28 10:48:06,962] INFO core.services.log_service: Request completed
+[2026-08-28 10:57:14,633] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\event_constants.py changed, reloading.
+[2026-08-28 10:57:16,601] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 10:57:40,928] INFO core.services.log_service: Request completed
+[2026-08-28 10:57:44,448] INFO core.services.log_service: Request completed
+[2026-08-28 10:57:44,516] INFO core.services.log_service: Request completed
+[2026-08-28 11:03:54,647] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-08-28 11:03:56,565] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-28 11:08:16,162] INFO core.services.log_service: Request completed
+[2026-08-28 11:08:20,055] INFO core.services.log_service: Request completed
+[2026-08-28 11:08:20,139] INFO core.services.log_service: Request completed
+[2026-08-28 11:09:36,172] INFO core.services.log_service: Request completed
+[2026-08-28 11:09:48,127] INFO core.services.log_service: Request completed
+[2026-08-28 11:09:50,508] INFO core.services.log_service: Request completed
+[2026-08-28 11:09:50,586] INFO core.services.log_service: Request completed
+[2026-08-28 11:10:28,195] INFO core.services.log_service: Request completed
+[2026-08-28 11:10:39,790] INFO core.services.log_service: Request completed
+[2026-08-28 11:10:41,226] INFO core.services.log_service: Request completed
+[2026-08-28 11:10:41,302] INFO core.services.log_service: Request completed
+[2026-08-29 07:02:46,493] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-08-29 07:03:18,350] INFO core.services.log_service: Request completed
+[2026-08-29 07:03:18,450] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-08-29 07:03:18,481] INFO core.services.log_service: Request completed
+[2026-08-29 07:03:18,495] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-08-29 07:03:18,526] INFO core.services.log_service: Request completed
+[2026-08-29 07:03:18,546] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-08-29 07:03:27,236] INFO core.services.log_service: Request completed
+[2026-08-29 07:04:13,921] INFO core.services.log_service: Request completed
+[2026-08-29 07:04:13,984] INFO core.services.log_service: Request completed
+[2026-08-29 07:04:14,129] INFO core.services.log_service: Request completed
+[2026-08-29 07:04:24,853] INFO core.services.log_service: Request completed
+[2026-08-29 07:04:27,592] INFO core.services.log_service: Request completed
+[2026-08-29 07:04:27,681] INFO core.services.log_service: Request completed
+[2026-08-29 07:05:05,527] INFO core.services.log_service: Request completed
+[2026-08-29 07:05:20,201] INFO core.services.log_service: Request completed
+[2026-08-29 07:12:39,035] INFO core.services.log_service: Request completed
+[2026-08-29 07:13:08,178] INFO core.services.log_service: Request completed
+[2026-08-29 07:15:58,450] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:32,597] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:32,684] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:32,736] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:32,885] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:39,082] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:41,532] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:43,586] INFO core.services.log_service: Request completed
+[2026-08-29 07:19:43,658] INFO core.services.log_service: Request completed
+[2026-08-29 07:20:37,945] INFO core.services.log_service: Request completed
+[2026-08-29 07:20:38,127] INFO core.services.log_service: Request completed
+[2026-08-29 07:20:38,239] INFO core.services.log_service: Request completed
+[2026-08-29 07:20:38,359] INFO core.services.log_service: Request completed
+[2026-08-29 07:21:28,947] INFO core.services.log_service: Request completed
+[2026-08-29 07:21:29,034] INFO core.services.log_service: Request completed
+[2026-08-29 07:21:29,051] INFO core.services.log_service: Request completed
+[2026-08-29 07:21:29,270] INFO core.services.log_service: Request completed
+[2026-08-29 07:23:53,349] INFO core.services.log_service: Request completed
+[2026-08-29 07:23:53,428] INFO core.services.log_service: Request completed
+[2026-08-29 07:23:53,474] INFO core.services.log_service: Request completed
+[2026-08-29 07:23:53,632] INFO core.services.log_service: Request completed
+[2026-08-29 07:28:24,348] INFO core.services.log_service: Request completed
+[2026-08-29 07:28:24,385] INFO core.services.log_service: Request completed
+[2026-08-29 07:28:24,415] INFO core.services.log_service: Request completed
+[2026-08-29 07:28:24,876] INFO core.services.log_service: Request completed
+[2026-08-29 07:33:50,461] INFO core.services.log_service: Request completed
+[2026-08-29 07:33:50,488] INFO core.services.log_service: Request completed
+[2026-08-29 07:33:50,526] INFO core.services.log_service: Request completed
+[2026-08-29 07:35:18,905] INFO core.services.log_service: Request completed
+[2026-08-29 07:36:28,463] INFO core.services.log_service: Request completed
+[2026-08-29 07:36:28,543] INFO core.services.log_service: Request completed
+[2026-08-29 07:36:28,618] INFO core.services.log_service: Request completed
+[2026-08-29 07:36:28,753] INFO core.services.log_service: Request completed
+[2026-08-29 07:37:10,833] INFO core.services.log_service: Request completed
+[2026-08-29 07:37:10,995] INFO core.services.log_service: Request completed
+[2026-08-29 07:37:11,062] INFO core.services.log_service: Request completed
+[2026-08-29 07:37:11,230] INFO core.services.log_service: Request completed
+[2026-08-29 07:38:57,731] INFO core.services.log_service: Request completed
+[2026-08-29 07:38:57,788] INFO core.services.log_service: Request completed
+[2026-08-29 07:38:57,823] INFO core.services.log_service: Request completed
+[2026-08-29 07:38:58,001] INFO core.services.log_service: Request completed
+[2026-08-29 07:39:55,820] INFO core.services.log_service: Request completed
+[2026-08-29 07:47:10,651] INFO core.services.log_service: Request completed
+[2026-08-29 07:47:10,698] INFO core.services.log_service: Request completed
+[2026-08-29 07:47:10,741] INFO core.services.log_service: Request completed
+[2026-08-29 07:47:10,805] INFO core.services.log_service: Request completed
+[2026-08-29 07:49:03,726] INFO core.services.log_service: Request completed
+[2026-08-29 07:49:03,769] INFO core.services.log_service: Request completed
+[2026-08-29 07:49:03,846] INFO core.services.log_service: Request completed
+[2026-08-29 07:49:04,050] INFO core.services.log_service: Request completed
+[2026-08-29 08:06:44,244] INFO core.services.log_service: Request completed
+[2026-08-29 08:07:10,764] INFO core.services.log_service: Request completed
+[2026-08-29 08:07:14,769] INFO core.services.log_service: Request completed
+[2026-08-29 08:07:38,068] INFO core.services.log_service: Request completed
+[2026-08-29 08:07:38,137] INFO core.services.log_service: Request completed
+[2026-08-29 08:08:02,443] INFO core.services.log_service: Request completed
+[2026-08-29 08:10:05,939] INFO core.services.log_service: Request completed
+[2026-08-29 08:10:06,113] INFO core.services.log_service: Request completed
+[2026-08-29 08:10:06,189] INFO core.services.log_service: Request completed
+[2026-08-29 08:10:06,305] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:07,695] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:07,730] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:07,771] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:07,945] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:23,834] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:23,879] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:23,967] INFO core.services.log_service: Request completed
+[2026-08-29 08:12:24,105] INFO core.services.log_service: Request completed
+[2026-08-29 08:13:24,655] INFO core.services.log_service: Request completed
+[2026-08-29 08:13:56,700] INFO core.services.log_service: Request completed
+[2026-08-29 08:14:23,283] INFO core.services.log_service: Request completed
+[2026-08-29 08:14:42,296] INFO core.services.log_service: Request completed
+[2026-08-29 08:14:45,666] INFO core.services.log_service: Request completed
+[2026-08-29 08:14:48,836] INFO core.services.log_service: Request completed
+[2026-08-29 08:14:48,910] INFO core.services.log_service: Request completed
+[2026-08-29 08:15:29,136] INFO core.services.log_service: Request completed
+[2026-08-29 08:15:35,141] INFO core.services.log_service: Request completed
+[2026-08-29 08:15:37,367] INFO core.services.log_service: Request completed
+[2026-08-29 08:15:37,453] INFO core.services.log_service: Request completed
+[2026-08-29 08:16:12,582] INFO core.services.log_service: Request completed
+[2026-08-29 08:16:12,642] INFO core.services.log_service: Request completed
+[2026-08-29 08:16:12,720] INFO core.services.log_service: Request completed
+[2026-08-29 08:16:12,842] INFO core.services.log_service: Request completed
+[2026-08-29 08:17:20,744] INFO core.services.log_service: Request completed
+[2026-08-29 08:17:20,828] INFO core.services.log_service: Request completed
+[2026-08-29 08:17:20,858] INFO core.services.log_service: Request completed
+[2026-08-29 08:17:21,022] INFO core.services.log_service: Request completed
+[2026-08-29 08:19:17,535] INFO core.services.log_service: Request completed
+[2026-08-29 08:19:17,623] INFO core.services.log_service: Request completed
+[2026-08-29 08:19:17,648] INFO core.services.log_service: Request completed
+[2026-08-29 08:19:17,823] INFO core.services.log_service: Request completed
