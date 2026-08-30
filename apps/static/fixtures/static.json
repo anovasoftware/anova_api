@@ -2408,7 +2408,7 @@
     "pk": "00Y",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "textbox",
       "description": "textbox",
       "description_short": "",
@@ -2433,7 +2433,7 @@
     "pk": "00Z",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "hidden",
       "description": "hidden",
       "description_short": "",
@@ -2708,7 +2708,7 @@
     "pk": "01B",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "textarea",
       "description": "textarea",
       "description_short": "",
@@ -3433,7 +3433,7 @@
     "pk": "028",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "select1",
       "description": "select1",
       "description_short": "",
@@ -3908,7 +3908,7 @@
     "pk": "02K",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "chips",
       "description": "chips",
       "description_short": "",
@@ -4058,14 +4058,14 @@
     "pk": "02R",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "spinner",
       "description": "spinner",
       "description_short": "",
       "description_long": "",
       "description2": "",
       "type_key": "CONTROL_SPINNER",
-      "group1": "",
+      "group1": "integer",
       "flag1": "",
       "flag2": "",
       "attributes": "",
@@ -4083,7 +4083,7 @@
     "pk": "02S",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "date",
       "description": "date",
       "description_short": "",
@@ -4133,7 +4133,7 @@
     "pk": "02V",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "static_form_control",
+      "grouping": "static_form_field",
       "code": "checkbox",
       "description": "checkbox",
       "description_short": "",
@@ -4726,6 +4726,31 @@
       "internal_comment": "",
       "created_date": "2026-08-23 00:00+0000",
       "last_updated": "2026-08-23 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "static_form_field",
+      "code": "counter",
+      "description": "counter",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "CONTROL_COUNTER",
+      "group1": "integer",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-30 00:00+0000",
+      "last_updated": "2026-08-30 00:00+0000"  
     }
   }
 ,  {
@@ -13846,6 +13871,117 @@
       "internal_comment": "",
       "created_date": "2026-08-28 00:00+0000",
       "last_updated": "2026-08-28 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01903",
+    "fields": {
+      "form_id": "019",
+      "type_id": "02R",
+      "status_id": "001",
+      "order_by": "03",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Adults",
+      "name": "adult_count",
+      "mapping_name": "",
+      "default_value": "2",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 9,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-30 00:00+0000",
+      "last_updated": "2026-08-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01904",
+    "fields": {
+      "form_id": "019",
+      "type_id": "02R",
+      "status_id": "001",
+      "order_by": "04",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Children",
+      "name": "child_count",
+      "mapping_name": "",
+      "default_value": "0",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 9,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-30 00:00+0000",
+      "last_updated": "2026-08-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01905",
+    "fields": {
+      "form_id": "019",
+      "type_id": "02R",
+      "status_id": "001",
+      "order_by": "05",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Infants",
+      "name": "infant_count",
+      "mapping_name": "",
+      "default_value": "0",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 9,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-08-30 00:00+0000",
+      "last_updated": "2026-08-30 00:00+0000"  
     }
   }
 ,  {
