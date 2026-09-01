@@ -243,6 +243,7 @@ class FormAPIView(CoreAPIView):
         value = self.get_field_value(field)
         data_options = self.get_data_options(field)
         data_options_selected = self.get_data_options_selected(field)
+        collection = self.get_collection(field)
 
         enriched_field = {
             **field_dict,
@@ -250,6 +251,7 @@ class FormAPIView(CoreAPIView):
             'readonly': self.is_readonly(field, value),
             'data_options': data_options,
             'data_options_selected': data_options_selected,
+            'collection': collection,
             # 'editable': field['control_type'] == 'TEXTBOX',
             # 'required': field['type_id'] in [602, 603],
         }
@@ -314,6 +316,11 @@ class FormAPIView(CoreAPIView):
     def get_data_options_selected(self, field):
         data_options_selected = []
         return data_options_selected
+
+    def get_collection(self, field):
+        collection = []
+        return collection
+
 
     def pre_post(self, request):
         self.record = self.request_data[0]

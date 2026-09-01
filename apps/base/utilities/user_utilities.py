@@ -6,12 +6,13 @@ from apps.static.serializers.client import ClientListSerializer, ClientDetailSer
 from apps.static.serializers.hotel import HotelDetailSerializer, HotelListSerializer
 from apps.static.serializers.menu import MenuSerializer
 from apps.static.models import Client, Hotel, Menu
-from apps.base.models import UserHotel, RoleMenu, UserRole, Role, CompanyUser, Company
+from apps.base.models import UserHotel, RoleMenu, UserRole, Role, CompanyUser, Company, Person
 from apps.static.utilities.client_utilities import get_client_extension
 from constants import hotel_constants, status_constants, role_constants, type_constants, company_constants
 
 
 def get_user_profile(user, is_logged_in=False):
+    sync_person_email(user)
     user_id = user.user_id
 
     hotel_ids = UserHotel.objects.filter(
@@ -140,3 +141,19 @@ def get_user_travel_agency_company(user_id, client_id):
         ).data
 
     return company
+
+
+def sync_person_email(user):
+    if not user.email:
+        return
+
+    if not user.person_id:
+        return
+
+    Person.objects.filter(
+        person_id=user.person_id
+    ).exclude(
+        email=user.email
+    ).update(
+        email=user.email
+    )
