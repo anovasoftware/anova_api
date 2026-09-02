@@ -145,6 +145,8 @@ class FormField(BaseModel):
     data_source_fields                  = models.CharField(max_length=150, blank=False, unique=False, primary_key=False, default='')
     data_source_fstring                 = models.CharField(max_length= 90, blank=False, unique=False, primary_key=False, default='')
     data_source_key_field               = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    data_source_allow_create_flag       = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='#')
+    data_source_form                    = models.ForeignKey("static.Form", on_delete=models.CASCADE, related_name='+', default='000')
     disabled_create                     = models.BooleanField(default=False)
     disabled_update                     = models.BooleanField(default=False)
     required_flag                       = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='N')

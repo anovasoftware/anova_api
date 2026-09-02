@@ -45,6 +45,8 @@ FORM_FIELD_VALUES = [
     'required_flag',
     'disabled_create',
     'disabled_update',
+    'data_source_allow_create_flag',
+    'data_source_form_id',
     'rows',
     'min_length',
     'max_length',

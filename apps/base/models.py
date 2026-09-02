@@ -577,7 +577,9 @@ class Person(BaseModel):
         db_table            = 'base_person'
         verbose_name_plural = 'people (base_person)'
         ordering            = []
-        constraints         = []
+        constraints         = [
+            models.UniqueConstraint(fields=['email'], condition=~models.Q(email=''), name='unique_person_email_when_present',),
+        ]
         
     def __str__(self):
         return ModelUtil.get_full_name(self.last_name, self.first_name, self.middle_name, self.salutation)
