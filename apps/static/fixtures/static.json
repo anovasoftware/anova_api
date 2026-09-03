@@ -4924,6 +4924,23 @@
     }
   }
 ,  {
+    "model": "static.Client",
+    "pk": "005",
+    "fields": {
+      "parent_client_id": "000",
+      "type_id": "004",
+      "status_id": "001",
+      "code": "HONEST",
+      "description": "Honest Holdings",
+      "grouping": "Cruise Line",
+      "client_key": "HONEST_HOLDING",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-03 00:00+0000",
+      "last_updated": "2026-09-03 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Menu",
     "pk": "000",
     "fields": {
@@ -6540,6 +6557,25 @@
       "internal_comment": "",
       "created_date": "2026-05-18 00:00+0000",
       "last_updated": "2026-05-18 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Hotel",
+    "pk": "A006",
+    "fields": {
+      "type_id": "006",
+      "status_id": "001",
+      "client_id": "005",
+      "code": "BDS",
+      "description": "Blue Dream Star",
+      "vms_identifier": "",
+      "grouping": "CRUISE SHIPS",
+      "hotel_key": "BLUE_DREAM_STAR",
+      "public_key": "4WSBRD",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-02-22 00:00+0000",
+      "last_updated": "2026-02-25 00:00+0000"  
     }
   }
 ,  {
@@ -14140,12 +14176,12 @@
       "max_length": 0,
       "data_source_key": "",
       "data_source_application": "base",
-      "data_source_model_name": "Person",
-      "data_source_filter": "{ \"email__gt\": \"\" }",
+      "data_source_model_name": "ClientPerson",
+      "data_source_filter": "{ \"client_id\": \"form_instance.client_id\", \"person__email__gt\": \"\" }",
       "data_source_filter_effective_status": "",
       "data_source_order": "",
-      "display_value": "email",
-      "data_source_fields": "email",
+      "display_value": "person__email",
+      "data_source_fields": "person__email",
       "data_source_fstring": "",
       "data_source_key_field": "",
       "data_source_allow_create_flag": "Y",
@@ -14156,7 +14192,7 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-09-01 00:00+0000",
-      "last_updated": "2026-09-01 00:00+0000"  
+      "last_updated": "2026-09-03 00:00+0000"  
     }
   }
 ,  {

@@ -9437,3 +9437,110 @@ DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
 [2026-09-02 15:06:39,896] INFO core.services.log_service: Request completed
 [2026-09-02 15:06:41,767] INFO core.services.log_service: Request completed
 [2026-09-02 15:06:41,873] INFO core.services.log_service: Request completed
+[2026-09-03 10:55:45,078] INFO core.services.log_service: Request completed
+[2026-09-03 10:56:09,417] INFO core.services.log_service: Request completed
+[2026-09-03 10:56:09,494] INFO core.services.log_service: Request completed
+[2026-09-03 10:56:12,670] INFO core.services.log_service: Request completed
+[2026-09-03 10:56:20,259] INFO core.services.log_service: Request completed
+[2026-09-03 10:56:20,370] INFO core.services.log_service: Request completed
+[2026-09-03 10:58:38,759] INFO core.services.log_service: Request completed
+[2026-09-03 10:58:39,132] INFO core.services.log_service: Request completed
+[2026-09-03 10:58:39,243] INFO core.services.log_service: Request completed
+[2026-09-03 10:58:39,792] INFO core.services.log_service: Request completed
+[2026-09-03 11:17:49,205] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\models.py changed, reloading.
+[2026-09-03 11:17:54,081] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:20:02,202] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\models.py changed, reloading.
+[2026-09-03 11:20:05,950] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:21:25,234] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\migrations\0079_companyperson.py changed, reloading.
+[2026-09-03 11:21:28,711] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:22:54,855] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\migrations\0080_remove_companyperson_unique_company_user_and_more.py changed, reloading.
+[2026-09-03 11:22:58,556] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:23:36,532] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:23:40,683] INFO core.services.log_service: Request completed
+[2026-09-03 11:23:41,497] INFO core.services.log_service: Request completed
+[2026-09-03 11:23:44,457] INFO core.services.log_service: Request completed
+[2026-09-03 11:23:44,469] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-03 11:23:44,558] INFO core.services.log_service: Request completed
+[2026-09-03 11:24:23,799] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-09-03 11:24:27,098] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:24:38,243] INFO core.services.log_service: Request completed
+[2026-09-03 11:24:38,258] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-03 11:24:38,387] INFO core.services.log_service: Request completed
+[2026-09-03 11:25:28,494] INFO django.utils.autoreload: C:\Projects2\anova_api\anova_api\urls_auto.py changed, reloading.
+[2026-09-03 11:25:32,117] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:25:37,657] INFO core.services.log_service: Request completed
+[2026-09-03 11:25:37,763] INFO core.services.log_service: Request completed
+[2026-09-03 11:25:58,915] INFO core.services.log_service: Request completed
+[2026-09-03 11:26:23,124] INFO core.services.log_service: Request completed
+[2026-09-03 11:26:23,134] ERROR django.request: Internal Server Error: /api/v1/form/020
+[2026-09-03 11:31:03,697] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:31:10,008] INFO core.services.log_service: Request completed
+[2026-09-03 11:31:10,030] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:33:31,446] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\api\forms\form_020.py changed, reloading.
+[2026-09-03 11:33:34,544] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:37:30,502] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\models.py changed, reloading.
+[2026-09-03 11:37:34,071] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:40:56,002] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:40:57,575] INFO core.services.log_service: Request completed
+[2026-09-03 11:40:57,585] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:43:39,879] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:44:33,033] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:44:36,479] INFO core.services.log_service: Request completed
+[2026-09-03 11:44:36,491] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:44:46,142] INFO core.services.log_service: Request completed
+[2026-09-03 11:44:46,153] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:45:04,720] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:45:11,670] INFO core.services.log_service: Request completed
+[2026-09-03 11:45:11,679] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:45:28,704] INFO core.services.log_service: Request completed
+[2026-09-03 11:45:28,715] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:45:42,630] INFO core.services.log_service: Request completed
+[2026-09-03 11:46:03,307] INFO core.services.log_service: Request completed
+[2026-09-03 11:46:03,315] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:46:33,864] INFO core.services.log_service: Request completed
+[2026-09-03 11:46:33,874] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:46:54,493] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:48:09,742] INFO core.services.log_service: Request completed
+[2026-09-03 11:48:09,764] WARNING django.request: Bad Request: /api/v1/form/020
+[2026-09-03 11:48:39,592] INFO core.services.log_service: Request completed
+[2026-09-03 11:48:41,603] INFO core.services.log_service: Request completed
+[2026-09-03 11:48:41,704] INFO core.services.log_service: Request completed
+[2026-09-03 11:57:16,416] INFO django.utils.autoreload: C:\Projects2\anova_api\apps\base\api\forms\form_020.py changed, reloading.
+[2026-09-03 11:57:18,609] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 11:58:45,189] INFO core.services.log_service: Request completed
+[2026-09-03 11:58:45,300] INFO core.services.log_service: Request completed
+[2026-09-03 11:58:45,315] INFO core.services.log_service: Request completed
+[2026-09-03 11:58:45,660] INFO core.services.log_service: Request completed
+[2026-09-03 12:00:03,538] INFO core.services.log_service: Request completed
+[2026-09-03 12:00:50,382] INFO core.services.log_service: Request completed
+[2026-09-03 14:25:20,606] INFO core.services.log_service: Request completed
+[2026-09-03 14:25:20,632] INFO core.services.log_service: Request completed
+[2026-09-03 14:25:20,652] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-03 14:50:13,883] INFO core.services.log_service: Request completed
+[2026-09-03 15:06:54,184] INFO django.utils.autoreload: C:\Projects2\anova_api\constants\client_constants.py changed, reloading.
+[2026-09-03 15:06:59,699] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2026-09-03 15:07:23,621] INFO core.services.log_service: Request completed
+[2026-09-03 15:07:46,399] INFO core.services.log_service: Request completed
+[2026-09-03 15:07:46,477] INFO core.services.log_service: Request completed
+[2026-09-03 15:07:46,550] INFO core.services.log_service: Request completed
+[2026-09-03 15:07:46,606] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:02,029] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:11,614] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:11,638] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:11,693] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:18,643] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:28,227] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:47,956] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:47,970] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:47,986] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:47,987] INFO core.services.log_service: Request completed
+[2026-09-03 15:08:47,999] INFO core.services.log_service: Request completed
+[2026-09-03 15:16:09,618] INFO core.services.log_service: Request completed
+[2026-09-03 15:16:26,268] INFO core.services.log_service: Request completed
+[2026-09-03 15:16:26,431] INFO core.services.log_service: Request completed
+[2026-09-03 15:16:31,831] INFO core.services.log_service: Request completed
+[2026-09-03 15:16:55,551] INFO core.services.log_service: Request completed
+[2026-09-03 15:16:55,720] INFO core.services.log_service: Request completed
+[2026-09-03 15:17:00,667] INFO core.services.log_service: Request completed
+[2026-09-03 15:17:16,487] INFO core.services.log_service: Request completed
+[2026-09-03 15:17:16,648] INFO core.services.log_service: Request completed

@@ -4,6 +4,7 @@ from django.utils import timezone
 
 
 class BaseModel(models.Model):
+    objects = models.Manager()
     auto_last_updated = True
 
     class Meta:

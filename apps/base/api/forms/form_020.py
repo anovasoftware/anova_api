@@ -1,3 +1,6 @@
+from django.db.models import Model
+
+from apps.base.models import Person, ClientPerson
 from apps.static.table_api_views.form_api_views import AuthorizedFormAPIView
 from constants import form_constants, process_constants, status_constants, company_constants
 
@@ -33,9 +36,18 @@ class Form020APIView(AuthorizedFormAPIView):
 
     def validate_post(self, request):
         super().validate_post(request)
-    #
-    # def pre_post(self, request):
-    #     super().pre_post(request)
-    #
-    # def post_post(self, request):
-    #     super().post_post(request)
+
+        if self.success and self.record_id == 'new':
+            email = self.record['email']
+            person = Person.objects.filter(email=email).first()
+
+            if person:
+                message = f'email address already registered'
+                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+                client_person = ClientPerson.objects.get_or_create(
+                    client_id=self.client_id,
+                    person_id=person.person_id,
+                )
+                self.record_id = person.pk
+                # self.action = 'update'
