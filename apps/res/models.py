@@ -348,9 +348,6 @@ class Reservation(BaseModel):
     event                    = models.ForeignKey("res.Event", on_delete=models.CASCADE, related_name='+', default='A99999')
     person                   = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
     contact_person           = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
-    adult_count              = models.PositiveSmallIntegerField(default=0)
-    child_count              = models.PositiveSmallIntegerField(default=0)
-    infant_count             = models.PositiveSmallIntegerField(default=0)
     room_count               = models.PositiveSmallIntegerField(default=0)
     grouping                 = models.CharField(max_length= 15, blank=True , unique=False, primary_key=False, default='')
     reservation_key          = models.CharField(max_length= 25, blank=False, unique=False, primary_key=False, default='')
@@ -368,6 +365,35 @@ class Reservation(BaseModel):
     def __str__(self):
         return 'reservation'
 # AUTOGEN_END_Reservation#
+
+
+# AUTOGEN_BEGIN_ReservationRoom#
+class ReservationRoom(BaseModel):
+    reservation_room_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    reservation         = models.ForeignKey("res.Reservation", on_delete=models.CASCADE, related_name='reservation_roms')
+    type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    category            = models.ForeignKey("base.Category", on_delete=models.CASCADE, related_name='+', default='A0001')
+    room                = models.ForeignKey("res.Room", on_delete=models.CASCADE, related_name='+', default='A999')
+    occupancy           = models.PositiveSmallIntegerField(default=0)
+    order_by            = models.CharField(max_length=  2, blank=True , unique=False, primary_key=False, default="99")
+    adult_count         = models.PositiveSmallIntegerField(default=0)
+    child_count         = models.PositiveSmallIntegerField(default=0)
+    infant_count        = models.PositiveSmallIntegerField(default=0)
+    static_flag         = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment    = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date        = models.DateTimeField(auto_now_add=True)
+    last_updated        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_reservation_room'
+        verbose_name_plural = 'reservation rooms (res_reservation_room)'
+        ordering            = []
+        constraints         = []
+        
+    def __str__(self):
+        return 'reservation_room'
+# AUTOGEN_END_ReservationRoom#
 
 
 # AUTOGEN_BEGIN_Room#

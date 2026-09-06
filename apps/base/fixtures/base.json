@@ -970,11 +970,33 @@
       "end_date": "2099-12-31 00:00+0000",
       "effective_status_id": "021",
       "grouping": "ALL",
-      "category_key": "BASE_CATEGORY_NOT_AP",
+      "category_key": "BASE_CATEGORY_NOT_APPLICABLE",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-13 00:00+0000",
       "last_updated": "2025-04-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "base.Category",
+    "pk": "A0001",
+    "fields": {
+      "client_id": "000",
+      "hotel_id": "A000",
+      "type_id": "020",
+      "status_id": "001",
+      "order_by": "99",
+      "code": "TBA",
+      "description": "Cabin Grade Not Selected",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "grouping": "Cabin Grades",
+      "category_key": "BASE_CATEGORY_GRADE_NOT_SELECTED",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-05 00:00+0000",
+      "last_updated": "2026-09-05 00:00+0000"  
     }
   }
 ,  {
@@ -992,7 +1014,7 @@
       "end_date": "2099-12-31 00:00+0000",
       "effective_status_id": "021",
       "grouping": "ALL",
-      "category_key": "BASE_CATEGORY_TO_BE_",
+      "category_key": "BASE_CATEGORY_TO_BE_ANNOUNCED",
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2025-04-13 00:00+0000",

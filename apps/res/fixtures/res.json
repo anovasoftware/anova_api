@@ -88,6 +88,34 @@
     "pk": "A003",
     "fields": {
       "type_id": "000",
+      "status_id": "002",
+      "client_id": "000",
+      "hotel_id": "A000",
+      "category_id": "A0000",
+      "floor_id": "A000",
+      "order_by": "99",
+      "code": "#AVAILABLE#",
+      "description": "#AVAILABLE#",
+      "start_date": "1900-01-01 00:00+0000",
+      "end_date": "2099-12-31 00:00+0000",
+      "effective_status_id": "021",
+      "lower_berths": 0,
+      "upper_berths": 0,
+      "maximum_occupancy": 0,
+      "accessible_flag": "#",
+      "static_flag": "Y",
+      "grouping": "ALL",
+      "internal_comment": "",
+      "room_key": "",
+      "created_date": "2025-03-15 00:00+0000",
+      "last_updated": "2025-03-15 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.Room",
+    "pk": "A999",
+    "fields": {
+      "type_id": "000",
       "status_id": "001",
       "client_id": "000",
       "hotel_id": "A000",
@@ -95,7 +123,7 @@
       "floor_id": "A000",
       "order_by": "99",
       "code": "TBA",
-      "description": "To Be Announced",
+      "description": "Room Not Selected",
       "start_date": "1900-01-01 00:00+0000",
       "end_date": "2099-12-31 00:00+0000",
       "effective_status_id": "021",
@@ -107,8 +135,8 @@
       "grouping": "ALL",
       "internal_comment": "",
       "room_key": "TO_BE_ANNOUNCED",
-      "created_date": "2025-03-15 00:00+0000",
-      "last_updated": "2025-03-15 00:00+0000"  
+      "created_date": "2026-09-05 00:00+0000",
+      "last_updated": "2026-09-05 00:00+0000"  
     }
   }
 ,  {
@@ -122,9 +150,6 @@
       "event_id": "A00000",
       "person_id": "A00000",
       "contact_person_id": "A00000",
-      "adult_count": 0,
-      "child_count": 0,
-      "infant_count": 0,
       "room_count": 0,
       "grouping": "ALL",
       "reservation_key": "NOT_APPLICABLE",
@@ -145,9 +170,6 @@
       "event_id": "A00000",
       "person_id": "A00000",
       "contact_person_id": "A00000",
-      "adult_count": 0,
-      "child_count": 0,
-      "infant_count": 0,
       "room_count": 0,
       "grouping": "ALL",
       "reservation_key": "TO_BE_ANNOUNCED",

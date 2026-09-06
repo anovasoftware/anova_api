@@ -99,7 +99,7 @@ class FormAPIView(CoreAPIView):
 
     def load_models(self, request):
         super().load_models(request)
-
+        print('loading models')
         if self.success:
             try:
                 self.form = Form.objects.get(pk=self.form_id)
@@ -109,7 +109,7 @@ class FormAPIView(CoreAPIView):
                 ).order_by(
                     'order_by'
                 )
-                self.load_form_fields()
+                # self.load_form_fields()
                 self.load_form_extras()
                 app_name = self.form.data_source_application
                 model_name = self.form.data_source_model_name
@@ -120,15 +120,15 @@ class FormAPIView(CoreAPIView):
                 message = f'error loading form: {str(e)}.'
                 self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
 
-    def load_form_fields(self):
-        form_fields = FormField.objects.filter(
-            form_id=self.form_id,
-            status_id=status_constants.ACTIVE
-        ).values(
-            *FORM_FIELD_VALUES
-        ).order_by(
-            'order_by'
-        )
+    # def load_form_fields(self):
+    #     form_fields = FormField.objects.filter(
+    #         form_id=self.form_id,
+    #         status_id=status_constants.ACTIVE
+    #     ).values(
+    #         *FORM_FIELD_VALUES
+    #     ).order_by(
+    #         'order_by'
+    #     )
 
         # action_key = f'disabled_{self.action}'
         # self.form_fields_dict = []
@@ -246,6 +246,7 @@ class FormAPIView(CoreAPIView):
         data_options = self.get_data_options(field)
         data_options_selected = self.get_data_options_selected(field)
         collection = self.get_collection(field)
+        data1pFlag = 'Y' if field.control_type in ['email1p', 'password1p'] else 'N'
 
         enriched_field = {
             **field_dict,
@@ -254,6 +255,7 @@ class FormAPIView(CoreAPIView):
             'data_options': data_options,
             'data_options_selected': data_options_selected,
             'collection': collection,
+            'data1pFlag': data1pFlag,
             # 'editable': field['control_type'] == 'TEXTBOX',
             # 'required': field['type_id'] in [602, 603],
         }
@@ -357,6 +359,7 @@ class FormAPIView(CoreAPIView):
     def save_record(self, model: type[models.Model], record=None, set_pk=True):
         record = record or self.record
         record_id = record['recordId']
+        # record_id = self.record_id
         record = get_active_dict(model, record)
 
         if 'last_updated' not in record:

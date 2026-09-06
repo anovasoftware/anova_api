@@ -42,12 +42,20 @@ class Form020APIView(AuthorizedFormAPIView):
             person = Person.objects.filter(email=email).first()
 
             if person:
-                message = f'email address already registered'
-                self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
-
-                client_person = ClientPerson.objects.get_or_create(
-                    client_id=self.client_id,
-                    person_id=person.person_id,
-                )
                 self.record_id = person.pk
-                # self.action = 'update'
+                self.record['recordId'] = person.pk
+                # message = f'email address already registered'
+                # self.add_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
+    def post_post(self, request):
+        client_person, created = ClientPerson.objects.get_or_create(
+            client_id=self.client_id,
+            person_id=self.record_id
+        )
+        email = client_person.person.email
+
+        self.data['new_data_option'] = {
+            'id': self.record_id,
+            'description': email,
+            'display_value': email
+        }
