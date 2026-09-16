@@ -396,6 +396,39 @@ class ReservationRoom(BaseModel):
 # AUTOGEN_END_ReservationRoom#
 
 
+# AUTOGEN_BEGIN_ReservationRoomGuest#
+class ReservationRoomGuest(BaseModel):
+    reservation_room_guest_id             = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    reservation_room                      = models.ForeignKey("res.ReservationRoom", on_delete=models.CASCADE, related_name='reservation_room_guests')
+    type                                  = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status                                = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    person                                = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
+    responsible_reservation_room_guest    = models.ForeignKey("res.ReservationRoomGuest", on_delete=models.SET_NULL, related_name="+", default=None, null=True)
+    booking_first_name                    = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    booking_last_name                     = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
+    booking_middle_name                   = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
+    booking_birth_date                    = models.DateField(default=beginning_of_time)
+    booking_gender_type                   = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='700')
+    grouping                              = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
+    reservation_room_guest_key            = models.CharField(max_length= 70, blank=False, unique=False, primary_key=False, default='')
+    authorized_to_charge_flag             = models.CharField(max_length=  1, blank=False, unique=False, primary_key=False, default='N')
+    rfid_uid                              = models.CharField(max_length= 32, blank=False, unique=False, primary_key=False, default='')
+    static_flag                           = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment                      = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date                          = models.DateTimeField(auto_now_add=True)
+    last_updated                          = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_reservation_room_guest'
+        verbose_name_plural = 'reservation room guests (res_reservation_room_guest)'
+        ordering            = []
+        constraints         = []
+        
+    def __str__(self):
+        return 'reservation_room_guest'
+# AUTOGEN_END_ReservationRoomGuest#
+
+
 # AUTOGEN_BEGIN_Room#
 class Room(BaseModel):
     room_id             = models.CharField(max_length=  4, blank=False, unique=True , primary_key=True )

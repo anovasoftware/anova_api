@@ -985,7 +985,7 @@
       "hotel_id": "A000",
       "type_id": "020",
       "status_id": "001",
-      "order_by": "99",
+      "order_by": "00",
       "code": "TBA",
       "description": "Cabin Grade Not Selected",
       "start_date": "1900-01-01 00:00+0000",

@@ -14218,7 +14218,7 @@
       "data_source_model_name": "Category",
       "data_source_filter": "{ \"hotel_id__in\": [\"form_instance.hotel_id\", \"A000\"], \"type_id\": \"020\" }",
       "data_source_filter_effective_status": "",
-      "data_source_order": "",
+      "data_source_order": "order_by",
       "display_value": "description",
       "data_source_fields": "description",
       "data_source_fstring": "",
