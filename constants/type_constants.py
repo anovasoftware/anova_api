@@ -35,7 +35,9 @@ ACTIVITY_DISEMBARKED = '01D'                                     # disembarkedA
 HOTEL_CRUISE_SHIP = '006'                                        # cruise shipHOTEL_HOTEL = '005'                                              # hotel#  res_hotel_item
 RES_HOTEL_ITEM_SPECIAL_ITEM = '00V'                              # special items#  res_hotel_item.special_item
 RES_HOTEL_ITEM_SPECIAL_ITEM_INTERNET = '00W'                     # internet#  res_reservation
-RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_room
+RES_RESERVATION_INTERNAL = '009'                                 # internal reservation#  res_reservation_room_guest
+RES_RESERVATION_ROOM_GUEST_CREW = '03V'                          # crewRES_RESERVATION_ROOM_GUEST_GUEST = '03T'                         # guestRES_RESERVATION_ROOM_GUEST_STAFF = '03W'                         # staffRES_RESERVATION_ROOM_GUEST_VISITOR = '03X'                       # visitor#  res_reservation_room_guest.occupancy
+RESERVATION_ROOM_GUEST_ADULT = '03Q'                             # adultRESERVATION_ROOM_GUEST_CHILD = '03R'                             # childRESERVATION_ROOM_GUEST_INFANT = '03S'                            # infant#  res_room
 RES_ROOM_CABIN = '008'                                           # cabinRES_ROOM_HOTEL_ROOM = '007'                                      # hotel room#  res_transaction
 RES_TRANSACTION_CHARGE = '00P'                                   # chargeRES_TRANSACTION_PAYMENT = '00Q'                                  # paymentRES_TRANSACTION_STAGED = '016'                                   # staged transactionsRES_TRANSACTION_STAGED_CHARGE = '00N'                            # staged chargeRES_TRANSACTION_STAGED_REFUND = '014'                            # staged refund#  res_transaction_item
 RES_TRANSACTION_ITEM_REGULAR = '00T'                             # regular#  static_client

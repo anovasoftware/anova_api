@@ -4824,6 +4824,181 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "03Q",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_reservation_room_guest.occupancy",
+      "code": "Adult",
+      "description": "Adult",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RESERVATION_ROOM_GUEST_ADULT",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03R",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_reservation_room_guest.occupancy",
+      "code": "Child",
+      "description": "Child",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RESERVATION_ROOM_GUEST_CHILD",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03S",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_reservation_room_guest.occupancy",
+      "code": "Infant",
+      "description": "Infant",
+      "description_short": "",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RESERVATION_ROOM_GUEST_INFANT",
+      "group1": "char",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03T",
+    "fields": {
+      "parent_type_id": "00B",
+      "grouping": "res_reservation_room_guest",
+      "code": "Guest",
+      "description": "Guest",
+      "description_short": "Guest",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_RESERVATION_ROOM_GUEST_GUEST",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03V",
+    "fields": {
+      "parent_type_id": "00B",
+      "grouping": "res_reservation_room_guest",
+      "code": "Crew",
+      "description": "Crew",
+      "description_short": "Crew",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_RESERVATION_ROOM_GUEST_CREW",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03W",
+    "fields": {
+      "parent_type_id": "00B",
+      "grouping": "res_reservation_room_guest",
+      "code": "Staff",
+      "description": "Staff",
+      "description_short": "Staff",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_RESERVATION_ROOM_GUEST_STAFF",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.Type",
+    "pk": "03X",
+    "fields": {
+      "parent_type_id": "00B",
+      "grouping": "res_reservation_room_guest",
+      "code": "Visitor",
+      "description": "Visitor",
+      "description_short": "Visitor",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RES_RESERVATION_ROOM_GUEST_VISITOR",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-16 00:00+0000",
+      "last_updated": "2026-09-16 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
