@@ -12,10 +12,22 @@ class EventCategoryPriceService(JobService):
     def populate_event_category_price(self, hotel_id=None, event_id=None, room_id=None):
         self.success = True  # dummy
 
+        EventCategoryPrice.objects.filter(
+            type_id=type_constants.NOT_APPLICABLE
+        ).update(
+            type_id=type_constants.EVENT_CATEGORY_PRICE_STANDARD
+        )
+
         hotels = Hotel.objects.filter(
             status_id=status_constants.ACTIVE,
             type_id=type_constants.HOTEL_CRUISE_SHIP
         )
+        types = Type.objects.filter(
+            grouping='event_category_price'
+        ).order_by(
+            'order_by'
+        )
+
         rate_types = Type.objects.filter(
             grouping='event_category_price.rate'
         ).order_by(
@@ -53,43 +65,16 @@ class EventCategoryPriceService(JobService):
             for event in events:
                 for category in categories:
                     for currency in currencies:
-                        for rate_type in rate_types:
-                            for occupancy_type in occupancy_types:
-                                event_category_price, created = EventCategoryPrice.objects.get_or_create(
-                                    event_id=event.event_id,
-                                    category_id=category.category_id,
-                                    currency_id=currency.currency_id,
-                                    rate_type_id=rate_type.type_id,
-                                    occupancy_type_id=occupancy_type.type_id,
-                                )
+                        for type_ in types:
+                            for rate_type in rate_types:
+                                for occupancy_type in occupancy_types:
+                                    event_category_price, created = EventCategoryPrice.objects.get_or_create(
+                                        type_id=type_.type_id,
+                                        event_id=event.event_id,
+                                        category_id=category.category_id,
+                                        currency_id=currency.currency_id,
+                                        rate_type_id=rate_type.type_id,
+                                        occupancy_type_id=occupancy_type.type_id,
+                                    )
 
 
-        #     rooms = Room.objects.filter(
-        #         hotel_id=hotel.hotel_id,
-        #         type_id__in=[
-        #             type_constants.RES_ROOM_CABIN,
-        #             type_constants.RES_ROOM_HOTEL_ROOM
-        #         ],
-        #         status_id=status_constants.ACTIVE
-        #     ).order_by(
-        #         'code'
-        #     )
-        #
-        #     if event_id:
-        #         events = events.filter(event_id=event_id)
-        #
-        #     if room_id:
-        #         rooms = rooms.filter(room_id=room_id)
-        #
-        #     for event in events:
-        #         for room in rooms:
-        #             event_room, created = EventRoom.objects.get_or_create(
-        #                 event_id=event.event_id,
-        #                 room_id=room.room_id,
-        #                 defaults={
-        #                     'type_id': type_constants.NOT_APPLICABLE,
-        #                     'status_id': status_constants.ACTIVE,
-        #                     'inventory_status_id': status_constants.EVENT_ROOM_AVAILABLE
-        #                 }
-        #             )
-        #

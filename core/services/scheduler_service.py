@@ -13,8 +13,8 @@ from apps.res.utilities.event_category_price_utilities import EventCategoryPrice
 
 class SchedulerService:
     def __init__(self):
-        self.job: Optional[Job] = None
-        self.job_extension: Optional[JobExtension] = None
+        self.job: Job | None = None
+        self.job_extension: JobExtension | None = None
         self.job_results = []
         self.force_run = False
 
@@ -29,22 +29,20 @@ class SchedulerService:
             jobs = jobs.filter(job_id=job_id)
 
         self.force_run = (action == 'force')
-        for job in jobs:
-            self.job = job
-            self.job_extension, created = JobExtension.objects.get_or_create(job_id=job.pk)
-            self.run_job()
 
-    def run_job(self):
-        if self.force_run or self.is_due():
+        for job in jobs:
+            job_extension, created = JobExtension.objects.get_or_create(job_id=job.pk)
+            self.run_job(job, job_extension)
+
+    def run_job(self, job: Job, job_extension: JobExtension):
+        if self.force_run or self.is_due(job, job_extension):
             try:
-                self.execute_job()
+                self.execute_job(job, job_extension)
             except Exception as exc:
                 raise exc
 
-    def is_due(self):
-        job: Job = self.job
-        job_extension: JobExtension = self.job_extension
-
+    @staticmethod
+    def is_due(job: Job, job_extension: JobExtension) -> bool:
         now = timezone.now()
         hour = now.hour
         last_run_time = job_extension.last_run_time
@@ -64,9 +62,7 @@ class SchedulerService:
 
         return is_due
 
-    def execute_job(self):
-        job: Job = self.job
-
+    def execute_job(self, job: Job, job_extension: JobExtension):
         process_map = {
             job_constants.CLIENT_SERVICE: ClientService,
             job_constants.EVENT_CATEGORY_PRICE_SERVICE: EventCategoryPriceService,
@@ -84,7 +80,7 @@ class SchedulerService:
         self.job_results = service.job_results
 
         if service.success:
-            self.job_extension.last_run_time = timezone.now()
-            self.job_extension.save(update_fields=['last_run_time'])
+            job_extension.last_run_time = timezone.now()
+            job_extension.save(update_fields=['last_run_time'])
 
 

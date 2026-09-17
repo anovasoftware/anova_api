@@ -4478,13 +4478,13 @@
     "pk": "038",
     "fields": {
       "parent_type_id": "000",
-      "grouping": "event_category_price",
-      "code": "CHILD_FARE",
-      "description": "Child Fare",
+      "grouping": "##AVAILABLE##",
+      "code": "##AVAILABLE##",
+      "description": "##AVAILABLE##",
       "description_short": "",
       "description_long": "",
       "description2": "",
-      "type_key": "EVENT_CATEGORY_PRICE_CHILD_FARE",
+      "type_key": "",
       "group1": "",
       "flag1": "",
       "flag2": "",
@@ -4495,7 +4495,7 @@
       "static_flag": "Y",
       "internal_comment": "",
       "created_date": "2026-07-06 00:00+0000",
-      "last_updated": "2026-07-06 00:00+0000"  
+      "last_updated": "2026-09-17 00:00+0000"  
     }
   }
 ,  {

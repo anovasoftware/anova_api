@@ -1,7 +1,7 @@
 from decimal import Decimal
 
-from constants import process_constants, grid_constants, type_constants, currency_constants, event_constants, \
-    status_constants
+from constants import process_constants, grid_constants, type_constants, currency_constants, event_constants
+from constants import status_constants
 from core.api_views.grid_api import GridEventAPIView, GridUpdateMixin
 from core.utilities.grid_utilities import GridHotelUtility
 from apps.static.models import Type
@@ -17,16 +17,8 @@ class Grid019Utility(GridHotelUtility):
         super().__init__(*args, **kwargs)
         self.event_id = None
         self.currency_id = None
+        self.type_id = None
         self.rate_type_id = None
-
-
-    # def load_params(self):
-    #     super().load_params()
-    #
-    #     if self.success:
-    #         self.event_id = self.params.get('eventId', event_constants.NOT_APPLICABLE)
-    #         self.currency_id = self.params.get('currencyId', self.get_hotel_currency_id())
-    #         self.rate_type_id = self.params.get('rateTypeId', type_constants.EVENT_CATEGORY_PRICE_RATE_FIT)
 
     def load_models(self):
         super().load_models()
@@ -34,6 +26,7 @@ class Grid019Utility(GridHotelUtility):
         if self.success:
             self.event_id = self.params.get('eventId', event_constants.NOT_APPLICABLE)
             self.currency_id = self.params.get('currencyId', self.get_client_currency_id())
+            self.type_id = self.params.get('typeId', type_constants.EVENT_CATEGORY_PRICE_STANDARD)
             self.rate_type_id = self.params.get('rateTypeId', type_constants.EVENT_CATEGORY_PRICE_RATE_FIT)
 
     def get_query_filter(self):
@@ -102,6 +95,7 @@ class Grid019Utility(GridHotelUtility):
         event_category_prices = EventCategoryPrice.objects.filter(
             event_id=self.event_id,
             currency_id=self.currency_id,
+            type_id=self.type_id,
             rate_type_id=self.rate_type_id,
         )
 
