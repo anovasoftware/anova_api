@@ -159,6 +159,7 @@ class Grid019APIView(GridUpdateMixin, GridEventAPIView):
             try:
                 event_category_price = EventCategoryPrice.objects.get(
                     event_id=self.event_id,
+                    type_id=type_constants.EVENT_CATEGORY_PRICE_STANDARD,   #TODO: should not be fixed
                     category_id=category_id,
                     occupancy_type_id=occupancy_type_id,
                     currency_id=self.currency_id,

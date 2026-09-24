@@ -29,20 +29,20 @@ class Form019APIView(AuthorizedFormAPIView):
     def get_collection(self, field):
         collection = []
 
-        if field.name == 'guests':
-            guests = Guest.objects.filter(
-                reservation_id=self.record_id
-            ).values(
-                'guest_id',
-                'status_id',
-                'booking_last_name',
-                'booking_first_name',
-                'booking_middle_name',
-                'booking_birth_date',
-                'booking_gender_type_id'
-            )
-            collection = list(guests)
-        elif field.name == 'reservation_rooms':
+        # if field.name == 'guests':
+        #     guests = Guest.objects.filter(
+        #         reservation_id=self.record_id
+        #     ).values(
+        #         'guest_id',
+        #         'status_id',
+        #         'booking_last_name',
+        #         'booking_first_name',
+        #         'booking_middle_name',
+        #         'booking_birth_date',
+        #         'booking_gender_type_id'
+        #     )
+        #     collection = list(guests)
+        if field.name == 'reservation_rooms':
             reservation_rooms = ReservationRoom.objects.filter(
                 reservation_id=self.record_id,
                 status_id=status_constants.ACTIVE,

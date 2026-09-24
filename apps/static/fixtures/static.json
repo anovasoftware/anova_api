@@ -11407,6 +11407,33 @@
     }
   }
 ,  {
+    "model": "static.Process",
+    "pk": "02S",
+    "fields": {
+      "type_id": "02W",
+      "status_id": "001",
+      "form_id": "000",
+      "grid_id": "000",
+      "user_required_flag": "Y",
+      "code": "pricing",
+      "description": "Reservation Pricing",
+      "route": "reservation/pricing/",
+      "view": "ReservationPricingAPIView",
+      "module_path": "apps.res.api.reservation.pricing",
+      "grouping": "reservation",
+      "process_key": "RESERVATION_PRICING",
+      "supports_create": true,
+      "supports_read": true,
+      "supports_update": true,
+      "supports_delete": false,
+      "generate_doc": false,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-19 00:00+0000",
+      "last_updated": "2026-09-19 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.FormField",
     "pk": "00101",
     "fields": {

@@ -551,7 +551,7 @@ class CoreAPIView(GenericAPIView):
     def pre_post(self, request):
         pass
 
-    def _post(self, request):
+    def _post(self, request, *args, **kwargs):
         self.set_message('post() not defined')
 
     def post_post(self, request):
