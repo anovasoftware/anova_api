@@ -10828,3 +10828,28 @@ DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
 [2026-09-23 11:41:35,039] INFO core.services.log_service: Request completed
 [2026-09-23 11:41:35,270] INFO core.services.log_service: Request completed
 [2026-09-23 11:41:35,313] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-26 08:32:53,673] INFO core.services.log_service: Request completed
+[2026-09-26 08:32:53,758] INFO core.services.log_service: Request completed
+[2026-09-26 08:32:53,800] INFO core.services.log_service: Request completed
+[2026-09-26 08:32:55,184] INFO core.services.log_service: Request completed
+[2026-09-26 08:33:09,653] INFO core.services.log_service: Request completed
+[2026-09-26 08:33:09,735] INFO core.services.log_service: Request completed
+[2026-09-26 08:33:11,465] INFO core.services.log_service: Request completed
+[2026-09-26 08:33:13,698] INFO core.services.log_service: Request completed
+[2026-09-26 08:33:13,776] INFO core.services.log_service: Request completed
+[2026-09-26 08:33:45,912] INFO core.services.log_service: Request completed
+[2026-09-26 08:35:49,837] INFO core.services.log_service: Request completed
+[2026-09-26 08:35:49,857] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-26 08:36:06,897] INFO core.services.log_service: Request completed
+[2026-09-26 09:33:26,699] INFO core.services.log_service: Request completed
+[2026-09-26 09:34:49,711] INFO core.services.log_service: Request completed
+[2026-09-26 09:35:51,783] INFO core.services.log_service: Request completed
+[2026-09-26 09:37:59,882] INFO core.services.log_service: Request completed
+[2026-09-26 09:38:44,954] INFO core.services.log_service: Request completed
+[2026-09-26 09:41:25,650] INFO core.services.log_service: Request completed
+[2026-09-26 09:51:39,919] INFO core.services.log_service: Request completed
+[2026-09-26 09:54:46,636] INFO core.services.log_service: Request completed
+[2026-09-26 09:57:32,675] INFO core.services.log_service: Request completed
+[2026-09-26 10:02:17,995] INFO core.services.log_service: Request completed
+[2026-09-26 10:02:18,005] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-26 10:07:08,080] INFO core.services.log_service: Request completed
