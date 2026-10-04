@@ -10853,3 +10853,238 @@ DETAIL:  Key (process_id)=(02Q) is not present in table "static_process".
 [2026-09-26 10:02:17,995] INFO core.services.log_service: Request completed
 [2026-09-26 10:02:18,005] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
 [2026-09-26 10:07:08,080] INFO core.services.log_service: Request completed
+[2026-09-26 15:32:29,304] INFO core.services.log_service: Request completed
+[2026-09-26 15:32:29,319] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-26 15:34:34,987] INFO core.services.log_service: Request completed
+[2026-09-26 15:34:34,996] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-26 15:34:39,489] INFO core.services.log_service: Request completed
+[2026-09-26 15:34:39,503] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-26 15:35:18,381] INFO core.services.log_service: Request completed
+[2026-09-26 15:36:16,339] INFO core.services.log_service: Request completed
+[2026-09-26 15:37:44,297] INFO core.services.log_service: Request completed
+[2026-09-26 15:40:50,147] INFO core.services.log_service: Request completed
+[2026-09-26 17:43:00,407] INFO core.services.log_service: Request completed
+[2026-09-26 17:43:00,460] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-26 17:43:00,473] INFO core.services.log_service: Request completed
+[2026-09-26 20:04:46,785] INFO core.services.log_service: Request completed
+[2026-09-27 08:24:03,528] INFO core.services.log_service: Request completed
+[2026-09-27 08:24:03,566] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:24:27,487] INFO core.services.log_service: Request completed
+[2026-09-27 08:24:27,508] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:24:31,866] INFO core.services.log_service: Request completed
+[2026-09-27 08:24:31,889] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:24:40,768] INFO core.services.log_service: Request completed
+[2026-09-27 08:24:40,791] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:24:56,392] INFO core.services.log_service: Request completed
+[2026-09-27 08:24:56,414] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 08:25:05,163] INFO core.services.log_service: Request completed
+[2026-09-27 08:25:05,187] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 08:28:38,435] INFO core.services.log_service: Request completed
+[2026-09-27 08:28:38,465] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:29:17,366] INFO core.services.log_service: Request completed
+[2026-09-27 08:29:17,390] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:29:37,507] INFO core.services.log_service: Request completed
+[2026-09-27 08:29:37,526] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 08:34:09,802] INFO core.services.log_service: Request completed
+[2026-09-27 08:34:09,826] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 08:34:24,973] INFO core.services.log_service: Request completed
+[2026-09-27 08:34:24,995] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 08:35:00,340] INFO core.services.log_service: Request completed
+[2026-09-27 08:35:00,514] INFO core.services.log_service: Request completed
+[2026-09-27 08:35:00,548] INFO core.services.log_service: Request completed
+[2026-09-27 08:35:02,412] INFO core.services.log_service: Request completed
+[2026-09-27 08:35:20,197] INFO core.services.log_service: Request completed
+[2026-09-27 08:35:20,325] INFO core.services.log_service: Request completed
+[2026-09-27 08:41:15,370] INFO core.services.log_service: Request completed
+[2026-09-27 08:41:15,411] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 09:26:53,547] INFO core.services.log_service: Request completed
+[2026-09-27 09:26:53,567] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 09:27:32,820] INFO core.services.log_service: Request completed
+[2026-09-27 09:27:32,855] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 09:28:34,934] INFO core.services.log_service: Request completed
+[2026-09-27 09:28:34,950] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-09-27 09:33:18,817] INFO core.services.log_service: Request completed
+[2026-09-27 09:33:18,848] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 09:34:03,181] INFO core.services.log_service: Request completed
+[2026-09-27 09:34:03,214] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 09:34:46,204] INFO core.services.log_service: Request completed
+[2026-09-27 09:56:05,304] INFO core.services.log_service: Request completed
+[2026-09-27 09:57:02,967] INFO core.services.log_service: Request completed
+[2026-09-27 09:57:21,715] INFO core.services.log_service: Request completed
+[2026-09-27 09:57:34,679] INFO core.services.log_service: Request completed
+[2026-09-27 10:02:50,696] INFO core.services.log_service: Request completed
+[2026-09-27 10:03:43,367] INFO core.services.log_service: Request completed
+[2026-09-27 10:04:05,059] INFO core.services.log_service: Request completed
+[2026-09-27 10:08:55,413] INFO core.services.log_service: Request completed
+[2026-09-27 10:08:55,437] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 10:09:04,444] INFO core.services.log_service: Request completed
+[2026-09-27 10:59:13,228] INFO core.services.log_service: Request completed
+[2026-09-27 10:59:46,793] INFO core.services.log_service: Request completed
+[2026-09-27 10:59:46,812] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:02:05,257] INFO core.services.log_service: Request completed
+[2026-09-27 11:02:05,274] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:02:17,927] INFO core.services.log_service: Request completed
+[2026-09-27 11:02:17,951] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:02:25,147] INFO core.services.log_service: Request completed
+[2026-09-27 11:06:19,127] INFO core.services.log_service: Request completed
+[2026-09-27 11:06:19,152] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:06:31,736] INFO core.services.log_service: Request completed
+[2026-09-27 11:06:31,758] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:06:58,733] INFO core.services.log_service: Request completed
+[2026-09-27 11:06:58,756] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:07:07,179] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:24,111] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:50,140] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:54,058] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:54,193] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:54,372] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:54,393] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:56,242] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:57,817] INFO core.services.log_service: Request completed
+[2026-09-27 11:07:57,974] INFO core.services.log_service: Request completed
+[2026-09-27 11:08:22,731] INFO core.services.log_service: Request completed
+[2026-09-27 11:08:22,754] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-09-27 11:09:06,377] INFO core.services.log_service: Request completed
+[2026-09-27 11:09:06,528] INFO core.services.log_service: Request completed
+[2026-09-27 11:09:06,552] INFO core.services.log_service: Request completed
+[2026-09-27 11:09:06,805] INFO core.services.log_service: Request completed
+[2026-09-27 11:10:46,650] INFO core.services.log_service: Request completed
+[2026-09-27 11:10:46,817] INFO core.services.log_service: Request completed
+[2026-09-27 11:10:46,824] INFO core.services.log_service: Request completed
+[2026-09-27 11:10:47,176] INFO core.services.log_service: Request completed
+[2026-09-27 11:11:08,489] INFO core.services.log_service: Request completed
+[2026-09-28 15:11:23,757] INFO core.services.log_service: Request completed
+[2026-09-28 15:11:23,972] INFO core.services.log_service: Request completed
+[2026-09-28 15:11:24,082] INFO core.services.log_service: Request completed
+[2026-09-28 15:11:28,080] INFO core.services.log_service: Request completed
+[2026-09-28 15:11:53,794] INFO core.services.log_service: Request completed
+[2026-09-28 15:11:54,078] INFO core.services.log_service: Request completed
+[2026-09-28 15:12:10,172] INFO core.services.log_service: Request completed
+[2026-09-28 15:12:26,119] INFO core.services.log_service: Request completed
+[2026-09-28 15:12:30,020] INFO core.services.log_service: Request completed
+[2026-09-28 15:12:30,483] INFO core.services.log_service: Request completed
+[2026-09-28 15:13:14,734] INFO core.services.log_service: Request completed
+[2026-09-29 15:21:09,465] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:14,365] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:14,443] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-09-29 16:05:14,537] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:14,608] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-09-29 16:05:14,696] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:14,742] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-09-29 16:05:18,123] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:23,628] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:23,948] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:24,324] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:28,042] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:29,859] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:30,338] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:43,504] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:47,272] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:47,556] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:51,576] INFO core.services.log_service: Request completed
+[2026-09-29 16:05:58,857] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:08,806] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:42,707] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:43,225] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:46,292] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:53,861] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:54,378] INFO core.services.log_service: Request completed
+[2026-09-29 16:06:59,004] INFO core.services.log_service: Request completed
+[2026-09-29 16:07:02,783] INFO core.services.log_service: Request completed
+[2026-09-29 16:07:02,783] INFO core.services.log_service: Request completed
+[2026-09-29 16:07:14,716] INFO core.services.log_service: Request completed
+[2026-09-29 16:07:17,655] INFO core.services.log_service: Request completed
+[2026-09-29 16:07:17,705] WARNING django.request: Bad Request: /api/v1/grid/grid019
+[2026-09-29 16:07:22,516] INFO core.services.log_service: Request completed
+[2026-09-29 16:09:18,785] INFO core.services.log_service: Request completed
+[2026-09-29 16:09:18,836] ERROR django.request: Internal Server Error: /api/v1/base/job/A05/
+[2026-09-29 16:09:41,663] INFO core.services.log_service: Request completed
+[2026-09-29 16:09:41,720] WARNING django.request: Method Not Allowed: /api/v1/base/job/A05/
+[2026-09-29 16:10:02,498] INFO core.services.log_service: Request completed
+[2026-09-29 16:10:12,764] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:26,605] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:45,298] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:49,035] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:49,292] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:53,654] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:59,031] INFO core.services.log_service: Request completed
+[2026-09-29 16:11:59,294] INFO core.services.log_service: Request completed
+[2026-09-29 16:12:01,763] INFO core.services.log_service: Request completed
+[2026-09-29 16:12:04,137] INFO core.services.log_service: Request completed
+[2026-09-29 16:12:04,564] INFO core.services.log_service: Request completed
+[2026-09-29 16:12:53,715] INFO core.services.log_service: Request completed
+[2026-09-29 16:17:31,437] INFO core.services.log_service: Request completed
+[2026-09-29 16:19:29,258] INFO core.services.log_service: Request completed
+[2026-09-29 16:20:58,861] INFO core.services.log_service: Request completed
+[2026-09-29 16:21:04,470] INFO core.services.log_service: Request completed
+[2026-09-29 16:21:22,573] INFO core.services.log_service: Request completed
+[2026-09-29 16:23:49,525] INFO core.services.log_service: Request completed
+[2026-09-29 16:24:14,050] INFO core.services.log_service: Request completed
+[2026-09-29 16:31:52,883] INFO core.services.log_service: Request completed
+[2026-09-29 16:31:53,095] INFO core.services.log_service: Request completed
+[2026-09-29 16:34:11,764] INFO core.services.log_service: Request completed
+[2026-09-29 16:34:12,391] INFO core.services.log_service: Request completed
+[2026-09-29 16:34:12,719] INFO core.services.log_service: Request completed
+[2026-09-29 16:34:12,745] INFO core.services.log_service: Request completed
+[2026-09-29 16:34:26,853] INFO core.services.log_service: Request completed
+[2026-09-29 16:34:44,046] INFO core.services.log_service: Request completed
+[2026-09-30 06:35:06,363] INFO core.services.log_service: Request completed
+[2026-09-30 06:35:06,669] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 06:35:06,674] INFO core.services.log_service: Request completed
+[2026-09-30 07:39:09,735] INFO core.services.log_service: Request completed
+[2026-09-30 07:39:09,933] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 07:39:11,178] INFO core.services.log_service: Request completed
+[2026-09-30 09:03:12,435] INFO core.services.log_service: Request completed
+[2026-09-30 09:03:12,544] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 09:03:12,595] INFO core.services.log_service: Request completed
+[2026-09-30 09:15:06,864] INFO core.services.log_service: Request completed
+[2026-09-30 09:15:06,919] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 09:15:06,928] INFO core.services.log_service: Request completed
+[2026-09-30 09:59:44,511] INFO core.services.log_service: Request completed
+[2026-09-30 09:59:44,625] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 09:59:44,648] INFO core.services.log_service: Request completed
+[2026-09-30 10:50:26,853] INFO core.services.log_service: Request completed
+[2026-09-30 10:50:26,913] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 10:50:26,954] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:19,201] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:19,490] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:19,539] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:20,930] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:35,500] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:35,819] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:39,184] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:58,898] INFO core.services.log_service: Request completed
+[2026-09-30 15:16:59,379] INFO core.services.log_service: Request completed
+[2026-09-30 15:19:08,890] INFO core.services.log_service: Request completed
+[2026-09-30 15:19:35,371] INFO core.services.log_service: Request completed
+[2026-09-30 15:19:35,641] INFO core.services.log_service: Request completed
+[2026-09-30 15:20:23,119] INFO core.services.log_service: Request completed
+[2026-09-30 15:20:23,166] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 15:21:10,982] INFO core.services.log_service: Request completed
+[2026-09-30 16:56:43,910] INFO core.services.log_service: Request completed
+[2026-09-30 16:56:43,983] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-09-30 16:57:32,345] INFO core.services.log_service: Request completed
+[2026-09-30 16:58:54,521] INFO core.services.log_service: Request completed
+[2026-09-30 16:58:57,653] INFO core.services.log_service: Request completed
+[2026-09-30 16:58:58,107] INFO core.services.log_service: Request completed
+[2026-09-30 16:59:14,995] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:20,617] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:20,658] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-10-04 17:45:20,692] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:20,709] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-10-04 17:45:20,744] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:20,766] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-10-04 17:45:22,213] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:22,249] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-10-04 17:45:22,294] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:22,325] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-10-04 17:45:22,360] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:22,384] WARNING django.request: Unauthorized: /api/v1/public/table/static/menu/
+[2026-10-04 17:45:26,248] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:41,563] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:41,680] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:41,888] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:48,211] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:50,178] INFO core.services.log_service: Request completed
+[2026-10-04 17:45:50,410] INFO core.services.log_service: Request completed
+[2026-10-04 17:46:06,752] INFO core.services.log_service: Request completed

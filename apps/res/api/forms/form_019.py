@@ -1,5 +1,5 @@
 from apps.base.utilities.user_utilities import get_user_travel_agency_company
-from apps.res.models import Guest, ReservationRoom
+from apps.res.models import Guest, ReservationRoom, ReservationPrice
 from apps.static.table_api_views.form_api_views import AuthorizedFormAPIView
 from constants import form_constants, process_constants, company_constants, status_constants
 
@@ -59,6 +59,16 @@ class Form019APIView(AuthorizedFormAPIView):
                 'room_id',
             )
             collection = list(reservation_rooms)
+        elif field.name == 'reservation_prices':
+                reservation_prices = ReservationPrice.objects.filter(
+                    reservation_id=self.record_id,
+                    status_id=status_constants.ACTIVE,
+                ).order_by(
+                ).values(
+                    'reservation_price_id',
+                    'type_id',
+                )
+                collection = list(reservation_prices)
         else:
             collection = super().get_collection(field)
 

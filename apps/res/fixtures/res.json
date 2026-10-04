@@ -333,5 +333,49 @@
       "last_updated": "2026-07-05 00:00+0000"  
     }
   }
+,  {
+    "model": "res.ReservationRoom",
+    "pk": "A00000",
+    "fields": {
+      "reservation_id": "A00000",
+      "type_id": "000",
+      "status_id": "001",
+      "category_id": "A0000",
+      "room_id": "A000",
+      "occupancy": 0,
+      "order_by": "99",
+      "adult_count": 0,
+      "child_count": 0,
+      "infant_count": 0,
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-30 00:00+0000",
+      "last_updated": "2026-09-30 00:00+0000"  
+    }
+  }
+,  {
+    "model": "res.ReservationRoomGuest",
+    "pk": "A00000",
+    "fields": {
+      "reservation_room_id": "A00000",
+      "type_id": "000",
+      "status_id": "001",
+      "person_id": "A00000",
+      "occupancy_type_id": "000",
+      "booking_first_name": "",
+      "booking_last_name": "",
+      "booking_middle_name": "",
+      "booking_birth_date": "1900-01-01",
+      "booking_gender_type_id": "000",
+      "grouping": "All",
+      "reservation_room_guest_key": "NOT_APPLICABLE",
+      "authorized_to_charge_flag": "N",
+      "rfid_uid": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-30 00:00+0000",
+      "last_updated": "2026-09-30 00:00+0000"  
+    }
+  }
 
 ]

@@ -367,10 +367,38 @@ class Reservation(BaseModel):
 # AUTOGEN_END_Reservation#
 
 
+# AUTOGEN_BEGIN_ReservationPrice#
+class ReservationPrice(BaseModel):
+    reservation_price_id      = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
+    reservation               = models.ForeignKey("res.Reservation", on_delete=models.CASCADE, related_name='reservation_prices')
+    type                      = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
+    status                    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
+    reservation_room_guest    = models.ForeignKey("res.ReservationRoomGuest", on_delete=models.CASCADE, related_name='+', default='A00000')
+    reservation_room          = models.ForeignKey("res.ReservationRoom", on_delete=models.CASCADE, related_name='+', default='A00000')
+    currency                  = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    quantity                  = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=1.00)
+    price                     = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    amount                    = models.DecimalField(max_digits= 10, decimal_places=  2, blank=False, unique=False, primary_key=False, default=0.00)
+    static_flag               = models.CharField(max_length=  1, blank=True , unique=False, primary_key=False, default='N')
+    internal_comment          = models.TextField(blank=True , unique=False, primary_key=False)
+    created_date              = models.DateTimeField(auto_now_add=True)
+    last_updated              = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table            = 'res_reservation_price'
+        verbose_name_plural = 'reservation prices (res_reservation_price)'
+        ordering            = []
+        constraints         = []
+        
+    def __str__(self):
+        return 'reservation_price'
+# AUTOGEN_END_ReservationPrice#
+
+
 # AUTOGEN_BEGIN_ReservationRoom#
 class ReservationRoom(BaseModel):
     reservation_room_id = models.CharField(max_length=  6, blank=False, unique=True , primary_key=True )
-    reservation         = models.ForeignKey("res.Reservation", on_delete=models.CASCADE, related_name='reservation_roms')
+    reservation         = models.ForeignKey("res.Reservation", on_delete=models.CASCADE, related_name='reservation_rooms')
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     category            = models.ForeignKey("base.Category", on_delete=models.CASCADE, related_name='+', default='A0001')

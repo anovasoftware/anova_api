@@ -4999,6 +4999,31 @@
     }
   }
 ,  {
+    "model": "static.Type",
+    "pk": "03Y",
+    "fields": {
+      "parent_type_id": "000",
+      "grouping": "res_reservation_price",
+      "code": "Cruise Fare",
+      "description": "Cruise Fare",
+      "description_short": "Cruise Fare",
+      "description_long": "",
+      "description2": "",
+      "type_key": "RESERVATION_PRICE_CRUISE_FARE",
+      "group1": "",
+      "flag1": "",
+      "flag2": "",
+      "attributes": "",
+      "order_by": "99",
+      "external_id": "",
+      "external_code_type": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-30 00:00+0000",
+      "last_updated": "2026-09-30 00:00+0000"  
+    }
+  }
+,  {
     "model": "static.Client",
     "pk": "000",
     "fields": {
@@ -14785,6 +14810,45 @@
       "internal_comment": "",
       "created_date": "2026-02-13 00:00+0000",
       "last_updated": "2026-02-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.FormField",
+    "pk": "01909",
+    "fields": {
+      "form_id": "019",
+      "type_id": "03N",
+      "status_id": "001",
+      "order_by": "09",
+      "custom_flag": "N",
+      "control_type": "",
+      "tab_name": "Detail",
+      "label": "Prices",
+      "name": "reservation_prices",
+      "mapping_name": "",
+      "default_value": "",
+      "rows": 0,
+      "min_length": 0,
+      "max_length": 0,
+      "data_source_key": "",
+      "data_source_application": "",
+      "data_source_model_name": "",
+      "data_source_filter": "",
+      "data_source_filter_effective_status": "",
+      "data_source_order": "",
+      "display_value": "",
+      "data_source_fields": "",
+      "data_source_fstring": "",
+      "data_source_key_field": "",
+      "data_source_allow_create_flag": "#",
+      "data_source_form_id": "000",
+      "disabled_create": false,
+      "disabled_update": false,
+      "required_flag": "N",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-09-30 00:00+0000",
+      "last_updated": "2026-09-30 00:00+0000"  
     }
   }
 ,  {

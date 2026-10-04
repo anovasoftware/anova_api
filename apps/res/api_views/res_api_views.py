@@ -7,7 +7,7 @@ from typing import Optional, Type as TypingType, cast
 
 
 class ResCoreAPIView(CoreAPIView):
-    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES  # + ('',)
+    PARAM_NAMES = AuthorizedTableAPIView.PARAM_NAMES  + ('eventId',)
     PARAM_OVERRIDES = {
         **getattr(AuthorizedTableAPIView, 'PARAM_OVERRIDES', {}),
         'hotelId': dict(
@@ -25,11 +25,20 @@ class ResCoreAPIView(CoreAPIView):
         self.event_start_date = None
         self.event_end_date = None
 
+        self.event_id = None
+        self.event: Optional[Event] = None
+
+        self.currency_id = None
+        self.rate_type_id = None
+
     def load_models(self, request):
         super().load_models(request)
 
         if self.success:
             self.load_hotel(self.hotel_id)
+
+            if self.event_id:
+                self.load_event()
 
     def load_hotel(self, hotel_id=None):
         self.hotel_id = hotel_id
@@ -47,17 +56,26 @@ class ResCoreAPIView(CoreAPIView):
             self.context['hotel'] = self.hotel.description
 
             if self.hotel_extension:
-                self.event_start_date = self.hotel_extension.current_event.event_start_date
-                self.event_end_date = self.hotel_extension.current_event.event_end_date
+                event = self.hotel_extension.current_event
 
-                event = getattr(self.hotel_extension, 'current_event', None)
+                if event is not None:
+                    self.event_start_date = event.event_start_date
+                    self.event_end_date = event.event_end_date
 
-                if event:
-                    self.context['event'] = {
+                # event = getattr(self.hotel_extension, 'current_event', None)
+                    self.context['current_event'] = {
                         'code': event.code,
                         'start_date': self.event_start_date.strftime('%Y-%m-%d'),
                         'end_date': self.event_end_date.strftime('%Y-%m-%d')
                     }
+
+    def load_event(self):
+        event = Event.objects.filter(pk=self.event_id).first()
+
+        if not event:
+            self.add_message(f'Invalid event id: {self.event_id}', status_constants.HTTP_BAD_REQUEST)
+        else:
+            self.event = event
 
 
 class AuthorizedResAPIView(AuthorizedAPIView, ResCoreAPIView):

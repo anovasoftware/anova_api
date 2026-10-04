@@ -211,6 +211,7 @@ class CoreAPIView(GenericAPIView):
         self.hotel_id = None
         self.hotel: Optional[Hotel] = None
         self.role_id = None
+        self.type_id = None
 
     def is_get(self):
         return self.request_method == 'GET'
@@ -353,9 +354,12 @@ class CoreAPIView(GenericAPIView):
             if data and not isinstance(data, list):
                 data = [data, ]
 
-            # if isinstance(data, dict):
-            #     data = [data,]
+            if self.request_data_required and not data:
+                message = f'body missing or invalid format'
+                self.set_message(message, http_status_id=status_constants.HTTP_BAD_REQUEST)
+
             self.request_data = data
+
         except json.JSONDecodeError as e:
             if self.request_data_required:
                 message = f'body missing or invalid format: {str(e)}'
