@@ -6859,7 +6859,7 @@
       "row_action": "update",
       "data_source_application": "base",
       "data_source_model_name": "Category",
-      "order_by": "description",
+      "order_by": "order_by",
       "grouping": "Hotel Setup",
       "grid_key": "ROOM_CATEGORY",
       "static_flag": "Y",
