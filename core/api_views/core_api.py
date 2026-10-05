@@ -2,7 +2,7 @@ import os, json
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 
-from apps.static.models import Process, Hotel
+from apps.static.models import Process, Hotel, Type
 from constants import constants, status_constants, role_constants, type_constants, currency_constants
 from constants import hotel_constants
 from apps.base.models import User, UserRole, RoleProcess
@@ -27,6 +27,7 @@ from typing import Optional, Type as TypingType, cast
 from django.db.models import Q
 from core.utilities.data_transformation_utilities import transform_records
 from core.utilities.date_utilities import end_of_time
+from django.db.models import F
 
 
 class CoreAPIView(GenericAPIView):
@@ -212,6 +213,7 @@ class CoreAPIView(GenericAPIView):
         self.hotel: Optional[Hotel] = None
         self.role_id = None
         self.type_id = None
+        self.lookups = {}
 
     def is_get(self):
         return self.request_method == 'GET'
@@ -372,6 +374,8 @@ class CoreAPIView(GenericAPIView):
             pass
 
     def load_models(self, request):
+        self.load_lookups()
+
         if self.is_get():
             self.load_models_get(request)
         elif self.is_post():
@@ -460,6 +464,8 @@ class CoreAPIView(GenericAPIView):
 
         if self.result_shape == 'flat':
             base_context = flat_record(base_context, join_with='_')
+
+        self.data['lookups'] = self.lookups
 
         # data_transformed = transform_records(self.data, self.result_shape, join_with='.')
         response = {
@@ -588,6 +594,29 @@ class CoreAPIView(GenericAPIView):
 
     def post_patch(self, request):
         pass
+
+    def load_lookups(self):
+        self.lookups = {}
+
+    def add_lookup(self, lookup_name, param_name, label, options, selected_id: str | None = None, enabled=True):
+        enabled = enabled and len(options) > 1
+        self.lookups[lookup_name] = {
+            'paramName': param_name,
+            'label': label,
+            'selectedId': selected_id,
+            'enabled': enabled,
+            'options': list(options),
+        }
+
+    def get_type_lookup(self, grouping=None):
+        types = Type.objects.filter(
+            grouping=grouping,
+        ).values(
+            'description',
+            id=F('type_id'),
+        )
+        return types
+
 
     @property
     def success(self):
