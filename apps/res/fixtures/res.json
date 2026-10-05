@@ -362,6 +362,7 @@
       "status_id": "001",
       "person_id": "A00000",
       "occupancy_type_id": "000",
+      "guest_number": "00",
       "booking_first_name": "",
       "booking_last_name": "",
       "booking_middle_name": "",

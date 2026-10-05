@@ -47,19 +47,15 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
         super().load_models(request)
 
     def _post(self, request, *args, **kwargs):
+        print(self.request_data)
         type_id = self.type_id
         rate_type_id = self.rate_type_id
         currency_id = self.currency_id
-
-
         event_id = self.params.get('eventId')
+
         reservation_rooms0 = self.request_data[0].get('reservation_rooms', [])
         reservation_rooms = []
-
-        # self.data['currency_id'] = currency_id
         self.data['reservation_rooms'] = reservation_rooms
-        print(self.params)
-        print(self.request_data)
 
         self.event_category_prices = EventCategoryPrice.objects.filter(
             currency_id=currency_id,
@@ -71,83 +67,204 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
             price=0.00
         )
 
-        reservation_total = Decimal('0.00')
-        room_number = 0
         for reservation_room in reservation_rooms0:
-            room_number += 1
-            guest_number = 0
-
-
-            # reservation_room['room_number'] = str(room_number).zfill(2)
             category_id = reservation_room['category_id']
-            adult_count = int(reservation_room['adult_count'])
-            child_count = int(reservation_room['child_count'])
-            infant_count = int(reservation_room['infant_count'])
-            guest_count = adult_count + child_count + infant_count
 
+            reservation_room_guests = reservation_room.get('reservation_room_guests', [])
             guests = []
-            for i in range(1, adult_count + 1):
-                guest_number += 1
-                ecp = self.get_event_category_price(reservation_room, 'adult', guest_number)
-                guest = {
-                    'guest_number': str(guest_number).zfill(2),
-                    'event_category_price': ecp
-                }
-                guests.append(guest)
 
-            for i in range(1, child_count + 1):
-                guest_number += 1
-                ecp = self.get_event_category_price(reservation_room, 'child', guest_number)
-                guest = {
-                    'guest_number': str(guest_number).zfill(2),
-                    'event_category_price': ecp
-                }
-                guests.append(guest)
+            for reservation_room_guest in reservation_room_guests:
+                guest_number = reservation_room_guest['guest_number']
+                guest_type_id = reservation_room_guest['occupancy_type_id']
 
-            for i in range(1, infant_count + 1):
-                guest_number += 1
-                ecp = self.get_event_category_price(reservation_room, 'infant', guest_number)
-                guest = {
-                    'guest_number': str(guest_number).zfill(2),
-                    'event_category_price': ecp
-                }
-                guests.append(guest)
+                ecp = self.get_event_category_price(
+                    reservation_room,
+                    reservation_room_guests,
+                    guest_type_id,
+                    guest_number
+                )
 
+                guests.append({
+                    'guest_number': guest_number,
+                    'event_category_price': ecp
+                })
 
             room = {
-                'room_number': str(room_number).zfill(2),
+                'room_number': reservation_room['order_by'],
                 'category_id': category_id,
                 'reservation_room_guests': guests,
             }
-            reservation_rooms.append(room)
 
-    def get_event_category_price(self, reservation_room, guest_type, guest_number):
+            reservation_rooms.append(room)
+    # def _post(self, request, *args, **kwargs):
+    #     type_id = self.type_id
+    #     rate_type_id = self.rate_type_id
+    #     currency_id = self.currency_id
+    #
+    #
+    #     event_id = self.params.get('eventId')
+    #     reservation_rooms0 = self.request_data[0].get('reservation_rooms', [])
+    #     reservation_rooms = []
+    #
+    #     # self.data['currency_id'] = currency_id
+    #     self.data['reservation_rooms'] = reservation_rooms
+    #     print(self.params)
+    #     print(self.request_data)
+    #
+    #     self.event_category_prices = EventCategoryPrice.objects.filter(
+    #         currency_id=currency_id,
+    #         event_id=event_id,
+    #         type_id=type_id,
+    #         status_id=status_constants.ACTIVE,
+    #         rate_type_id=rate_type_id
+    #     ).exclude(
+    #         price=0.00
+    #     )
+    #
+    #     reservation_total = Decimal('0.00')
+    #     room_number = 0
+    #     for reservation_room in reservation_rooms0:
+    #         room_number += 1
+    #         guest_number = 0
+    #
+    #
+    #         # reservation_room['room_number'] = str(room_number).zfill(2)
+    #         category_id = reservation_room['category_id']
+    #         adult_count = int(reservation_room['adult_count'])
+    #         child_count = int(reservation_room['child_count'])
+    #         infant_count = int(reservation_room['infant_count'])
+    #         guest_count = adult_count + child_count + infant_count
+    #
+    #         guests = []
+    #         for i in range(1, adult_count + 1):
+    #             guest_number += 1
+    #             ecp = self.get_event_category_price(reservation_room, 'adult', guest_number)
+    #             guest = {
+    #                 'guest_number': str(guest_number).zfill(2),
+    #                 'event_category_price': ecp
+    #             }
+    #             guests.append(guest)
+    #
+    #         for i in range(1, child_count + 1):
+    #             guest_number += 1
+    #             ecp = self.get_event_category_price(reservation_room, 'child', guest_number)
+    #             guest = {
+    #                 'guest_number': str(guest_number).zfill(2),
+    #                 'event_category_price': ecp
+    #             }
+    #             guests.append(guest)
+    #
+    #         for i in range(1, infant_count + 1):
+    #             guest_number += 1
+    #             ecp = self.get_event_category_price(reservation_room, 'infant', guest_number)
+    #             guest = {
+    #                 'guest_number': str(guest_number).zfill(2),
+    #                 'event_category_price': ecp
+    #             }
+    #             guests.append(guest)
+    #
+    #
+    #         room = {
+    #             'room_number': str(room_number).zfill(2),
+    #             'category_id': category_id,
+    #             'reservation_room_guests': guests,
+    #         }
+    #         reservation_rooms.append(room)
+
+    # def get_event_category_price(self, reservation_room, guest_type, guest_number):
+    #     event_category_price = {}
+    #     occupancy_type_id = None
+    #     category_id = reservation_room['category_id']
+    #     adult_count = int(reservation_room['adult_count'])
+    #     child_count = int(reservation_room['child_count'])
+    #     infant_count = int(reservation_room['infant_count'])
+    #
+    #     if guest_type == 'adult':
+    #         if adult_count == 1:
+    #             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_SINGLE
+    #         elif adult_count > 1 and guest_number in [1, 2]:
+    #             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_DOUBLE
+    #         elif adult_count == 3:
+    #             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_THIRD_GUEST
+    #         elif adult_count >= 4:
+    #             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_FOURTH_GUEST
+    #         else:
+    #             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_DOUBLE
+    #
+    #     if guest_type == 'child':
+    #         occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_CHILD
+    #
+    #     if guest_type == 'infant':
+    #         occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_INFANT
+    #
+    #
+    #     if occupancy_type_id is not None:
+    #         event_category_prices = self.event_category_prices.filter(
+    #             category_id=category_id,
+    #             occupancy_type_id=occupancy_type_id,
+    #         )
+    #
+    #         cnt = event_category_prices.count()
+    #         if cnt == 0:
+    #             self.add_message('Pricing not configured', status_constants.HTTP_BAD_REQUEST)
+    #         elif cnt > 2:
+    #             self.add_message('unique pricing not established', status_constants.HTTP_BAD_REQUEST)
+    #
+    #         if self.success:
+    #             ecp = event_category_prices.first()
+    #
+    #             event_category_price = {
+    #                 'event_category_price_id': ecp.event_category_price_id,
+    #                 'type_id': ecp.type_id,
+    #                 'event_id': ecp.event_id,
+    #                 'category_id': ecp.category_id,
+    #                 'currency_id': ecp.currency_id,
+    #                 'rate_type_id': ecp.rate_type_id,
+    #                 'occupancy_type_id': ecp.occupancy_type_id,
+    #                 'price': ecp.price
+    #             }
+    #
+    #     return event_category_price
+    #
+    def get_event_category_price(
+            self,
+            reservation_room,
+            reservation_room_guests,
+            guest_type_id,
+            guest_number
+    ):
         event_category_price = {}
         occupancy_type_id = None
-        category_id = reservation_room['category_id']
-        adult_count = int(reservation_room['adult_count'])
-        child_count = int(reservation_room['child_count'])
-        infant_count = int(reservation_room['infant_count'])
 
-        if guest_type == 'adult':
+        category_id = reservation_room['category_id']
+
+        if guest_type_id == type_constants.RESERVATION_ROOM_GUEST_ADULT:
+            adult_guests = [
+                guest for guest in reservation_room_guests if guest['occupancy_type_id']  == guest_type_id
+            ]
+            adult_count = len(adult_guests)
+
+            adult_guest_numbers = [ guest['guest_number'] for guest in adult_guests]
+            adult_position = adult_guest_numbers.index(guest_number) + 1
+
             if adult_count == 1:
                 occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_SINGLE
-            elif adult_count > 1 and guest_number in [1, 2]:
+
+            elif adult_position <= 2:
                 occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_DOUBLE
-            elif adult_count == 3:
+
+            elif adult_position == 3:
                 occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_THIRD_GUEST
-            elif adult_count >= 4:
-                occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_FOURTH_GUEST
             else:
-                occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_DOUBLE
-
-        if guest_type == 'child':
+                occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_FOURTH_GUEST
+        elif guest_type_id == type_constants.RESERVATION_ROOM_GUEST_CHILD:
             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_CHILD
-
-        if guest_type == 'infant':
+        elif guest_type_id == type_constants.RESERVATION_ROOM_GUEST_INFANT:
             occupancy_type_id = type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_INFANT
 
-
+        # ---------------------------------------------------------
+        # Find EventCategoryPrice
+        # ---------------------------------------------------------
         if occupancy_type_id is not None:
             event_category_prices = self.event_category_prices.filter(
                 category_id=category_id,
@@ -155,11 +272,11 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
             )
 
             cnt = event_category_prices.count()
+
             if cnt == 0:
                 self.add_message('Pricing not configured', status_constants.HTTP_BAD_REQUEST)
-            elif cnt > 2:
-                self.add_message('unique pricing not established', status_constants.HTTP_BAD_REQUEST)
-
+            elif cnt > 1:
+                self.add_message('Unique pricing not established', status_constants.HTTP_BAD_REQUEST)
             if self.success:
                 ecp = event_category_prices.first()
 
@@ -175,4 +292,3 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
                 }
 
         return event_category_price
-

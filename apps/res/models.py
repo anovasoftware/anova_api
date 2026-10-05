@@ -433,6 +433,7 @@ class ReservationRoomGuest(BaseModel):
     person                                = models.ForeignKey("base.Person", on_delete=models.CASCADE, related_name='+', default='A00000')
     responsible_reservation_room_guest    = models.ForeignKey("res.ReservationRoomGuest", on_delete=models.SET_NULL, related_name="+", default=None, null=True)
     occupancy_type                        = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='03Q')
+    guest_number                          = models.CharField(max_length=  2, blank=False, unique=False, primary_key=False, default='00')
     booking_first_name                    = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
     booking_last_name                     = models.CharField(max_length= 20, blank=False, unique=False, primary_key=False, default='')
     booking_middle_name                   = models.CharField(max_length= 40, blank=True , unique=False, primary_key=False, default='')
