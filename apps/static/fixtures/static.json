@@ -7722,17 +7722,17 @@
       "type_id": "000",
       "status_id": "001",
       "order_by": "02",
-      "description": "hotel",
+      "description": "code",
       "description_short": "",
-      "field": "hotel__description",
-      "label": "Hotel/Ship",
+      "field": "code",
+      "label": "Code",
       "editable": false,
       "format": "text",
       "style_class": "",
       "static_flag": "Y",
       "internal_comment": "",
-      "created_date": "2026-04-16 00:00+0000",
-      "last_updated": "2026-04-16 00:00+0000"  
+      "created_date": "2026-10-05 00:00+0000",
+      "last_updated": "2026-10-05 00:00+0000"  
     }
   }
 ,  {
@@ -9161,6 +9161,48 @@
       "internal_comment": "",
       "created_date": "2026-08-13 00:00+0000",
       "last_updated": "2026-08-13 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00203",
+    "fields": {
+      "grid_id": "002",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "03",
+      "description": "hotel",
+      "description_short": "",
+      "field": "hotel__description",
+      "label": "Hotel/Ship",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-04-16 00:00+0000",
+      "last_updated": "2026-04-16 00:00+0000"  
+    }
+  }
+,  {
+    "model": "static.GridColumn",
+    "pk": "00204",
+    "fields": {
+      "grid_id": "002",
+      "type_id": "000",
+      "status_id": "001",
+      "order_by": "04",
+      "description": "order by",
+      "description_short": "",
+      "field": "order_by",
+      "label": "Order",
+      "editable": false,
+      "format": "text",
+      "style_class": "",
+      "static_flag": "Y",
+      "internal_comment": "",
+      "created_date": "2026-10-05 00:00+0000",
+      "last_updated": "2026-10-05 00:00+0000"  
     }
   }
 ,  {
