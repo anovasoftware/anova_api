@@ -1,5 +1,5 @@
 from apps.base.utilities.user_utilities import get_user_travel_agency_company
-from apps.res.models import Guest, ReservationRoom, ReservationPrice
+from apps.res.models import Guest, ReservationRoom, ReservationPrice, HotelExtension
 from apps.static.table_api_views.form_api_views import AuthorizedFormAPIView
 from constants import form_constants, process_constants, company_constants, status_constants
 
@@ -10,9 +10,18 @@ class Form019APIView(AuthorizedFormAPIView):
 
     def __init__(self):
         super().__init__()
+        # self.hotel_extension: Optional[HotelExtension] = None
+        self.currency = None
 
     def load_request(self, request, *args, **kwargs):
         super().load_request(request, *args, **kwargs)
+
+        # if self.success:
+        #     self.hotel_extension = get_hotel_extension(self.hotel_id)
+
+            # if self.success:
+            #     self.data['hotel_currency'] = self.hotel_extension.currency
+
 
     def get_field_value(self, field):
         if field.name == 'travel_agency_company_id':
@@ -21,6 +30,8 @@ class Form019APIView(AuthorizedFormAPIView):
                 value = company['company_id']
             else:
                 value = company_constants.NOT_APPLICABLE
+        elif field.name == 'currency_id':
+            value = self.hotel_extension.currency_id
         else:
             value = super().get_field_value(field)
 

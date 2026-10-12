@@ -11595,3 +11595,456 @@ AttributeError: 'ReservationPricingAPIView' object has no attribute 'get_lookups
 [2026-10-05 16:12:38,378] INFO core.services.log_service: Request completed
 [2026-10-05 16:13:47,261] INFO core.services.log_service: Request completed
 [2026-10-05 16:14:25,968] INFO core.services.log_service: Request completed
+[2026-10-05 20:32:17,875] INFO core.services.log_service: Request completed
+[2026-10-05 20:32:18,224] INFO core.services.log_service: Request completed
+[2026-10-05 20:32:18,260] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-05 20:37:30,612] INFO core.services.log_service: Request completed
+[2026-10-05 20:37:30,752] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-05 20:37:30,836] INFO core.services.log_service: Request completed
+[2026-10-05 20:51:37,407] INFO core.services.log_service: Request completed
+[2026-10-05 20:51:37,458] INFO core.services.log_service: Request completed
+[2026-10-05 20:51:37,470] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-05 20:53:59,369] INFO core.services.log_service: Request completed
+[2026-10-05 20:53:59,439] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-05 20:53:59,467] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:00,833] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:01,186] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:01,297] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:04,690] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:22,905] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:23,003] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:25,373] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:28,089] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:28,360] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:37,607] INFO core.services.log_service: Request completed
+[2026-10-06 14:39:46,229] INFO core.services.log_service: Request completed
+[2026-10-06 14:40:09,935] INFO core.services.log_service: Request completed
+[2026-10-06 14:58:26,203] INFO core.services.log_service: Request completed
+[2026-10-06 14:58:26,396] INFO core.services.log_service: Request completed
+[2026-10-06 14:58:26,458] INFO core.services.log_service: Request completed
+[2026-10-06 14:58:26,656] INFO core.services.log_service: Request completed
+[2026-10-06 14:58:56,978] INFO core.services.log_service: Request completed
+[2026-10-06 15:04:51,726] INFO core.services.log_service: Request completed
+[2026-10-06 15:04:51,943] INFO core.services.log_service: Request completed
+[2026-10-06 15:04:51,958] INFO core.services.log_service: Request completed
+[2026-10-06 15:04:56,930] INFO core.services.log_service: Request completed
+[2026-10-06 15:05:19,054] INFO core.services.log_service: Request completed
+[2026-10-06 15:07:34,768] INFO core.services.log_service: Request completed
+[2026-10-06 15:07:34,996] INFO core.services.log_service: Request completed
+[2026-10-06 15:07:35,062] INFO core.services.log_service: Request completed
+[2026-10-06 15:07:35,421] INFO core.services.log_service: Request completed
+[2026-10-06 15:07:52,911] INFO core.services.log_service: Request completed
+[2026-10-06 15:12:13,393] INFO core.services.log_service: Request completed
+[2026-10-06 15:12:13,579] INFO core.services.log_service: Request completed
+[2026-10-06 15:12:13,599] INFO core.services.log_service: Request completed
+[2026-10-06 15:12:13,990] INFO core.services.log_service: Request completed
+[2026-10-06 15:14:54,211] INFO core.services.log_service: Request completed
+[2026-10-06 15:14:54,377] INFO core.services.log_service: Request completed
+[2026-10-06 15:14:54,380] INFO core.services.log_service: Request completed
+[2026-10-06 15:14:54,829] INFO core.services.log_service: Request completed
+[2026-10-06 15:15:28,560] INFO core.services.log_service: Request completed
+[2026-10-06 15:16:34,707] INFO core.services.log_service: Request completed
+[2026-10-06 15:16:34,897] INFO core.services.log_service: Request completed
+[2026-10-06 15:16:35,022] INFO core.services.log_service: Request completed
+[2026-10-06 15:16:35,381] INFO core.services.log_service: Request completed
+[2026-10-06 15:16:54,461] INFO core.services.log_service: Request completed
+[2026-10-06 15:18:10,187] INFO core.services.log_service: Request completed
+[2026-10-06 15:18:10,394] INFO core.services.log_service: Request completed
+[2026-10-06 15:18:10,423] INFO core.services.log_service: Request completed
+[2026-10-06 15:18:10,764] INFO core.services.log_service: Request completed
+[2026-10-06 15:19:27,130] INFO core.services.log_service: Request completed
+[2026-10-06 15:19:27,325] INFO core.services.log_service: Request completed
+[2026-10-06 15:19:27,326] INFO core.services.log_service: Request completed
+[2026-10-06 15:19:27,740] INFO core.services.log_service: Request completed
+[2026-10-06 15:20:40,106] INFO core.services.log_service: Request completed
+[2026-10-06 15:24:49,633] INFO core.services.log_service: Request completed
+[2026-10-06 15:24:49,837] INFO core.services.log_service: Request completed
+[2026-10-06 15:24:49,845] INFO core.services.log_service: Request completed
+[2026-10-06 15:24:50,184] INFO core.services.log_service: Request completed
+[2026-10-06 15:25:05,044] INFO core.services.log_service: Request completed
+[2026-10-06 15:26:40,054] INFO core.services.log_service: Request completed
+[2026-10-06 15:26:40,270] INFO core.services.log_service: Request completed
+[2026-10-06 15:26:40,319] INFO core.services.log_service: Request completed
+[2026-10-06 15:26:40,549] INFO core.services.log_service: Request completed
+[2026-10-06 15:26:57,356] INFO core.services.log_service: Request completed
+[2026-10-06 15:35:45,202] INFO core.services.log_service: Request completed
+[2026-10-06 15:35:45,453] INFO core.services.log_service: Request completed
+[2026-10-06 15:35:45,461] INFO core.services.log_service: Request completed
+[2026-10-06 15:35:45,729] INFO core.services.log_service: Request completed
+[2026-10-06 15:36:02,944] INFO core.services.log_service: Request completed
+[2026-10-06 15:38:37,651] INFO core.services.log_service: Request completed
+[2026-10-06 15:38:37,887] INFO core.services.log_service: Request completed
+[2026-10-06 15:38:37,914] INFO core.services.log_service: Request completed
+[2026-10-06 15:38:38,200] INFO core.services.log_service: Request completed
+[2026-10-06 15:38:54,713] INFO core.services.log_service: Request completed
+[2026-10-07 01:01:56,020] INFO core.services.log_service: Request completed
+[2026-10-07 01:01:56,103] INFO core.services.log_service: Request completed
+[2026-10-07 01:01:56,118] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-07 01:02:52,782] INFO core.services.log_service: Request completed
+[2026-10-07 01:02:52,826] INFO core.services.log_service: Request completed
+[2026-10-07 01:02:52,826] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-07 11:46:34,617] INFO core.services.log_service: Request completed
+[2026-10-07 11:46:34,836] INFO core.services.log_service: Request completed
+[2026-10-07 11:46:34,925] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-10 07:13:27,729] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:27,945] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:28,009] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:30,378] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:46,500] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:46,611] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:54,753] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:54,959] INFO core.services.log_service: Request completed
+[2026-10-10 07:13:55,049] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:02,271] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:24,633] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:28,924] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:29,020] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:33,725] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:45,038] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:50,247] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:53,831] INFO core.services.log_service: Request completed
+[2026-10-10 07:14:53,950] INFO core.services.log_service: Request completed
+[2026-10-10 07:15:01,188] INFO core.services.log_service: Request completed
+[2026-10-10 07:15:07,222] INFO core.services.log_service: Request completed
+[2026-10-10 07:15:16,258] INFO core.services.log_service: Request completed
+[2026-10-10 07:15:33,147] INFO core.services.log_service: Request completed
+[2026-10-10 07:15:36,884] INFO core.services.log_service: Request completed
+[2026-10-10 07:15:36,988] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:20,598] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:22,720] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:22,892] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:37,460] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:39,982] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:40,082] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:48,520] INFO core.services.log_service: Request completed
+[2026-10-10 07:16:55,969] INFO core.services.log_service: Request completed
+[2026-10-10 07:17:31,442] INFO core.services.log_service: Request completed
+[2026-10-10 07:17:31,661] INFO core.services.log_service: Request completed
+[2026-10-10 07:17:38,587] INFO core.services.log_service: Request completed
+[2026-10-10 07:17:40,505] INFO core.services.log_service: Request completed
+[2026-10-10 07:17:40,521] WARNING django.request: Bad Request: /api/v1/grid/grid019
+[2026-10-10 07:18:18,034] INFO core.services.log_service: Request completed
+[2026-10-10 07:18:25,319] INFO core.services.log_service: Request completed
+[2026-10-10 07:18:27,602] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:19,680] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:28,091] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:32,057] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:32,194] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:34,297] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:36,335] INFO core.services.log_service: Request completed
+[2026-10-10 07:19:36,568] INFO core.services.log_service: Request completed
+[2026-10-10 07:20:11,448] INFO core.services.log_service: Request completed
+[2026-10-10 07:28:19,145] INFO core.services.log_service: Request completed
+[2026-10-10 07:28:19,430] INFO core.services.log_service: Request completed
+[2026-10-10 07:28:19,463] INFO core.services.log_service: Request completed
+[2026-10-10 07:28:19,870] INFO core.services.log_service: Request completed
+[2026-10-10 07:28:40,797] INFO core.services.log_service: Request completed
+[2026-10-10 07:33:56,591] INFO core.services.log_service: Request completed
+[2026-10-10 10:47:24,189] INFO core.services.log_service: Request completed
+[2026-10-10 10:47:24,272] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-10 10:47:24,274] INFO core.services.log_service: Request completed
+[2026-10-10 11:11:44,627] INFO core.services.log_service: Request completed
+[2026-10-10 11:11:44,660] INFO core.services.log_service: Request completed
+[2026-10-10 11:11:44,715] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-10 11:11:45,423] INFO core.services.log_service: Request completed
+[2026-10-10 11:11:45,463] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-10 11:54:36,337] INFO core.services.log_service: Request completed
+[2026-10-10 11:54:36,420] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-10 11:54:36,428] INFO core.services.log_service: Request completed
+[2026-10-10 12:20:05,078] INFO core.services.log_service: Request completed
+[2026-10-10 12:20:05,099] INFO core.services.log_service: Request completed
+[2026-10-10 12:20:05,161] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-10 12:23:55,457] INFO core.services.log_service: Request completed
+[2026-10-10 12:23:55,499] INFO core.services.log_service: Request completed
+[2026-10-10 12:23:55,589] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-10 12:54:46,688] INFO core.services.log_service: Request completed
+[2026-10-10 12:54:46,730] INFO core.services.log_service: Request completed
+[2026-10-10 12:54:46,755] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-10 13:40:14,317] INFO core.services.log_service: Request completed
+[2026-10-10 13:40:14,400] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-10 13:40:14,401] INFO core.services.log_service: Request completed
+[2026-10-10 13:43:26,857] INFO core.services.log_service: Request completed
+[2026-10-10 13:43:26,902] INFO core.services.log_service: Request completed
+[2026-10-10 13:43:26,943] ERROR django.request: Internal Server Error: /api/v1/grid/grid024
+[2026-10-11 08:47:03,527] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:03,700] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:03,738] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:05,563] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:46,422] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:46,548] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:50,702] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:52,852] INFO core.services.log_service: Request completed
+[2026-10-11 08:47:53,119] INFO core.services.log_service: Request completed
+[2026-10-11 08:48:16,240] INFO core.services.log_service: Request completed
+[2026-10-11 08:49:37,212] INFO core.services.log_service: Request completed
+[2026-10-11 08:49:39,257] INFO core.services.log_service: Request completed
+[2026-10-11 08:49:39,401] INFO core.services.log_service: Request completed
+[2026-10-11 08:50:26,472] INFO core.services.log_service: Request completed
+[2026-10-11 08:50:26,490] ERROR django.request: Internal Server Error: /api/v1/grid/grid025
+[2026-10-11 08:50:52,442] INFO core.services.log_service: Request completed
+[2026-10-11 08:51:35,840] INFO core.services.log_service: Request completed
+[2026-10-11 08:52:58,852] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:03,350] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:03,551] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:03,558] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:03,975] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:37,335] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:37,510] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:37,539] INFO core.services.log_service: Request completed
+[2026-10-11 08:59:37,973] INFO core.services.log_service: Request completed
+[2026-10-11 09:00:46,819] INFO core.services.log_service: Request completed
+[2026-10-11 09:03:12,631] INFO core.services.log_service: Request completed
+[2026-10-11 09:03:12,843] INFO core.services.log_service: Request completed
+[2026-10-11 09:03:12,868] INFO core.services.log_service: Request completed
+[2026-10-11 09:03:13,105] INFO core.services.log_service: Request completed
+[2026-10-11 09:03:19,519] INFO core.services.log_service: Request completed
+[2026-10-11 09:03:36,276] INFO core.services.log_service: Request completed
+[2026-10-11 09:13:40,689] INFO core.services.log_service: Request completed
+[2026-10-11 09:13:40,906] INFO core.services.log_service: Request completed
+[2026-10-11 09:13:40,971] INFO core.services.log_service: Request completed
+[2026-10-11 09:13:41,164] INFO core.services.log_service: Request completed
+[2026-10-11 09:13:53,501] INFO core.services.log_service: Request completed
+[2026-10-11 09:19:11,756] INFO core.services.log_service: Request completed
+[2026-10-11 09:19:11,959] INFO core.services.log_service: Request completed
+[2026-10-11 09:19:11,974] INFO core.services.log_service: Request completed
+[2026-10-11 09:19:12,248] INFO core.services.log_service: Request completed
+[2026-10-11 09:19:29,200] INFO core.services.log_service: Request completed
+[2026-10-11 09:22:07,532] INFO core.services.log_service: Request completed
+[2026-10-11 09:22:07,734] INFO core.services.log_service: Request completed
+[2026-10-11 09:22:07,735] INFO core.services.log_service: Request completed
+[2026-10-11 09:22:08,040] INFO core.services.log_service: Request completed
+[2026-10-11 09:22:22,964] INFO core.services.log_service: Request completed
+[2026-10-11 09:28:31,269] INFO core.services.log_service: Request completed
+[2026-10-11 09:28:31,474] INFO core.services.log_service: Request completed
+[2026-10-11 09:28:31,510] INFO core.services.log_service: Request completed
+[2026-10-11 09:28:31,921] INFO core.services.log_service: Request completed
+[2026-10-11 09:28:46,910] INFO core.services.log_service: Request completed
+[2026-10-11 09:32:58,130] INFO core.services.log_service: Request completed
+[2026-10-11 09:32:58,148] WARNING django.request: Method Not Allowed: /api/v1/reservation/pricing/
+[2026-10-11 09:33:03,493] INFO core.services.log_service: Request completed
+[2026-10-11 09:33:03,508] WARNING django.request: Bad Request: /api/v1/reservation/pricing/
+[2026-10-11 09:33:42,405] INFO core.services.log_service: Request completed
+[2026-10-11 09:33:43,525] INFO core.services.log_service: Request completed
+[2026-10-11 09:34:42,892] INFO core.services.log_service: Request completed
+[2026-10-11 09:35:54,898] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:35,151] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:35,253] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:35,270] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 10:57:37,473] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:51,096] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:51,251] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:51,316] INFO core.services.log_service: Request completed
+[2026-10-11 10:57:59,790] INFO core.services.log_service: Request completed
+[2026-10-11 10:58:01,926] INFO core.services.log_service: Request completed
+[2026-10-11 10:58:02,121] INFO core.services.log_service: Request completed
+[2026-10-11 10:58:16,620] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:19,428] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:19,576] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:19,589] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 12:38:22,076] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:25,804] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:25,950] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:25,972] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:28,079] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:29,596] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:29,785] INFO core.services.log_service: Request completed
+[2026-10-11 12:38:41,419] INFO core.services.log_service: Request completed
+[2026-10-11 12:40:47,169] INFO core.services.log_service: Request completed
+[2026-10-11 12:41:13,976] INFO core.services.log_service: Request completed
+[2026-10-11 12:41:16,096] INFO core.services.log_service: Request completed
+[2026-10-11 12:41:16,274] INFO core.services.log_service: Request completed
+[2026-10-11 12:44:31,843] INFO core.services.log_service: Request completed
+[2026-10-11 17:25:29,439] INFO core.services.log_service: Request completed
+[2026-10-11 17:25:44,575] INFO core.services.log_service: Request completed
+[2026-10-11 17:25:44,704] INFO core.services.log_service: Request completed
+[2026-10-11 17:25:50,810] INFO core.services.log_service: Request completed
+[2026-10-11 17:25:54,746] INFO core.services.log_service: Request completed
+[2026-10-11 17:25:54,861] INFO core.services.log_service: Request completed
+[2026-10-11 17:26:19,456] INFO core.services.log_service: Request completed
+[2026-10-11 17:26:36,293] INFO core.services.log_service: Request completed
+[2026-10-11 17:27:21,002] INFO core.services.log_service: Request completed
+[2026-10-11 17:27:21,026] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 17:27:21,249] INFO core.services.log_service: Request completed
+[2026-10-11 17:29:08,378] INFO core.services.log_service: Request completed
+[2026-10-11 17:29:08,398] ERROR core.services.log_service: Failed to save Log record: Object of type Currency is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Projects2\anova_api\core\services\log_service.py", line 85, in log
+    Log.objects.create(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Projects2\anova_api\core\models.py", line 29, in save
+    super(BaseModel, self).save(*args, **kwargs)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py", line 113, in getquoted
+    quoted = super().getquoted()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 78, in getquoted
+    s = self.dumps(self.adapted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\psycopg2\_json.py", line 72, in dumps
+    return self._dumps(obj)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Currency is not JSON serializable
+[2026-10-11 17:29:08,820] ERROR django.request: Internal Server Error: /api/v1/form/019
+Traceback (most recent call last):
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jburk\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Currency is not JSON serializable
+[2026-10-11 17:29:09,084] INFO core.services.log_service: Request completed
+[2026-10-11 17:29:59,194] INFO core.services.log_service: Request completed
+[2026-10-11 17:30:20,871] INFO core.services.log_service: Request completed
+[2026-10-11 17:30:21,076] INFO core.services.log_service: Request completed
+[2026-10-11 17:30:48,930] INFO core.services.log_service: Request completed
+[2026-10-11 17:30:48,950] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 17:31:32,910] INFO core.services.log_service: Request completed
+[2026-10-11 17:31:32,927] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 17:32:12,223] INFO core.services.log_service: Request completed
+[2026-10-11 17:32:12,244] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 17:33:17,512] INFO core.services.log_service: Request completed
+[2026-10-11 17:33:17,534] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 17:54:52,605] INFO core.services.log_service: Request completed
+[2026-10-11 18:06:16,735] INFO core.services.log_service: Request completed
+[2026-10-11 18:09:54,800] INFO core.services.log_service: Request completed
+[2026-10-11 18:11:08,328] INFO core.services.log_service: Request completed
+[2026-10-11 18:13:38,368] INFO core.services.log_service: Request completed
+[2026-10-11 18:52:43,175] INFO core.services.log_service: Request completed
+[2026-10-11 18:53:44,894] INFO core.services.log_service: Request completed
+[2026-10-11 18:53:45,215] INFO core.services.log_service: Request completed
+[2026-10-11 18:53:49,917] INFO core.services.log_service: Request completed
+[2026-10-11 18:53:50,101] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 18:56:10,473] INFO core.services.log_service: Request completed
+[2026-10-11 18:56:10,530] ERROR django.request: Internal Server Error: /api/v1/form/019
+[2026-10-11 19:00:29,401] INFO core.services.log_service: Request completed
+[2026-10-11 19:04:04,551] INFO core.services.log_service: Request completed
+[2026-10-11 23:07:22,111] INFO core.services.log_service: Request completed
+[2026-10-11 23:07:22,171] INFO core.services.log_service: Request completed
+[2026-10-11 23:10:00,762] INFO core.services.log_service: Request completed
+[2026-10-11 23:10:01,154] INFO core.services.log_service: Request completed
+[2026-10-11 23:30:14,852] INFO core.services.log_service: Request completed
+[2026-10-11 23:30:14,975] INFO core.services.log_service: Request completed
+[2026-10-12 00:36:29,291] INFO core.services.log_service: Request completed
+[2026-10-12 00:36:29,322] INFO core.services.log_service: Request completed
+[2026-10-12 07:16:26,882] INFO core.services.log_service: Request completed
+[2026-10-12 07:16:26,902] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-10-12 07:16:53,435] INFO core.services.log_service: Request completed
+[2026-10-12 07:16:53,453] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-10-12 07:20:33,470] INFO core.services.log_service: Request completed
+[2026-10-12 07:20:33,571] ERROR django.request: Internal Server Error: /api/v1/reservation/pricing/
+[2026-10-12 07:56:38,996] INFO core.services.log_service: Request completed
+[2026-10-12 07:58:08,211] INFO core.services.log_service: Request completed
+[2026-10-12 07:58:42,190] INFO core.services.log_service: Request completed
+[2026-10-12 07:59:05,920] INFO core.services.log_service: Request completed
+[2026-10-12 07:59:06,462] INFO core.services.log_service: Request completed
+[2026-10-12 07:59:10,968] INFO core.services.log_service: Request completed
+[2026-10-12 07:59:14,102] INFO core.services.log_service: Request completed
+[2026-10-12 07:59:14,840] INFO core.services.log_service: Request completed
+[2026-10-12 07:59:31,348] INFO core.services.log_service: Request completed
+[2026-10-12 08:04:43,271] INFO core.services.log_service: Request completed
+[2026-10-12 08:10:19,967] INFO core.services.log_service: Request completed
+[2026-10-12 08:15:54,409] INFO core.services.log_service: Request completed
+[2026-10-12 08:15:58,229] INFO core.services.log_service: Request completed
+[2026-10-12 08:18:37,663] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:21,986] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:32,336] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:36,076] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:36,652] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:36,667] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:37,173] INFO core.services.log_service: Request completed
+[2026-10-12 08:25:45,316] INFO core.services.log_service: Request completed
+[2026-10-12 08:26:05,035] INFO core.services.log_service: Request completed
+[2026-10-12 08:42:51,938] INFO core.services.log_service: Request completed
+[2026-10-12 08:42:52,344] INFO core.services.log_service: Request completed
+[2026-10-12 08:42:52,441] INFO core.services.log_service: Request completed
+[2026-10-12 08:42:53,134] INFO core.services.log_service: Request completed
+[2026-10-12 08:43:09,992] INFO core.services.log_service: Request completed
+[2026-10-12 08:43:35,923] INFO core.services.log_service: Request completed
+[2026-10-12 08:58:28,750] INFO core.services.log_service: Request completed
+[2026-10-12 08:58:51,221] INFO core.services.log_service: Request completed
+[2026-10-12 08:58:51,633] INFO core.services.log_service: Request completed
+[2026-10-12 08:58:51,757] INFO core.services.log_service: Request completed
+[2026-10-12 08:58:52,323] INFO core.services.log_service: Request completed
+[2026-10-12 08:59:05,505] INFO core.services.log_service: Request completed
+[2026-10-12 09:00:21,718] INFO core.services.log_service: Request completed
+[2026-10-12 09:00:22,193] INFO core.services.log_service: Request completed
+[2026-10-12 09:00:22,256] INFO core.services.log_service: Request completed
+[2026-10-12 09:00:23,094] INFO core.services.log_service: Request completed
+[2026-10-12 09:04:05,757] INFO core.services.log_service: Request completed
+[2026-10-12 09:04:06,279] INFO core.services.log_service: Request completed
+[2026-10-12 09:04:06,348] INFO core.services.log_service: Request completed
+[2026-10-12 09:04:06,911] INFO core.services.log_service: Request completed
+[2026-10-12 09:05:48,486] INFO core.services.log_service: Request completed
+[2026-10-12 09:10:20,828] INFO core.services.log_service: Request completed

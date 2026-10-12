@@ -2,6 +2,8 @@ import os, json
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 
+from apps.base.utilities.hotel_utilities import get_hotel_extension
+from apps.res.models import HotelExtension
 from apps.static.models import Process, Hotel, Type
 from constants import constants, status_constants, role_constants, type_constants, currency_constants
 from constants import hotel_constants
@@ -24,10 +26,10 @@ from core.utilities.api_utilities import get_client_ip
 from core.utilities.data_transformation_utilities import flat_record, transform_keys, format_response
 from core.utilities.api_docs_utilties import override_parameters, params_for
 from typing import Optional, Type as TypingType, cast
-from django.db.models import Q
+from django.db.models import Q, F
 from core.utilities.data_transformation_utilities import transform_records
 from core.utilities.date_utilities import end_of_time
-from django.db.models import F
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class CoreAPIView(GenericAPIView):
@@ -211,6 +213,7 @@ class CoreAPIView(GenericAPIView):
         self.client_id = None
         self.hotel_id = None
         self.hotel: Optional[Hotel] = None
+        self.hotel_extension: Optional[HotelExtension] = None
         self.role_id = None
         self.type_id = None
         self.lookups = {}
@@ -374,7 +377,7 @@ class CoreAPIView(GenericAPIView):
             pass
 
     def load_models(self, request):
-        self.load_lookups()
+        # self.load_lookups()
 
         if self.is_get():
             self.load_models_get(request)
@@ -386,7 +389,8 @@ class CoreAPIView(GenericAPIView):
         # even if a public url, the user may be logged in, so we can still get the user object
         try:
             self.user = User.objects.get(pk=self.user_id)
-        except User.DoesNotExist:
+        # except User.DoesNotExist:
+        except ObjectDoesNotExist:
             pass
 
         if self.hotel_id:
@@ -399,6 +403,7 @@ class CoreAPIView(GenericAPIView):
                 self.client_id = self.hotel.client_id
                 # self.params['hotel'] = self.hotel
                 self.params['clientId'] = self.hotel.client_id
+                self.hotel_extension = get_hotel_extension(self.hotel_id)
 
             else:
                 self.add_message('hotel not found', http_status_id=status_constants.HTTP_NOT_FOUND)
@@ -515,13 +520,15 @@ class CoreAPIView(GenericAPIView):
             if self.success:
                 self.load_models(request)
                 if self.success:
-                    self.validate(request)
+                    self.load_lookups()
                     if self.success:
-                        self.pre_get(request)
+                        self.validate(request)
                         if self.success:
-                            self._get(request)
+                            self.pre_get(request)
                             if self.success:
-                                self.post_get(request)
+                                self._get(request)
+                                if self.success:
+                                    self.post_get(request)
         except Exception as e:
             message = f'get() error:  {str(e)}'
             self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
@@ -543,15 +550,17 @@ class CoreAPIView(GenericAPIView):
             if self.success:
                 self.load_models(request)
                 if self.success:
-                    # self.validate(request)
-                    # if self.success:
-                    self.pre_post(request)
+                    self.load_lookups()
                     if self.success:
-                        self.validate(request)
+                        # self.validate(request)
+                        # if self.success:
+                        self.pre_post(request)
                         if self.success:
-                            self._post(request)
+                            self.validate(request)
                             if self.success:
-                                self.post_post(request)
+                                self._post(request)
+                                if self.success:
+                                    self.post_post(request)
         except Exception as e:
             message = f'post() error:  {str(e)}'
             self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)
@@ -573,13 +582,15 @@ class CoreAPIView(GenericAPIView):
             if self.success:
                 self.load_models(request)
                 if self.success:
-                    self.pre_patch(request)
+                    self.load_lookups()
                     if self.success:
-                        self.validate(request)
+                        self.pre_patch(request)
                         if self.success:
-                            self._patch(request)
+                            self.validate(request)
                             if self.success:
-                                self.post_patch(request)
+                                self._patch(request)
+                                if self.success:
+                                    self.post_patch(request)
         except Exception as e:
             message = f'patch() error:  {str(e)}'
             self.add_message(message, http_status_id=status_constants.HTTP_INTERNAL_SERVER_ERROR)

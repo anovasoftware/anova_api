@@ -1,9 +1,10 @@
 from core.api_views.core_api import CoreAPIView, AuthorizedAPIView
 from core.api_views.table_api_views import AuthorizedTableAPIView
-from apps.static.models import Hotel
+from apps.static.models import Hotel, Currency
 from apps.res.models import HotelExtension, Event
 from constants import status_constants
 from typing import Optional, Type as TypingType, cast
+from django.db.models import F
 
 
 class ResCoreAPIView(CoreAPIView):
@@ -21,7 +22,7 @@ class ResCoreAPIView(CoreAPIView):
 
         self.hotel_id = None
         self.hotel: Optional[Hotel] = None
-        self.hotel_extension: Optional[HotelExtension] = None
+        # self.hotel_extension: Optional[HotelExtension] = None
         self.event_start_date = None
         self.event_end_date = None
 
@@ -29,6 +30,7 @@ class ResCoreAPIView(CoreAPIView):
         self.event: Optional[Event] = None
 
         self.currency_id = None
+        self.currency: Optional[Currency] = None
         self.rate_type_id = None
 
     def load_models(self, request):
@@ -39,6 +41,9 @@ class ResCoreAPIView(CoreAPIView):
 
             if self.event_id:
                 self.load_event()
+
+        if self.success and self.currency_id:
+            self.currency = Currency.objects.filter(pk=self.currency_id).first()
 
     def load_hotel(self, hotel_id=None):
         self.hotel_id = hotel_id
@@ -52,7 +57,7 @@ class ResCoreAPIView(CoreAPIView):
             self.set_message(message, http_status_id=status_constants.HTTP_ACCESS_DENIED)
         else:
             self.hotel = Hotel.objects.get(pk=self.hotel_id)
-            self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
+            # self.hotel_extension = HotelExtension.objects.filter(hotel_id=self.hotel_id).first()
             self.context['hotel'] = self.hotel.description
 
             if self.hotel_extension:
@@ -68,6 +73,29 @@ class ResCoreAPIView(CoreAPIView):
                         'start_date': self.event_start_date.strftime('%Y-%m-%d'),
                         'end_date': self.event_end_date.strftime('%Y-%m-%d')
                     }
+
+
+    def load_lookups(self):
+        super().load_lookups()
+
+        self.add_lookup(
+            lookup_name='client_currency',
+            param_name='currencyId',
+            label='Client Currency',
+            options=self.get_client_currency_lookup(),
+            selected_id=self.hotel_extension.currency.currency_id
+        )
+
+    def get_client_currency_lookup(self, type_id=None):
+        currencies = Currency.objects.filter(
+            client_currencies__client_id=self.client_id,
+            client_currencies__status_id=status_constants.ACTIVE
+        ).values(
+            'description',
+            id=F('currency_id')
+        )
+        return currencies
+
 
     def load_event(self):
         event = Event.objects.filter(pk=self.event_id).first()

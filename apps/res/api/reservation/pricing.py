@@ -41,12 +41,14 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
         super().__init__()
         self.event_category_prices: QuerySet[EventCategoryPrice] = EventCategoryPrice.objects.none()
         self.request_data_required = True
+        self.response_format = 'camel_case'
 
     def load_request(self, request, *args, **kwargs):
         super().load_request(request, *args, **kwargs)
 
     def load_models(self, request, *args, **kwargs):
         super().load_models(request)
+
 
     def load_lookups(self):
         super().load_lookups()
@@ -58,13 +60,26 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
             options=self.get_category_lookup(type_id=type_constants.BASE_CATEGORY_ROOM_CABIN),
             selected_id=category_constants.BASE_CATEGORY_NOT_APPLICABLE
         )
-
         self.add_lookup(
-            lookup_name='occupancy_type',
+            lookup_name='type',
             param_name='typeId',
             label='Type',
+            options=self.get_type_lookup(grouping='event_category_price'),
+            selected_id=type_constants.EVENT_CATEGORY_PRICE_STANDARD
+        )
+        self.add_lookup(
+            lookup_name='occupancy_type',
+            param_name='occupancyTypeId',
+            label='Occupancy Type',
             options=self.get_type_lookup(grouping='event_category_price.occupancy'),
-            selected_id=category_constants.BASE_CATEGORY_NOT_APPLICABLE
+            selected_id=type_constants.EVENT_CATEGORY_PRICE_OCCUPANCY_DOUBLE
+        )
+        self.add_lookup(
+            lookup_name='rate_type',
+            param_name='rateTypeId',
+            label='Rate Type',
+            options=self.get_type_lookup(grouping='event_category_price.rate'),
+            selected_id=type_constants.EVENT_CATEGORY_PRICE_RATE_FIT
         )
 
     def get_category_lookup(self, type_id=None):
@@ -78,8 +93,6 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
         )
         return categories
 
-
-
     def _post(self, request, *args, **kwargs):
         print(self.request_data)
         type_id = self.type_id
@@ -89,6 +102,10 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
 
         reservation_rooms0 = self.request_data[0].get('reservation_rooms', [])
         reservation_rooms = []
+        self.data['currency'] = {
+            'currency_id': currency_id,
+            'code': self.currency.code
+        }
         self.data['reservation_rooms'] = reservation_rooms
 
         self.event_category_prices = EventCategoryPrice.objects.filter(
@@ -145,11 +162,11 @@ class ReservationPricingAPIView(AuthorizedResAPIView):
 
         if guest_type_id == type_constants.RESERVATION_ROOM_GUEST_ADULT:
             adult_guests = [
-                guest for guest in reservation_room_guests if guest['occupancy_type_id']  == guest_type_id
+                guest for guest in reservation_room_guests if guest['occupancy_type_id'] == guest_type_id
             ]
             adult_count = len(adult_guests)
 
-            adult_guest_numbers = [ guest['guest_number'] for guest in adult_guests]
+            adult_guest_numbers = [guest['guest_number'] for guest in adult_guests]
             adult_position = adult_guest_numbers.index(guest_number) + 1
 
             if adult_count == 1:

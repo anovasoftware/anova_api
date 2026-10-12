@@ -74,7 +74,7 @@ class ClientCurrency(BaseModel):
     type                = models.ForeignKey("static.Type", on_delete=models.CASCADE, related_name='+', default='000')
     status              = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name='+', default='001')
     client              = models.ForeignKey("static.Client", on_delete=models.CASCADE, related_name='+', default='000')
-    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='+', default='00')
+    currency            = models.ForeignKey("static.Currency", on_delete=models.CASCADE, related_name='client_currencies', default='00')
     start_date          = models.DateTimeField(default=beginning_of_time)
     end_date            = models.DateTimeField(default=end_of_time)
     effective_status    = models.ForeignKey("static.Status", on_delete=models.CASCADE, related_name="+", default='021')
